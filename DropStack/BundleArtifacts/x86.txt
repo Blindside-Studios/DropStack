@@ -1,0 +1,2 @@
+MainPackage=C:\Users\nicol\source\repos\DropStack\DropStack\bin\x86\Debug\DropStack_0.1.1.0_x86_Debug.msix
+SymbolPackage=C:\Users\nicol\source\repos\DropStack\DropStack\obj\x86\Debug\Symbols\DropStack_0.1.1.0_x86_Debug.appxsym

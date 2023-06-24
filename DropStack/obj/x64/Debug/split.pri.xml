@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="DropStack" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>LIGHTUNPLATED,UNPLATED</AlternateForm>
+			<Scale>200</Scale>
+			<TargetSize>256,16,24,32,48</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://DropStack/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CopyPage.xbf" uri="ms-resource://DropStack/Files/CopyPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="DropStack.xr.xml" uri="ms-resource://DropStack/Files/DropStack.xr.xml">
+				<Candidate type="Path">
+					<Value>DropStack.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MainPage.xbf" uri="ms-resource://DropStack/Files/MainPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SimplePage.xbf" uri="ms-resource://DropStack/Files/SimplePage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="BadgeLogo.png" uri="ms-resource://DropStack/Files/Assets/BadgeLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\BadgeLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LargeTile.png" uri="ms-resource://DropStack/Files/Assets/LargeTile.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LargeTile.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SmallTile.png" uri="ms-resource://DropStack/Files/Assets/SmallTile.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SmallTile.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://DropStack/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://DropStack/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://DropStack/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-48, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-48, AlternateForm-LIGHTUNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-48" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-48.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-32, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-32, AlternateForm-LIGHTUNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-32" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-32.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-256, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-256, AlternateForm-LIGHTUNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-256" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-256.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-unplated_targetsize-24.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-24, AlternateForm-LIGHTUNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-24" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-16, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-16, AlternateForm-LIGHTUNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-16" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-16.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://DropStack/Files/Assets/StoreLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\StoreLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://DropStack/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="DefaultIcons">
+					<NamedResource name="LockScreenLogo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/LockScreenLogo.png">
+						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+							<Value>Assets\DefaultIcons\LockScreenLogo.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="SplashScreen.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/SplashScreen.png">
+						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+							<Value>Assets\DefaultIcons\SplashScreen.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Square150x150Logo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/Square150x150Logo.png">
+						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+							<Value>Assets\DefaultIcons\Square150x150Logo.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Square44x44Logo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/Square44x44Logo.png">
+						<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+							<Value>Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+						</Candidate>
+						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+							<Value>Assets\DefaultIcons\Square44x44Logo.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="StoreLogo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/StoreLogo.png">
+						<Candidate type="Path">
+							<Value>Assets\DefaultIcons\StoreLogo.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Wide310x150Logo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/Wide310x150Logo.png">
+						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+							<Value>Assets\DefaultIcons\Wide310x150Logo.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Microsoft.UI.Xaml">
+				<ResourceMapSubtree name="DensityStyles">
+					<NamedResource name="Compact.xbf" uri="ms-resource://DropStack/Files/Microsoft.UI.Xaml/DensityStyles/Compact.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://DropStack/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://DropStack/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="FxResources.System.Drawing.Common.SR">
+			<NamedResource name="AvailableOnlyOnWMF" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/AvailableOnlyOnWMF">
+				<Candidate type="String">
+					<Value>{0} only available on WMF files.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="BlendObjectFirstElementInvalid" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/BlendObjectFirstElementInvalid">
+				<Candidate type="String">
+					<Value>Invalid Blend object. The positions array must have 0.0 as its first element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="BlendObjectLastElementInvalid" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/BlendObjectLastElementInvalid">
+				<Candidate type="String">
+					<Value>Invalid Blend object. The positions array must have 1.0 as its last element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="BlendObjectMustHaveTwoElements" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/BlendObjectMustHaveTwoElements">
+				<Candidate type="String">
+					<Value>Invalid Blend object. It should have at least 2 elements in each of the factors and positions arrays.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotCreateGraphics" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CannotCreateGraphics">
+				<Candidate type="String">
+					<Value>Cannot create Graphics from an indexed bitmap.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CantChangeImmutableObjects" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CantChangeImmutableObjects">
+				<Candidate type="String">
+					<Value>Changes cannot be made to {0} because permissions are not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CantMakeIconTransparent" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CantMakeIconTransparent">
+				<Candidate type="String">
+					<Value>Bitmaps that are icons cannot be made transparent. Icons natively support transparency. Use the Icon constructor to create an icon.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CantTellPrinterName" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CantTellPrinterName">
+				<Candidate type="String">
+					<Value>(printer name protected due to security restrictions)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ColorNotSystemColor" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ColorNotSystemColor">
+				<Candidate type="String">
+					<Value>The color {0} is not a system color.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ConvertInvalidPrimitive" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ConvertInvalidPrimitive">
+				<Candidate type="String">
+					<Value>{0} is not a valid value for {1}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CouldNotOpenDisplay" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CouldNotOpenDisplay">
+				<Candidate type="String">
+					<Value>Could not open display (X-Server required. Check your DISPLAY environment variable)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CouldntFindSpecifiedFile" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/CouldntFindSpecifiedFile">
+				<Candidate type="String">
+					<Value>Couldn't find specified file.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="DCTypeInvalid" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/DCTypeInvalid">
+				<Candidate type="String">
+					<Value>GetObjectType on this dc returned an invalid value.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusAborted" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusAborted">
+				<Candidate type="String">
+					<Value>Function was ended.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusAccessDenied" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusAccessDenied">
+				<Candidate type="String">
+					<Value>File access is denied.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusCannotCreateGraphicsFromIndexedPixelFormat" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusCannotCreateGraphicsFromIndexedPixelFormat">
+				<Candidate type="String">
+					<Value>A Graphics object cannot be created from an image that has an indexed pixel format.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusCannotSetPixelFromIndexedPixelFormat" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusCannotSetPixelFromIndexedPixelFormat">
+				<Candidate type="String">
+					<Value>SetPixel is not supported for images with indexed pixel formats.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusDestPointsInvalidLength" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusDestPointsInvalidLength">
+				<Candidate type="String">
+					<Value>Destination points must be an array with a length of 3 or 4. A length of 3 defines a parallelogram with the upper-left, upper-right, and lower-left corners. A length of 4 defines a quadrilateral with the fourth element of the array specifying the lower-right coordinate.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusDestPointsInvalidParallelogram" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusDestPointsInvalidParallelogram">
+				<Candidate type="String">
+					<Value>Destination points define a parallelogram which must have a length of 3. These points will represent the upper-left, upper-right, and lower-left coordinates (defined in that order).</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusFileNotFound" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusFileNotFound">
+				<Candidate type="String">
+					<Value>File not found.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusFontFamilyNotFound" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusFontFamilyNotFound">
+				<Candidate type="String">
+					<Value>Font '{0}' cannot be found.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusFontStyleNotFound" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusFontStyleNotFound">
+				<Candidate type="String">
+					<Value>Font '{0}' does not support style '{1}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusGenericError" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusGenericError">
+				<Candidate type="String">
+					<Value>A generic error occurred in GDI+.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusInsufficientBuffer" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusInsufficientBuffer">
+				<Candidate type="String">
+					<Value>Buffer is too small (internal GDI+ error).</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusInvalidParameter" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusInvalidParameter">
+				<Candidate type="String">
+					<Value>Parameter is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusInvalidRectangle" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusInvalidRectangle">
+				<Candidate type="String">
+					<Value>Rectangle '{0}' cannot have a width or height equal to 0.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusInvalidSize" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusInvalidSize">
+				<Candidate type="String">
+					<Value>Operation requires a transformation of the image from GDI+ to GDI. GDI does not support images with a width or height greater than 32767.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusNotImplemented" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusNotImplemented">
+				<Candidate type="String">
+					<Value>Not implemented.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusNotInitialized" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusNotInitialized">
+				<Candidate type="String">
+					<Value>GDI+ is not properly initialized (internal GDI+ error).</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusNotTrueTypeFont" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusNotTrueTypeFont">
+				<Candidate type="String">
+					<Value>Only TrueType fonts are supported. '{0}' is not a TrueType font.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusNotTrueTypeFont_NoName" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusNotTrueTypeFont_NoName">
+				<Candidate type="String">
+					<Value>Only TrueType fonts are supported. This is not a TrueType font.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusObjectBusy" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusObjectBusy">
+				<Candidate type="String">
+					<Value>Object is currently in use elsewhere.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusOutOfMemory" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusOutOfMemory">
+				<Candidate type="String">
+					<Value>Out of memory.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusOverflow" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusOverflow">
+				<Candidate type="String">
+					<Value>Overflow error.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusPropertyNotFoundError" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusPropertyNotFoundError">
+				<Candidate type="String">
+					<Value>Property cannot be found.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusPropertyNotSupportedError" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusPropertyNotSupportedError">
+				<Candidate type="String">
+					<Value>Property is not supported.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusUnknown" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusUnknown">
+				<Candidate type="String">
+					<Value>Unknown GDI+ error occurred.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusUnknownImageFormat" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusUnknownImageFormat">
+				<Candidate type="String">
+					<Value>Image format is unknown.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusUnsupportedGdiplusVersion" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusUnsupportedGdiplusVersion">
+				<Candidate type="String">
+					<Value>Current version of GDI+ does not support this feature.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GdiplusWrongState" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GdiplusWrongState">
+				<Candidate type="String">
+					<Value>Bitmap region is already locked.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GlobalAssemblyCache" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GlobalAssemblyCache">
+				<Candidate type="String">
+					<Value> (Global Assembly Cache)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GraphicsBufferCurrentlyBusy" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GraphicsBufferCurrentlyBusy">
+				<Candidate type="String">
+					<Value>BufferedGraphicsContext cannot be disposed of because a buffer operation is currently in progress.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="GraphicsBufferQueryFail" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/GraphicsBufferQueryFail">
+				<Candidate type="String">
+					<Value>Screen-compatible bitmap cannot be created. The screen bitmap format cannot be determined.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="IconInstanceWasDisposed" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/IconInstanceWasDisposed">
+				<Candidate type="String">
+					<Value>Icon instance was disposed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="IconInvalidMaskLength" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/IconInvalidMaskLength">
+				<Candidate type="String">
+					<Value>'{0}' data length expected {1}, read {2}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="IllegalState" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/IllegalState">
+				<Candidate type="String">
+					<Value>Internal state of the {0} class is invalid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsColorBlendNotSet" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsColorBlendNotSet">
+				<Candidate type="String">
+					<Value>Property must be set to a valid ColorBlend object to use interpolation colors.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsCommon" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsCommon">
+				<Candidate type="String">
+					<Value>{0}{1} ColorBlend objects must be constructed with the same number of positions and color values. Positions must be between 0.0 and 1.0, 1.0 indicating the last element in the array.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsInvalidColorBlendObject" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsInvalidColorBlendObject">
+				<Candidate type="String">
+					<Value>ColorBlend object that was set is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsInvalidEndPosition" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsInvalidEndPosition">
+				<Candidate type="String">
+					<Value>Position's last element must be equal to 1.0.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsInvalidStartPosition" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsInvalidStartPosition">
+				<Candidate type="String">
+					<Value>Position's first element must be equal to 0.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsLength" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsLength">
+				<Candidate type="String">
+					<Value>Array of colors and positions must contain at least two elements.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InterpolationColorsLengthsDiffer" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InterpolationColorsLengthsDiffer">
+				<Candidate type="String">
+					<Value>Colors and positions do not have the same number of elements.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidArgumentValue" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidArgumentValue">
+				<Candidate type="String">
+					<Value>Value of '{1}' is not valid for '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidArgumentValueFontConverter" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidArgumentValueFontConverter">
+				<Candidate type="String">
+					<Value>Value of '{0}' is not valid for font size unit.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidBoundArgument" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidBoundArgument">
+				<Candidate type="String">
+					<Value>Value of '{1}' is not valid for '{0}'. '{0}' should be greater than {2} and less than or equal to {3}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidColor" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidColor">
+				<Candidate type="String">
+					<Value>Color '{0}' is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidDashPattern" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidDashPattern">
+				<Candidate type="String">
+					<Value>DashPattern value is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidEnumArgument" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidEnumArgument">
+				<Candidate type="String">
+					<Value>The value of argument '{0}' ({1}) is invalid for Enum type '{2}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidEx2BoundArgument" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidEx2BoundArgument">
+				<Candidate type="String">
+					<Value>Value of '{1}' is not valid for '{0}'. '{0}' should be greater than or equal to {2} and less than or equal to {3}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidGDIHandle" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidGDIHandle">
+				<Candidate type="String">
+					<Value>Win32 handle that was passed to {0} is not valid or is the wrong type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidGraphicsUnit" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidGraphicsUnit">
+				<Candidate type="String">
+					<Value>Invalid GraphicsUnit</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidImage" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidImage">
+				<Candidate type="String">
+					<Value>Image type is unknown.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidLowBoundArgumentEx" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidLowBoundArgumentEx">
+				<Candidate type="String">
+					<Value>Value of '{1}' is not valid for '{0}'. '{0}' must be greater than or equal to {2}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidPermissionState" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidPermissionState">
+				<Candidate type="String">
+					<Value>Permission state is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidPictureType" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidPictureType">
+				<Candidate type="String">
+					<Value>Argument '{0}' must be a picture that can be used as a {1}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidPrinterException_InvalidPrinter" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidPrinterException_InvalidPrinter">
+				<Candidate type="String">
+					<Value>Settings to access printer '{0}' are not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidPrinterException_NoDefaultPrinter" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidPrinterException_NoDefaultPrinter">
+				<Candidate type="String">
+					<Value>No printers are installed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidPrinterHandle" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidPrinterHandle">
+				<Candidate type="String">
+					<Value>Handle {0} is not valid.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvalidThumbnailSize" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/InvalidThumbnailSize">
+				<Candidate type="String">
+					<Value>Invalid thumbnail size</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NativeHandle0" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NativeHandle0">
+				<Candidate type="String">
+					<Value>Native handle is 0.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoCodecAvailableForFormat" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NoCodecAvailableForFormat">
+				<Candidate type="String">
+					<Value>No codec available for format:{0}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoDefaultPrinter" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NoDefaultPrinter">
+				<Candidate type="String">
+					<Value>Default printer is not set.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="none" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/none">
+				<Candidate type="String">
+					<Value>(none)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NotImplemented" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NotImplemented">
+				<Candidate type="String">
+					<Value>Not implemented.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NotImplementedUnderX11" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NotImplementedUnderX11">
+				<Candidate type="String">
+					<Value>Operation not implemented under X11</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoValidIconImageFound" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NoValidIconImageFound">
+				<Candidate type="String">
+					<Value>No valid icon image found</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NullOrEmptyPath" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NullOrEmptyPath">
+				<Candidate type="String">
+					<Value>Null or empty path.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NumberOfPointsAndTypesMustBeSame" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/NumberOfPointsAndTypesMustBeSame">
+				<Candidate type="String">
+					<Value>Invalid parameter passed. Number of points and types must be same.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ObjectDisposed" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ObjectDisposed">
+				<Candidate type="String">
+					<Value>Object has been disposed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCbeginPrintDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCbeginPrintDescr">
+				<Candidate type="String">
+					<Value>Occurs when the document is about to be printed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCdocumentNameDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCdocumentNameDescr">
+				<Candidate type="String">
+					<Value>The name of the document shown to the user.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCdocumentPageSettingsDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCdocumentPageSettingsDescr">
+				<Candidate type="String">
+					<Value>The page settings of the page currently being printed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCendPrintDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCendPrintDescr">
+				<Candidate type="String">
+					<Value>Occurs after the document has been printed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCoriginAtMarginsDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCoriginAtMarginsDescr">
+				<Candidate type="String">
+					<Value>Indicates that the graphics origin is located at the user-specified page margins.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCprintControllerDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCprintControllerDescr">
+				<Candidate type="String">
+					<Value>Retrieves the print controller for this document.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCprinterSettingsDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCprinterSettingsDescr">
+				<Candidate type="String">
+					<Value>Retrieves the settings for the printer the document is currently being printed to.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCprintPageDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCprintPageDescr">
+				<Candidate type="String">
+					<Value>Occurs once for each page to be printed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PDOCqueryPageSettingsDescr" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PDOCqueryPageSettingsDescr">
+				<Candidate type="String">
+					<Value>Occurs before each page is printed.  Useful for changing PageSettings for a particular page.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PlatformNotSupported_Unix" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PlatformNotSupported_Unix">
+				<Candidate type="String">
+					<Value>System.Drawing.Common is not supported on non-Windows platforms. See https://aka.ms/systemdrawingnonwindows for more information.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PrintDocumentDesc" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PrintDocumentDesc">
+				<Candidate type="String">
+					<Value>Defines an object that sends output to a printer.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PropertyValueInvalidEntry" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PropertyValueInvalidEntry">
+				<Candidate type="String">
+					<Value>IDictionary parameter contains at least one entry that is not valid. Ensure all values are consistent with the object's properties.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PSizeNotCustom" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/PSizeNotCustom">
+				<Candidate type="String">
+					<Value>PaperSize cannot be changed unless the Kind property is set to Custom.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ResourceNotFound" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ResourceNotFound">
+				<Candidate type="String">
+					<Value>Resource '{1}' cannot be found in class '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SystemDrawingCommon_PlatformNotSupported" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/SystemDrawingCommon_PlatformNotSupported">
+				<Candidate type="String">
+					<Value>System.Drawing.Common is not supported on this platform.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="TargetDirectoryDoesNotExist" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/TargetDirectoryDoesNotExist">
+				<Candidate type="String">
+					<Value>The directory {0} of the filename {1} does not exist.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="TextParseFailedFormat" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/TextParseFailedFormat">
+				<Candidate type="String">
+					<Value>Text "{0}" cannot be parsed. The expected text format is "{1}".</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="toStringIcon" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/toStringIcon">
+				<Candidate type="String">
+					<Value>(Icon)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="toStringNone" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/toStringNone">
+				<Candidate type="String">
+					<Value>(none)</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="TriStateCompareError" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/TriStateCompareError">
+				<Candidate type="String">
+					<Value>TriState.Default cannot be converted into a Boolean.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ValidRangeX" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ValidRangeX">
+				<Candidate type="String">
+					<Value>Parameter must be positive and &lt; Width.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ValidRangeY" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ValidRangeY">
+				<Candidate type="String">
+					<Value>Parameter must be positive and &lt; Height.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ValueLessThenZero" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ValueLessThenZero">
+				<Candidate type="String">
+					<Value>The value of the {0} property is less than zero.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ValueNotOneOfValues" uri="ms-resource://DropStack/FxResources.System.Drawing.Common.SR/ValueNotOneOfValues">
+				<Candidate type="String">
+					<Value>The value of the {0} property is not one of the {1} values</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

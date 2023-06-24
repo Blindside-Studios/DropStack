@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="DropStack.CopyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DropStack"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+    </Page.Resources>
+
+    <Grid x:ConnectionId='2' x:Name="CopyGrid" Margin="20,20,20,20">
+        <Rectangle x:ConnectionId='3' x:Name="CopyBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8"/>
+        <Pivot x:ConnectionId='4' x:Name="CopyPivot">
+            <PivotItem>
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="📄" FontSize="92" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Copying..." FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="Please wait..." FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem>
+                <ScrollViewer VerticalAlignment="Center">
+                    <StackPanel Spacing="20" VerticalAlignment="Center" >
+                        <TextBlock Text="📋" FontSize="92" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Success!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="The most recent file has been copied to the clipboard." 
+                                   FontSize="18" 
+                                   HorizontalAlignment="Center" 
+                                   TextWrapping="WrapWholeWords"/>
+                        <TextBlock x:ConnectionId='5' x:Name="CloseNoticeTextBlock" Text="You can now close the application..." FontSize="12" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        <StackPanel Spacing="5">
+                            <Button x:ConnectionId='6' x:Name="AppCloserButton"  Content="Close application..." ToolTipService.ToolTip="Closes the application now" HorizontalAlignment="Center" Width="300"                              />
+                            <Button x:ConnectionId='7' x:Name="AlwaysCloseAppButton" Content="Always close application automatically..." ToolTipService.ToolTip="Always closes the application after a copy finishes" HorizontalAlignment="Center" Width="300"                                   />
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
+

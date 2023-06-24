@@ -1,0 +1,299 @@
+﻿<Page
+    x:Class="DropStack.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DropStack"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals" xmlns:numerics="using:System.Numerics">
+
+    <Page.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+    </Page.Resources>
+
+    <Grid x:Name="ContentGrid" HorizontalAlignment="Stretch">
+        <Pivot x:Name="PivotViewSwitcher" SelectionChanged="PivotViewSwitcher_SelectionChanged">
+            <PivotItem x:Name="RegularPivotSection" Header="Portal">
+                <Grid>
+                    <Rectangle x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <ListView   x:Name="regularFileListView"
+                                SelectionChanged="fileListView_SelectionChanged" 
+                                RightTapped="fileListView_RightTapped" 
+                                CanDragItems="True" 
+                                DragItemsStarting="fileListView_DragItemsStarting"
+                                Margin="0,10,0,0">
+                        <ListView.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition  FromVerticalOffset="0" />
+                            </TransitionCollection>
+                        </ListView.ItemContainerTransitions>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:Name="FilesDataTemplate">
+                                <StackPanel x:Name="regularFileInfoStackpanel" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
+                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}">
+                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                            <TextBlock Text="{Binding FileType}" FontSize="10"/>
+                                            <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                            <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                        <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True" DragOver="PinnedPivotSection_DragOver" Drop="PinnedPivotSection_Drop">
+                <Grid>
+                    <Rectangle x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <ListView   x:Name="pinnedFileListView"
+                                SelectionChanged="pinnedFileListView_SelectionChanged" 
+                                RightTapped="pinnedFileListView_RightTapped" 
+                                CanDragItems="True" 
+                                DragItemsStarting="pinnedFileListView_DragItemsStarting"
+                                Margin="0,10,0,0">
+                        <ListView.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition  FromVerticalOffset="0" />
+                            </TransitionCollection>
+                        </ListView.ItemContainerTransitions>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:Name="pinnedFilesDataTemplate">
+                                <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
+                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}">
+                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                            <TextBlock Text="{Binding FileType}" FontSize="10"/>
+                                            <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                            <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                        <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        <Grid x:Name="FilePinDropperGrid"
+              Visibility="Collapsed"
+              VerticalAlignment="Bottom"
+              HorizontalAlignment="Stretch"
+              Height="100"
+              AllowDrop="True"
+              DragOver="PinnedPivotSection_DragOver"
+              Drop="PinnedPivotSection_Drop">
+            <StackPanel>
+                <TextBlock Text="Want to save this to your pins?"/>
+				<TextBlock Text="Simply drop it here..."/>
+            </StackPanel>
+        </Grid>
+        <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
+            <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
+                <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
+                <ToolTip Content="Refresh this list (Ctrl+R)"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="R" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="QuickSettingsButton" Icon="Setting" Label="Settings" Click="QuickSettingsButton_Click">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="I" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarSeparator/>
+                <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..." Click="LaunchSimpleModeButton_Click">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+        <muxc:TeachingTip x:Name="fileInClipboardReminder"
+            Title="Copied successfully!"
+            Subtitle="The file is now in your clipboard">
+            <muxc:ProgressBar x:Name="reminderTimer" Value="0" />
+        </muxc:TeachingTip>
+        <muxc:TeachingTip x:Name="failedToDragTeachingTip"
+            Title="Dragging unsuccessful"
+            Subtitle="Are you sure the file still exists?">
+            <muxc:ProgressBar x:Name="failureReminderTimer" Value="0" />
+        </muxc:TeachingTip>
+        <muxc:TeachingTip 
+            x:Name="noFolderpathTechingTip"
+	        Title="Choose a folder..."
+	        Subtitle="To operate as intended, the app needs access to a destination folder. It was designed to work best for the Downlaods folder, so we recommend you click 'Choose folder...' and choose the 'Downloads' folder from the sidebar."
+	        PreferredPlacement="Center"
+	        PlacementMargin="20"
+	        IsLightDismissEnabled="False"
+	        ActionButtonClick="noFolderpathTechingTip_ActionButtonClick"
+	        ActionButtonContent="Choose folder..."/>
+        <muxc:TeachingTip 
+            x:Name="noPinnedFolderpathTechingTip"
+	        Title="Choose a pin folder..."
+	        Subtitle="The app stores pinned files by copying them to a user-defined folder, so you can even delete files from their origin and they will still be here. However, as of now, no pin folder has been specified. Please choose one below."
+	        PreferredPlacement="Center"
+	        PlacementMargin="20"
+	        IsLightDismissEnabled="False"
+	        ActionButtonClick="noPinnedFolderpathTechingTip_ActionButtonClick"
+	        ActionButtonContent="Choose folder..."/>
+        <muxc:TeachingTip x:Name="quickSettingsFlyoutTeachingTip"
+                          Title="Settings"
+                          PreferredPlacement="Top">
+            <StackPanel>
+                <ToggleSwitch x:Name="UseSimpleViewByDefaultToggle"
+                              IsOn="False"
+                              OnContent="Use simple view by default" 
+                              OffContent="Use simple view by default"
+                              Toggled="UseSimpleViewByDefaultToggle_Toggled"
+                              ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
+                <Button x:Name="SimpleViewRelauncherButton"
+                        Content="Preference saved. Relaunch app?"
+                        ToolTipService.ToolTip="Your preference has been saved, however, since the setting relates to the app's startup behavior, you will see the effect next time it launches. Do you want to restart the app now?"
+                        Visibility="Collapsed"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Margin="0,0,0,10"
+                        Click="SimpleViewRelauncherButton_Click"/>
+                <ToggleSwitch x:Name="closeAfterCopyToggleButton"
+                              Visibility="Collapsed"
+                              IsOn="False"
+                              OnContent="Always quit after jumplist copy" 
+                              OffContent="Never quit after jumplist copy" 
+                              Toggled="closeAfterCopyToggleButton_Toggled" 
+                              ToolTipService.ToolTip="If you enable this and use the right-click menu from the app's taskbar icon to copy the most recent files, the app will automatically close after it finishes."/>
+                <Button x:Name="deleteFolderCookieButton"
+                    Content="Revoke Folder Access"
+                    Background="DarkRed"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center">
+                    <Button.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <TextBlock MaxWidth="200" 
+                                       Style="{ThemeResource BaseTextBlockStyle}" 
+                                       Text="This will disconnect the app from the folder you chose during setup and you will need to repeat the setup process to utilize this feature. The following connection will be removed:"  
+                                       TextWrapping="WrapWholeWords"/>
+                                <TextBlock x:Name="ConnectionDisruptorDisplay"
+                                       MaxWidth="200" 
+                                       Style="{ThemeResource BaseTextBlockStyle}" 
+                                       TextWrapping="WrapWholeWords" 
+                                       Margin="0,10,0,12"/>
+                                <Button Click="disconnectFolderButton_Click" 
+                                    Content="Yes, disconnect and relaunch!" 
+                                    Background="DarkRed"/>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+            </StackPanel>
+        </muxc:TeachingTip>
+        <muxc:TeachingTip
+            x:Name="cannotOpenRegularFolderBecauseThereIsNoneTeachingTip"
+	        Title="Cannot open associated folder"
+	        Subtitle="It looks like you didn't specify an associated folder yet. Do you want to assign one now?"
+	        Target="{x:Bind RevealInExplorerButton}"
+	        PlacementMargin="20"
+	        IsLightDismissEnabled="False"
+	        ActionButtonClick="cannotOpenRegularFolderBecauseThereIsNoneTeachingTip_ActionButtonClick"
+	        ActionButtonContent="Choose folder..."/>
+        <muxc:TeachingTip
+            x:Name="cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip"
+	        Title="Cannot open associated folder"
+	        Subtitle="It looks like you didn't specify an associated folder yet. Do you want to assign one now?"
+	        Target="{x:Bind RevealInExplorerButton}"
+	        PlacementMargin="20"
+	        IsLightDismissEnabled="False"
+	        ActionButtonClick="cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip_ActionButtonClick"
+	        ActionButtonContent="Choose folder..."/>
+
+        <Grid x:Name="OOBEgrid" Margin="20,20,20,20" Visibility="Collapsed">
+            <Grid.OpacityTransition>
+                <ScalarTransition />
+            </Grid.OpacityTransition>
+            <Grid.TranslationTransition>
+                <Vector3Transition />
+            </Grid.TranslationTransition>
+            <Rectangle x:Name="OOBEbackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8"/>
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Pivot x:Name="OOBEpivot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectionChanged="OOBEpivot_SelectionChanged" Margin="0,-30,0,0">
+                    <PivotItem>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="👋" FontSize="92" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Welcome to DropStack!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                <TextBlock Text="Your loyal downloads folder diver." FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                <TextBlock Height="10"/>
+                                <TextBlock Text="Click 'Next' to continue setup." FontSize="12" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            </StackPanel>
+                        </Grid>
+                    </PivotItem>
+                    <PivotItem>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
+                            <TextBlock Text="Let's get you set up!" FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            <Pivot x:Name="OOBEsetupPivot">
+                                <PivotItem>
+                                    <ScrollViewer VerticalAlignment="Center">
+                                        <StackPanel Spacing="20" VerticalAlignment="Center">
+                                            <TextBlock Text="📂" FontSize="92" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Pick your portal!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Text="Please click the button below and then pick the folder you would like DropStack to mirror. We would suggest using your downloads folder, however, feel free to pick a custom one. You can change the portal folder later in settings. If you do not wish to choose one now, just click 'Continue'."
+                                                       FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Height="10"/>
+                                            <Button x:Name="OOBEportalFileAccessRequestButton" Content="Set a portal folder..." Click="OOBEportalFileAccessRequestButton_Click" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </PivotItem>
+                                <PivotItem>
+                                    <ScrollViewer VerticalAlignment="Center">
+                                        <StackPanel Spacing="20" VerticalAlignment="Center">
+                                            <TextBlock Text="📌" FontSize="92" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Pick your pins!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Text="DropStack pins files by copying them to a folder you specify. This means that you can pin a folder and even delete the original. If you uninstall DropStack, your pinned files won't be lost, they will remain in the folder you specified. Please repeat what you just did with the portal folder, except with the pins folder. Once again, this can be changed later-on and you can skip choosing a folder now by clicking 'Continue'." 
+                                                   FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Height="10"/>
+                                            <Button x:Name="OOBEpinnedFileAccessRequestButton" Content="Set a pinned folder..." Click="OOBEpinnedFileAccessRequestButton_Click" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </PivotItem>
+                            </Pivot>
+                        </Grid>
+                    </PivotItem>
+                    <PivotItem>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="🤗" FontSize="92" HorizontalAlignment="Center"/>
+                                <TextBlock Text="All done!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                <TextBlock Text="Click 'Finish Setup!' to start using DropStack!" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            </StackPanel>
+                        </Grid>
+                    </PivotItem>
+                </Pivot>
+                <Button x:Name="OOBEgoBackButton" Content="‹ Previous" Click="OOBEgoBackButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"/>
+                <Button x:Name="OOBEgoNextButton" Content="Next ›" Click="OOBEgoNextButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Margin="0,0,10,10"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

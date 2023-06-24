@@ -1,0 +1,10 @@
+obj\ARM\Debug\split.pri
+obj\ARM\Debug\split.map.txt
+obj\ARM\Debug\split.scale-100.pri
+obj\ARM\Debug\split.scale-100.map.txt
+obj\ARM\Debug\split.scale-125.pri
+obj\ARM\Debug\split.scale-125.map.txt
+obj\ARM\Debug\split.scale-150.pri
+obj\ARM\Debug\split.scale-150.map.txt
+obj\ARM\Debug\split.scale-400.pri
+obj\ARM\Debug\split.scale-400.map.txt

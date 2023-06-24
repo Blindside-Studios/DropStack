@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <ProjectView>ProjectFiles</ProjectView>
+    <Source>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</Source>
+    <SmallTileSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</SmallTileSource>
+    <MediumTileSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</MediumTileSource>
+    <WideTileSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</WideTileSource>
+    <LargeTileSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</LargeTileSource>
+    <AppIconSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</AppIconSource>
+    <SplashScreenSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</PackageLogoSource>
+    <BadgeLogoSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</BadgeLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30f105c9-681e-420b-a277-7c086ead8a4e</DeviceId>
+    <UseEmulator>true</UseEmulator>
+    <RemoteDebugMachine>87.174.155.249</RemoteDebugMachine>
+    <AuthenticationMode>Universal</AuthenticationMode>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <AllowLocalNetworkLoopback>true</AllowLocalNetworkLoopback>
+    <CreateCleanLayout>false</CreateCleanLayout>
+    <UseEmulator>false</UseEmulator>
+    <DeviceId>30f105c9-681e-420b-a277-7c086ead8a4e</DeviceId>
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <RemoteDebugMachine>87.174.155.249</RemoteDebugMachine>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="DropStack.SimplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DropStack"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" >
+
+    <Page.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+    </Page.Resources>
+    
+    <Grid Margin="0,30,0,0">
+        <Rectangle x:Name="SimpleBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="5,0,5,-15"/>
+            <ScrollViewer x:Name="simpleFileListScrollViewer">
+            <StackPanel Orientation="Vertical" Spacing="14">
+                <ListView   x:Name="simpleFileListView"
+                                SelectionChanged="fileListView_SelectionChanged" 
+                                RightTapped="fileListView_RightTapped" 
+                                CanDragItems="True" 
+                                DragItemsStarting="fileListView_DragItemsStarting"
+                                HorizontalContentAlignment="Center">
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition  FromVerticalOffset="0" />
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:Name="simpleFilesDataTemplate">
+                            <Grid HorizontalAlignment="Center">
+                                <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
+                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="150" Height="150" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Margin="20,0,20,5">
+                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10" TextWrapping="WrapWholeWords"/>
+                                        <StackPanel Margin="0,-9,0,15" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                            <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                                <TextBlock Text="{Binding FileSize}" FontSize="10"/>
+                                                <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding ModifiedDate}" FontSize="10" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                        <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="LoadMoreFromSimpleViewButton" Content="Load normal view..." VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="40" Width="200" FontSize="20" Click="LoadMoreFromSimpleViewButton_Click" Margin="0,0,0,28" Style="{StaticResource AccentButtonStyle}" Visibility="Collapsed"/>
+            </StackPanel>
+        </ScrollViewer>
+            <muxc:TeachingTip x:Name="fileInClipboardReminder"
+            Title="Copied successfully!"
+            Subtitle="The file is now in your clipboard">
+            <muxc:ProgressBar x:Name="reminderTimer" Value="0" />
+        </muxc:TeachingTip>
+        <muxc:TeachingTip x:Name="failedToDragTeachingTip"
+            Title="Dragging unsuccessful"
+            Subtitle="Are you sure the file still exists?">
+            <muxc:ProgressBar x:Name="failureReminderTimer" Value="0" />
+        </muxc:TeachingTip>
+    </Grid>
+</Page>
