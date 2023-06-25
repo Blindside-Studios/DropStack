@@ -19,7 +19,6 @@ Remember that DropStack copies your pinned files to this location, meaning that 
 
 And that's it, you're done with the setup!
 
-![Screenshot of the finished out of box experience](DropStack/Assets/Product%20Screenshots/setupdone.png)
 ![Screenshot of the app window](DropStack/Assets/Product%20Screenshots/window.png)
 
 ### Navigation
@@ -40,7 +39,7 @@ Once you located the file of your desire, you have three main ways of interactin
 ### Navigation Bar
 To the right of the view headers, you will find three buttons. These are:
 - Reveal: This reveals the folder you are viewing in File Explorer
-- Refresh: You updated a file but the update doesn't show? Click this button or alternatively pull down to refresh
+- Refresh: You updated a file but the update doesn't show? Just click this button.
 - Meatball Menu: This menu allows you to execute various other commands, this currently includes opening the settings pane, copying the most recent file and switching to simple mode (more on simple mode later).
 
 ![Screenshot of the command bar](DropStack/Assets/Product%20Screenshots/meatballmenu.png)
