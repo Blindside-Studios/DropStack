@@ -1,1 +1,1 @@
-C:\Users\nicol\source\repos\DropStack\DropStack\DropStack.csproj;x64
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\DropStack.csproj;x64

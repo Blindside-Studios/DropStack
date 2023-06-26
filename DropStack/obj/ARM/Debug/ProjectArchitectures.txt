@@ -1,1 +1,1 @@
-C:\Users\nicol\source\repos\DropStack\DropStack\DropStack.csproj;arm
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\DropStack.csproj;arm

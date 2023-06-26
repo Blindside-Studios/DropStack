@@ -73,7 +73,7 @@
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
                                             <TextBlock Text="{Binding FileType}" FontSize="10"/>
                                             <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                            <TextBlock Text=" MB" FontSize="10"/>
+                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
                                             <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
                                         </StackPanel>
                                         <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>

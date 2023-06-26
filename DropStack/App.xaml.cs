@@ -1,7 +1,6 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -32,9 +31,6 @@ namespace DropStack
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            ApplicationView.PreferredLaunchViewSize = new Size(500, 850);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             bool shouldBeSimpleView = false;
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))

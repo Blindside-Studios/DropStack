@@ -12,11 +12,6 @@
 					<Base64Value>[Embedded Binary Data]</Base64Value>
 				</Candidate>
 			</NamedResource>
-			<NamedResource name="CopyPage.xbf" uri="ms-resource://DropStack/Files/CopyPage.xbf">
-				<Candidate type="EmbeddedData">
-					<Base64Value>[Embedded Binary Data]</Base64Value>
-				</Candidate>
-			</NamedResource>
 			<NamedResource name="DropStack.xr.xml" uri="ms-resource://DropStack/Files/DropStack.xr.xml">
 				<Candidate type="Path">
 					<Value>DropStack.xr.xml</Value>
@@ -150,6 +145,58 @@
 					<NamedResource name="Wide310x150Logo.png" uri="ms-resource://DropStack/Files/Assets/DefaultIcons/Wide310x150Logo.png">
 						<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
 							<Value>Assets\DefaultIcons\Wide310x150Logo.scale-200.png</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Product Screenshots">
+					<NamedResource name="copysuccess.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/copysuccess.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\copysuccess.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="dragdrop.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/dragdrop.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\dragdrop.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="meatballmenu.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/meatballmenu.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\meatballmenu.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ondesktop.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/ondesktop.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\ondesktop.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="pickportal.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/pickportal.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\pickportal.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="pinnedfiles.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/pinnedfiles.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\pinnedfiles.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="settings.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/settings.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\settings.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="setupdone.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/setupdone.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\setupdone.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="simplemode.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/simplemode.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\simplemode.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="window.png" uri="ms-resource://DropStack/Files/Assets/Product Screenshots/window.png">
+						<Candidate type="Path">
+							<Value>Assets\Product Screenshots\window.png</Value>
 						</Candidate>
 					</NamedResource>
 				</ResourceMapSubtree>

@@ -19,24 +19,24 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>7CE986154FDDD35B7943577109175FEA0262B65DB22780E51FE5750476DD5D5E</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>DropStack_0.1.1.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>6CC43F82643B69E40124797B1FB3D4346CC6292AA94CAB9EE307937447257018</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>DropStack_0.2.0.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>DropStack_rj07gsm475t48!App</RegisteredUserModeAppID>
     <RegisteredPackageID>DropStack</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Blindside Studios</RegisteredPackagePublisher>
-    <RegisteredVersion>0.1.1.0</RegisteredVersion>
+    <RegisteredVersion>0.2.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-06-24T23:19:12.520</Modified>
+      <Modified>2023-06-26T00:48:56.854</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\DropStack.exe">
       <PackagePath>entrypoint\DropStack.exe</PackagePath>
-      <Modified>2023-06-24T23:19:11.273</Modified>
+      <Modified>2023-06-26T00:48:55.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -414,15 +414,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-06-24T23:19:11.143</Modified>
+      <Modified>2023-06-26T00:48:55.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-06-24T23:19:11.141</Modified>
+      <Modified>2023-06-26T00:48:55.647</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\SimplePage.xbf">
       <PackagePath>SimplePage.xbf</PackagePath>
-      <Modified>2023-06-24T23:19:11.143</Modified>
+      <Modified>2023-06-26T00:48:55.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22000.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -438,11 +438,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-06-24T23:19:11.537</Modified>
+      <Modified>2023-06-26T00:43:23.389</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\DropStack.exe">
       <PackagePath>DropStack.exe</PackagePath>
-      <Modified>2023-06-24T23:19:12.516</Modified>
+      <Modified>2023-06-26T00:48:56.851</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

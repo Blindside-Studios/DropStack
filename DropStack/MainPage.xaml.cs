@@ -19,6 +19,8 @@ using Windows.UI.Xaml.Media.Imaging;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Threading;
+using Windows.UI.ViewManagement;
+using Windows.Foundation;
 
 namespace DropStack
 {
@@ -672,6 +674,9 @@ namespace DropStack
 
         public void launchOnboarding()
         {
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 850);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
             OOBEgrid.Visibility = Visibility.Visible;
         }
 
