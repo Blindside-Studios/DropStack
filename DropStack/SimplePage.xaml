@@ -77,7 +77,8 @@
                     VerticalAlignment="Bottom"
                     Height="50"
                     PointerExited="FileCommandBar_PointerExited"
-                    Closing="FileCommandBar_Closing">
+                    Closing="FileCommandBar_Closing"
+                    Opening="FileCommandBar_Opening">
             <CommandBar.TranslationTransition>
                 <Vector3Transition/>
             </CommandBar.TranslationTransition>
@@ -104,7 +105,7 @@
                 </AppBarButton>
                 <AppBarButton x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back." Click="HideToolbarButton_Click">
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="H"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="T"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarButton x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Close simple mode..." Click="LoadMoreFromSimpleViewButton_Click">

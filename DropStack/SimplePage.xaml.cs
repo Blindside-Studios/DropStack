@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -354,6 +355,12 @@ namespace DropStack
                 simpleFileListScrollViewer.Translation = new Vector3(0, 0, 0);
                 CommandBarIndicatorPill.Translation = new Vector3(0, 0, 0);
             }
+        }
+
+        private void FileCommandBar_Opening(object sender, object e)
+        {
+            if (isCommandBarPinned) HideToolbarButton.Content = "Hide toolbar";
+            else HideToolbarButton.Content = "Pin toolbar";
         }
     }
 }

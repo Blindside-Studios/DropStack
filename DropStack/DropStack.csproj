@@ -155,16 +155,6 @@
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
-    <Content Include="Assets\Product Screenshots\copysuccess.png" />
-    <Content Include="Assets\Product Screenshots\dragdrop.png" />
-    <Content Include="Assets\Product Screenshots\meatballmenu.png" />
-    <Content Include="Assets\Product Screenshots\ondesktop.png" />
-    <Content Include="Assets\Product Screenshots\pickportal.png" />
-    <Content Include="Assets\Product Screenshots\pinnedfiles.png" />
-    <Content Include="Assets\Product Screenshots\settings.png" />
-    <Content Include="Assets\Product Screenshots\setupdone.png" />
-    <Content Include="Assets\Product Screenshots\simplemode.png" />
-    <Content Include="Assets\Product Screenshots\window.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -211,13 +201,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\DefaultIcons\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\DefaultIcons\SplashScreen.scale-200.png" />
-    <Content Include="Assets\DefaultIcons\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\DefaultIcons\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\DefaultIcons\StoreLogo.png" />
-    <Content Include="Assets\DefaultIcons\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
