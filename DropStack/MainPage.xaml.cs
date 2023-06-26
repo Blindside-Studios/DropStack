@@ -50,7 +50,7 @@ namespace DropStack
         {
             this.InitializeComponent();
 
-            //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
 
             OOBEgoNextButton.Focus(FocusState.Keyboard);
 

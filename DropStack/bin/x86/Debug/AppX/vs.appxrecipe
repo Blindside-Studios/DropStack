@@ -19,24 +19,24 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>6CC43F82643B69E40124797B1FB3D4346CC6292AA94CAB9EE307937447257018</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>DropStack_0.2.0.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>AFC8ABA212A8A352E05B3B038B8FE68B96998E3DBBC13C3DFA693AFDDE60E53E</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>DropStack_0.2.1.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>DropStack_rj07gsm475t48!App</RegisteredUserModeAppID>
     <RegisteredPackageID>DropStack</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Blindside Studios</RegisteredPackagePublisher>
-    <RegisteredVersion>0.2.0.0</RegisteredVersion>
+    <RegisteredVersion>0.2.1.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-06-26T14:43:30.847</Modified>
+      <Modified>2023-06-26T18:04:20.112</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\DropStack.exe">
       <PackagePath>entrypoint\DropStack.exe</PackagePath>
-      <Modified>2023-06-26T14:43:29.638</Modified>
+      <Modified>2023-06-26T18:04:18.325</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -110,46 +110,6 @@
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2023-06-19T14:20:35.588</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\copysuccess.png">
-      <PackagePath>Assets\Product Screenshots\copysuccess.png</PackagePath>
-      <Modified>2023-06-24T22:12:35.415</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\dragdrop.png">
-      <PackagePath>Assets\Product Screenshots\dragdrop.png</PackagePath>
-      <Modified>2023-06-24T22:03:19.025</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\meatballmenu.png">
-      <PackagePath>Assets\Product Screenshots\meatballmenu.png</PackagePath>
-      <Modified>2023-06-24T22:12:35.412</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\ondesktop.png">
-      <PackagePath>Assets\Product Screenshots\ondesktop.png</PackagePath>
-      <Modified>2023-06-24T22:03:19.028</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\pickportal.png">
-      <PackagePath>Assets\Product Screenshots\pickportal.png</PackagePath>
-      <Modified>2023-06-24T22:21:08.751</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\pinnedfiles.png">
-      <PackagePath>Assets\Product Screenshots\pinnedfiles.png</PackagePath>
-      <Modified>2023-06-24T22:12:35.411</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\settings.png">
-      <PackagePath>Assets\Product Screenshots\settings.png</PackagePath>
-      <Modified>2023-06-24T22:12:35.414</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\setupdone.png">
-      <PackagePath>Assets\Product Screenshots\setupdone.png</PackagePath>
-      <Modified>2023-06-24T22:12:35.418</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\simplemode.png">
-      <PackagePath>Assets\Product Screenshots\simplemode.png</PackagePath>
-      <Modified>2023-06-24T22:03:19.024</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\window.png">
-      <PackagePath>Assets\Product Screenshots\window.png</PackagePath>
-      <Modified>2023-06-24T22:03:19.022</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
@@ -376,53 +336,25 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2023-06-19T14:20:35.378</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.041</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\SplashScreen.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\SplashScreen.scale-200.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.043</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Square150x150Logo.scale-200.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.043</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Square44x44Logo.scale-200.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.044</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.044</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\StoreLogo.png">
-      <PackagePath>Assets\DefaultIcons\StoreLogo.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.045</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Wide310x150Logo.scale-200.png</PackagePath>
-      <Modified>2022-11-12T00:05:41.045</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2023-05-08T22:27:09.770</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\DropStack.xr.xml">
       <PackagePath>DropStack.xr.xml</PackagePath>
-      <Modified>2023-06-26T14:18:03.675</Modified>
+      <Modified>2023-06-26T15:36:07.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-06-26T14:43:29.508</Modified>
+      <Modified>2023-06-26T18:04:18.168</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-06-26T14:43:29.506</Modified>
+      <Modified>2023-06-26T18:04:18.164</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\SimplePage.xbf">
       <PackagePath>SimplePage.xbf</PackagePath>
-      <Modified>2023-06-26T14:43:29.508</Modified>
+      <Modified>2023-06-26T18:04:18.167</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22000.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -438,11 +370,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-06-26T12:36:50.974</Modified>
+      <Modified>2023-06-26T18:04:18.919</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\DropStack.exe">
       <PackagePath>DropStack.exe</PackagePath>
-      <Modified>2023-06-26T14:43:30.843</Modified>
+      <Modified>2023-06-26T18:04:20.105</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

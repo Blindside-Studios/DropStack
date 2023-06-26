@@ -4,7 +4,7 @@
     <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
     <ProjectView>ProjectFiles</ProjectView>
     <Source>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</Source>
     <SmallTileSource>C:\Users\nicol\Downloads\Mockup_DropStack_Icon_cropped.png</SmallTileSource>
