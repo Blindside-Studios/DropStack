@@ -39,8 +39,11 @@
                         <DataTemplate x:Name="simpleFilesDataTemplate">
                             <Grid HorizontalAlignment="Center">
                                 <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
-                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="150" Height="150" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Margin="20,0,20,5">
+                                    <Grid>
+                                        <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="150" Height="150" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <muxc:ProgressRing IsActive="{Binding ProgressActivity}"/>
+                                    </Grid>
+                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}"  Opacity="{Binding TextOpacity}" Margin="20,0,20,5">
                                         <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10" TextWrapping="WrapWholeWords"/>
                                         <StackPanel Margin="0,-9,0,15" HorizontalAlignment="Center">
                                             <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>

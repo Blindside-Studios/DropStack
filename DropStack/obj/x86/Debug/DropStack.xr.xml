@@ -8,6 +8,9 @@
     <RootPropertyPathName Name="FileType" />
     <RootPropertyPathName Name="FileName" />
     <RootPropertyPathName Name="FileIcon" />
+    <RootPropertyPathName Name="IconOpacity" />
+    <RootPropertyPathName Name="TextOpacity" />
+    <RootPropertyPathName Name="ProgressActivity" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -115,6 +118,7 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Opacity" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -188,6 +192,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
+      <RootProperty Name="Opacity" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Stretch" />
@@ -196,6 +201,9 @@
       <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="IsActive" />
+    </RootType>
     <RootType FullName="DropStack.MainPage" />
     <RootType FullName="DropStack.SimplePage" />
   </Roots.RootTypes>

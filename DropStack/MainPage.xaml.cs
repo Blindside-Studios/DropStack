@@ -21,6 +21,7 @@ using System.Globalization;
 using System.Threading;
 using Windows.UI.ViewManagement;
 using Windows.Foundation;
+using Windows.UI.Xaml.Input;
 
 namespace DropStack
 {
@@ -37,6 +38,9 @@ namespace DropStack
         public string FileSizeSuffix { get; set; }
         public string ModifiedDate { get; set; }
         public BitmapImage FileIcon { get; set; }
+        public double IconOpacity { get; set; }
+        public double TextOpacity { get; set; }
+        public bool ProgressActivity { get; set; }
     }
 
     public sealed partial class MainPage : Page
@@ -222,16 +226,39 @@ namespace DropStack
                     if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
                     else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
 
-                    fileMetadataList.Add(new FileItem()
+                    if (file.FileType == ".crdownload" || file.FileType == ".part")
                     {
-                        FileName = file.Name,
-                        FilePath = file.Path,
-                        FileType = file.DisplayType,
-                        FileSize = filesizecalc.ToString(),
-                        FileSizeSuffix = " " + generativefilesizesuffix,
-                        ModifiedDate = modifiedDateFormatted,
-                        FileIcon = bitmapThumbnail,
-                    });
+                        
+                        fileMetadataList.Add(new FileItem()
+                        {
+                            FileName = file.Name,
+                            FilePath = file.Path,
+                            FileType = "This file is still being downloaded",
+                            FileSize = "",
+                            FileSizeSuffix = "",
+                            ModifiedDate = "",
+                            FileIcon = bitmapThumbnail,
+                            IconOpacity = 0.25,
+                            TextOpacity = 0.5,
+                            ProgressActivity = true
+                        });
+                    }
+                    else
+                    {
+                        fileMetadataList.Add(new FileItem()
+                        {
+                            FileName = file.Name,
+                            FilePath = file.Path,
+                            FileType = file.DisplayType,
+                            FileSize = filesizecalc.ToString(),
+                            FileSizeSuffix = " " + generativefilesizesuffix,
+                            ModifiedDate = modifiedDateFormatted,
+                            FileIcon = bitmapThumbnail,
+                            IconOpacity = 1,
+                            TextOpacity = 1,
+                            ProgressActivity = false
+                        });
+                    }
 
                 }
             }

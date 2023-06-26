@@ -134,16 +134,39 @@ namespace DropStack
                     if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
                     else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
 
-                    fileMetadataList.Add(new FileItem()
+                    if (file.FileType == ".crdownload" || file.FileType == ".part")
                     {
-                        FileName = file.Name,
-                        FilePath = file.Path,
-                        FileType = file.DisplayType,
-                        FileSize = filesizecalc.ToString(),
-                        FileSizeSuffix = " "+generativefilesizesuffix,
-                        ModifiedDate = modifiedDateFormatted,
-                        FileIcon = bitmapThumbnail,
-                    });
+
+                        fileMetadataList.Add(new FileItem()
+                        {
+                            FileName = file.Name,
+                            FilePath = file.Path,
+                            FileType = "This file is still being downloaded",
+                            FileSize = "",
+                            FileSizeSuffix = "",
+                            ModifiedDate = "",
+                            FileIcon = bitmapThumbnail,
+                            IconOpacity = 0.25,
+                            TextOpacity = 0.5,
+                            ProgressActivity = true
+                        });
+                    }
+                    else
+                    {
+                        fileMetadataList.Add(new FileItem()
+                        {
+                            FileName = file.Name,
+                            FilePath = file.Path,
+                            FileType = file.DisplayType,
+                            FileSize = filesizecalc.ToString(),
+                            FileSizeSuffix = " " + generativefilesizesuffix,
+                            ModifiedDate = modifiedDateFormatted,
+                            FileIcon = bitmapThumbnail,
+                            IconOpacity = 1,
+                            TextOpacity = 1,
+                            ProgressActivity = false
+                        });
+                    }
 
                 }
             }
