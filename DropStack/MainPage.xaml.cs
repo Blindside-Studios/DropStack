@@ -370,27 +370,39 @@ namespace DropStack
         {
             try
             {
-                //obtain the folder path
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                string folderPath = folder.Path;
-
-                // create a new FileSystemWatcher object to monitor the directory
-                var watcher = new FileSystemWatcher
+                //check if the folder token is not null or empty
+                if (!string.IsNullOrEmpty(folderToken))
                 {
-                    Path = folderPath,
-                    Filter = "*", // monitor all files
-                    NotifyFilter = NotifyFilters.FileName, // only notify on file name changes
-                    EnableRaisingEvents = true // start watching the directory
-                };
+                    //obtain the folder path
+                    StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                    string folderPath = folder.Path;
 
-                // add an event handler to respond to file system changes
-                watcher.Created += async (sender, e) =>
-                {
-                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    // create a new FileSystemWatcher object to monitor the directory
+                    var watcher = new FileSystemWatcher
                     {
-                        obtainFolderAndFiles();
-                    });
-                };
+                        Path = folderPath,
+                        Filter = "*",
+                        NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite | NotifyFilters.LastAccess,
+                        EnableRaisingEvents = true
+                    };
+
+                    // add event handlers to respond to file system changes
+                    watcher.Created += async (sender, e) =>
+                    {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            obtainFolderAndFiles();
+                        });
+                    };
+
+                    watcher.Renamed += async (sender, e) =>
+                    {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            obtainFolderAndFiles();
+                        });
+                    };
+                }
             }
             catch { }; //failed to create listener
         }
