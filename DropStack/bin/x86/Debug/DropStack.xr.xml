@@ -55,6 +55,7 @@
       <RootProperty Name="OpacityTransition" />
       <RootEvent Name="PointerExited" />
       <RootEvent Name="Closing" />
+      <RootEvent Name="Opening" />
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.TeachingTip">
       <RootProperty Name="Title" />

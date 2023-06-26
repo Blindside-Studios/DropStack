@@ -1,6 +1,6 @@
-MainPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.0.0_ARM_Debug.msix
-SymbolPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\obj\ARM\Debug\Symbols\DropStack_0.2.0.0_ARM_Debug.appxsym
-ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.0.0_scale-100.msix
-ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.0.0_scale-125.msix
-ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.0.0_scale-150.msix
-ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.0.0_scale-400.msix
+MainPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.1.0_ARM_Debug.msix
+SymbolPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\obj\ARM\Debug\Symbols\DropStack_0.2.1.0_ARM_Debug.appxsym
+ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.1.0_scale-100.msix
+ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.1.0_scale-125.msix
+ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.1.0_scale-150.msix
+ResourcePack=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\ARM\Debug\DropStack_0.2.1.0_scale-400.msix

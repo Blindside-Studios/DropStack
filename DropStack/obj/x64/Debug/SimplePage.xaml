@@ -14,10 +14,17 @@
     </Page.Resources>
     
     <Grid Margin="0,30,0,0">
-        <Rectangle x:ConnectionId='2' x:Name="SimpleBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="5,0,5,-15"/>
-            <ScrollViewer x:ConnectionId='3' x:Name="simpleFileListScrollViewer">
+        <Rectangle x:ConnectionId='2' x:Name="SimpleBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="5,0,5,20">
+            <Rectangle.TranslationTransition>
+                <Vector3Transition />
+            </Rectangle.TranslationTransition>
+        </Rectangle>
+        <ScrollViewer x:ConnectionId='3' x:Name="simpleFileListScrollViewer" Margin="0,0,0,20">
+            <ScrollViewer.TranslationTransition>
+                <Vector3Transition/>
+            </ScrollViewer.TranslationTransition>
             <StackPanel Orientation="Vertical" Spacing="14">
-                <ListView x:ConnectionId='8'   x:Name="simpleFileListView"
+                <ListView x:ConnectionId='12'   x:Name="simpleFileListView"
                                                                                  
                                                                        
                                 CanDragItems="True" 
@@ -50,19 +57,87 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:ConnectionId='9' x:Name="LoadMoreFromSimpleViewButton" Content="Load normal view..." VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="40" Width="200" FontSize="20"                                            Margin="0,0,0,28" Style="{StaticResource AccentButtonStyle}" Visibility="Collapsed"/>
+                <Button x:ConnectionId='13' x:Name="LoadMoreFromSimpleViewButton"
+                        Content="Load normal view..."
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Height="40" Width="200"
+                        FontSize="20"
+                                                                  
+                        Margin="0,0,0,28"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="Collapsed"/>
             </StackPanel>
         </ScrollViewer>
-            <muxc:TeachingTip x:ConnectionId='4' x:Name="fileInClipboardReminder"
-            Title="Copied successfully!"
-            Subtitle="The file is now in your clipboard">
-            <muxc:ProgressBar x:ConnectionId='7' x:Name="reminderTimer" Value="0" />
-        </muxc:TeachingTip>
-        <muxc:TeachingTip x:ConnectionId='5' x:Name="failedToDragTeachingTip"
-            Title="Dragging unsuccessful"
-            Subtitle="Are you sure the file still exists?">
-            <muxc:ProgressBar x:ConnectionId='6' x:Name="failureReminderTimer" Value="0" />
-        </muxc:TeachingTip>
+        <CommandBar x:ConnectionId='4' x:Name="FileCommandBar"
+                    Background="Transparent"
+                    IsOpen="False"
+                    DefaultLabelPosition="Right"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Height="50"
+                                                                
+                                                    
+                                                    >
+            <CommandBar.TranslationTransition>
+                <Vector3Transition/>
+            </CommandBar.TranslationTransition>
+            <CommandBar.OpacityTransition>
+                <ScalarTransition/>
+            </CommandBar.OpacityTransition>
+            <AppBarButton x:ConnectionId='7' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
+                <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:ConnectionId='8' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+                <ToolTip Content="Refresh this list (Ctrl+R)"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="R" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='9' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='10' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="T"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='11' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Close simple mode..."                                           >
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+        <Rectangle x:ConnectionId='5' x:Name="CommandBarIndicatorPill"
+                   Opacity="0"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Width="100"
+                   Height="2"
+                   Margin="0,0,0,9"
+                   Fill="Silver"
+                   RadiusX="1"
+                   RadiusY="1">
+            <Rectangle.TranslationTransition>
+                <Vector3Transition/>
+            </Rectangle.TranslationTransition>
+            <Rectangle.OpacityTransition>
+                <ScalarTransition/>
+            </Rectangle.OpacityTransition>
+        </Rectangle>
+        <Rectangle x:ConnectionId='6' x:Name="CommandBarIndicatorPillHitbox"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Stretch"
+                   Height="20"
+                   Fill="Transparent"
+                                                                          />
     </Grid>
 </Page>
 

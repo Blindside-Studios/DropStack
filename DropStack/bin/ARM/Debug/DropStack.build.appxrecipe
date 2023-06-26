@@ -78,36 +78,6 @@
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\copysuccess.png">
-      <PackagePath>Assets\Product Screenshots\copysuccess.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\dragdrop.png">
-      <PackagePath>Assets\Product Screenshots\dragdrop.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\meatballmenu.png">
-      <PackagePath>Assets\Product Screenshots\meatballmenu.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\ondesktop.png">
-      <PackagePath>Assets\Product Screenshots\ondesktop.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\pickportal.png">
-      <PackagePath>Assets\Product Screenshots\pickportal.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\pinnedfiles.png">
-      <PackagePath>Assets\Product Screenshots\pinnedfiles.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\settings.png">
-      <PackagePath>Assets\Product Screenshots\settings.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\setupdone.png">
-      <PackagePath>Assets\Product Screenshots\setupdone.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\simplemode.png">
-      <PackagePath>Assets\Product Screenshots\simplemode.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Product Screenshots\window.png">
-      <PackagePath>Assets\Product Screenshots\window.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -287,27 +257,6 @@
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\LockScreenLogo.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\SplashScreen.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\SplashScreen.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Square150x150Logo.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Square44x44Logo.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\StoreLogo.png">
-      <PackagePath>Assets\DefaultIcons\StoreLogo.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Assets\DefaultIcons\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\DefaultIcons\Wide310x150Logo.scale-200.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

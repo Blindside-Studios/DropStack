@@ -4,28 +4,11 @@ Assets\BadgeLogo.scale-125.png
 Assets\BadgeLogo.scale-150.png
 Assets\BadgeLogo.scale-200.png
 Assets\BadgeLogo.scale-400.png
-Assets\DefaultIcons\LockScreenLogo.scale-200.png
-Assets\DefaultIcons\SplashScreen.scale-200.png
-Assets\DefaultIcons\Square150x150Logo.scale-200.png
-Assets\DefaultIcons\Square44x44Logo.scale-200.png
-Assets\DefaultIcons\Square44x44Logo.targetsize-24_altform-unplated.png
-Assets\DefaultIcons\StoreLogo.png
-Assets\DefaultIcons\Wide310x150Logo.scale-200.png
 Assets\LargeTile.scale-100.png
 Assets\LargeTile.scale-125.png
 Assets\LargeTile.scale-150.png
 Assets\LargeTile.scale-200.png
 Assets\LargeTile.scale-400.png
-Assets\Product Screenshots\copysuccess.png
-Assets\Product Screenshots\dragdrop.png
-Assets\Product Screenshots\meatballmenu.png
-Assets\Product Screenshots\ondesktop.png
-Assets\Product Screenshots\pickportal.png
-Assets\Product Screenshots\pinnedfiles.png
-Assets\Product Screenshots\settings.png
-Assets\Product Screenshots\setupdone.png
-Assets\Product Screenshots\simplemode.png
-Assets\Product Screenshots\window.png
 Assets\SmallTile.scale-100.png
 Assets\SmallTile.scale-125.png
 Assets\SmallTile.scale-150.png
@@ -71,8 +54,5 @@ Assets\Wide310x150Logo.scale-125.png
 Assets\Wide310x150Logo.scale-150.png
 Assets\Wide310x150Logo.scale-200.png
 Assets\Wide310x150Logo.scale-400.png
-App.xbf
 DropStack.xr.xml
-MainPage.xbf
-SimplePage.xbf
 Properties\Default.rd.xml

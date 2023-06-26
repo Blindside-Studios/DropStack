@@ -49,6 +49,13 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="PrimaryCommands" />
       <RootProperty Name="SecondaryCommands" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="TranslationTransition" />
+      <RootProperty Name="OpacityTransition" />
+      <RootEvent Name="PointerExited" />
+      <RootEvent Name="Closing" />
+      <RootEvent Name="Opening" />
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.TeachingTip">
       <RootProperty Name="Title" />
@@ -68,6 +75,14 @@
       <RootProperty Name="RadiusX" />
       <RootProperty Name="RadiusY" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="TranslationTransition" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="OpacityTransition" />
+      <RootEvent Name="PointerEntered" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
@@ -118,6 +133,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TranslationTransition" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
@@ -125,7 +142,6 @@
       <RootProperty Name="IsOn" />
       <RootProperty Name="OnContent" />
       <RootProperty Name="OffContent" />
-      <RootProperty Name="Visibility" />
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTipService">

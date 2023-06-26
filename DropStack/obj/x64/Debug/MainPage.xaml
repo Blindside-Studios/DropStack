@@ -176,13 +176,11 @@
                         HorizontalContentAlignment="Center"
                         Margin="0,0,0,10"
                                                                 />
-                <ToggleSwitch x:ConnectionId='23' x:Name="closeAfterCopyToggleButton"
-                              Visibility="Collapsed"
-                              IsOn="False"
-                              OnContent="Always quit after jumplist copy" 
-                              OffContent="Never quit after jumplist copy" 
-                                                                           
-                              ToolTipService.ToolTip="If you enable this and use the right-click menu from the app's taskbar icon to copy the most recent files, the app will automatically close after it finishes."/>
+                <ToggleSwitch x:ConnectionId='23' x:Name="PinToolbarInSimpleModeToggleSwitch"
+                              OnContent="Pin toolbar in simple mode"
+                              OffContent="Pin toolbar in simple mode"
+                                                                                  
+                              ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
                 <Button x:ConnectionId='24' x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"
