@@ -22,12 +22,10 @@ using System.Threading;
 using Windows.UI.ViewManagement;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
+using static System.Net.WebRequestMethods;
 
 namespace DropStack
 {
-    /// <summary>
-    /// Code behind the main UI thread
-    /// </summary>
 
     public class FileItem
     {
@@ -48,7 +46,12 @@ namespace DropStack
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
         int defaultPage = 0;
-        int loadedItemsNumber = 1024;
+
+        private ObservableCollection<FileItem> _filteredFileMetadataList;
+        private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
+
+        bool isSearch1Active = false;
+        bool isSearch2Active = false;
 
         public MainPage()
         {
@@ -98,6 +101,7 @@ namespace DropStack
                     noPinnedFolderpathTechingTip.IsOpen = false;
                 }
                 else enableButtonVisibility();
+                if (isSearch2Active) filterListView("", 1);
             }
 
             else if (PivotViewSwitcher.SelectedIndex == 1)
@@ -112,8 +116,17 @@ namespace DropStack
                         { enableButtonVisibility(); obtainPinnedFiles(); }
                     }
                 }
-                ConnectionDisruptorDisplay.Text = "Pinned Folder Portal (your pinned files will persists and only the link to the app will be removed)";
+                ConnectionDisruptorDisplay.Text = "Pinned Folder Portal (your pinned files will persist and only the link to the app will be removed)";
+                if (isSearch1Active) filterListView("", 0);
             }
+
+            SearchGrid.Opacity = 0;
+            SearchGrid.Translation = new Vector3(0, -50, 0);
+            SearchGrid.Visibility = Visibility.Collapsed;
+            regularFileGrid.Translation = new Vector3(0, 0, 0);
+            pinnedFileGrid.Translation = new Vector3(0, 0, 0);
+            regularFilePusher.Visibility = Visibility.Collapsed;
+            pinnedFilePusher.Visibility = Visibility.Collapsed;
         }
 
         private void enableButtonVisibility()
@@ -163,11 +176,7 @@ namespace DropStack
             if (!string.IsNullOrEmpty(folderToken))
             {
                 JumpList jumpList = await JumpList.LoadCurrentAsync();
-                jumpList.Items.Clear(); }/*
-                jumpList.Items.Add(JumpListItem.CreateWithArguments("copyRecentFile", "Copy recent file"));
-                await jumpList.SaveAsync();
-            }
-            */
+                jumpList.Items.Clear(); }
         }
 
         public async void obtainFolderAndFiles()
@@ -178,7 +187,7 @@ namespace DropStack
 
             // Access the selected folder
             IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
-            ObservableCollection<object> fileMetadataList = new ObservableCollection<object>();
+            ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
             regularFileListView.ItemsSource = fileMetadataList;
 
@@ -192,9 +201,12 @@ namespace DropStack
 
             if (folder != null)
             {
-                foreach (StorageFile file in files.Take(loadedItemsNumber))
+                foreach (StorageFile file in files)
                 {
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
+                    BitmapImage bitmapThumbnail = new BitmapImage();
+                    bitmapThumbnail.SetSource(thumbnail);
 
                     int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
                     string generativefilesizesuffix = "B"; //default file suffix
@@ -217,18 +229,13 @@ namespace DropStack
                         generativefilesizesuffix = "GB";
                     }
 
-
-                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
-                    BitmapImage bitmapThumbnail = new BitmapImage();
-                    bitmapThumbnail.SetSource(thumbnail);
-
                     string modifiedDateFormatted = "n/a";
                     if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
                     else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
 
                     if (file.FileType == ".crdownload" || file.FileType == ".part")
                     {
-                        
+
                         fileMetadataList.Add(new FileItem()
                         {
                             FileName = file.Name,
@@ -261,6 +268,7 @@ namespace DropStack
                     }
 
                 }
+                _filteredFileMetadataList = fileMetadataList;
             }
             else
             {
@@ -605,7 +613,7 @@ namespace DropStack
             {
                 // Access the selected folder
                 IReadOnlyList<StorageFile> pinnedFiles = await pinnedFolder.GetFilesAsync();
-                ObservableCollection<object> pinnedFileMetadataList = new ObservableCollection<object>();
+                ObservableCollection<FileItem> pinnedFileMetadataList = new ObservableCollection<FileItem>();
 
                 pinnedFileListView.ItemsSource = pinnedFileMetadataList;
 
@@ -655,10 +663,7 @@ namespace DropStack
                         FileIcon = bitmapThumbnail,
                     }) ;
                 }
-
-                pinnedFileListView.ItemsSource = pinnedFileMetadataList;
-
-
+                _filteredPinnedFileMetadataList = pinnedFileMetadataList ;
             }
             else
             {
@@ -835,6 +840,67 @@ namespace DropStack
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] = PinToolbarInSimpleModeToggleSwitch.IsOn;
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SearchGrid.Opacity == 0) 
+            {
+                SearchGrid.Visibility = Visibility.Visible;
+                SearchGrid.Opacity = 1;
+                SearchGrid.Translation = new Vector3(0, 0, 0);
+                if (PivotViewSwitcher.SelectedIndex == 0)
+                {
+                    regularFileGrid.Translation = new Vector3(0, 50, 0);
+                    regularFilePusher.Visibility = Visibility.Visible;
+                }
+                else if (PivotViewSwitcher.SelectedIndex == 1)
+                {
+                    pinnedFileGrid.Translation = new Vector3(0, 50, 0);
+                    pinnedFilePusher.Visibility = Visibility.Visible;
+                }
+                SearchTextBox.Focus(FocusState.Programmatic);
+            }
+            else if (SearchGrid.Opacity == 1)
+            {
+                SearchGrid.Opacity = 0;
+                SearchGrid.Translation = new Vector3(0, -50, 0);
+                SearchGrid.Visibility = Visibility.Collapsed;
+                if (PivotViewSwitcher.SelectedIndex == 0)
+                {
+                    regularFileGrid.Translation = new Vector3(0, 0, 0);
+                    regularFilePusher.Visibility = Visibility.Collapsed;
+                }
+                else if (PivotViewSwitcher.SelectedIndex == 1)
+                {
+                    pinnedFileGrid.Translation = new Vector3(0, 0, 0);
+                    pinnedFilePusher.Visibility = Visibility.Collapsed;
+                }
+            }
+            SearchTextBox.Text = "";
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            filterListView(SearchTextBox.Text, PivotViewSwitcher.SelectedIndex);
+        }
+
+        private void filterListView(string filter, int ListViewIndex)
+        {
+            if (ListViewIndex == 0)
+            {
+                if (filter != "") isSearch1Active = true;
+                else if (filter == "") isSearch1Active = false;
+                var filteredItems = _filteredFileMetadataList.Where(item => item.FileName.ToLower().Contains(filter) || item.FilePath.ToLower().Contains(filter) || item.FileType.ToLower().Contains(filter));
+                regularFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredItems);
+            }
+            else if (ListViewIndex == 1)
+            {
+                if (filter != "") isSearch2Active = true;
+                else if (filter == "") isSearch2Active = false;
+                var filteredItems = _filteredPinnedFileMetadataList.Where(item => item.FileName.ToLower().Contains(filter) || item.FilePath.ToLower().Contains(filter) || item.FileType.ToLower().Contains(filter));
+                pinnedFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredItems);
+            }
         }
     }
 }

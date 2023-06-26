@@ -8,9 +8,9 @@
     <RootPropertyPathName Name="FileType" />
     <RootPropertyPathName Name="FileName" />
     <RootPropertyPathName Name="FileIcon" />
-    <RootPropertyPathName Name="IconOpacity" />
     <RootPropertyPathName Name="TextOpacity" />
     <RootPropertyPathName Name="ProgressActivity" />
+    <RootPropertyPathName Name="IconOpacity" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -32,9 +32,11 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="AllowDrop" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="Translation" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="OpacityTransition" />
       <RootProperty Name="TranslationTransition" />
+      <RootProperty Name="OpacityTransition" />
       <RootEvent Name="DragOver" />
       <RootEvent Name="Drop" />
     </RootType>
@@ -78,12 +80,13 @@
       <RootProperty Name="RadiusX" />
       <RootProperty Name="RadiusY" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="TranslationTransition" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
       <RootProperty Name="OpacityTransition" />
       <RootEvent Name="PointerEntered" />
     </RootType>
@@ -158,6 +161,12 @@
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressBar">
       <RootProperty Name="Value" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
@@ -192,13 +201,13 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
-      <RootProperty Name="Opacity" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Stretch" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Opacity" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressRing">

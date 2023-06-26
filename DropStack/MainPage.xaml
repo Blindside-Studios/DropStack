@@ -17,74 +17,90 @@
     <Grid x:Name="ContentGrid" HorizontalAlignment="Stretch">
         <Pivot x:Name="PivotViewSwitcher" SelectionChanged="PivotViewSwitcher_SelectionChanged">
             <PivotItem x:Name="RegularPivotSection" Header="Portal">
-                <Grid>
+                <Grid x:Name="regularFileGrid">
+                    <Grid.TranslationTransition>
+                        <Vector3Transition/>
+                    </Grid.TranslationTransition>
                     <Rectangle x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
-                    <ListView   x:Name="regularFileListView"
+                    <ScrollViewer>
+                        <StackPanel>
+                            <ListView   x:Name="regularFileListView"
                                 SelectionChanged="fileListView_SelectionChanged" 
                                 RightTapped="fileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="fileListView_DragItemsStarting"
                                 Margin="0,10,0,0">
-                        <ListView.ItemContainerTransitions>
-                            <TransitionCollection>
-                                <EntranceThemeTransition  FromVerticalOffset="0" />
-                            </TransitionCollection>
-                        </ListView.ItemContainerTransitions>
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:Name="FilesDataTemplate">
-                                <StackPanel x:Name="regularFileInfoStackpanel" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
-                                    <Grid>
-                                        <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        <muxc:ProgressRing IsActive="{Binding ProgressActivity}"/>
-                                    </Grid>
-                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
-                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
-                                            <TextBlock Text="{Binding FileType}" FontSize="10"/>
-                                            <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                            <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                <ListView.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition  FromVerticalOffset="0" />
+                                    </TransitionCollection>
+                                </ListView.ItemContainerTransitions>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:Name="FilesDataTemplate">
+                                        <StackPanel x:Name="regularFileInfoStackpanel" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
+                                            <Grid>
+                                                <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <muxc:ProgressRing IsActive="{Binding ProgressActivity}"/>
+                                            </Grid>
+                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
+                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                                    <TextBlock Text="{Binding FileType}" FontSize="10"/>
+                                                    <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                                    <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                    <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                            </StackPanel>
                                         </StackPanel>
-                                        <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Rectangle x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </PivotItem>
             <PivotItem x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True" DragOver="PinnedPivotSection_DragOver" Drop="PinnedPivotSection_Drop">
-                <Grid>
+                <Grid x:Name="pinnedFileGrid">
+                    <Grid.TranslationTransition>
+                        <Vector3Transition/>
+                    </Grid.TranslationTransition>
                     <Rectangle x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
-                    <ListView   x:Name="pinnedFileListView"
+                    <ScrollViewer>
+                        <StackPanel>
+                            <ListView   x:Name="pinnedFileListView"
                                 SelectionChanged="pinnedFileListView_SelectionChanged" 
                                 RightTapped="pinnedFileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="pinnedFileListView_DragItemsStarting"
                                 Margin="0,10,0,0">
-                        <ListView.ItemContainerTransitions>
-                            <TransitionCollection>
-                                <EntranceThemeTransition  FromVerticalOffset="0" />
-                            </TransitionCollection>
-                        </ListView.ItemContainerTransitions>
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:Name="pinnedFilesDataTemplate">
-                                <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
-                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}">
-                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
-                                            <TextBlock Text="{Binding FileType}" FontSize="10"/>
-                                            <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                            <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                <ListView.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition  FromVerticalOffset="0" />
+                                    </TransitionCollection>
+                                </ListView.ItemContainerTransitions>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:Name="pinnedFilesDataTemplate">
+                                        <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
+                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}">
+                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                                    <TextBlock Text="{Binding FileType}" FontSize="10"/>
+                                                    <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                                    <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                    <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                            </StackPanel>
                                         </StackPanel>
-                                        <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Rectangle x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </PivotItem>
         </Pivot>
@@ -102,6 +118,12 @@
             </StackPanel>
         </Grid>
         <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
+            <AppBarButton x:Name="SearchButton" Icon="Find" Label="Search" Click="SearchButton_Click">
+                <ToolTip Content="Search this list (Ctrl+F)"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="F" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
                 <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
                 <AppBarButton.KeyboardAccelerators>
@@ -133,6 +155,16 @@
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
+        <Grid x:Name="SearchGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0" Visibility="Collapsed" Translation="0,-50,0" Height="40" Margin="10,60,10,0">
+            <Grid.TranslationTransition>
+                <Vector3Transition/>
+            </Grid.TranslationTransition>
+            <Grid.OpacityTransition>
+                <ScalarTransition/>
+            </Grid.OpacityTransition>
+            <Rectangle Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" />
+            <TextBox x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4" TextChanged="SearchTextBox_TextChanged"/>
+        </Grid>
         <muxc:TeachingTip x:Name="fileInClipboardReminder"
             Title="Copied successfully!"
             Subtitle="The file is now in your clipboard">
@@ -177,7 +209,6 @@
                         Visibility="Collapsed"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
-                        Margin="0,0,0,10"
                         Click="SimpleViewRelauncherButton_Click"/>
                 <ToggleSwitch x:Name="PinToolbarInSimpleModeToggleSwitch"
                               OnContent="Pin toolbar in simple mode"
