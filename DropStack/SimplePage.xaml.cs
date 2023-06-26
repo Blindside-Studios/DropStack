@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -24,6 +25,7 @@ namespace DropStack
     {
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         int simplePageLoadedItemsAmount = 10;
+        bool isCommandBarPinned = false;
 
         public SimplePage()
         {
@@ -33,6 +35,25 @@ namespace DropStack
 
             if (string.IsNullOrEmpty(folderToken)) noAccessHandler();
             else { obtainFolderAndFiles(); createListener(); }
+
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+            if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
+            {
+                if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true)
+                {
+                    CommandBarIndicatorPillHitbox.Visibility = Visibility.Collapsed;
+                    SimpleBackgroundRectangle.Margin = new Thickness(5, 0, 5, 50);
+                    simpleFileListScrollViewer.Margin = new Thickness(0, 0, 0, 50);
+                    isCommandBarPinned = true;
+                }
+            }
+                
+            if(!isCommandBarPinned)
+            {
+                FileCommandBar.Translation = new Vector3(0, 60, 0);
+                CommandBarIndicatorPill.Opacity = 1;
+            }
         }
 
         private async void CompactOverlayPage_Loaded(object sender, RoutedEventArgs e)
@@ -40,9 +61,6 @@ namespace DropStack
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
             preferences.CustomSize = new Windows.Foundation.Size(300, 500);
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
-
-            //hide title bar NO DO NOT DO THAT RESTORING IT WILL CAUSE A BUG RELATED TO THE TITLE BAR COLOR
-            //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
         }
 
         public void noAccessHandler()
@@ -194,17 +212,6 @@ namespace DropStack
 
             // copy the data package to the clipboard
             Clipboard.SetContent(dataPackage);
-
-            //show teaching tip
-            fileInClipboardReminder.IsOpen = true;
-            for (int i = 0; i < 100; i++)
-            {
-                await Task.Delay(10);
-                reminderTimer.Value = i;
-            }
-            fileInClipboardReminder.IsOpen = false;
-            await Task.Delay(100);
-            reminderTimer.Value = 0;
         }
 
         private async void fileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -221,19 +228,7 @@ namespace DropStack
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
             }
-            catch
-            {
-                //show teaching tip
-                failedToDragTeachingTip.IsOpen = true;
-                for (int i = 0; i < 100; i++)
-                {
-                    await Task.Delay(10);
-                    failureReminderTimer.Value = i;
-                }
-                failedToDragTeachingTip.IsOpen = false;
-                await Task.Delay(100);
-                failureReminderTimer.Value = 0;
-            }
+            catch { }
         }
 
         private async void createListener()
@@ -266,9 +261,99 @@ namespace DropStack
             catch { }; //failed to create listener
         }
 
-        private void RefreshContainer_RefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
+        private async void RevealInExplorerButton_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+            await Launcher.LaunchFolderAsync(folder);
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             obtainFolderAndFiles();
+        }
+
+        private void HideToolbarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (isCommandBarPinned)
+            {
+                isCommandBarPinned = false;
+                FileCommandBar.Translation = new Vector3(0, 60, 0);
+                CommandBarIndicatorPill.Opacity = 1;
+                CommandBarIndicatorPillHitbox.Visibility = Visibility.Visible;
+                SimpleBackgroundRectangle.Margin = new Thickness(5, 0, 5, 20);
+                simpleFileListScrollViewer.Margin = new Thickness(0, 0, 0, 20);
+            }
+            else
+            {
+                isCommandBarPinned = true;
+                FileCommandBar.Translation = new Vector3(0, 0, 0);
+                CommandBarIndicatorPill.Opacity = 0;
+                CommandBarIndicatorPillHitbox.Visibility = Visibility.Collapsed;
+                SimpleBackgroundRectangle.Margin = new Thickness(5, 0, 5, 50);
+                simpleFileListScrollViewer.Margin = new Thickness(0, 0, 0, 50);
+            }
+        }
+
+        private async void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the folder from the access token
+            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+
+            // Access the selected folder
+            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+
+            // Sort the files by modification date in descending order
+            files = files.OrderByDescending(f => f.DateCreated).ToList();
+
+            StorageFile recentFile = files[0];
+
+            // create a new data package
+            var dataPackage = new DataPackage();
+
+            // add the file to the data package
+            dataPackage.SetStorageItems(new List<IStorageItem> { recentFile });
+
+            // copy the data package to the clipboard
+            Clipboard.SetContent(dataPackage);
+        }
+
+        private void CommandBarIndicatorPill_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            CommandBarIndicatorPillHitbox.Visibility = Visibility.Collapsed;
+            CommandBarIndicatorPill.Opacity = 0;
+            FileCommandBar.Translation = new Vector3(0, 0, 0);
+            SimpleBackgroundRectangle.Translation = new Vector3(0, -30, 0);
+            simpleFileListScrollViewer.Translation = new Vector3(0, -30, 0);
+            CommandBarIndicatorPill.Translation = new Vector3(0, -40, 0);
+        }
+
+        private void FileCommandBar_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            if (!isCommandBarPinned && !FileCommandBar.IsOpen)
+            {
+                CommandBarIndicatorPillHitbox.Visibility = Visibility.Visible;
+                CommandBarIndicatorPill.Opacity = 1;
+                FileCommandBar.Translation = new Vector3(0, 60, 0);
+                SimpleBackgroundRectangle.Translation = new Vector3(0, 0, 0);
+                simpleFileListScrollViewer.Translation = new Vector3(0, 0, 0);
+                CommandBarIndicatorPill.Translation = new Vector3(0, 0, 0);
+            }
+        }
+
+        private void FileCommandBar_Closing(object sender, object e)
+        {
+            if (!isCommandBarPinned)
+            {
+                CommandBarIndicatorPillHitbox.Visibility = Visibility.Visible;
+                CommandBarIndicatorPill.Opacity = 1;
+                FileCommandBar.Translation = new Vector3(0, 60, 0);
+                SimpleBackgroundRectangle.Translation = new Vector3(0, 0, 0);
+                simpleFileListScrollViewer.Translation = new Vector3(0, 0, 0);
+                CommandBarIndicatorPill.Translation = new Vector3(0, 0, 0);
+            }
         }
     }
 }

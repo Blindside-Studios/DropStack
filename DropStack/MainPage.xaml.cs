@@ -67,10 +67,9 @@ namespace DropStack
                 if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) UseSimpleViewByDefaultToggle.IsOn = true;
             }
             SimpleViewRelauncherButton.Visibility = Visibility.Collapsed;
-            if (localSettings.Values.ContainsKey("ShouldCloseAfterCopy"))
+            if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
             {
-                if ((bool)localSettings.Values["ShouldCloseAfterCopy"] == true) closeAfterCopyToggleButton.IsOn = true;
-                else if ((bool)localSettings.Values["ShouldCloseAfterCopy"] == false) closeAfterCopyToggleButton.IsOn = false;
+                if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
             }
 
             PivotViewSwitcher.SelectedIndex = defaultPage;
@@ -751,14 +750,6 @@ namespace DropStack
             await CoreApplication.RequestRestartAsync("forceSimpleView");
         }
 
-        private void closeAfterCopyToggleButton_Toggled(object sender, RoutedEventArgs e)
-        {
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-
-            localSettings.Values["ShouldCloseAfterCopy"] = closeAfterCopyToggleButton.IsOn;
-        }
-
         private async void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
         {
             // Get the folder from the access token
@@ -799,6 +790,12 @@ namespace DropStack
         {
             SimpleViewRelauncherButton.Visibility = Visibility.Collapsed;
             await CoreApplication.RequestRestartAsync("");
+        }
+
+        private void PinToolbarInSimpleModeToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] = PinToolbarInSimpleModeToggleSwitch.IsOn;
         }
     }
 }
