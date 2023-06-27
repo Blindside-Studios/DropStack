@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="DropStack" Publisher="CN=Blindside Studios" Version="0.2.1.0" ProcessorArchitecture="arm" />
+  <Identity Name="DropStack" Publisher="CN=Blindside Studios" Version="0.2.2.0" ProcessorArchitecture="arm" />
   <mp:PhoneIdentity PhoneProductId="a6b6f551-b7c3-48d6-9d07-d50afd680112" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DropStack</DisplayName>

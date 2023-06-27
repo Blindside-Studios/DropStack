@@ -1,2 +1,2 @@
-MainPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x64\Debug\DropStack_0.2.1.0_x64_Debug.msix
-SymbolPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\obj\x64\Debug\Symbols\DropStack_0.2.1.0_x64_Debug.appxsym
+MainPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x64\Debug\DropStack_0.2.2.0_x64_Debug.msix
+SymbolPackage=C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\obj\x64\Debug\Symbols\DropStack_0.2.2.0_x64_Debug.appxsym
