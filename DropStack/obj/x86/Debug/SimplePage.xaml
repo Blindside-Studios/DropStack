@@ -25,7 +25,8 @@
             </ScrollViewer.TranslationTransition>
             <StackPanel Orientation="Vertical" Spacing="14">
                 <ListView x:ConnectionId='12'   x:Name="simpleFileListView"
-                                                                                 
+                                                                                
+                                                                              
                                                                        
                                 CanDragItems="True" 
                                                                                   

@@ -189,6 +189,7 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="HorizontalContentAlignment" />
       <RootEvent Name="SelectionChanged" />
+      <RootEvent Name="DoubleTapped" />
       <RootEvent Name="RightTapped" />
       <RootEvent Name="DragItemsStarting" />
     </RootType>

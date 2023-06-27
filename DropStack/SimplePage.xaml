@@ -25,7 +25,8 @@
             </ScrollViewer.TranslationTransition>
             <StackPanel Orientation="Vertical" Spacing="14">
                 <ListView   x:Name="simpleFileListView"
-                                SelectionChanged="fileListView_SelectionChanged" 
+                                SelectionChanged="fileListView_SelectionChanged"
+                                DoubleTapped="simpleFileListView_DoubleTapped"
                                 RightTapped="fileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="fileListView_DragItemsStarting"

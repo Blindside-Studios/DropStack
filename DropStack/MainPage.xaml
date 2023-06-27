@@ -26,6 +26,7 @@
                         <StackPanel>
                             <ListView   x:Name="regularFileListView"
                                 SelectionChanged="fileListView_SelectionChanged" 
+                                DoubleTapped="regularFileListView_DoubleTapped"
                                 RightTapped="fileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="fileListView_DragItemsStarting"
@@ -70,7 +71,8 @@
                     <ScrollViewer>
                         <StackPanel>
                             <ListView   x:Name="pinnedFileListView"
-                                SelectionChanged="pinnedFileListView_SelectionChanged" 
+                                SelectionChanged="pinnedFileListView_SelectionChanged"
+                                DoubleTapped="pinnedFileListView_DoubleTapped"
                                 RightTapped="pinnedFileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="pinnedFileListView_DragItemsStarting"

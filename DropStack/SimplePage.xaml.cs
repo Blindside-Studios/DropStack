@@ -18,6 +18,7 @@ using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace DropStack
@@ -27,6 +28,7 @@ namespace DropStack
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         int simplePageLoadedItemsAmount = 10;
         bool isCommandBarPinned = false;
+        IList<object> ClickedItems;
 
         public SimplePage()
         {
@@ -177,39 +179,11 @@ namespace DropStack
             LoadMoreFromSimpleViewButton.Visibility = Visibility.Visible;
         }
 
-        private async void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
             {
-                FileItem selectedFile = (FileItem)e.AddedItems[0];
-                string selectedFileName = selectedFile.FileName;
-
-                // get the folder path
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                string folderPath = folder.Path;
-
-                // construct the full file path
-                string filePath = Path.Combine(folderPath, selectedFileName);
-
-                try
-                {
-                    // get the file
-                    var file = await folder.GetFileAsync(selectedFileName);
-
-                    // launch the file
-                    var success = await Launcher.LaunchFileAsync(file);
-                }
-
-                catch
-                {
-                    // handle the exception
-                }
-                finally
-                {
-                    // clear the selection after a short delay
-                    await Task.Delay(250);
-                    simpleFileListView.SelectedItem = null;
-                }
+                ClickedItems = e.AddedItems;
             }
         }
 
@@ -395,6 +369,50 @@ namespace DropStack
         {
             if (isCommandBarPinned) HideToolbarButton.Content = "Hide toolbar";
             else HideToolbarButton.Content = "Pin toolbar";
+        }
+
+        private async void simpleFileListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            DependencyObject obj = (DependencyObject)e.OriginalSource;
+            while (obj != null && obj != simpleFileListView)
+            {
+                if (obj.GetType() == typeof(ListViewItem))
+                {
+                    if (ClickedItems.Count > 0)
+                    {
+                        FileItem selectedFile = (FileItem)ClickedItems[0];
+                        string selectedFileName = selectedFile.FileName;
+
+                        // get the folder path
+                        StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                        string folderPath = folder.Path;
+
+                        // construct the full file path
+                        string filePath = Path.Combine(folderPath, selectedFileName);
+
+                        try
+                        {
+                            // get the file
+                            var file = await folder.GetFileAsync(selectedFileName);
+
+                            // launch the file
+                            var success = await Launcher.LaunchFileAsync(file);
+                        }
+
+                        catch
+                        {
+                            // handle the exception
+                        }
+                        finally
+                        {
+                            // clear the selection after a short delay
+                            await Task.Delay(250);
+                            simpleFileListView.SelectedItem = null;
+                        }
+                    }
+                }
+                obj = VisualTreeHelper.GetParent(obj);
+            }
         }
     }
 }

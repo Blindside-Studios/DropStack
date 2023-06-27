@@ -23,6 +23,8 @@ using Windows.UI.ViewManagement;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
 using static System.Net.WebRequestMethods;
+using Microsoft.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace DropStack
 {
@@ -46,6 +48,9 @@ namespace DropStack
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
         int defaultPage = 0;
+
+        IList<object> ClickedItems;
+        IList<object> PinClickedItems;
 
         private ObservableCollection<FileItem> _filteredFileMetadataList;
         private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
@@ -160,7 +165,9 @@ namespace DropStack
             StorageFolder folder = await folderPicker.PickSingleFolderAsync();
 
             // Request access to the selected folder
-            try { folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder); 
+            try
+            {
+                folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
                 nextOOBEpage();
 
                 // Save the folder access token to local settings
@@ -176,7 +183,8 @@ namespace DropStack
             if (!string.IsNullOrEmpty(folderToken))
             {
                 JumpList jumpList = await JumpList.LoadCurrentAsync();
-                jumpList.Items.Clear(); }
+                jumpList.Items.Clear();
+            }
         }
 
         public async void obtainFolderAndFiles()
@@ -276,39 +284,11 @@ namespace DropStack
             }
         }
 
-        private async void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
             {
-                FileItem selectedFile = (FileItem)e.AddedItems[0];
-                string selectedFileName = selectedFile.FileName;
-
-                // get the folder path
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                string folderPath = folder.Path;
-
-                // construct the full file path
-                string filePath = Path.Combine(folderPath, selectedFileName);
-
-                try
-                {
-                    // get the file
-                    var file = await folder.GetFileAsync(selectedFileName);
-
-                    // launch the file
-                    var success = await Launcher.LaunchFileAsync(file);
-                }
-
-                catch
-                {
-                    // handle the exception
-                }
-                finally
-                {
-                    // clear the selection after a short delay
-                    await Task.Delay(250);
-                    regularFileListView.SelectedItem = null;
-                }
+                ClickedItems = e.AddedItems;
             }
         }
 
@@ -446,7 +426,6 @@ namespace DropStack
         {
             if (PivotViewSwitcher.SelectedIndex == 0) ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
             if (PivotViewSwitcher.SelectedIndex == 1) ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = null;
-            if (PivotViewSwitcher.SelectedIndex == 2) ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
             var result = await CoreApplication.RequestRestartAsync("");
         }
 
@@ -475,35 +454,7 @@ namespace DropStack
         {
             if (e.AddedItems.Count > 0)
             {
-                FileItem selectedFile = (FileItem)e.AddedItems[0];
-                string selectedFileName = selectedFile.FileName;
-
-                // get the folder path
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-                string folderPath = folder.Path;
-
-                // construct the full file path
-                string filePath = Path.Combine(folderPath, selectedFileName);
-
-                try
-                {
-                    // get the file
-                    var file = await folder.GetFileAsync(selectedFileName);
-
-                    // launch the file
-                    var success = await Launcher.LaunchFileAsync(file);
-                }
-
-                catch
-                {
-                    // handle the exception
-                }
-                finally
-                {
-                    // clear the selection after a short delay
-                    await Task.Delay(250);
-                    regularFileListView.SelectedItem = null;
-                }
+                PinClickedItems = e.AddedItems;
             }
         }
 
@@ -590,9 +541,11 @@ namespace DropStack
             StorageFolder folder = await folderPicker.PickSingleFolderAsync();
 
             // Request access to the selected folder
-            try { folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder); 
+            try
+            {
+                folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
                 nextOOBEpage();
-                
+
                 // Save the folder access token to local settings
                 ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = folderToken;
 
@@ -602,7 +555,7 @@ namespace DropStack
             }
             catch { } //user canceled the folder picker
 
-            
+
         }
 
         private async void obtainPinnedFiles()
@@ -658,12 +611,12 @@ namespace DropStack
                         FilePath = pinnedFile.Path,
                         FileType = pinnedFile.DisplayType,
                         FileSize = filesizecalc.ToString(),
-                        FileSizeSuffix = " "+generativefilesizesuffix,
+                        FileSizeSuffix = " " + generativefilesizesuffix,
                         ModifiedDate = modifiedDateFormatted,
                         FileIcon = bitmapThumbnail,
-                    }) ;
+                    });
                 }
-                _filteredPinnedFileMetadataList = pinnedFileMetadataList ;
+                _filteredPinnedFileMetadataList = pinnedFileMetadataList;
             }
             else
             {
@@ -699,19 +652,6 @@ namespace DropStack
                     pinnedFileListView.Items.Remove(0);
                     obtainPinnedFiles();
                 }
-            }
-        }
-
-        private void RefreshContainer_RefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
-        {
-            if (PivotViewSwitcher.SelectedIndex == 0)
-            {
-                obtainFolderAndFiles();
-            }
-
-            if (PivotViewSwitcher.SelectedIndex == 1)
-            {
-                obtainPinnedFiles();
             }
         }
 
@@ -844,7 +784,7 @@ namespace DropStack
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchGrid.Opacity == 0) 
+            if (SearchGrid.Opacity == 0)
             {
                 SearchGrid.Visibility = Visibility.Visible;
                 SearchGrid.Opacity = 1;
@@ -900,6 +840,94 @@ namespace DropStack
                 else if (filter == "") isSearch2Active = false;
                 var filteredItems = _filteredPinnedFileMetadataList.Where(item => item.FileName.ToLower().Contains(filter) || item.FilePath.ToLower().Contains(filter) || item.FileType.ToLower().Contains(filter));
                 pinnedFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredItems);
+            }
+        }
+
+        private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            DependencyObject obj = (DependencyObject)e.OriginalSource;
+            while (obj != null && obj != regularFileListView)
+            {
+                if (obj.GetType() == typeof(ListViewItem))
+                {
+                    if (ClickedItems.Count > 0)
+                    {
+                        FileItem selectedFile = (FileItem)ClickedItems[0];
+                        string selectedFileName = selectedFile.FileName;
+
+                        // get the folder path
+                        StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                        string folderPath = folder.Path;
+
+                        // construct the full file path
+                        string filePath = Path.Combine(folderPath, selectedFileName);
+
+                        try
+                        {
+                            // get the file
+                            var file = await folder.GetFileAsync(selectedFileName);
+
+                            // launch the file
+                            var success = await Launcher.LaunchFileAsync(file);
+                        }
+
+                        catch
+                        {
+                            // handle the exception
+                        }
+                        finally
+                        {
+                            // clear the selection after a short delay
+                            await Task.Delay(250);
+                            regularFileListView.SelectedItem = null;
+                        }
+                    }
+                }
+                obj = VisualTreeHelper.GetParent(obj);
+            }
+        }
+
+        private async void pinnedFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            DependencyObject obj = (DependencyObject)e.OriginalSource;
+            while (obj != null && obj != pinnedFileListView)
+            {
+                if (obj.GetType() == typeof(ListViewItem))
+                {
+                    if (PinClickedItems.Count > 0)
+                    {
+                        FileItem selectedFile = (FileItem)PinClickedItems[0];
+                        string selectedFileName = selectedFile.FileName;
+
+                        // get the folder path
+                        StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                        string folderPath = folder.Path;
+
+                        // construct the full file path
+                        string filePath = Path.Combine(folderPath, selectedFileName);
+
+                        try
+                        {
+                            // get the file
+                            var file = await folder.GetFileAsync(selectedFileName);
+
+                            // launch the file
+                            var success = await Launcher.LaunchFileAsync(file);
+                        }
+
+                        catch
+                        {
+                            // handle the exception
+                        }
+                        finally
+                        {
+                            // clear the selection after a short delay
+                            await Task.Delay(250);
+                            pinnedFileListView.SelectedItem = null;
+                        }
+                    }
+                }
+                obj = VisualTreeHelper.GetParent(obj);
             }
         }
     }
