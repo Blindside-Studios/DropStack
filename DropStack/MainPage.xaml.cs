@@ -29,6 +29,9 @@ using System.Security.Principal;
 using System.IO.Pipes;
 using System.Security.Principal;
 using System.Diagnostics;
+using Windows.UI.WindowManagement.Preview;
+using Windows.UI.WindowManagement;
+using Windows.UI.Xaml.Hosting;
 
 namespace DropStack
 {
@@ -58,12 +61,10 @@ namespace DropStack
 
         private ObservableCollection<FileItem> _filteredFileMetadataList;
         private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
+        public ObservableCollection<FileItem> fileMetadataListCopy;
 
         bool isSearch1Active = false;
         bool isSearch2Active = false;
-
-        static string PipeName = "QuickLook.App.Pipe." + WindowsIdentity.GetCurrent().User?.Value;
-        static string Toggle = "QuickLook.App.PipeMessages.Toggle";
 
         public MainPage()
         {
@@ -286,6 +287,7 @@ namespace DropStack
 
                 }
                 _filteredFileMetadataList = fileMetadataList;
+                fileMetadataListCopy = fileMetadataList;
             }
             else
             {
@@ -941,49 +943,6 @@ namespace DropStack
             fileInClipboardReminder.IsOpen = false;
             await Task.Delay(100);
             reminderTimer.Value = 0;
-        }
-
-        private async void QuickLookButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (GlobalSwitchAffectedClickedItems == null) { }
-            else
-            {
-                // get the selected file item
-                FileItem selectedFile = (FileItem)GlobalSwitchAffectedClickedItems[0];
-
-                // get the folder path
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                string folderPath = folder.Path;
-
-                // construct the full file path
-                string filePath = Path.Combine(folderPath, selectedFile.FileName);
-
-                SendMessageToQuickLook(Toggle, filePath);
-            }
-        }
-
-        public static void SendMessageToQuickLook(string pipeMessage, string path = null)
-        {
-            if (path == null)
-                path = "";
-
-            try
-            {
-                using (var client = new NamedPipeClientStream(".", PipeName, PipeDirection.Out))
-                {
-                    client.Connect();
-
-                    using (var writer = new StreamWriter(client))
-                    {
-                        writer.WriteLine($"{pipeMessage}|{path}");
-                        writer.Flush();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                //Debug.WriteLine(e.ToString());
-            }
         }
     }
 }

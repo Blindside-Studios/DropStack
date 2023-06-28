@@ -1,8 +1,10 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -14,6 +16,8 @@ namespace DropStack
     /// </summary>
     sealed partial class App : Application
     {
+        public static AppWindow CompactOverlayWindow { get; set; }
+        
         public App()
         {
             this.InitializeComponent();
@@ -25,8 +29,23 @@ namespace DropStack
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            // Create an AppWindow object for CompactOverlay
+            CompactOverlayWindow = await AppWindow.TryCreateAsync();
+            // Attach a Closed event handler to set it to null when closed
+            CompactOverlayWindow.Closed += (s, args) => CompactOverlayWindow = null;
+            // Attach a Closed event handler to set it to null when closed
+            CompactOverlayWindow.Closed += (s, args) => CompactOverlayWindow = null;
+            // Handle the case when the user closes the main window while CompactOverlay is still open
+            CoreApplication.Exiting += async (s, args) =>
+            {
+                if (CompactOverlayWindow != null)
+                {
+                    await App.CompactOverlayWindow.CloseAsync();
+                }
+            };
+
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             bool shouldBeSimpleView = false;
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
@@ -66,7 +85,6 @@ namespace DropStack
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-
 
                     if (shouldBeSimpleView)
                     {

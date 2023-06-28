@@ -145,12 +145,6 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator/>
-                <AppBarButton x:Name="QuickLookButton" Icon="Preview" Label="Preview in Quick Look" Click="QuickLookButton_Click">
-                    <ToolTip Content="View this file in Quick Look (requires Quick Look to be installed)"/>
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="Q"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
                 <AppBarButton x:Name="OpenFileButton" Icon="OpenFile" Label="Open file" Click="OpenFileButton_Click">
                     <ToolTip Content="Opens the last selected file"/>
                     <AppBarButton.KeyboardAccelerators>

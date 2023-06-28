@@ -20,6 +20,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.BackdropMaterial">
       <RootMethod Name="GetApplyToRootOrPageBackground" />
