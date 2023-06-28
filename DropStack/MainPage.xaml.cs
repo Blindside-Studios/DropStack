@@ -25,6 +25,10 @@ using Windows.UI.Xaml.Input;
 using static System.Net.WebRequestMethods;
 using Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using System.Security.Principal;
+using System.IO.Pipes;
+using System.Security.Principal;
+using System.Diagnostics;
 
 namespace DropStack
 {
@@ -49,14 +53,17 @@ namespace DropStack
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
         int defaultPage = 0;
 
-        IList<object> ClickedItems;
-        IList<object> PinClickedItems;
+        IList<object> GlobalClickedItems = null;
+        IList<object> GlobalSwitchAffectedClickedItems = null;
 
         private ObservableCollection<FileItem> _filteredFileMetadataList;
         private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
 
         bool isSearch1Active = false;
         bool isSearch2Active = false;
+
+        static string PipeName = "QuickLook.App.Pipe." + WindowsIdentity.GetCurrent().User?.Value;
+        static string Toggle = "QuickLook.App.PipeMessages.Toggle";
 
         public MainPage()
         {
@@ -124,6 +131,8 @@ namespace DropStack
                 ConnectionDisruptorDisplay.Text = "Pinned Folder Portal (your pinned files will persist and only the link to the app will be removed)";
                 if (isSearch1Active) filterListView("", 0);
             }
+
+            GlobalSwitchAffectedClickedItems = null;
 
             SearchGrid.Opacity = 0;
             SearchGrid.Translation = new Vector3(0, -50, 0);
@@ -288,7 +297,8 @@ namespace DropStack
         {
             if (e.AddedItems.Count > 0)
             {
-                ClickedItems = e.AddedItems;
+                GlobalClickedItems = e.AddedItems;
+                GlobalSwitchAffectedClickedItems = e.AddedItems;
             }
         }
 
@@ -450,11 +460,12 @@ namespace DropStack
             //open the folder
         }
 
-        private async void pinnedFileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void pinnedFileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
             {
-                PinClickedItems = e.AddedItems;
+                GlobalClickedItems = e.AddedItems;
+                GlobalSwitchAffectedClickedItems = e.AddedItems;
             }
         }
 
@@ -734,40 +745,9 @@ namespace DropStack
             await CoreApplication.RequestRestartAsync("forceSimpleView");
         }
 
-        private async void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
+        private void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
         {
-            // Get the folder from the access token
-            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-
-            // Access the selected folder
-            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
-
-            // Sort the files by modification date in descending order
-            files = files.OrderByDescending(f => f.DateCreated).ToList();
-
-            StorageFile recentFile = files[0];
-
-            // create a new data package
-            var dataPackage = new DataPackage();
-
-            // add the file to the data package
-            dataPackage.SetStorageItems(new List<IStorageItem> { recentFile });
-
-            // copy the data package to the clipboard
-            Clipboard.SetContent(dataPackage);
-
-            //show teaching tip
-            fileInClipboardReminder.IsOpen = true;
-            for (int i = 0; i < 100; i++)
-            {
-                await Task.Delay(10);
-                reminderTimer.Value = i;
-            }
-            fileInClipboardReminder.IsOpen = false;
-            await Task.Delay(100);
-            reminderTimer.Value = 0;
+            copyMostRecentFile();
         }
 
         private async void SimpleViewRelauncherButton_Click(object sender, RoutedEventArgs e)
@@ -843,91 +823,166 @@ namespace DropStack
             }
         }
 
-        private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            DependencyObject obj = (DependencyObject)e.OriginalSource;
-            while (obj != null && obj != regularFileListView)
+            openLastSelectedFile();
+        }
+
+        private void pinnedFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            openLastSelectedFile();
+        }
+
+        private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (GlobalClickedItems == null) copyMostRecentFile();
+
+            else
             {
-                if (obj.GetType() == typeof(ListViewItem))
+                // get the selected file item
+                FileItem selectedFile = (FileItem)GlobalClickedItems[0];
+
+                // get the folder path
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                string folderPath = folder.Path;
+
+                // construct the full file path
+                string filePath = Path.Combine(folderPath, selectedFile.FileName);
+
+                // get the file
+                StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+
+                // create a new data package
+                var dataPackage = new DataPackage();
+
+                // add the file to the data package
+                dataPackage.SetStorageItems(new List<IStorageItem> { file });
+
+                // copy the data package to the clipboard
+                Clipboard.SetContent(dataPackage);
+
+                //show teaching tip
+                fileInClipboardReminder.IsOpen = true;
+                for (int i = 0; i < 100; i++)
                 {
-                    if (ClickedItems.Count > 0)
-                    {
-                        FileItem selectedFile = (FileItem)ClickedItems[0];
-                        string selectedFileName = selectedFile.FileName;
-
-                        // get the folder path
-                        StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                        string folderPath = folder.Path;
-
-                        // construct the full file path
-                        string filePath = Path.Combine(folderPath, selectedFileName);
-
-                        try
-                        {
-                            // get the file
-                            var file = await folder.GetFileAsync(selectedFileName);
-
-                            // launch the file
-                            var success = await Launcher.LaunchFileAsync(file);
-                        }
-
-                        catch
-                        {
-                            // handle the exception
-                        }
-                        finally
-                        {
-                            // clear the selection after a short delay
-                            await Task.Delay(250);
-                            regularFileListView.SelectedItem = null;
-                        }
-                    }
+                    await Task.Delay(10);
+                    reminderTimer.Value = i;
                 }
-                obj = VisualTreeHelper.GetParent(obj);
+                fileInClipboardReminder.IsOpen = false;
+                await Task.Delay(100);
+                reminderTimer.Value = 0;
             }
         }
 
-        private async void pinnedFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private void OpenFileButton_Click(object sender, RoutedEventArgs e)
         {
-            DependencyObject obj = (DependencyObject)e.OriginalSource;
-            while (obj != null && obj != pinnedFileListView)
+            openLastSelectedFile();
+        }
+
+        private async void openLastSelectedFile()
+        {
+            FileItem selectedFile = (FileItem)GlobalSwitchAffectedClickedItems[0];
+            string selectedFileName = selectedFile.FileName;
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+
+            try
             {
-                if (obj.GetType() == typeof(ListViewItem))
+                // get the file
+                var file = await folder.GetFileAsync(selectedFileName);
+
+                // launch the file
+                var success = await Launcher.LaunchFileAsync(file);
+            }
+
+            catch
+            {
+                // handle the exception
+            }
+            finally
+            {
+                // clear the selection after a short delay
+                await Task.Delay(250);
+                regularFileListView.SelectedItem = null;
+                pinnedFileListView.SelectedItem = null;
+            }
+        }
+
+        private async void copyMostRecentFile()
+        {
+            // Get the folder from the access token
+            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+
+            // Access the selected folder
+            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+
+            // Sort the files by modification date in descending order
+            files = files.OrderByDescending(f => f.DateCreated).ToList();
+
+            StorageFile recentFile = files[0];
+
+            // create a new data package
+            var dataPackage = new DataPackage();
+
+            // add the file to the data package
+            dataPackage.SetStorageItems(new List<IStorageItem> { recentFile });
+
+            // copy the data package to the clipboard
+            Clipboard.SetContent(dataPackage);
+
+            //show teaching tip
+            fileInClipboardReminder.IsOpen = true;
+            for (int i = 0; i < 100; i++)
+            {
+                await Task.Delay(10);
+                reminderTimer.Value = i;
+            }
+            fileInClipboardReminder.IsOpen = false;
+            await Task.Delay(100);
+            reminderTimer.Value = 0;
+        }
+
+        private async void QuickLookButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (GlobalSwitchAffectedClickedItems == null) { }
+            else
+            {
+                // get the selected file item
+                FileItem selectedFile = (FileItem)GlobalSwitchAffectedClickedItems[0];
+
+                // get the folder path
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                string folderPath = folder.Path;
+
+                // construct the full file path
+                string filePath = Path.Combine(folderPath, selectedFile.FileName);
+
+                SendMessageToQuickLook(Toggle, filePath);
+            }
+        }
+
+        public static void SendMessageToQuickLook(string pipeMessage, string path = null)
+        {
+            if (path == null)
+                path = "";
+
+            try
+            {
+                using (var client = new NamedPipeClientStream(".", PipeName, PipeDirection.Out))
                 {
-                    if (PinClickedItems.Count > 0)
+                    client.Connect();
+
+                    using (var writer = new StreamWriter(client))
                     {
-                        FileItem selectedFile = (FileItem)PinClickedItems[0];
-                        string selectedFileName = selectedFile.FileName;
-
-                        // get the folder path
-                        StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                        string folderPath = folder.Path;
-
-                        // construct the full file path
-                        string filePath = Path.Combine(folderPath, selectedFileName);
-
-                        try
-                        {
-                            // get the file
-                            var file = await folder.GetFileAsync(selectedFileName);
-
-                            // launch the file
-                            var success = await Launcher.LaunchFileAsync(file);
-                        }
-
-                        catch
-                        {
-                            // handle the exception
-                        }
-                        finally
-                        {
-                            // clear the selection after a short delay
-                            await Task.Delay(250);
-                            pinnedFileListView.SelectedItem = null;
-                        }
+                        writer.WriteLine($"{pipeMessage}|{path}");
+                        writer.Flush();
                     }
                 }
-                obj = VisualTreeHelper.GetParent(obj);
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine(e.ToString());
             }
         }
     }

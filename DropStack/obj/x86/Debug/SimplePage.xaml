@@ -24,7 +24,7 @@
                 <Vector3Transition/>
             </ScrollViewer.TranslationTransition>
             <StackPanel Orientation="Vertical" Spacing="14">
-                <ListView x:ConnectionId='12'   x:Name="simpleFileListView"
+                <ListView x:ConnectionId='13'   x:Name="simpleFileListView"
                                                                                 
                                                                               
                                                                        
@@ -61,7 +61,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:ConnectionId='13' x:Name="LoadMoreFromSimpleViewButton"
+                <Button x:ConnectionId='14' x:Name="LoadMoreFromSimpleViewButton"
                         Content="Load normal view..."
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Center"
@@ -89,10 +89,10 @@
             <CommandBar.OpacityTransition>
                 <ScalarTransition/>
             </CommandBar.OpacityTransition>
-            <AppBarButton x:ConnectionId='7' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
-                <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
+            <AppBarButton x:ConnectionId='7' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+                <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                 <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                    <KeyboardAccelerator Modifiers="Control" Key="C" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:ConnectionId='8' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
@@ -102,17 +102,23 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='9' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                <AppBarButton x:ConnectionId='9' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer"                                     >
+                    <ToolTip Content="Reveal in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="E" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='10' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                <AppBarButton x:ConnectionId='10' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='11' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="T"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='11' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Close simple mode..."                                           >
+                <AppBarButton x:ConnectionId='12' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Close simple mode..."                                           >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />
                     </AppBarButton.KeyboardAccelerators>

@@ -126,10 +126,10 @@
                     <KeyboardAccelerator Modifiers="Control" Key="F" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
-                <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
+            <AppBarButton x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy" Click="CopyLastSelectedButton_Click">
+                <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                 <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                    <KeyboardAccelerator Modifiers="Control" Key="C" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
@@ -145,9 +145,27 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator/>
+                <AppBarButton x:Name="QuickLookButton" Icon="Preview" Label="Preview in Quick Look" Click="QuickLookButton_Click">
+                    <ToolTip Content="View this file in Quick Look (requires Quick Look to be installed)"/>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="Q"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Name="OpenFileButton" Icon="OpenFile" Label="Open file" Click="OpenFileButton_Click">
+                    <ToolTip Content="Opens the last selected file"/>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="A"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer" Click="RevealInExplorerButton_Click">
+                    <ToolTip Content="Reveal in File Explorer"/>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="E" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
                 <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..." Click="LaunchSimpleModeButton_Click">

@@ -18,6 +18,7 @@ using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -28,7 +29,7 @@ namespace DropStack
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         int simplePageLoadedItemsAmount = 10;
         bool isCommandBarPinned = false;
-        IList<object> ClickedItems;
+        IList<object> ClickedItems = null;
 
         public SimplePage()
         {
@@ -303,29 +304,9 @@ namespace DropStack
             }
         }
 
-        private async void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
+        private void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
         {
-            // Get the folder from the access token
-            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-
-            // Access the selected folder
-            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
-
-            // Sort the files by modification date in descending order
-            files = files.OrderByDescending(f => f.DateCreated).ToList();
-
-            StorageFile recentFile = files[0];
-
-            // create a new data package
-            var dataPackage = new DataPackage();
-
-            // add the file to the data package
-            dataPackage.SetStorageItems(new List<IStorageItem> { recentFile });
-
-            // copy the data package to the clipboard
-            Clipboard.SetContent(dataPackage);
+            copyMostRecentFile();
         }
 
         private void CommandBarIndicatorPill_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -413,6 +394,62 @@ namespace DropStack
                 }
                 obj = VisualTreeHelper.GetParent(obj);
             }
+        }
+
+        private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClickedItems == null) copyMostRecentFile();
+
+            else
+            {
+
+                // get the selected file item
+                FileItem selectedFile = (FileItem)ClickedItems[0];
+
+                // get the folder path
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                string folderPath = folder.Path;
+
+                // construct the full file path
+                string filePath = Path.Combine(folderPath, selectedFile.FileName);
+
+                // get the file
+                StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+
+                // create a new data package
+                var dataPackage = new DataPackage();
+
+                // add the file to the data package
+                dataPackage.SetStorageItems(new List<IStorageItem> { file });
+
+                // copy the data package to the clipboard
+                Clipboard.SetContent(dataPackage);
+            }
+        }
+
+        private async void copyMostRecentFile()
+        {
+            // Get the folder from the access token
+            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+
+            // Access the selected folder
+            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+
+            // Sort the files by modification date in descending order
+            files = files.OrderByDescending(f => f.DateCreated).ToList();
+
+            StorageFile recentFile = files[0];
+
+            // create a new data package
+            var dataPackage = new DataPackage();
+
+            // add the file to the data package
+            dataPackage.SetStorageItems(new List<IStorageItem> { recentFile });
+
+            // copy the data package to the clipboard
+            Clipboard.SetContent(dataPackage);
         }
     }
 }

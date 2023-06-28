@@ -16,15 +16,15 @@
 
     <Grid x:ConnectionId='2' x:Name="ContentGrid" HorizontalAlignment="Stretch">
         <Pivot x:ConnectionId='3' x:Name="PivotViewSwitcher"                                                      >
-            <PivotItem x:ConnectionId='37' x:Name="RegularPivotSection" Header="Portal">
-                <Grid x:ConnectionId='47' x:Name="regularFileGrid">
+            <PivotItem x:ConnectionId='40' x:Name="RegularPivotSection" Header="Portal">
+                <Grid x:ConnectionId='50' x:Name="regularFileGrid">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='48' x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <Rectangle x:ConnectionId='51' x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
                     <ScrollViewer>
                         <StackPanel>
-                            <ListView x:ConnectionId='49'   x:Name="regularFileListView"
+                            <ListView x:ConnectionId='52'   x:Name="regularFileListView"
                                                                                  
                                                                                
                                                                        
@@ -57,20 +57,20 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='50' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='53' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </PivotItem>
-            <PivotItem x:ConnectionId='38' x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True"                                                                      >
-                <Grid x:ConnectionId='39' x:Name="pinnedFileGrid">
+            <PivotItem x:ConnectionId='41' x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True"                                                                      >
+                <Grid x:ConnectionId='42' x:Name="pinnedFileGrid">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='40' x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <Rectangle x:ConnectionId='43' x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
                     <ScrollViewer>
                         <StackPanel>
-                            <ListView x:ConnectionId='41'   x:Name="pinnedFileListView"
+                            <ListView x:ConnectionId='44'   x:Name="pinnedFileListView"
                                                                                       
                                                                               
                                                                              
@@ -100,7 +100,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='42' x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='45' x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
@@ -126,10 +126,10 @@
                     <KeyboardAccelerator Modifiers="Control" Key="F" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='32' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
-                <ToolTip Content="Reveal in File Explorer (Ctrl+E)"/>
+            <AppBarButton x:ConnectionId='32' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+                <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                 <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                    <KeyboardAccelerator Modifiers="Control" Key="C" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:ConnectionId='33' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
@@ -145,12 +145,30 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator/>
-                <AppBarButton x:ConnectionId='35' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                <AppBarButton x:ConnectionId='35' x:Name="QuickLookButton" Icon="Preview" Label="Preview in Quick Look"                              >
+                    <ToolTip Content="View this file in Quick Look (requires Quick Look to be installed)"/>
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="Q"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='36' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..."                                     >
+                <AppBarButton x:ConnectionId='36' x:Name="OpenFileButton" Icon="OpenFile" Label="Open file"                             >
+                    <ToolTip Content="Opens the last selected file"/>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="A"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='37' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer"                                     >
+                    <ToolTip Content="Reveal in File Explorer"/>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="E" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='38' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='39' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..."                                     >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />
                     </AppBarButton.KeyboardAccelerators>
