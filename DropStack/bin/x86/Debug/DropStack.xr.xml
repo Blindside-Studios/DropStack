@@ -150,6 +150,7 @@
       <RootProperty Name="IsOn" />
       <RootProperty Name="OnContent" />
       <RootProperty Name="OffContent" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTipService">
@@ -161,6 +162,11 @@
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressBar">
       <RootProperty Name="Value" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="OpacityTransition" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="PlaceholderText" />

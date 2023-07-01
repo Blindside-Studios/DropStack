@@ -22,9 +22,14 @@
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
                     <Rectangle x:ConnectionId='51' x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <muxc:ProgressBar x:ConnectionId='52' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,8,5,0" Opacity="0">
+                        <muxc:ProgressBar.OpacityTransition>
+                            <ScalarTransition />
+                        </muxc:ProgressBar.OpacityTransition>
+                    </muxc:ProgressBar>
                     <ScrollViewer Margin="0,10,0,0">
                         <StackPanel>
-                            <ListView x:ConnectionId='52'   x:Name="regularFileListView"
+                            <ListView x:ConnectionId='53'   x:Name="regularFileListView"
                                                                                  
                                                                                
                                                                        
@@ -56,7 +61,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='53' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='54' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
@@ -232,7 +237,8 @@
                               OnContent="Enable file caching"
                               OffContent="Enable file caching"
                                                                          
-                              ToolTipService.ToolTip="Allows DropStack to save your downloads folder to a cache, so it will load faster - this also improves the performance of search and helps the app run faster on slower devices."/>
+                              ToolTipService.ToolTip="Allows DropStack to save your downloads folder to a cache, so it will load faster - this also improves the performance of search and helps the app run faster on slower devices."
+                              Visibility="Collapsed"/>
                 <Button x:ConnectionId='26' x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"

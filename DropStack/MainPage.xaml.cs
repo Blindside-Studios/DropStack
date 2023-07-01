@@ -31,7 +31,6 @@ using System.Diagnostics;
 
 namespace DropStack
 {
-
     public class FileItem
     {
         public string FileName { get; set; }
@@ -101,7 +100,6 @@ namespace DropStack
                 if ((bool)localSettings.Values["CachingEnabled"] == true)
                 {
                     CachingEnableToggleSwitch.IsOn = true;
-                    loadPortalContentFromCache();
                 }
             }
 
@@ -212,6 +210,8 @@ namespace DropStack
 
         public async void obtainFolderAndFiles()
         {
+            if (isCachingEnabled && !hasRefreshed) await loadPortalContentFromCache();
+            
             // Get the folder from the access token
             folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
@@ -233,10 +233,25 @@ namespace DropStack
 
             if (folder != null)
             {
-                int insertIndex = 0;
+                PortalFileLoadingProgressBar.Value = 0;
+                PortalFileLoadingProgressBar.Opacity = 1;
+                
+                IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
+                
+                double insertIndex = 0;
+                double totalFiles = Convert.ToDouble(files.Count);
+                int currentFile = 1;
 
                 foreach (StorageFile file in files)
                 {
+                    await Task.Run(() =>
+                    {
+                        double percentageOfFiles = currentFile / totalFiles;
+                        percentageOfFiles = percentageOfFiles * 100;
+                        progress.Report(Convert.ToInt32(percentageOfFiles));
+                        currentFile++;
+                    });
+
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
                     StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
                     BitmapImage bitmapThumbnail = new BitmapImage();
@@ -326,6 +341,7 @@ namespace DropStack
                     }
 
                 }
+                PortalFileLoadingProgressBar.Opacity = 0;
                 _filteredFileMetadataList = fileMetadataList;
                 fileMetadataListCopy = fileMetadataList;
                 if (isCachingEnabled)
@@ -1029,7 +1045,7 @@ namespace DropStack
 
         private async Task loadPortalContentFromCache()
         {
-            try
+            /*try
             {
                 // get the LocalFolder object
                 StorageFolder localFolder = ApplicationData.Current.LocalFolder;
@@ -1043,67 +1059,31 @@ namespace DropStack
                 // get a Stream object from the file
                 using (Stream stream = await file.OpenStreamForReadAsync())
                 {
-                    // read from the stream
-                    using (StreamReader reader = new StreamReader(stream))
+                    XDocument doc = XDocument.Load(stream);
+                    IEnumerable<XElement> fileItems = doc.Descendants("FileItem");
+                    foreach (XElement fileItem in fileItems)
                     {
-                        // deserialize the stream into an array of FileItem objects
-                        FileItem[] items = (FileItem[])serializer.Deserialize(reader);
-
-                        // create a new ObservableCollection from the array of FileItem objects
-                        _cachedFileMetaDataList = new ObservableCollection<FileItem>(items);
-
-                        regularFileListView.ItemsSource = _cachedFileMetaDataList;
-                    }
-                }
-            }
-            catch (InvalidOperationException ex)
-            {
-                Debug.WriteLine(ex.Message);
-                Debug.WriteLine(ex.StackTrace);
-            }
-
-
-            /*try
-            {
-                regularFileListView.ItemsSource = _cachedFileMetaDataList;
-
-                // get the LocalFolder object
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-
-                // get the file from the LocalFolder
-                StorageFile file = await localFolder.GetFileAsync("CachedPortal.xml");
-
-                // create an XmlSerializer for the FileItem[] type
-                XmlSerializer serializer = new XmlSerializer(typeof(FileItem[]));
-
-                // read from the file
-                using (Stream stream = await file.OpenStreamForReadAsync())
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        if (file != null)
-                        {
-                            // deserialize the file and cast it to the FileItem[] type
-                            FileItem[] array = (FileItem[])serializer.Deserialize(reader);
-
-                            // create an ObservableCollection from the array
-                            _cachedFileMetaDataList = new ObservableCollection<FileItem>(array);
-
-                            Debug.Write(array.Length);
-                        }
-                        else { }
+                        FileItem fi = new FileItem();
+                        fi.FileName = fileItem.Element("FileName").Value;
+                        fi.FilePath = fileItem.Element("FilePath").Value;
+                        fi.FileType = fileItem.Element("FileType").Value;
+                        fi.FileSize = fileItem.Element("FileSize").Value;
+                        fi.FileSizeSuffix = fileItem.Element("FileSizeSuffix").Value;
+                        fi.ModifiedDate = fileItem.Element("ModifiedDate").Value;
+                        fi.IconOpacity = double.Parse(fileItem.Element("IconOpacity").Value);
+                        fi.TextOpacity = double.Parse(fileItem.Element("TextOpacity").Value);
+                        fi.ProgressActivity = bool.Parse(fileItem.Element("ProgressActivity").Value);
+                        _cachedFileMetaDataList.Add(fi);
                     }
 
-                    stream.Close();
-                }
 
-                if (_cachedFileMetaDataList != null)
-                {
-                    foreach (FileItem fileItem in _cachedFileMetaDataList)
-                    {
-                        fileItem.FileIcon = null;
-                        fileItem.ProgressActivity = true;
-                    }
+                    // deserialize the stream into an array of FileItem objects
+                    FileItem[] items = (FileItem[])serializer.Deserialize(reader);
+
+                    // create a new ObservableCollection from the array of FileItem objects
+                    _cachedFileMetaDataList = new ObservableCollection<FileItem>(items);
+
+                    regularFileListView.ItemsSource = _cachedFileMetaDataList;
                 }
             }
             catch (InvalidOperationException ex)
