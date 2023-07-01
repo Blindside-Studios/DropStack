@@ -22,16 +22,12 @@ using System.Threading;
 using Windows.UI.ViewManagement;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
-using static System.Net.WebRequestMethods;
-using Microsoft.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using System.Xml.Serialization;
 using System.Security.Principal;
-using System.IO.Pipes;
-using System.Security.Principal;
+using System.Collections;
+using System.Runtime.Serialization.Json;
+using System.Xml.Linq;
 using System.Diagnostics;
-using Windows.UI.WindowManagement.Preview;
-using Windows.UI.WindowManagement;
-using Windows.UI.Xaml.Hosting;
 
 namespace DropStack
 {
@@ -44,6 +40,7 @@ namespace DropStack
         public string FileSize { get; set; }
         public string FileSizeSuffix { get; set; }
         public string ModifiedDate { get; set; }
+        [XmlIgnore]
         public BitmapImage FileIcon { get; set; }
         public double IconOpacity { get; set; }
         public double TextOpacity { get; set; }
@@ -56,6 +53,8 @@ namespace DropStack
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
         int defaultPage = 0;
 
+        IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
+
         IList<object> GlobalClickedItems = null;
         IList<object> GlobalSwitchAffectedClickedItems = null;
 
@@ -63,8 +62,13 @@ namespace DropStack
         private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
         public ObservableCollection<FileItem> fileMetadataListCopy;
 
+        private ObservableCollection<FileItem> _cachedFileMetaDataList;
+
         bool isSearch1Active = false;
         bool isSearch2Active = false;
+        bool hasRefreshed = false;
+
+        bool isCachingEnabled = false;
 
         public MainPage()
         {
@@ -90,6 +94,15 @@ namespace DropStack
             if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
             {
                 if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
+            }
+            if (localSettings.Values.ContainsKey("CachingEnabled"))
+            {
+                isCachingEnabled = (bool)localSettings.Values["CachingEnabled"];
+                if ((bool)localSettings.Values["CachingEnabled"] == true)
+                {
+                    CachingEnableToggleSwitch.IsOn = true;
+                    loadPortalContentFromCache();
+                }
             }
 
             PivotViewSwitcher.SelectedIndex = defaultPage;
@@ -207,7 +220,8 @@ namespace DropStack
             IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
-            regularFileListView.ItemsSource = fileMetadataList;
+            if (!isCachingEnabled || hasRefreshed) regularFileListView.ItemsSource = fileMetadataList;
+            hasRefreshed = false;
 
             // Sort the files by modification date in descending order
             files = files.OrderByDescending(f => f.DateCreated).ToList();
@@ -219,6 +233,8 @@ namespace DropStack
 
             if (folder != null)
             {
+                int insertIndex = 0;
+
                 foreach (StorageFile file in files)
                 {
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
@@ -251,7 +267,7 @@ namespace DropStack
                     if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
                     else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
 
-                    if (file.FileType == ".crdownload" || file.FileType == ".part")
+                    if (downloadFileTypes.Contains(file.FileType))
                     {
 
                         fileMetadataList.Add(new FileItem()
@@ -285,9 +301,38 @@ namespace DropStack
                         });
                     }
 
+                    //if caching is enabled, check if item already exists and if not, add it to CachedView, helping to show new items
+                    if (isCachingEnabled)
+                    {
+                        FileItem tempItem = new FileItem();
+                        tempItem.FileName = file.Name;
+                        tempItem.FilePath = file.Path;
+                        tempItem.FileType = file.DisplayType;
+                        tempItem.FileSize = filesizecalc.ToString();
+                        tempItem.FileSizeSuffix = " " + generativefilesizesuffix;
+                        tempItem.ModifiedDate = modifiedDateFormatted;
+                        tempItem.FileIcon = bitmapThumbnail;
+                        tempItem.IconOpacity = 1;
+                        if (downloadFileTypes.Contains(file.FileType)) tempItem.IconOpacity = 0.25;
+                        tempItem.TextOpacity = 1;
+                        if (downloadFileTypes.Contains(file.FileType)) tempItem.TextOpacity = 0.5;
+                        tempItem.ProgressActivity = downloadFileTypes.Contains(file.FileType);
+
+                        /*if (!_cachedFileMetaDataList.Contains(tempItem))
+                        {
+                            _cachedFileMetaDataList.Insert(insertIndex, tempItem);
+                            insertIndex++;
+                        }*/
+                    }
+
                 }
                 _filteredFileMetadataList = fileMetadataList;
                 fileMetadataListCopy = fileMetadataList;
+                if (isCachingEnabled)
+                {
+                    regularFileListView.ItemsSource = fileMetadataList;
+                    saveCurrentPortalContentToCache();
+                }
             }
             else
             {
@@ -385,6 +430,7 @@ namespace DropStack
             if (PivotViewSwitcher.SelectedIndex == 0)
             {
                 obtainFolderAndFiles();
+                hasRefreshed = true;
             }
 
             if (PivotViewSwitcher.SelectedIndex == 1)
@@ -943,6 +989,128 @@ namespace DropStack
             fileInClipboardReminder.IsOpen = false;
             await Task.Delay(100);
             reminderTimer.Value = 0;
+        }
+
+        private void CachingEnableToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["CachingEnabled"] = CachingEnableToggleSwitch.IsOn;
+            isCachingEnabled = CachingEnableToggleSwitch.IsOn;
+
+            if (isCachingEnabled)
+            {
+                saveCurrentPortalContentToCache();
+            }
+        }
+
+        private async Task saveCurrentPortalContentToCache()
+        {
+            // get the LocalFolder object
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+            // create or replace the file in the LocalFolder
+            StorageFile file = await localFolder.CreateFileAsync("CachedPortal.xml", CreationCollisionOption.ReplaceExisting);
+
+            // create an XmlSerializer for the FileItem[] type
+            XmlSerializer serializer = new XmlSerializer(typeof(FileItem[]));
+
+            // get a Stream object from the file
+            using (Stream stream = await file.OpenStreamForWriteAsync())
+            {
+                // write to the stream
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    // serialize the ObservableCollection as an array and write it to the stream
+                    serializer.Serialize(writer, fileMetadataListCopy.ToArray());
+                }
+            }
+        }
+
+
+        private async Task loadPortalContentFromCache()
+        {
+            try
+            {
+                // get the LocalFolder object
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                // get the file from the LocalFolder
+                StorageFile file = await localFolder.GetFileAsync("CachedPortal.xml");
+
+                // create an XmlSerializer for the FileItem[] type
+                XmlSerializer serializer = new XmlSerializer(typeof(FileItem[]));
+
+                // get a Stream object from the file
+                using (Stream stream = await file.OpenStreamForReadAsync())
+                {
+                    // read from the stream
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        // deserialize the stream into an array of FileItem objects
+                        FileItem[] items = (FileItem[])serializer.Deserialize(reader);
+
+                        // create a new ObservableCollection from the array of FileItem objects
+                        _cachedFileMetaDataList = new ObservableCollection<FileItem>(items);
+
+                        regularFileListView.ItemsSource = _cachedFileMetaDataList;
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+
+
+            /*try
+            {
+                regularFileListView.ItemsSource = _cachedFileMetaDataList;
+
+                // get the LocalFolder object
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                // get the file from the LocalFolder
+                StorageFile file = await localFolder.GetFileAsync("CachedPortal.xml");
+
+                // create an XmlSerializer for the FileItem[] type
+                XmlSerializer serializer = new XmlSerializer(typeof(FileItem[]));
+
+                // read from the file
+                using (Stream stream = await file.OpenStreamForReadAsync())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        if (file != null)
+                        {
+                            // deserialize the file and cast it to the FileItem[] type
+                            FileItem[] array = (FileItem[])serializer.Deserialize(reader);
+
+                            // create an ObservableCollection from the array
+                            _cachedFileMetaDataList = new ObservableCollection<FileItem>(array);
+
+                            Debug.Write(array.Length);
+                        }
+                        else { }
+                    }
+
+                    stream.Close();
+                }
+
+                if (_cachedFileMetaDataList != null)
+                {
+                    foreach (FileItem fileItem in _cachedFileMetaDataList)
+                    {
+                        fileItem.FileIcon = null;
+                        fileItem.ProgressActivity = true;
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }*/
         }
     }
 }
