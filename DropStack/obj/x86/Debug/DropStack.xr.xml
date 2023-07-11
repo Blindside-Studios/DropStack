@@ -150,7 +150,6 @@
       <RootProperty Name="IsOn" />
       <RootProperty Name="OnContent" />
       <RootProperty Name="OffContent" />
-      <RootProperty Name="Visibility" />
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTipService">

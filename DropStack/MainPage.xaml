@@ -233,12 +233,6 @@
                               OffContent="Pin toolbar in simple mode"
                               Toggled="PinToolbarInSimpleModeToggleSwitch_Toggled"
                               ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
-                <ToggleSwitch x:Name="CachingEnableToggleSwitch"
-                              OnContent="Enable file caching"
-                              OffContent="Enable file caching"
-                              Toggled="CachingEnableToggleSwitch_Toggled"
-                              ToolTipService.ToolTip="Allows DropStack to save your downloads folder to a cache, so it will load faster - this also improves the performance of search and helps the app run faster on slower devices."
-                              Visibility="Collapsed"/>
                 <Button x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"

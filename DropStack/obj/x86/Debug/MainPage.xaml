@@ -16,20 +16,20 @@
 
     <Grid x:ConnectionId='2' x:Name="ContentGrid" HorizontalAlignment="Stretch">
         <Pivot x:ConnectionId='3' x:Name="PivotViewSwitcher"                                                      >
-            <PivotItem x:ConnectionId='40' x:Name="RegularPivotSection" Header="Portal">
-                <Grid x:ConnectionId='50' x:Name="regularFileGrid">
+            <PivotItem x:ConnectionId='39' x:Name="RegularPivotSection" Header="Portal">
+                <Grid x:ConnectionId='49' x:Name="regularFileGrid">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='51' x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
-                    <muxc:ProgressBar x:ConnectionId='52' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,8,5,0" Opacity="0">
+                    <Rectangle x:ConnectionId='50' x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <muxc:ProgressBar x:ConnectionId='51' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,8,5,0" Opacity="0">
                         <muxc:ProgressBar.OpacityTransition>
                             <ScalarTransition />
                         </muxc:ProgressBar.OpacityTransition>
                     </muxc:ProgressBar>
                     <ScrollViewer Margin="0,10,0,0">
                         <StackPanel>
-                            <ListView x:ConnectionId='53'   x:Name="regularFileListView"
+                            <ListView x:ConnectionId='52'   x:Name="regularFileListView"
                                                                                  
                                                                                
                                                                        
@@ -61,20 +61,20 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='54' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='53' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </PivotItem>
-            <PivotItem x:ConnectionId='41' x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True"                                                                      >
-                <Grid x:ConnectionId='42' x:Name="pinnedFileGrid">
+            <PivotItem x:ConnectionId='40' x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True"                                                                      >
+                <Grid x:ConnectionId='41' x:Name="pinnedFileGrid">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='43' x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
+                    <Rectangle x:ConnectionId='42' x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
                     <ScrollViewer>
                         <StackPanel>
-                            <ListView x:ConnectionId='44'   x:Name="pinnedFileListView"
+                            <ListView x:ConnectionId='43'   x:Name="pinnedFileListView"
                                                                                       
                                                                               
                                                                              
@@ -104,7 +104,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='45' x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='44' x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
@@ -124,49 +124,49 @@
             </StackPanel>
         </Grid>
         <CommandBar x:ConnectionId='5' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-            <AppBarButton x:ConnectionId='32' x:Name="SearchButton" Icon="Find" Label="Search"                           >
+            <AppBarButton x:ConnectionId='31' x:Name="SearchButton" Icon="Find" Label="Search"                           >
                 <ToolTip Content="Search this list (Ctrl+F)"/>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control" Key="F" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='33' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+            <AppBarButton x:ConnectionId='32' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
                 <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control" Key="C" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='34' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+            <AppBarButton x:ConnectionId='33' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
                 <ToolTip Content="Refresh this list (Ctrl+R)"/>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control" Key="R" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='35' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings"                                  >
+                <AppBarButton x:ConnectionId='34' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings"                                  >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="I" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator/>
-                <AppBarButton x:ConnectionId='36' x:Name="OpenFileButton" Icon="OpenFile" Label="Open file"                             >
+                <AppBarButton x:ConnectionId='35' x:Name="OpenFileButton" Icon="OpenFile" Label="Open file"                             >
                     <ToolTip Content="Opens the last selected file"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="A"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='37' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer"                                     >
+                <AppBarButton x:ConnectionId='36' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer"                                     >
                     <ToolTip Content="Reveal in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="E" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='38' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                <AppBarButton x:ConnectionId='37' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='39' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..."                                     >
+                <AppBarButton x:ConnectionId='38' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..."                                     >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />
                     </AppBarButton.KeyboardAccelerators>
@@ -181,17 +181,17 @@
                 <ScalarTransition/>
             </Grid.OpacityTransition>
             <Rectangle Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" />
-            <TextBox x:ConnectionId='31' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
+            <TextBox x:ConnectionId='30' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
         </Grid>
         <muxc:TeachingTip x:ConnectionId='7' x:Name="fileInClipboardReminder"
             Title="Copied successfully!"
             Subtitle="The file is now in your clipboard">
-            <muxc:ProgressBar x:ConnectionId='30' x:Name="reminderTimer" Value="0" />
+            <muxc:ProgressBar x:ConnectionId='29' x:Name="reminderTimer" Value="0" />
         </muxc:TeachingTip>
         <muxc:TeachingTip x:ConnectionId='8' x:Name="failedToDragTeachingTip"
             Title="Dragging unsuccessful"
             Subtitle="Are you sure the file still exists?">
-            <muxc:ProgressBar x:ConnectionId='29' x:Name="failureReminderTimer" Value="0" />
+            <muxc:ProgressBar x:ConnectionId='28' x:Name="failureReminderTimer" Value="0" />
         </muxc:TeachingTip>
         <muxc:TeachingTip x:ConnectionId='9' 
             x:Name="noFolderpathTechingTip"
@@ -233,13 +233,7 @@
                               OffContent="Pin toolbar in simple mode"
                                                                                   
                               ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
-                <ToggleSwitch x:ConnectionId='25' x:Name="CachingEnableToggleSwitch"
-                              OnContent="Enable file caching"
-                              OffContent="Enable file caching"
-                                                                         
-                              ToolTipService.ToolTip="Allows DropStack to save your downloads folder to a cache, so it will load faster - this also improves the performance of search and helps the app run faster on slower devices."
-                              Visibility="Collapsed"/>
-                <Button x:ConnectionId='26' x:Name="deleteFolderCookieButton"
+                <Button x:ConnectionId='25' x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"
                     VerticalAlignment="Bottom"
@@ -252,12 +246,12 @@
                                        Style="{ThemeResource BaseTextBlockStyle}" 
                                        Text="This will disconnect the app from the folder you chose during setup and you will need to repeat the setup process to utilize this feature. The following connection will be removed:"  
                                        TextWrapping="WrapWholeWords"/>
-                                <TextBlock x:ConnectionId='27' x:Name="ConnectionDisruptorDisplay"
+                                <TextBlock x:ConnectionId='26' x:Name="ConnectionDisruptorDisplay"
                                        MaxWidth="200" 
                                        Style="{ThemeResource BaseTextBlockStyle}" 
                                        TextWrapping="WrapWholeWords" 
                                        Margin="0,10,0,12"/>
-                                <Button x:ConnectionId='28'                                      
+                                <Button x:ConnectionId='27'                                      
                                     Content="Yes, disconnect and relaunch!" 
                                     Background="DarkRed"/>
                             </StackPanel>
