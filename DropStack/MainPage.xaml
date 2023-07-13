@@ -24,7 +24,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <muxc:Expander
-                        IsExpanded="True"
+                        x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
                         VerticalAlignment="Top"
                         Header="Pinned files"
@@ -33,10 +33,18 @@
                         HorizontalContentAlignment="Stretch"
                         AllowDrop="True"
                         DragOver="PinnedPivotSection_DragOver"
-                        Drop="PinnedPivotSection_Drop">
-                <Grid x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
-                    <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
-                        <GridView x:Name="pinnedFileListView"
+                        Drop="PinnedPivotSection_Drop"
+                        IsExpanded="False"
+                        Expanding="Expander_Expanding"
+                        Collapsed="PinnedFilesExpander_Collapsed">
+                <Grid>
+                    <StackPanel x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <muxc:ProgressRing x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                        <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Grid x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                        <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                            <GridView x:Name="pinnedFileListView"
                                       SelectionChanged="pinnedFileListView_SelectionChanged"
                                       DoubleTapped="pinnedFileListView_DoubleTapped"
                                       RightTapped="pinnedFileListView_RightTapped" 
@@ -44,34 +52,35 @@
                                       DragItemsStarting="pinnedFileListView_DragItemsStarting"
                                       Height="150"
                                       HorizontalAlignment="Stretch">
-                            <GridView.ItemContainerTransitions>
-                                <TransitionCollection>
-                                    <EntranceThemeTransition  FromVerticalOffset="0" />
-                                </TransitionCollection>
-                            </GridView.ItemContainerTransitions>
-                            <GridView.ItemTemplate>
-                                <DataTemplate x:Name="pinnedFilesDataTemplate">
-                                    <Grid HorizontalAlignment="Center" Width="180">
-                                        <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
-                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">
-                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
-                                                <StackPanel Margin="0,-9,0,0" HorizontalAlignment="Center">
-                                                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
-                                                        <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
-                                                        <TextBlock Text="-" FontSize="10"/>
-                                                        <TextBlock Text="{Binding FileSize}" FontSize="10"/>
-                                                        <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                <GridView.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition  FromVerticalOffset="0" />
+                                    </TransitionCollection>
+                                </GridView.ItemContainerTransitions>
+                                <GridView.ItemTemplate>
+                                    <DataTemplate x:Name="pinnedFilesDataTemplate">
+                                        <Grid HorizontalAlignment="Center" Width="180">
+                                            <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
+                                                <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">
+                                                    <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
+                                                    <StackPanel Margin="0,-9,0,0" HorizontalAlignment="Center">
+                                                        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                                            <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                                            <TextBlock Text="-" FontSize="10"/>
+                                                            <TextBlock Text="{Binding FileSize}" FontSize="10"/>
+                                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                        </StackPanel>
                                                     </StackPanel>
+                                                    <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
                                                 </StackPanel>
-                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
                                             </StackPanel>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </GridView.ItemTemplate>
-                        </GridView>
-                    </ScrollViewer>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                            </GridView>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
             </muxc:Expander>
             <Grid x:Name="regularFileGrid" Grid.Row="1">
@@ -213,7 +222,8 @@
 	        ActionButtonContent="Choose folder..."/>
         <muxc:TeachingTip x:Name="quickSettingsFlyoutTeachingTip"
                           Title="Settings"
-                          PreferredPlacement="Top">
+                          PreferredPlacement="Top"
+                          Closed="quickSettingsFlyoutTeachingTip_Closed">
             <StackPanel>
                 <ToggleSwitch x:Name="UseSimpleViewByDefaultToggle"
                               IsOn="False"
@@ -233,6 +243,17 @@
                               OffContent="Pin toolbar in simple mode"
                               Toggled="PinToolbarInSimpleModeToggleSwitch_Toggled"
                               ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
+                <muxc:Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                    <StackPanel Spacing="10">
+                        <muxc:RadioButtons Header="Options:">
+                            <RadioButton x:Name="PinsAlwaysOpenRadioButton" Content="Always opened" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                            <RadioButton x:Name="PinsRememberStateRadioButton" Content="Remember last state" Checked="RadioButton_Checked" ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
+                            <RadioButton x:Name="PinsAlwaysClosedRadioButton" Content="Always closed" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                            <RadioButton x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️" Checked="RadioButton_Checked" ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
+                        </muxc:RadioButtons>
+                        <Button x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch" Click="EnableAllOptionsForPinsButton_Click" Visibility="Collapsed"/>
+                    </StackPanel>
+                </muxc:Expander>
                 <Button x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"

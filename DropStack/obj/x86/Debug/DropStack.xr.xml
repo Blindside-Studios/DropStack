@@ -70,6 +70,7 @@
       <RootProperty Name="ActionButtonContent" />
       <RootProperty Name="Target" />
       <RootEvent Name="ActionButtonClick" />
+      <RootEvent Name="Closed" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ScalarTransition" />
     <RootType FullName="Windows.UI.Xaml.Vector3Transition" />
@@ -123,6 +124,7 @@
       <RootProperty Name="Tag" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -160,6 +162,21 @@
       <RootMethod Name="GetToolTip" />
       <RootMethod Name="SetToolTip" />
     </RootType>
+    <RootType FullName="Microsoft.UI.Xaml.Controls.Expander">
+      <RootProperty Name="Header" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="ExpandDirection" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="IsExpanded" />
+      <RootEvent Name="DragOver" />
+      <RootEvent Name="Drop" />
+      <RootEvent Name="Expanding" />
+      <RootEvent Name="Collapsed" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
       <RootProperty Name="Content" />
       <RootEvent Name="Opened" />
@@ -180,6 +197,14 @@
     <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Glyph" />
+    </RootType>
+    <RootType FullName="Microsoft.UI.Xaml.Controls.RadioButtons">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+      <RootProperty Name="Content" />
+      <RootEvent Name="Checked" />
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressBar">
       <RootProperty Name="Value" />
@@ -205,18 +230,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Microsoft.UI.Xaml.Controls.Expander">
-      <RootProperty Name="IsExpanded" />
-      <RootProperty Name="ExpandDirection" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="HorizontalContentAlignment" />
-      <RootProperty Name="AllowDrop" />
-      <RootProperty Name="Content" />
-      <RootEvent Name="DragOver" />
-      <RootEvent Name="Drop" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="CanDragItems" />
@@ -248,6 +261,7 @@
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressRing">
       <RootProperty Name="IsActive" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="CanDragItems" />

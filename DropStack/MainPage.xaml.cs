@@ -23,6 +23,7 @@ using Windows.UI.ViewManagement;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
 using System.Xml.Serialization;
+using Windows.Security.Credentials.UI;
 
 namespace DropStack
 {
@@ -57,13 +58,14 @@ namespace DropStack
         string RegularFolderPath { get; set; }
         string PinnedFolderPath { get; set; }
 
+        int pinBarBehaviorIndex = 0;
+        bool isWindowsHelloRequiredForPins = false;
+
         public MainPage()
         {
             this.InitializeComponent();
 
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
-
-            OOBEgoNextButton.Focus(FocusState.Keyboard);
 
             if (string.IsNullOrEmpty(folderToken) & string.IsNullOrEmpty(pinnedFolderToken))
             {
@@ -72,19 +74,57 @@ namespace DropStack
                 launchOnboarding();
             }
 
+            loadSettings();
+
+            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
+            if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
+        }
+
+        private async void loadSettings()
+        {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
                 if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) UseSimpleViewByDefaultToggle.IsOn = true;
             }
+            
             SimpleViewRelauncherButton.Visibility = Visibility.Collapsed;
             if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
             {
                 if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
             }
-
-            if (!string.IsNullOrEmpty(pinnedFolderToken)) { obtainPinnedFiles(); setFolderPath("Pin"); }
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
+            
+            var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
+            if (WinHelloAvailability != UserConsentVerifierAvailability.Available) PinsProtectedRadioButton.IsEnabled = false;
+            if (localSettings.Values.ContainsKey("PinBarBehavior"))
+            {
+                pinBarBehaviorIndex = (int)localSettings.Values["PinBarBehavior"];
+            }
+            switch (pinBarBehaviorIndex)
+            {
+                case 0:
+                    PinnedFilesExpander.IsExpanded = true;
+                    PinsAlwaysOpenRadioButton.IsChecked = true;
+                    break;
+                case 1:
+                    if (localSettings.Values.ContainsKey("HasPinBarBeenExpanded"))
+                    {
+                        PinnedFilesExpander.IsExpanded = (bool)localSettings.Values["HasPinBarBeenExpanded"];
+                    }
+                    PinsRememberStateRadioButton.IsChecked = true;
+                    break;
+                case 2:
+                    PinnedFilesExpander.IsExpanded = false;
+                    PinsAlwaysClosedRadioButton.IsChecked = true;
+                    break;
+                case 3:
+                    isWindowsHelloRequiredForPins = true;
+                    PinnedFilesExpander.IsExpanded = false;
+                    PinsProtectedRadioButton.IsChecked = true;
+                    setPinBarOptionVisibility(false);
+                    break;
+            }
         }
 
         private async void setFolderPath(string folderToSet)
@@ -225,9 +265,9 @@ namespace DropStack
             {
                 PortalFileLoadingProgressBar.Value = 0;
                 PortalFileLoadingProgressBar.Opacity = 1;
-                
+
                 IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
-                
+
                 double totalFiles = Convert.ToDouble(files.Count);
                 int currentFile = 1;
 
@@ -932,6 +972,135 @@ namespace DropStack
         {
             RegularFolderPathDisplay.Text = RegularFolderPath;
             PinnedFolderPathDisplay.Text = PinnedFolderPath;
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            RadioButton selectedRadioButton = sender as RadioButton;
+            int securitySeverityIndex = 0;
+
+            switch (selectedRadioButton.Content)
+            {
+                case "Always opened":
+                    securitySeverityIndex = 0;
+                    PinnedFilesExpander.IsExpanded = true;
+                    break;
+                case "Remember last state":
+                    securitySeverityIndex = 1;
+                    localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
+                    break;
+                case "Always closed":
+                    securitySeverityIndex = 2;
+                    PinnedFilesExpander.IsExpanded = false;
+                    break;
+                case "Protect with Windows Hello™️":
+                    securitySeverityIndex = 3;
+                    PinnedFilesExpander.IsExpanded = false;
+                    setPinBarOptionVisibility(false);
+                    break;
+            }
+            localSettings.Values["PinBarBehavior"] = securitySeverityIndex;
+        }
+
+        private void setPinBarOptionVisibility(bool shouldBeVisible)
+        {
+            PinsAlwaysOpenRadioButton.IsEnabled = shouldBeVisible;
+            PinsRememberStateRadioButton.IsEnabled = shouldBeVisible;
+            PinsAlwaysClosedRadioButton.IsEnabled = shouldBeVisible;
+            if (shouldBeVisible) EnableAllOptionsForPinsButton.Visibility = Visibility.Collapsed;
+            else if (!shouldBeVisible) EnableAllOptionsForPinsButton.Visibility = Visibility.Visible;
+        }
+
+        private async void Expander_Expanding(Microsoft.UI.Xaml.Controls.Expander sender, Microsoft.UI.Xaml.Controls.ExpanderExpandingEventArgs args)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
+
+            if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { obtainPinnedFiles(); pinnedFileGrid.Visibility = Visibility.Visible; }
+            else if (isWindowsHelloRequiredForPins)
+            {
+                pinnedFileGrid.Visibility = Visibility.Collapsed;
+                WinHelloProgressRing.IsActive = true;
+                WinHelloWaitingIndicator.Visibility = Visibility.Visible;
+                bool isVerified = await VerifyUserWithWindowsHelloAsync("You need to verify with Windows Hello™️ to access your pinned files.");
+
+                if (isVerified)
+                {
+                    pinnedFileGrid.Visibility = Visibility.Visible;
+                    if (!string.IsNullOrEmpty(pinnedFolderToken)) obtainPinnedFiles();
+                }
+                else PinnedFilesExpander.IsExpanded = false;
+
+                WinHelloProgressRing.IsActive = false;
+                WinHelloWaitingIndicator.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void PinnedFilesExpander_Collapsed(Microsoft.UI.Xaml.Controls.Expander sender, Microsoft.UI.Xaml.Controls.ExpanderCollapsedEventArgs args)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
+        }
+
+
+        public async Task<bool> VerifyUserWithWindowsHelloAsync(string message)
+        {
+            var availability = await UserConsentVerifier.CheckAvailabilityAsync();
+
+            if (availability == UserConsentVerifierAvailability.Available)
+            {
+                var result = await UserConsentVerifier.RequestVerificationAsync(message);
+                switch (result)
+                {
+
+                    case UserConsentVerificationResult.Verified:
+                        return true;
+
+                    case UserConsentVerificationResult.Canceled:
+                        return false;
+
+                    case UserConsentVerificationResult.DeviceBusy:
+                        return false;
+
+                    case UserConsentVerificationResult.DeviceNotPresent:
+                        return false;
+
+                    case UserConsentVerificationResult.DisabledByPolicy:
+                        return false;
+
+                    case UserConsentVerificationResult.NotConfiguredForUser:
+                        return false;
+
+                    case UserConsentVerificationResult.RetriesExhausted:
+                        return false;
+
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                // the device does not support Windows Hello, display an error message
+                return false;
+            }
+        }
+
+        private async void EnableAllOptionsForPinsButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool isVerified = await VerifyUserWithWindowsHelloAsync("You need to verify with Windows Hello™️ to access your pinned files.");
+            if (isVerified) setPinBarOptionVisibility(true);
+        }
+
+        private void quickSettingsFlyoutTeachingTip_Closed(Microsoft.UI.Xaml.Controls.TeachingTip sender, Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs args)
+        {
+            ExpanderSettingsExpander.IsExpanded = false;
+            switch (pinBarBehaviorIndex)
+            {
+                case 3:
+                    setPinBarOptionVisibility(false);
+                    break;
+            }
         }
     }
 }
