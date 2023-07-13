@@ -54,6 +54,9 @@ namespace DropStack
         private ObservableCollection<FileItem> _filteredPinnedFileMetadataList;
         public ObservableCollection<FileItem> fileMetadataListCopy;
 
+        string RegularFolderPath { get; set; }
+        string PinnedFolderPath { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -80,8 +83,22 @@ namespace DropStack
                 if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
             }
 
-            if (!string.IsNullOrEmpty(pinnedFolderToken)) obtainPinnedFiles();
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); }
+            if (!string.IsNullOrEmpty(pinnedFolderToken)) { obtainPinnedFiles(); setFolderPath("Pin"); }
+            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
+        }
+
+        private async void setFolderPath(string folderToSet)
+        {
+            if (folderToSet == "Regular")
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                RegularFolderPath = folder.Path;
+            }
+            if (folderToSet == "Pin")
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                PinnedFolderPath = folder.Path;
+            }
         }
 
         private void PivotViewSwitcher_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -895,6 +912,26 @@ namespace DropStack
             fileInClipboardReminder.IsOpen = false;
             await Task.Delay(100);
             reminderTimer.Value = 0;
+        }
+
+        private void CopyRegularFolderPathButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataPackage dataPackage = new DataPackage();
+            dataPackage.SetText(RegularFolderPath);
+            Clipboard.SetContent(dataPackage);
+        }
+
+        private void CopyPinnedFolderPathButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataPackage dataPackage = new DataPackage();
+            dataPackage.SetText(PinnedFolderPath);
+            Clipboard.SetContent(dataPackage);
+        }
+
+        private void Flyout_Opened(object sender, object e)
+        {
+            RegularFolderPathDisplay.Text = RegularFolderPath;
+            PinnedFolderPathDisplay.Text = PinnedFolderPath;
         }
     }
 }

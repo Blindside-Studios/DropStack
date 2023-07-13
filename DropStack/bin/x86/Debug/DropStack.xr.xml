@@ -38,7 +38,10 @@
       <RootProperty Name="Translation" />
       <RootProperty Name="Height" />
       <RootProperty Name="OpacityTransition" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Width" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -130,8 +133,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="TextTrimming" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="HorizontalTextAlignment" />
     </RootType>
@@ -159,6 +162,24 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
       <RootProperty Name="Content" />
+      <RootEvent Name="Opened" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="MaxWidth" />
+      <RootProperty Name="IsReadOnly" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="Glyph" />
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.ProgressBar">
       <RootProperty Name="Value" />
@@ -167,12 +188,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="OpacityTransition" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
