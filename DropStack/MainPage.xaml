@@ -15,113 +15,113 @@
     </Page.Resources>
 
     <Grid x:Name="ContentGrid" HorizontalAlignment="Stretch">
-        <Pivot x:Name="PivotViewSwitcher" SelectionChanged="PivotViewSwitcher_SelectionChanged">
-            <PivotItem x:Name="RegularPivotSection" Header="Portal">
-                <Grid x:Name="regularFileGrid">
-                    <Grid.TranslationTransition>
-                        <Vector3Transition/>
-                    </Grid.TranslationTransition>
-                    <Rectangle x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
-                    <muxc:ProgressBar x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,8,5,0" Opacity="0">
-                        <muxc:ProgressBar.OpacityTransition>
-                            <ScalarTransition />
-                        </muxc:ProgressBar.OpacityTransition>
-                    </muxc:ProgressBar>
-                    <ScrollViewer Margin="0,10,0,0">
-                        <StackPanel>
-                            <ListView   x:Name="regularFileListView"
+        <Grid x:Name="RegularAndPinnedFileGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,50,10,0">
+            <Grid.TranslationTransition>
+                <Vector3Transition/>
+            </Grid.TranslationTransition>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <muxc:Expander
+                        IsExpanded="True"
+                        ExpandDirection="Down"
+                        VerticalAlignment="Top"
+                        Header="Pinned files"
+                        Grid.Row="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        AllowDrop="True"
+                        DragOver="PinnedPivotSection_DragOver"
+                        Drop="PinnedPivotSection_Drop">
+                <Grid x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                    <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                        <GridView x:Name="pinnedFileListView"
+                                      SelectionChanged="pinnedFileListView_SelectionChanged"
+                                      DoubleTapped="pinnedFileListView_DoubleTapped"
+                                      RightTapped="pinnedFileListView_RightTapped" 
+                                      CanDragItems="True" 
+                                      DragItemsStarting="pinnedFileListView_DragItemsStarting"
+                                      Height="150"
+                                      HorizontalAlignment="Stretch">
+                            <GridView.ItemContainerTransitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition  FromVerticalOffset="0" />
+                                </TransitionCollection>
+                            </GridView.ItemContainerTransitions>
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:Name="pinnedFilesDataTemplate">
+                                    <Grid HorizontalAlignment="Center" Width="180">
+                                        <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
+                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">
+                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
+                                                <StackPanel Margin="0,-9,0,0" HorizontalAlignment="Center">
+                                                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                                        <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                                        <TextBlock Text="-" FontSize="10"/>
+                                                        <TextBlock Text="{Binding FileSize}" FontSize="10"/>
+                                                        <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </ScrollViewer>
+                </Grid>
+            </muxc:Expander>
+            <Grid x:Name="regularFileGrid" Grid.Row="1">
+                <Grid.TranslationTransition>
+                    <Vector3Transition/>
+                </Grid.TranslationTransition>
+                <Rectangle x:Name="ContentBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
+                <muxc:ProgressBar x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
+                    <muxc:ProgressBar.OpacityTransition>
+                        <ScalarTransition />
+                    </muxc:ProgressBar.OpacityTransition>
+                </muxc:ProgressBar>
+                <ScrollViewer Margin="0,10,0,0" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <ListView   x:Name="regularFileListView"
                                 SelectionChanged="fileListView_SelectionChanged" 
                                 DoubleTapped="regularFileListView_DoubleTapped"
                                 RightTapped="fileListView_RightTapped" 
                                 CanDragItems="True" 
                                 DragItemsStarting="fileListView_DragItemsStarting">
-                                <ListView.ItemContainerTransitions>
-                                    <TransitionCollection>
-                                        <EntranceThemeTransition  FromVerticalOffset="0" />
-                                    </TransitionCollection>
-                                </ListView.ItemContainerTransitions>
-                                <ListView.ItemTemplate>
-                                    <DataTemplate x:Name="FilesDataTemplate">
-                                        <StackPanel x:Name="regularFileInfoStackpanel" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
-                                            <Grid>
-                                                <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                <muxc:ProgressRing IsActive="{Binding ProgressActivity}"/>
-                                            </Grid>
-                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
-                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
-                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
-                                                    <TextBlock Text="{Binding FileType}" FontSize="10"/>
-                                                    <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                                    <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                                    <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
-                                                </StackPanel>
-                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                            <ListView.ItemContainerTransitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition  FromVerticalOffset="0" />
+                                </TransitionCollection>
+                            </ListView.ItemContainerTransitions>
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:Name="FilesDataTemplate">
+                                    <StackPanel x:Name="regularFileInfoStackpanel" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
+                                        <Grid>
+                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <muxc:ProgressRing IsActive="{Binding ProgressActivity}"/>
+                                        </Grid>
+                                        <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
+                                            <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
+                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                                <TextBlock Text="{Binding FileType}" FontSize="10"/>
+                                                <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
                                             </StackPanel>
+                                            <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
                                         </StackPanel>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                            <Rectangle x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-            </PivotItem>
-            <PivotItem x:Name="PinnedPivotSection" Header="Pinned" AllowDrop="True" DragOver="PinnedPivotSection_DragOver" Drop="PinnedPivotSection_Drop">
-                <Grid x:Name="pinnedFileGrid">
-                    <Grid.TranslationTransition>
-                        <Vector3Transition/>
-                    </Grid.TranslationTransition>
-                    <Rectangle x:Name="PinsBackgroundRectangle" Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" Margin="0,8,0,-10"/>
-                    <ScrollViewer>
-                        <StackPanel>
-                            <ListView   x:Name="pinnedFileListView"
-                                SelectionChanged="pinnedFileListView_SelectionChanged"
-                                DoubleTapped="pinnedFileListView_DoubleTapped"
-                                RightTapped="pinnedFileListView_RightTapped" 
-                                CanDragItems="True" 
-                                DragItemsStarting="pinnedFileListView_DragItemsStarting"
-                                Margin="0,10,0,0">
-                                <ListView.ItemContainerTransitions>
-                                    <TransitionCollection>
-                                        <EntranceThemeTransition  FromVerticalOffset="0" />
-                                    </TransitionCollection>
-                                </ListView.ItemContainerTransitions>
-                                <ListView.ItemTemplate>
-                                    <DataTemplate x:Name="pinnedFilesDataTemplate">
-                                        <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Stretch">
-                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="43" Height="43" Stretch="Uniform" Margin="0,3,0,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}">
-                                                <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" Margin="0,5,0,0"/>
-                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Stretch">
-                                                    <TextBlock Text="{Binding FileType}" FontSize="10"/>
-                                                    <TextBlock Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                                    <TextBlock Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                                    <TextBlock Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
-                                                </StackPanel>
-                                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                            <Rectangle x:Name="pinnedFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-            </PivotItem>
-        </Pivot>
-        <Grid x:Name="FilePinDropperGrid"
-              Visibility="Collapsed"
-              VerticalAlignment="Bottom"
-              HorizontalAlignment="Stretch"
-              Height="100"
-              AllowDrop="True"
-              DragOver="PinnedPivotSection_DragOver"
-              Drop="PinnedPivotSection_Drop">
-            <StackPanel>
-                <TextBlock Text="Want to save this to your pins?"/>
-				<TextBlock Text="Simply drop it here..."/>
-            </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Rectangle x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
         </Grid>
         <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
             <AppBarButton x:Name="SearchButton" Icon="Find" Label="Search" Click="SearchButton_Click">
@@ -142,45 +142,45 @@
                     <KeyboardAccelerator Modifiers="Control" Key="R" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
+            <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
+                <ToolTip Content="Reveal the Portal folder in File Explorer"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="E" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple" Click="LaunchSimpleModeButton_Click">
+                <ToolTip Content="Launch Simple Mode..."/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="S" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="X"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Name="OpenFileButton" Icon="OpenFile" Label="Open" Click="OpenFileButton_Click">
+                <ToolTip Content="Opens the last selected file"/>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="A"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="QuickSettingsButton" Icon="Setting" Label="Settings" Click="QuickSettingsButton_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="I" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarSeparator/>
-                <AppBarButton x:Name="OpenFileButton" Icon="OpenFile" Label="Open file" Click="OpenFileButton_Click">
-                    <ToolTip Content="Opens the last selected file"/>
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="A"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal in File Explorer" Click="RevealInExplorerButton_Click">
-                    <ToolTip Content="Reveal in File Explorer"/>
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="E" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent from portal" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Launch simple mode..." Click="LaunchSimpleModeButton_Click">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="S" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <Grid x:Name="SearchGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0" Visibility="Collapsed" Translation="0,-50,0" Height="40" Margin="12,60,12,0">
+        <Grid x:Name="SearchGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0" Visibility="Collapsed" Translation="0,-60,0" Height="40" Margin="12,60,12,0">
             <Grid.TranslationTransition>
                 <Vector3Transition/>
             </Grid.TranslationTransition>
             <Grid.OpacityTransition>
                 <ScalarTransition/>
             </Grid.OpacityTransition>
-            <Rectangle Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="8" RadiusY="8" />
+            <Rectangle Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" RadiusX="4" RadiusY="4" />
             <TextBox x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4" TextChanged="SearchTextBox_TextChanged"/>
         </Grid>
         <muxc:TeachingTip x:Name="fileInClipboardReminder"
