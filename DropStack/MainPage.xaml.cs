@@ -24,6 +24,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml.Input;
 using System.Xml.Serialization;
 using Windows.Security.Credentials.UI;
+using System.ComponentModel.Design;
 
 namespace DropStack
 {
@@ -60,6 +61,8 @@ namespace DropStack
 
         int pinBarBehaviorIndex = 0;
         bool isWindowsHelloRequiredForPins = false;
+
+        bool needsToRelaunchForSimpleModeSetting = false;
 
         public MainPage()
         {
@@ -769,9 +772,11 @@ namespace DropStack
 
         private void UseSimpleViewByDefaultToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!needsToRelaunchForSimpleModeSetting) { needsToRelaunchForSimpleModeSetting = true; SimpleViewRelauncherButton.Visibility = Visibility.Visible; }
+            else if (needsToRelaunchForSimpleModeSetting) { needsToRelaunchForSimpleModeSetting = false; SimpleViewRelauncherButton.Visibility = Visibility.Collapsed; }
+            
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            SimpleViewRelauncherButton.Visibility = Visibility.Visible;
 
             localSettings.Values["LoadSimpleViewBoolean"] = UseSimpleViewByDefaultToggle.IsOn;
         }
@@ -1101,6 +1106,11 @@ namespace DropStack
                     setPinBarOptionVisibility(false);
                     break;
             }
+        }
+
+        private void regularFileListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ((ItemsWrapGrid)regularFileListView.ItemsPanelRoot).ItemWidth = regularFileListView.Width;
         }
     }
 }

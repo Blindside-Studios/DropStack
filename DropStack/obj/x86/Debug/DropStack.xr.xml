@@ -39,6 +39,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="OpacityTransition" />
       <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="Tag" />
       <RootProperty Name="Width" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
@@ -120,11 +121,11 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Children" />
       <RootProperty Name="Spacing" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="Orientation" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Opacity" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
