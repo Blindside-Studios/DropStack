@@ -42,6 +42,11 @@
                         <muxc:ProgressRing x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                         <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                     </StackPanel>
+                    <TextBlock x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. To change that, just drag one right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                        <TextBlock x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                        <HyperlinkButton x:Name="PickPinnedFolderHyperlinkButton" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Click="PickPinnedFolderHyperlinkButton_Click"/>
+                    </StackPanel>
                     <Grid x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                         <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
                             <GridView x:Name="pinnedFileListView"

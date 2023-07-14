@@ -275,6 +275,12 @@
       <RootEvent Name="RightTapped" />
       <RootEvent Name="DragItemsStarting" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="DropStack.MainPage" />
     <RootType FullName="DropStack.SimplePage" />
   </Roots.RootTypes>

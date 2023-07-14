@@ -81,6 +81,7 @@ namespace DropStack
 
             if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
             if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
+            else if (string.IsNullOrEmpty(pinnedFolderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
         }
 
         private async void loadSettings()
@@ -587,6 +588,8 @@ namespace DropStack
 
         private async void PickPinnedFolder()
         {
+            NoPinnedFolderStackpanel.Visibility = Visibility.Collapsed;
+
             // Create a new instance of the folder picker
             FolderPicker folderPicker = new FolderPicker();
 
@@ -617,6 +620,8 @@ namespace DropStack
 
         private async void obtainPinnedFiles()
         {
+            NoPinnedFilesTextBlock.Visibility = Visibility.Collapsed;
+
             pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
             StorageFolder pinnedFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
             if (pinnedFolder != null)
@@ -679,6 +684,8 @@ namespace DropStack
             {
                 //there was an error fetching the pinned files
             }
+
+            if (pinnedFileListView.Items.Count == 0) { NoPinnedFilesTextBlock.Visibility = Visibility.Visible; }
         }
 
         private void cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -1111,6 +1118,11 @@ namespace DropStack
         private void regularFileListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ((ItemsWrapGrid)regularFileListView.ItemsPanelRoot).ItemWidth = regularFileListView.Width;
+        }
+
+        private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            PickPinnedFolder();
         }
     }
 }
