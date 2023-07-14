@@ -156,53 +156,6 @@ namespace DropStack
             }
         }
 
-        private void PivotViewSwitcher_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            /*
-            if (PivotViewSwitcher.SelectedIndex == 0)
-            {
-                ConnectionDisruptorDisplay.Text = "Folder Portal";
-                noPinnedFolderpathTechingTip.IsOpen = false;
-                if (regularFileListView.Items.Count == 0 && !string.IsNullOrEmpty(folderToken)) obtainFolderAndFiles();
-                if (string.IsNullOrEmpty(folderToken) && string.IsNullOrEmpty(pinnedFolderToken) && OOBEgrid.Visibility == Visibility.Collapsed) { noAccessHandler(); disableButtonVisibility(); }
-                else if (string.IsNullOrEmpty(folderToken) && string.IsNullOrEmpty(pinnedFolderToken))
-                {
-                    noAccessHandler();
-                    disableButtonVisibility();
-                    noFolderpathTechingTip.IsOpen = false;
-                    noPinnedFolderpathTechingTip.IsOpen = false;
-                }
-                else enableButtonVisibility();
-                if (isSearch2Active) filterListView("", 1);
-            }
-
-            else if (PivotViewSwitcher.SelectedIndex == 1)
-            {
-                pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
-                noFolderpathTechingTip.IsOpen = false;
-                if (string.IsNullOrEmpty(pinnedFolderToken)) { noPinnedFolderpathTechingTip.IsOpen = true; disableButtonVisibility(); }
-                else
-                {
-                    if (pinnedFileListView.Items.Count < 1)
-                    {
-                        { enableButtonVisibility(); obtainPinnedFiles(); }
-                    }
-                }
-                ConnectionDisruptorDisplay.Text = "Pinned Folder Portal (your pinned files will persist and only the link to the app will be removed)";
-                if (isSearch1Active) filterListView("", 0);
-            }
-
-            GlobalSwitchAffectedClickedItems = null;
-
-            SearchGrid.Opacity = 0;
-            SearchGrid.Translation = new Vector3(0, -50, 0);
-            SearchGrid.Visibility = Visibility.Collapsed;
-            regularFileGrid.Translation = new Vector3(0, 0, 0);
-            pinnedFileGrid.Translation = new Vector3(0, 0, 0);
-            regularFilePusher.Visibility = Visibility.Collapsed;
-            */
-        }
-
         private void enableButtonVisibility()
         {
             FileCommandBar.Visibility = Visibility.Visible;
