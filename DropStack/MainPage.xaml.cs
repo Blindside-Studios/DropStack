@@ -25,6 +25,7 @@ using Windows.UI.Xaml.Input;
 using System.Xml.Serialization;
 using Windows.Security.Credentials.UI;
 using System.ComponentModel.Design;
+using Windows.ApplicationModel;
 
 namespace DropStack
 {
@@ -45,7 +46,17 @@ namespace DropStack
 
     public sealed partial class MainPage : Page
     {
-        string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+
+        public string GetAppVersion()
+        {
+            Package package = Package.Current;
+            PackageId packageId = package.Id;
+            PackageVersion version = packageId.Version;
+            return $"Version {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        }
+
+
+    string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
 
         IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
@@ -1123,6 +1134,21 @@ namespace DropStack
         private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             PickPinnedFolder();
+        }
+
+        private void AboutDropStackButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutDropStackGrid.Visibility = Visibility.Visible;
+            AboutDropStackGrid.Opacity = 1;
+            AboutDropStackContentGrid.Translation = new Vector3(0, 0, 0);
+        }
+
+        private async void AboutDropStackCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutDropStackGrid.Opacity = 0;
+            AboutDropStackContentGrid.Translation = new Vector3(0, 50, 0);
+            await Task.Delay(500);
+            AboutDropStackGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
