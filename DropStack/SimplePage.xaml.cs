@@ -52,8 +52,17 @@ namespace DropStack
                     isCommandBarPinned = true;
                 }
             }
-                
-            if(!isCommandBarPinned)
+
+            if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
+            {
+                if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == false)
+                {
+                    MakeSimpleDefaultButton.Visibility = Visibility.Visible;
+                }
+            }
+            else MakeSimpleDefaultButton.Visibility = Visibility.Visible;
+
+            if (!isCommandBarPinned)
             {
                 FileCommandBar.Translation = new Vector3(0, 60, 0);
                 CommandBarIndicatorPill.Opacity = 1;
@@ -454,7 +463,9 @@ namespace DropStack
 
         private void MakeSimpleDefaultButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["LoadSimpleViewBoolean"] = true;
+            MakeSimpleDefaultButton.Visibility = Visibility.Collapsed;
         }
     }
 }
