@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-14T16:19:57.844</Modified>
+      <Modified>2023-07-14T16:30:20.630</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\DropStack.exe">
       <PackagePath>entrypoint\DropStack.exe</PackagePath>
-      <Modified>2023-07-14T16:19:56.655</Modified>
+      <Modified>2023-07-14T16:30:19.510</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -342,19 +342,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\DropStack.xr.xml">
       <PackagePath>DropStack.xr.xml</PackagePath>
-      <Modified>2023-07-14T16:14:35.609</Modified>
+      <Modified>2023-07-14T16:30:19.329</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-07-14T16:19:56.507</Modified>
+      <Modified>2023-07-14T16:30:19.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-07-14T16:19:56.503</Modified>
+      <Modified>2023-07-14T16:30:19.348</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\SimplePage.xbf">
       <PackagePath>SimplePage.xbf</PackagePath>
-      <Modified>2023-07-14T16:19:56.506</Modified>
+      <Modified>2023-07-14T16:30:19.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22000.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -374,7 +374,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStack\bin\x86\Debug\Core\DropStack.exe">
       <PackagePath>DropStack.exe</PackagePath>
-      <Modified>2023-07-14T16:19:57.840</Modified>
+      <Modified>2023-07-14T16:30:20.627</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

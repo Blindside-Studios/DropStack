@@ -244,6 +244,7 @@
       <RootProperty Name="Label" />
       <RootProperty Name="Content" />
       <RootProperty Name="KeyboardAccelerators" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTip">
@@ -297,6 +298,7 @@
       <RootEvent Name="DragItemsStarting" />
     </RootType>
     <RootType FullName="DropStack.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarSeparator" />
     <RootType FullName="DropStack.SimplePage" />
   </Roots.RootTypes>
 </Roots>

@@ -119,6 +119,8 @@
                         <KeyboardAccelerator Modifiers="Control" Key="T"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
+                <AppBarButton x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make simple mode default" Click="MakeSimpleDefaultButton_Click" Visibility="Collapsed"/>
+                <AppBarSeparator/>
                 <AppBarButton x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Close simple mode..." Click="LoadMoreFromSimpleViewButton_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />

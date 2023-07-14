@@ -451,5 +451,10 @@ namespace DropStack
             // copy the data package to the clipboard
             Clipboard.SetContent(dataPackage);
         }
+
+        private void MakeSimpleDefaultButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
