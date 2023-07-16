@@ -961,19 +961,23 @@ namespace DropStack
                 case "Always opened":
                     securitySeverityIndex = 0;
                     PinnedFilesExpander.IsExpanded = true;
+                    isWindowsHelloRequiredForPins = false;
                     break;
                 case "Remember last state":
                     securitySeverityIndex = 1;
                     localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
+                    isWindowsHelloRequiredForPins = false;
                     break;
                 case "Always closed":
                     securitySeverityIndex = 2;
                     PinnedFilesExpander.IsExpanded = false;
+                    isWindowsHelloRequiredForPins = false;
                     break;
                 case "Protect with Windows Hello™️":
                     securitySeverityIndex = 3;
                     PinnedFilesExpander.IsExpanded = false;
                     setPinBarOptionVisibility(false);
+                    isWindowsHelloRequiredForPins = true;
                     break;
             }
             localSettings.Values["PinBarBehavior"] = securitySeverityIndex;
@@ -1071,17 +1075,8 @@ namespace DropStack
         private void quickSettingsFlyoutTeachingTip_Closed(Microsoft.UI.Xaml.Controls.TeachingTip sender, Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs args)
         {
             ExpanderSettingsExpander.IsExpanded = false;
-            switch (pinBarBehaviorIndex)
-            {
-                case 3:
-                    setPinBarOptionVisibility(false);
-                    break;
-            }
-        }
-
-        private void regularFileListView_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            ((ItemsWrapGrid)regularFileListView.ItemsPanelRoot).ItemWidth = regularFileListView.Width;
+            if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
+            else if (!isWindowsHelloRequiredForPins) setPinBarOptionVisibility(true);
         }
 
         private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
