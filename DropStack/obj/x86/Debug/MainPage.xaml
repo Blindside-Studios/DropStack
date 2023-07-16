@@ -366,7 +366,7 @@
                                         <StackPanel Spacing="20" VerticalAlignment="Center">
                                             <TextBlock Text="📂" FontSize="92" HorizontalAlignment="Center"/>
                                             <TextBlock Text="Pick your portal!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                            <TextBlock Text="Please click the button below and then pick the folder you would like DropStack to mirror. We would suggest using your downloads folder, however, feel free to pick a custom one. You can change the portal folder later in settings. If you do not wish to choose one now, just click 'Continue'."
+                                            <TextBlock Text="Please click the button below and then pick the folder you would like DropStack to mirror. We would suggest using your downloads folder, however, feel free to pick a custom one. You can change the portal folder later in settings. If you do not wish to choose one now, just click 'Next'."
                                                        FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                             <TextBlock Height="10"/>
                                             <Button x:ConnectionId='24' x:Name="OOBEportalFileAccessRequestButton" Content="Set a portal folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
@@ -378,7 +378,7 @@
                                         <StackPanel Spacing="20" VerticalAlignment="Center">
                                             <TextBlock Text="📌" FontSize="92" HorizontalAlignment="Center"/>
                                             <TextBlock Text="Pick your pins!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                            <TextBlock Text="DropStack pins files by copying them to a folder you specify. This means that you can pin a folder and even delete the original. If you uninstall DropStack, your pinned files won't be lost, they will remain in the folder you specified. Please repeat what you just did with the portal folder, except with the pins folder. Once again, this can be changed later-on and you can skip choosing a folder now by clicking 'Continue'." 
+                                            <TextBlock Text="DropStack pins files by copying them to a folder you specify. This means that you can pin a folder and even delete the original. If you uninstall DropStack, your pinned files won't be lost, they will remain in the folder you specified. Please repeat what you just did with the portal folder, except with the pins folder. Once again, this can be changed later-on and you can skip choosing a folder now by clicking 'Next'." 
                                                    FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                             <TextBlock Height="10"/>
                                             <Button x:ConnectionId='23' x:Name="OOBEpinnedFileAccessRequestButton" Content="Set a pinned folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
