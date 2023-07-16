@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="DropStack" Publisher="CN=Blindside Studios" Version="0.2.2.0" ProcessorArchitecture="x64" />
+  <Identity Name="DropStack" Publisher="CN=Blindside Studios" Version="0.3.0.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="a6b6f551-b7c3-48d6-9d07-d50afd680112" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DropStack</DisplayName>
@@ -55,7 +55,7 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="17.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2022" />
-    <build:Item Name="OperatingSystem" Version="10.0.22621.1554 (WinBuild.160101.0800)" />
+    <build:Item Name="OperatingSystem" Version="10.0.22621.1991 (WinBuild.160101.0800)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="17.6.36389.36139" />
     <build:Item Name="ProjectGUID" Value="{FDE858B0-CEBB-483B-9818-73053D399083}" />
     <build:Item Name="OptimizingToolset" Value="None" />
