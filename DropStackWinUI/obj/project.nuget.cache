@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "fL6Zv5VhrBWjZ25d6obI4oWYjj19WBFzKfloSaCKA6g7K73FIu5L+wH0RuBOMbloJA8uH8zs6C/mWp1j/pWcUA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windowsappsdk\\1.3.230602002\\microsoft.windowsappsdk.1.3.230602002.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\winuiex\\2.2.0\\winuiex.2.2.0.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.20\\microsoft.netcore.app.runtime.win-x86.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.29\\microsoft.windows.sdk.net.ref.10.0.19041.29.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.20\\microsoft.aspnetcore.app.runtime.win-x86.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\6.0.20\\microsoft.netcore.app.runtime.win-arm64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.20\\microsoft.aspnetcore.app.runtime.win-x64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\6.0.20\\microsoft.windowsdesktop.app.runtime.win-arm64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.20\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\6.0.20\\microsoft.aspnetcore.app.runtime.win-arm64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.20\\microsoft.netcore.app.runtime.win-x64.6.0.20.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.20\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

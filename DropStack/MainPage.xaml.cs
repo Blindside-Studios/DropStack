@@ -56,7 +56,7 @@ namespace DropStack
         }
 
 
-    string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+        string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
 
         IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
@@ -92,7 +92,7 @@ namespace DropStack
 
             if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
             if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
-            else if (string.IsNullOrEmpty(pinnedFolderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
+            else if (string.IsNullOrEmpty(pinnedFolderToken) && !string.IsNullOrEmpty(folderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
         }
 
         private async void loadSettings()

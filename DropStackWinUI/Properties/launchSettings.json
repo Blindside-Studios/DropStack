@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DropStackWinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DropStackWinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
