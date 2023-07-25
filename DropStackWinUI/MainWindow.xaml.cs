@@ -586,7 +586,7 @@ namespace DropStackWinUI
             folderPicker.ViewMode = PickerViewMode.List;
 
             // Get the window handle of the app window
-            var windowHandle = WindowNative.GetWindowHandle(App.Window);
+            var windowHandle = WindowNative.GetWindowHandle(this);
             // Associate the picker with the app window
             InitializeWithWindow.Initialize(folderPicker, windowHandle);
 

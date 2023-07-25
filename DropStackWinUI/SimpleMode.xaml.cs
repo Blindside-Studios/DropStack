@@ -28,6 +28,7 @@ using System.Formats.Asn1;
 using System.ComponentModel.Design;
 using Windows.Management.Deployment;
 using Microsoft.UI.Windowing;
+using System.Numerics;
 
 namespace DropStackWinUI
 {
@@ -61,10 +62,18 @@ namespace DropStackWinUI
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Nearest);
+            var appWindow = AppWindow.GetFromWindowId(windowId);
 
             int displayWidth = displayArea.WorkArea.Width;
             int displayHeight = displayArea.WorkArea.Height;
-            this.MoveAndResize((displayWidth / 2) - 200, (displayHeight - (700 + 20)), 400, 700);
+
+            int windowWidth = appWindow.Size.Width;
+            int windowHeight = appWindow.Size.Height;
+
+            this.MoveAndResize((displayWidth / 2) - (windowWidth/2), displayHeight - (windowHeight + 25), 400, 700);
+
+            EverythingGrid.Translation = new Vector3(0,0,0);
+            EverythingGrid.Opacity = 1;
         }
 
         public async void obtainFolderAndFiles(string source)
@@ -303,8 +312,11 @@ namespace DropStackWinUI
             }
         }
 
-        private void CloseSimpleModeButton_Click(object sender, RoutedEventArgs e)
+        private async void CloseSimpleModeButton_Click(object sender, RoutedEventArgs e)
         {
+            EverythingGrid.Opacity = 0;
+            EverythingGrid.Translation = new Vector3(0,20,0);
+            await Task.Delay(200);
             this.Close();
         }
 

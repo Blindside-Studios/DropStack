@@ -13,7 +13,14 @@
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
     
-    <Grid>
+    <Grid x:Name="EverythingGrid" Translation="0,20,0" Opacity="0">
+        <Grid.TranslationTransition>
+            <Vector3Transition/>
+        </Grid.TranslationTransition>
+        <Grid.OpacityTransition>
+            <ScalarTransition/>
+        </Grid.OpacityTransition>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="60"/>

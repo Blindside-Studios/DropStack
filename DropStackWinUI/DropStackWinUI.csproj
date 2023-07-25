@@ -19,6 +19,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Never</AppxBundle>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <AppxPackageDir>C:\Users\nicol\Downloads\</AppxPackageDir>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SimpleMode.xaml" />

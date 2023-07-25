@@ -25,24 +25,23 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:ConnectionId='16' x:Name="FolderDisplay" 
+            <Rectangle x:ConnectionId='17' x:Name="DragZone" VerticalAlignment="Top" Height="1" Fill="Transparent"/>
+            <TextBlock x:ConnectionId='18' x:Name="FolderDisplay" 
                        Text="DropStack" 
                        FontSize="35" 
                        FontWeight="SemiBold" 
                        Grid.Column="0" 
                        VerticalAlignment="Center" 
                        Margin="20,0,10,0" 
-                       TextTrimming="CharacterEllipsis" 
-                                                                    
-                       ToolTipService.ToolTip="Click here to visit this folder"/>
+                       TextTrimming="CharacterEllipsis"/>
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" Spacing="10">
-                <Button x:ConnectionId='17' x:Name="SimpleModeMeatballMenu"                                      Background="Transparent" BorderBrush="Transparent">
+                <Button x:ConnectionId='19' x:Name="SimpleModeMeatballMenu"                                      Background="Transparent" BorderBrush="Transparent">
                     <FontIcon Glyph="&#xE8A7;"/>
                     <ToolTipService.ToolTip>
                         <ToolTip Content="Open DropStack's main window for more options"/>
                     </ToolTipService.ToolTip>
                 </Button>
-                <Button x:ConnectionId='18' x:Name="CloseSimpleModeButton"                                     Background="Transparent" BorderBrush="Transparent">
+                <Button x:ConnectionId='20' x:Name="CloseSimpleModeButton"                                     Background="Transparent" BorderBrush="Transparent">
                     <FontIcon Glyph="&#xE8BB;"/>
                     <ToolTipService.ToolTip>
                         <ToolTip Content="Close this window"/>
@@ -50,44 +49,45 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
         <ScrollViewer Grid.Row="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
-            <StackPanel x:ConnectionId='7' x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
-                <ToggleButton x:ConnectionId='8' x:Name="AllFilesToggleButton"                                                                           Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
+            <StackPanel x:ConnectionId='8' x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
+                <ToggleButton x:ConnectionId='9' x:Name="AllFilesToggleButton"                                                                           Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True"                                                ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='9' x:Name="PinnedFilesToggleButton"                                                                           Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2">
+                <ToggleButton x:ConnectionId='10' x:Name="PinnedFilesToggleButton"                                                                           Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18"                                                   ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='10'                                                                           Tag="docs" Content="Documents" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
+                <ToggleButton x:ConnectionId='11'                                                                           Tag="docs" Content="Documents" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number3"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='11'                                                                           Tag="pics" Content="Pictures" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
+                <ToggleButton x:ConnectionId='12'                                                                           Tag="pics" Content="Pictures" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number4"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='12'                                                                           Tag="music" Content="Music" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
+                <ToggleButton x:ConnectionId='13'                                                                           Tag="music" Content="Music" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number5"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='13'                                                                           Tag="vids" Content="Videos" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
+                <ToggleButton x:ConnectionId='14'                                                                           Tag="vids" Content="Videos" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number6"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='14'                                                                           Tag="apps" Content="Applications" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
+                <ToggleButton x:ConnectionId='15'                                                                           Tag="apps" Content="Applications" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number7"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:ConnectionId='15'                                                                           Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="0,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
+                <ToggleButton x:ConnectionId='16'                                                                           Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="0,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number8"/>
                     </ToggleButton.KeyboardAccelerators>
@@ -149,6 +149,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <TeachingTip x:ConnectionId='3' x:Name="SomethingWentWrongTeachingTip"
+                     PreferredPlacement="Center"
+                     Title="Oops, something went wrong!"
+                     Subtitle="Please visit normal view. If the issue persists, please submit feedback by creating an issue on GitHub."
+                     IsOpen="False"
+                     ActionButtonContent="Visit normal mode..."
+                                                                      />
     </Grid>
 </winex:WindowEx>
 

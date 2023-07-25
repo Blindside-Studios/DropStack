@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="991afa5e-1b92-4f84-98a9-98295385903c" Publisher="CN=Blindside Studios" Version="0.4.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="991afa5e-1b92-4f84-98a9-98295385903c" Publisher="CN=Blindside Studios" Version="0.3.11.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="991afa5e-1b92-4f84-98a9-98295385903c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DropStack Canary</DisplayName>
