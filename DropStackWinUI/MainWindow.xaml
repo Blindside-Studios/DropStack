@@ -75,7 +75,7 @@
                                                 <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
                                                     <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                     <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">
-                                                        <TextBlock Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
+                                                        <TextBlock Text="{Binding FileDisplayName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
                                                         <StackPanel Margin="0,-9,0,0" HorizontalAlignment="Center">
                                                             <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
                                                                 <TextBlock Text="{Binding FileType}" FontSize="10" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>

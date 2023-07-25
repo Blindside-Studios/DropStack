@@ -47,6 +47,7 @@ namespace DropStackWinUI
     public class FileItem
     {
         public string FileName { get; set; }
+        public string FileDisplayName { get; set; }
         public string FilePath { get; set; }
         public string FileType { get; set; }
         public string TypeTag { get; set; }
@@ -667,6 +668,7 @@ namespace DropStackWinUI
                     pinnedFileMetadataList.Add(new FileItem()
                     {
                         FileName = pinnedFile.Name,
+                        FileDisplayName = pinnedFile.DisplayName,
                         FilePath = pinnedFile.Path,
                         FileType = pinnedFile.DisplayType,
                         FileSize = filesizecalc.ToString(),

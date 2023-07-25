@@ -49,6 +49,7 @@ namespace DropStackWinUI
         bool isSorting = false;
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
+        bool isPinsOnScreen = false;
 
         public SimpleMode()
         {
@@ -187,7 +188,8 @@ namespace DropStackWinUI
 
                         fileMetadataList.Add(new FileItem()
                         {
-                            FileName = file.DisplayName,
+                            FileName = file.Name,
+                            FileDisplayName = file.DisplayName,
                             FilePath = file.Path,
                             FileType = "This file is still being downloaded",
                             FileSize = "",
@@ -205,7 +207,8 @@ namespace DropStackWinUI
                     {
                         fileMetadataList.Add(new FileItem()
                         {
-                            FileName = file.DisplayName,
+                            FileName = file.Name,
+                            FileDisplayName = file.DisplayName,
                             FilePath = file.Path,
                             FileType = typeDisplayName,
                             TypeTag = typeTag,
@@ -245,6 +248,7 @@ namespace DropStackWinUI
 
             // get the folder path
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+            if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
             string folderPath = folder.Path;
 
             // construct the full file path
@@ -269,6 +273,7 @@ namespace DropStackWinUI
             {
                 var selectedFile = e.Items[0] as FileItem;
                 var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
                 var file = await folder.GetFileAsync(selectedFile.FileName);
 
                 // Create a list of storage items with the file
@@ -277,7 +282,7 @@ namespace DropStackWinUI
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
             }
-            catch {}
+            catch { }
         }
 
         private void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
@@ -336,6 +341,8 @@ namespace DropStackWinUI
             else if (sortTag != "all") filterListView(sortTag);
 
             if (sortTag == "pins") obtainFolderAndFiles("pinned");
+
+            isPinsOnScreen = ((ToggleButton)sender == PinnedFilesToggleButton);
 
             isSorting = true;
             foreach (ToggleButton listedToggleButton in FilterButtonsStackPanel.Children)
@@ -429,6 +436,26 @@ namespace DropStackWinUI
             mainWindow.Activate();
 
             this.Close();
+        }
+
+        private void PinnedFilesToggleButton_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Copy;
+            e.DragUIOverride.Caption = "Drop to add to pinned files";
+        }
+
+        private async void PinnedFilesToggleButton_Drop(object sender, DragEventArgs e)
+        {
+            if (e.DataView.Contains(StandardDataFormats.StorageItems))
+            {
+                var items = await e.DataView.GetStorageItemsAsync();
+                if (items.Count > 0)
+                {
+                    var storageFile = items[0] as StorageFile; StorageFolder storageFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                    StorageFile copiedFile = await storageFile.CopyAsync(storageFolder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
+                    if (isPinsOnScreen) obtainFolderAndFiles("pinned");
+                }
+            }
         }
     }
 }

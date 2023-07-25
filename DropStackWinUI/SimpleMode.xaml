@@ -64,7 +64,7 @@
                         <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2">
+                <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True" DragOver="PinnedFilesToggleButton_DragOver" Drop="PinnedFilesToggleButton_Drop">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
                     </ToggleButton.KeyboardAccelerators>
@@ -129,7 +129,7 @@
                                 <RowDefinition Height="35"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
+                            <TextBlock Grid.Row="0" Text="{Binding FileDisplayName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
                             <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
