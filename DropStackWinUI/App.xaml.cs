@@ -36,6 +36,8 @@ namespace DropStackWinUI
             this.InitializeComponent();
         }
 
+        public static Window Window { get { return m_window; } }
+
         /// <summary>
         /// Invoked when the application is launched.
         /// </summary>
@@ -43,13 +45,20 @@ namespace DropStackWinUI
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+            string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+            string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
+
             bool shouldBeSimpleView = false;
+
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
                 if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == false) shouldBeSimpleView = false;
                 else if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) shouldBeSimpleView = true;
             }
-            //override according to launch arguments
+
+            if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken)) shouldBeSimpleView = false;
+
             if (args.Arguments == "forceNormalView") shouldBeSimpleView = false;
             else if (args.Arguments == "forceSimpleView") shouldBeSimpleView = true;
 
@@ -58,6 +67,6 @@ namespace DropStackWinUI
             m_window.Activate();
         }
 
-        private Window m_window;
+        private static Window m_window;
     }
 }

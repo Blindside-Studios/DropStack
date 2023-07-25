@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>991afa5e-1b92-4f84-98a9-98295385903c</PackageIdentityName>
-    <PackageIdentityPublisher>CN=nicol</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=Blindside Studios</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,24 +18,24 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppX</LayoutDir>
-    <RegisteredManifestChecksum>C8885030896C33BF9B1B8D14B90C07DF6437FC944A5D7E01AF5FB208D5F581CC</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>991afa5e-1b92-4f84-98a9-98295385903c_1.0.0.0_x86__tsvjf8mvqqcpg</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>991afa5e-1b92-4f84-98a9-98295385903c_tsvjf8mvqqcpg!App</RegisteredUserModeAppID>
+    <RegisteredManifestChecksum>F1968F71C4FAD7E63BDDB93426490E3EAD7CEAED686716B867B89468CDE73E64</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>991afa5e-1b92-4f84-98a9-98295385903c_0.4.0.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>991afa5e-1b92-4f84-98a9-98295385903c_rj07gsm475t48!App</RegisteredUserModeAppID>
     <RegisteredPackageID>991afa5e-1b92-4f84-98a9-98295385903c</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=nicol</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredPackagePublisher>CN=Blindside Studios</RegisteredPackagePublisher>
+    <RegisteredVersion>0.4.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-23T14:58:05.878</Modified>
+      <Modified>2023-07-25T16:26:38.912</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-07-23T14:58:05.656</Modified>
+      <Modified>2023-07-25T16:23:02.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.runtimeconfig.json">
       <PackagePath>DropStackWinUI.runtimeconfig.json</PackagePath>
@@ -43,15 +43,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2023-07-23T14:58:05.558</Modified>
+      <Modified>2023-07-25T16:26:38.580</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2023-07-23T14:58:05.564</Modified>
+      <Modified>2023-07-25T16:26:38.586</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>
-      <Modified>2023-07-23T14:54:52.218</Modified>
+      <Modified>2023-07-25T13:22:45.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.20\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -1025,33 +1025,213 @@
       <PackagePath>WinUIEx.pri</PackagePath>
       <Modified>2023-05-10T22:25:22.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.471</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.493</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.519</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.557</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.680</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2023-07-20T22:07:23.014</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.186</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.197</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.208</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.942</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.972</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.011</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <Modified>2023-07-20T22:07:23.015</Modified>
+      <Modified>2023-07-23T16:09:15.070</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.277</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.241</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.253</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <Modified>2023-07-20T22:07:23.015</Modified>
+      <Modified>2023-07-23T16:09:14.285</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.323</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.870</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.880</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.920</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.890</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.900</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.810</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.860</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.830</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.841</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.691</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.703</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <Modified>2023-07-20T22:07:23.016</Modified>
+      <Modified>2023-07-23T16:09:14.724</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.739</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.749</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.821</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.800</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.781</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.backup.png">
+      <PackagePath>Assets\StoreLogo.backup.png</PackagePath>
       <Modified>2023-07-20T22:07:23.016</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <Modified>2023-07-20T22:07:23.016</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.287</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.298</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.310</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.323</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:15.339</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.336</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.351</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <Modified>2023-07-20T22:07:23.017</Modified>
+      <Modified>2023-07-23T16:09:14.391</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <Modified>2023-07-23T16:09:14.455</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

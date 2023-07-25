@@ -25,6 +25,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+            <Rectangle x:Name="DragZone" VerticalAlignment="Top" Height="1" Fill="Transparent"/>
             <TextBlock x:Name="FolderDisplay" 
                        Text="DropStack" 
                        FontSize="35" 
@@ -32,9 +33,7 @@
                        Grid.Column="0" 
                        VerticalAlignment="Center" 
                        Margin="20,0,10,0" 
-                       TextTrimming="CharacterEllipsis" 
-                       PointerPressed="FolderDisplay_PointerPressed"
-                       ToolTipService.ToolTip="Click here to visit this folder"/>
+                       TextTrimming="CharacterEllipsis"/>
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" Spacing="10">
                 <Button x:Name="SimpleModeMeatballMenu" Click="SimpleModeMeatballMenu_Click" Background="Transparent" BorderBrush="Transparent">
                     <FontIcon Glyph="&#xE8A7;"/>
@@ -50,14 +49,15 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
         <ScrollViewer Grid.Row="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
             <StackPanel x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
-                <ToggleButton x:Name="AllFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
+                <ToggleButton x:Name="AllFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" RightTapped="AllFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
                     </ToggleButton.KeyboardAccelerators>
                 </ToggleButton>
-                <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2">
+                <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2">
                     <ToggleButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
                     </ToggleButton.KeyboardAccelerators>
@@ -149,5 +149,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <TeachingTip x:Name="SomethingWentWrongTeachingTip"
+                     PreferredPlacement="Center"
+                     Title="Oops, something went wrong!"
+                     Subtitle="Please visit normal view. If the issue persists, please submit feedback by creating an issue on GitHub."
+                     IsOpen="False"
+                     ActionButtonContent="Visit normal mode..."
+                     ActionButtonClick="TeachingTip_ActionButtonClick"/>
     </Grid>
 </winex:WindowEx>

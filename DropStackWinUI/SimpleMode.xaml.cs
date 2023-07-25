@@ -27,6 +27,7 @@ using Windows.ApplicationModel.Core;
 using System.Formats.Asn1;
 using System.ComponentModel.Design;
 using Windows.Management.Deployment;
+using Microsoft.UI.Windowing;
 
 namespace DropStackWinUI
 {
@@ -47,13 +48,23 @@ namespace DropStackWinUI
         bool isSorting = false;
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
-        bool isPinsOnScreen = false;
 
         public SimpleMode()
         {
             this.InitializeComponent();
+            
             ExtendsContentIntoTitleBar = true;
+            SetTitleBar(DragZone);
             obtainFolderAndFiles("portal");
+            this.CenterOnScreen();
+
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+            var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Nearest);
+
+            int displayWidth = displayArea.WorkArea.Width;
+            int displayHeight = displayArea.WorkArea.Height;
+            this.MoveAndResize((displayWidth / 2) - 200, (displayHeight - (700 + 20)), 400, 700);
         }
 
         public async void obtainFolderAndFiles(string source)
@@ -205,7 +216,7 @@ namespace DropStackWinUI
             }
             else
             {
-                // Ah bleh
+                SomethingWentWrongTeachingTip.IsOpen = true;
             }
             isLoading = false;
         }
@@ -321,15 +332,17 @@ namespace DropStackWinUI
             }
             isSorting = false;
 
-            isPinsOnScreen = ((ToggleButton)sender == PinnedFilesToggleButton);
-
-            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-            if ((ToggleButton)sender == PinnedFilesToggleButton)
+            try
             {
-                folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                if ((ToggleButton)sender == PinnedFilesToggleButton)
+                {
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                }
+                FolderDisplay.Text = folder.Name;
             }
-            FolderDisplay.Text = folder.Name;
+            catch { SomethingWentWrongTeachingTip.IsOpen = true; }
         }
 
         private void AllFilesToggleButton_Unchecked(object sender, RoutedEventArgs e)
@@ -376,15 +389,34 @@ namespace DropStackWinUI
             }
         }
 
-        private async void FolderDisplay_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private async void AllFilesToggleButton_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
             try
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
                 await Launcher.LaunchFolderAsync(folder);
             }
             catch { }
+        }
+
+        private async void PinnedFilesToggleButton_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            try
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                await Launcher.LaunchFolderAsync(folder);
+            }
+            catch { }
+        }
+
+        private void TeachingTip_ActionButtonClick(TeachingTip sender, object args)
+        {
+            SomethingWentWrongTeachingTip.IsOpen = false;
+            
+            var mainWindow = new MainWindow();
+            mainWindow.Activate();
+
+            this.Close();
         }
     }
 }

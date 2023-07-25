@@ -7,11 +7,11 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="991afa5e-1b92-4f84-98a9-98295385903c" Publisher="CN=nicol" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="991afa5e-1b92-4f84-98a9-98295385903c" Publisher="CN=Blindside Studios" Version="0.4.0.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="991afa5e-1b92-4f84-98a9-98295385903c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>DropStackWinUI</DisplayName>
-    <PublisherDisplayName>nicol</PublisherDisplayName>
+    <DisplayName>DropStack Canary</DisplayName>
+    <PublisherDisplayName>Blindside Studios</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -24,8 +24,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="DropStackWinUI.exe" EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements DisplayName="DropStackWinUI" Description="DropStackWinUI" BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+      <uap:VisualElements DisplayName="DropStack Canary" Description="A preview of DropStack WinUI." BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>

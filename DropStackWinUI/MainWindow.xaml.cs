@@ -25,6 +25,7 @@ using Windows.Security.Credentials.UI;
 using Windows.Storage;
 using Windows.Storage.AccessCache;
 using Windows.Storage.FileProperties;
+using Microsoft.Windows.AppLifecycle;
 using Windows.Storage.Pickers;
 using Windows.System;
 using Windows.UI.Core;
@@ -190,71 +191,41 @@ namespace DropStackWinUI
 
         public async void askForAccess()
         {
-            //TODO: add folder picker
-            
             // Close the teaching tip
             noFolderpathTechingTip.IsOpen = false;
 
-            /*// Create a new instance of the folder picker
-            FolderPicker folderPicker = new FolderPicker();
-
-            // Configure the folder picker
+            var folderPicker = new FolderPicker();
             folderPicker.FileTypeFilter.Add("*");
             folderPicker.SuggestedStartLocation = PickerLocationId.Downloads;
+            folderPicker.ViewMode = PickerViewMode.List;
 
+            // Get the window handle of the app window
+            var windowHandle = WindowNative.GetWindowHandle(this);
+            // Associate the picker with the app window
+            InitializeWithWindow.Initialize(folderPicker, windowHandle);
 
-            // Create a folder picker
-            FolderPicker openPicker = new Windows.Storage.Pickers.FolderPicker();
-
-            // Retrieve the window handle (HWND) of the current WinUI 3 window.
-            var window = WindowHelper.GetWindowForElement(this);
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-
-            // Initialize the folder picker with the window handle (HWND).
-            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
-
-            // Set options for your folder picker
-            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            openPicker.FileTypeFilter.Add("*");
-
-            // Open the picker for the user to pick a folder
-            StorageFolder folder = await openPicker.PickSingleFolderAsync();
+            // Pick a folder
+            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
             if (folder != null)
             {
-                
+                // Request access to the selected folder
+                try
+                {
+                    folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
+                    nextOOBEpage();
+
+                    // Save the folder access token to local settings
+                    ApplicationData.Current.LocalSettings.Values["FolderToken"] = folderToken;
+
+                    if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                    createListener();
+                    obtainFolderAndFiles();
+                }
+                catch { }
             }
             else
             {
-                //operation cancelled
-            }
-
-
-            // Show the folder picker and wait for the user's response
-            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-
-        */
-
-            // Request access to the selected folder
-            try
-            {
-                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(portalFileEntererTextBox.Text);
-                folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
-                nextOOBEpage();
-
-                // Save the folder access token to local settings
-                ApplicationData.Current.LocalSettings.Values["FolderToken"] = folderToken;
-
-                if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                createListener();
-                obtainFolderAndFiles();
-            }
-            catch { } //user cancelled the folder picker, requires rework, currently, the app still crashes
-
-            //add acccess to recent files to jumplist (currently under construction)
-            if (!string.IsNullOrEmpty(folderToken))
-            {
-                JumpList jumpList = await JumpList.LoadCurrentAsync();
-                jumpList.Items.Clear();
+                //canceled operation, do nothing
             }
         }
 
@@ -504,11 +475,14 @@ namespace DropStackWinUI
             catch { }; //failed to create listener
         }
 
-        private async void disconnectFolderButton_Click(object sender, RoutedEventArgs e)
+        private void disconnectFolderButton_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
             ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = null;
-            var result = await CoreApplication.RequestRestartAsync("");
+
+            var newMainWindow = new MainWindow();
+            newMainWindow.Show();
+            this.Close();
         }
 
         private async void RevealInExplorerButton_Click(object sender, RoutedEventArgs e)
@@ -601,40 +575,44 @@ namespace DropStackWinUI
 
         private async void PickPinnedFolder()
         {
-            //TODO: add folder picker
-
             NoPinnedFolderStackpanel.Visibility = Visibility.Collapsed;
 
-            /*
-            // Create a new instance of the folder picker
-            FolderPicker folderPicker = new FolderPicker();
+            // Close the teaching tip
+            noFolderpathTechingTip.IsOpen = false;
 
-            // Configure the folder picker
+            var folderPicker = new FolderPicker();
             folderPicker.FileTypeFilter.Add("*");
-            folderPicker.SuggestedStartLocation = PickerLocationId.Downloads;
+            folderPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            folderPicker.ViewMode = PickerViewMode.List;
 
-            // Show the folder picker and wait for the user's response
+            // Get the window handle of the app window
+            var windowHandle = WindowNative.GetWindowHandle(App.Window);
+            // Associate the picker with the app window
+            InitializeWithWindow.Initialize(folderPicker, windowHandle);
+
+            // Pick a folder
             StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-
-            // Request access to the selected folder
-            */
-
-            try
+            if (folder != null)
             {
-                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(pinsFileEntererTextBox.Text);
-                folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
-                nextOOBEpage();
+                // Request access to the selected folder
+                try
+                {
+                    folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
+                    nextOOBEpage();
 
-                // Save the folder access token to local settings
-                ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = folderToken;
+                    // Save the folder access token to local settings
+                    ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = folderToken;
 
-                noPinnedFolderpathTechingTip.IsOpen = false;
-                obtainPinnedFiles();
-                if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                    if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                    createListener();
+                    obtainFolderAndFiles();
+                }
+                catch { }
             }
-            catch { } //user canceled the folder picker
-
-
+            else
+            {
+                //canceled operation, do nothing
+            }
         }
 
         private async void obtainPinnedFiles()
@@ -741,6 +719,8 @@ namespace DropStackWinUI
         public void launchOnboarding()
         {
             OOBEgrid.Visibility = Visibility.Visible;
+            OOBEgrid.Opacity = 1;
+            OOBEgrid.Translation = new Vector3(0, 0, 0);
         }
 
         private void OOBEgoBackButton_Click(object sender, RoutedEventArgs e)
@@ -796,8 +776,43 @@ namespace DropStackWinUI
             if (OOBEpivot.SelectedIndex == 0) OOBEgoBackButton.IsEnabled = false;
             else OOBEgoBackButton.IsEnabled = true;
 
+            OOBEgoNextButton.IsEnabled = checkIfNextButtonShouldBeEnabled();
+
             if (OOBEpivot.SelectedIndex == OOBEpivot.Items.Count - 1) OOBEgoNextButton.Content = "Finish setup!";
             else OOBEgoNextButton.Content = "Next ›";
+        }
+
+        private void OOBEsetupPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            OOBEgoNextButton.IsEnabled = checkIfNextButtonShouldBeEnabled();
+        }
+
+        public bool checkIfNextButtonShouldBeEnabled()
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+            if (OOBEpivot.SelectedIndex == 1)
+            {
+                switch (OOBEsetupPivot.SelectedIndex)
+                {
+                    case 0:
+                        if (localSettings.Values.ContainsKey("FolderToken"))
+                        {
+                            if (!string.IsNullOrEmpty("FolderToken")) return true;
+                            else return false;
+                        }
+                        else return false;
+                    case 1:
+                        if (localSettings.Values.ContainsKey("PinnedFolderToken"))
+                        {
+                            if (!string.IsNullOrEmpty("PinnedFolderToken")) return true;
+                            else return false;
+                        }
+                        else return false;
+                    default: return false;
+                }
+            }
+            else return true;
         }
 
         private void OOBEportalFileAccessRequestButton_Click(object sender, RoutedEventArgs e)
@@ -820,9 +835,9 @@ namespace DropStackWinUI
             localSettings.Values["LoadSimpleViewBoolean"] = UseSimpleViewByDefaultToggle.IsOn;
         }
 
-        private async void LaunchSimpleModeButton_Click(object sender, RoutedEventArgs e)
+        private void LaunchSimpleModeButton_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
+            var mainWindow = new SimpleMode();
             mainWindow.Activate();
 
             this.Close();
@@ -1164,4 +1179,4 @@ namespace DropStackWinUI
             AboutDropStackGrid.Visibility = Visibility.Collapsed;
         }
     }
-}
+    }
