@@ -107,7 +107,8 @@
                     DoubleTapped="regularFileListView_DoubleTapped"
                     RightTapped="fileListView_RightTapped" 
                     CanDragItems="True" 
-                    DragItemsStarting="fileListView_DragItemsStarting">
+                    DragItemsStarting="fileListView_DragItemsStarting"
+                    DragItemsCompleted="regularFileListView_DragItemsCompleted">
             <ListView.ItemContainerTransitions>
                 <TransitionCollection>
                     <EntranceThemeTransition  FromVerticalOffset="0" />

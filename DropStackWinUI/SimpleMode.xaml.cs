@@ -29,6 +29,8 @@ using System.ComponentModel.Design;
 using Windows.Management.Deployment;
 using Microsoft.UI.Windowing;
 using System.Numerics;
+using Windows.UI.Core;
+using System.Diagnostics;
 
 namespace DropStackWinUI
 {
@@ -75,6 +77,14 @@ namespace DropStackWinUI
 
             EverythingGrid.Translation = new Vector3(0,0,0);
             EverythingGrid.Opacity = 1;
+        }
+
+        private async void CoreWindow_PointerRoutedAway(Windows.UI.Core.ICorePointerRedirector sender, Windows.UI.Core.PointerEventArgs args)
+        {
+            EverythingGrid.Opacity = 0;
+            EverythingGrid.Translation = new Vector3(0, 20, 0);
+            await Task.Delay(200);
+            this.Close();
         }
 
         public async void obtainFolderAndFiles(string source)
@@ -243,28 +253,23 @@ namespace DropStackWinUI
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            // get the selected file item
             FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
-
-            // get the folder path
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
             if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
             string folderPath = folder.Path;
-
-            // construct the full file path
             string filePath = Path.Combine(folderPath, selectedFile.FileName);
-
-            // get the file
             StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
-
-            // create a new data package
             var dataPackage = new DataPackage();
-
-            // add the file to the data package
             dataPackage.SetStorageItems(new List<IStorageItem> { file });
-
-            // copy the data package to the clipboard
             Clipboard.SetContent(dataPackage);
+            
+            // TODO: not do this, because memory leak - the window isn't visible in switchers and the taskbar icon creates a new instance
+            //minimizeWithAnimation();
+        }
+
+        private void Clipboard_HistoryChanged(object sender, ClipboardHistoryChangedEventArgs e)
+        {
+            closeWithAnimation();
         }
 
         private async void fileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -311,18 +316,30 @@ namespace DropStackWinUI
             }
             finally
             {
-                // clear the selection after a short delay
-                await Task.Delay(250);
-                regularFileListView.SelectedItem = null;
+                closeWithAnimation();
             }
         }
 
-        private async void CloseSimpleModeButton_Click(object sender, RoutedEventArgs e)
+        private void CloseSimpleModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            closeWithAnimation();
+        }
+
+        private async void closeWithAnimation()
         {
             EverythingGrid.Opacity = 0;
-            EverythingGrid.Translation = new Vector3(0,20,0);
+            EverythingGrid.Translation = new Vector3(0, 20, 0);
             await Task.Delay(200);
             this.Close();
+        }
+
+        private async void minimizeWithAnimation()
+        {
+            EverythingGrid.Opacity = 0;
+            EverythingGrid.Translation = new Vector3(0, 20, 0);
+            await Task.Delay(200);
+            var window = this;
+            window.Minimize();
         }
 
         private void SimpleModeMeatballMenu_Click(object sender, RoutedEventArgs e)
@@ -456,6 +473,11 @@ namespace DropStackWinUI
                     if (isPinsOnScreen) obtainFolderAndFiles("pinned");
                 }
             }
+        }
+
+        private void regularFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            closeWithAnimation();
         }
     }
 }
