@@ -99,8 +99,6 @@ namespace DropStackWinUI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
 
-            //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
-
             if (string.IsNullOrEmpty(folderToken) & string.IsNullOrEmpty(pinnedFolderToken))
             {
                 RegularAndPinnedFileGrid.Visibility = Visibility.Collapsed;
@@ -110,7 +108,7 @@ namespace DropStackWinUI
 
             loadSettings();
 
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles(); createListener(); setFolderPath("Regular"); }
+            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles("regular"); createListener(); setFolderPath("Regular"); }
             if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
             else if (string.IsNullOrEmpty(pinnedFolderToken) && !string.IsNullOrEmpty(folderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
         }
@@ -190,14 +188,20 @@ namespace DropStackWinUI
             noFolderpathTechingTip.IsOpen = true;
         }
 
-        public async void askForAccess()
+        public async void askForAccess(string purpose)
         {
             // Close the teaching tip
-            noFolderpathTechingTip.IsOpen = false;
+            if (purpose == "regular") noFolderpathTechingTip.IsOpen = false;
+            else if (purpose == "pinned")
+            {
+                noPinnedFolderpathTechingTip.IsOpen = false;
+                NoPinnedFolderStackpanel.Visibility = Visibility.Collapsed;
+            }
 
             var folderPicker = new FolderPicker();
             folderPicker.FileTypeFilter.Add("*");
-            folderPicker.SuggestedStartLocation = PickerLocationId.Downloads;
+            if (purpose == "regular") folderPicker.SuggestedStartLocation = PickerLocationId.Downloads;
+            else if (purpose == "pinned") folderPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             folderPicker.ViewMode = PickerViewMode.List;
 
             // Get the window handle of the app window
@@ -212,15 +216,32 @@ namespace DropStackWinUI
                 // Request access to the selected folder
                 try
                 {
-                    folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
+                    string currentFolderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
                     nextOOBEpage();
 
-                    // Save the folder access token to local settings
-                    ApplicationData.Current.LocalSettings.Values["FolderToken"] = folderToken;
+                    if (purpose == "regular")
+                    {
+                        ApplicationData.Current.LocalSettings.Values["FolderToken"] = currentFolderToken;
+                        folderToken = currentFolderToken;
+                        
 
-                    if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                    createListener();
-                    obtainFolderAndFiles();
+                        if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                        createListener();
+                        obtainFolderAndFiles("regular");
+
+                        RegularFolderPath = folder.Path;
+                    }
+
+                    if (purpose == "pinned")
+                    {
+                        ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = currentFolderToken;
+                        pinnedFolderToken = currentFolderToken;
+
+                        if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                        obtainFolderAndFiles("pinned");
+
+                        PinnedFolderPath = folder.Path;
+                    }
                 }
                 catch { }
             }
@@ -230,17 +251,18 @@ namespace DropStackWinUI
             }
         }
 
-        public async void obtainFolderAndFiles()
+        public async void obtainFolderAndFiles(string source)
         {
             // Get the folder from the access token
-            folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+            if (source == "pinned") folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
 
             // Access the selected folder
             IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
-            regularFileListView.ItemsSource = fileMetadataList;
+            if (source == "regular") regularFileListView.ItemsSource = fileMetadataList;
+            else if (source == "pinned") pinnedFileListView.ItemsSource = fileMetadataList;
 
             // Sort the files by modification date in descending order
             files = files.OrderByDescending(f => f.DateCreated).ToList();
@@ -253,7 +275,7 @@ namespace DropStackWinUI
             if (folder != null)
             {
                 PortalFileLoadingProgressBar.Value = 0;
-                PortalFileLoadingProgressBar.Opacity = 1;
+                if (source == "regular") PortalFileLoadingProgressBar.Opacity = 1;
 
                 IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
 
@@ -306,6 +328,7 @@ namespace DropStackWinUI
                         fileMetadataList.Add(new FileItem()
                         {
                             FileName = file.Name,
+                            FileDisplayName = file.DisplayName,
                             FilePath = file.Path,
                             FileType = "This file is still being downloaded",
                             FileSize = "",
@@ -322,6 +345,7 @@ namespace DropStackWinUI
                         fileMetadataList.Add(new FileItem()
                         {
                             FileName = file.Name,
+                            FileDisplayName = file.DisplayName,
                             FilePath = file.Path,
                             FileType = file.DisplayType,
                             FileSize = filesizecalc.ToString(),
@@ -336,8 +360,15 @@ namespace DropStackWinUI
 
                 }
                 PortalFileLoadingProgressBar.Opacity = 0;
-                _filteredFileMetadataList = fileMetadataList;
-                fileMetadataListCopy = fileMetadataList;
+                if (source == "regular")
+                {
+                    _filteredFileMetadataList = fileMetadataList;
+                    fileMetadataListCopy = fileMetadataList;
+                }
+                else if (source == "pinned")
+                {
+                    _filteredPinnedFileMetadataList = fileMetadataList;
+                }
             }
             else
             {
@@ -358,15 +389,8 @@ namespace DropStackWinUI
             // get the selected file item
             FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
 
-            // get the folder path
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-            string folderPath = folder.Path;
-
-            // construct the full file path
-            string filePath = Path.Combine(folderPath, selectedFile.FileName);
-
             // get the file
-            StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+            StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
             // create a new data package
             var dataPackage = new DataPackage();
@@ -394,8 +418,7 @@ namespace DropStackWinUI
             try
             {
                 var selectedFile = e.Items[0] as FileItem;
-                var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                var file = await folder.GetFileAsync(selectedFile.FileName);
+                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
                 // Create a list of storage items with the file
                 var storageItems = new List<StorageFile> { file };
@@ -420,7 +443,7 @@ namespace DropStackWinUI
 
         private void noFolderpathTechingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
-            askForAccess();
+            askForAccess("regular");
         }
 
         private void QuickSettingsButton_Click(object sender, RoutedEventArgs e)
@@ -431,8 +454,8 @@ namespace DropStackWinUI
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            obtainFolderAndFiles();
-            obtainPinnedFiles();
+            obtainFolderAndFiles("regular");
+            obtainFolderAndFiles("pinned");
         }
 
         private async void createListener()
@@ -460,7 +483,7 @@ namespace DropStackWinUI
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            obtainFolderAndFiles();
+                            obtainFolderAndFiles("regular");
                         });
                     };
 
@@ -468,7 +491,7 @@ namespace DropStackWinUI
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            obtainFolderAndFiles();
+                            obtainFolderAndFiles("regular");
                         });
                     };
                 }
@@ -496,85 +519,12 @@ namespace DropStackWinUI
             catch { cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip.IsOpen = true; }
         }
 
-        private void pinnedFileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems.Count > 0)
-            {
-                GlobalClickedItems = e.AddedItems;
-            }
-        }
-
-        private async void pinnedFileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-            // get the selected file item
-            FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
-
-            // get the folder path
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-            string folderPath = folder.Path;
-
-            // construct the full file path
-            string filePath = Path.Combine(folderPath, selectedFile.FileName);
-
-            // get the file
-            StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
-
-            // create a new data package
-            var dataPackage = new DataPackage();
-
-            // add the file to the data package
-            dataPackage.SetStorageItems(new List<IStorageItem> { file });
-
-            // copy the data package to the clipboard
-            Clipboard.SetContent(dataPackage);
-
-            //show teaching tip
-            fileInClipboardReminder.IsOpen = true;
-            for (int i = 0; i < 100; i++)
-            {
-                await Task.Delay(10);
-                reminderTimer.Value = i;
-            }
-            fileInClipboardReminder.IsOpen = false;
-            await Task.Delay(100);
-            reminderTimer.Value = 0;
-        }
-
-        private async void pinnedFileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
-        {
-            try
-            {
-                var selectedFile = e.Items[0] as FileItem;
-                var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-                var file = await folder.GetFileAsync(selectedFile.FileName);
-
-                // Create a list of storage items with the file
-                var storageItems = new List<StorageFile> { file };
-
-                // Set the data package on the event args using SetData
-                e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
-            }
-            catch
-            {
-                //show teaching tip
-                failedToDragTeachingTip.IsOpen = true;
-                for (int i = 0; i < 100; i++)
-                {
-                    await Task.Delay(10);
-                    failureReminderTimer.Value = i;
-                }
-                failedToDragTeachingTip.IsOpen = false;
-                await Task.Delay(100);
-                failureReminderTimer.Value = 0;
-            }
-        }
-
         private void noPinnedFolderpathTechingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
-            PickPinnedFolder();
+            askForAccess("pinned");
         }
 
-        private async void PickPinnedFolder()
+        /*private async void PickPinnedFolder()
         {
             NoPinnedFolderStackpanel.Visibility = Visibility.Collapsed;
 
@@ -606,7 +556,7 @@ namespace DropStackWinUI
 
                     if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
                     createListener();
-                    obtainFolderAndFiles();
+                    obtainFolderAndFiles("regular");
                 }
                 catch { }
             }
@@ -614,9 +564,9 @@ namespace DropStackWinUI
             {
                 //canceled operation, do nothing
             }
-        }
+        }*/
 
-        private async void obtainPinnedFiles()
+        /*private async void obtainPinnedFiles()
         {
             NoPinnedFilesTextBlock.Visibility = Visibility.Collapsed;
 
@@ -685,16 +635,16 @@ namespace DropStackWinUI
             }
 
             if (pinnedFileListView.Items.Count == 0) { NoPinnedFilesTextBlock.Visibility = Visibility.Visible; }
-        }
+        }*/
 
         private void cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
-            PickPinnedFolder();
+            askForAccess("pinned");
         }
 
         private void cannotOpenRegularFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
-            askForAccess();
+            askForAccess("regular");
         }
 
         private void PinnedPivotSection_DragOver(object sender, DragEventArgs e)
@@ -713,7 +663,7 @@ namespace DropStackWinUI
                     var storageFile = items[0] as StorageFile; StorageFolder storageFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
                     StorageFile copiedFile = await storageFile.CopyAsync(storageFolder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
                     pinnedFileListView.Items.Remove(0);
-                    obtainPinnedFiles();
+                    obtainFolderAndFiles("pinned");
                 }
             }
         }
@@ -819,12 +769,12 @@ namespace DropStackWinUI
 
         private void OOBEportalFileAccessRequestButton_Click(object sender, RoutedEventArgs e)
         {
-            askForAccess();
+            askForAccess("regular");
         }
 
         private void OOBEpinnedFileAccessRequestButton_Click(object sender, RoutedEventArgs e)
         {
-            PickPinnedFolder();
+            askForAccess("pinned");
         }
 
         private void UseSimpleViewByDefaultToggle_Toggled(object sender, RoutedEventArgs e)
@@ -1079,7 +1029,7 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
 
-            if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { obtainPinnedFiles(); pinnedFileGrid.Visibility = Visibility.Visible; }
+            if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { obtainFolderAndFiles("pinned"); pinnedFileGrid.Visibility = Visibility.Visible; }
             else if (isWindowsHelloRequiredForPins)
             {
                 pinnedFileGrid.Visibility = Visibility.Collapsed;
@@ -1090,7 +1040,7 @@ namespace DropStackWinUI
                 if (isVerified)
                 {
                     pinnedFileGrid.Visibility = Visibility.Visible;
-                    if (!string.IsNullOrEmpty(pinnedFolderToken)) obtainPinnedFiles();
+                    if (!string.IsNullOrEmpty(pinnedFolderToken)) obtainFolderAndFiles("pinned");
                 }
                 else PinnedFilesExpander.IsExpanded = false;
 
@@ -1163,7 +1113,7 @@ namespace DropStackWinUI
 
         private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            PickPinnedFolder();
+            askForAccess("pinned");
         }
 
         private void AboutDropStackButton_Click(object sender, RoutedEventArgs e)

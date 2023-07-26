@@ -254,15 +254,11 @@ namespace DropStackWinUI
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
             FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-            if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-            string folderPath = folder.Path;
-            string filePath = Path.Combine(folderPath, selectedFile.FileName);
-            StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+            StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
             var dataPackage = new DataPackage();
             dataPackage.SetStorageItems(new List<IStorageItem> { file });
             Clipboard.SetContent(dataPackage);
-            
+
             // TODO: not do this, because memory leak - the window isn't visible in switchers and the taskbar icon creates a new instance
             //minimizeWithAnimation();
         }
