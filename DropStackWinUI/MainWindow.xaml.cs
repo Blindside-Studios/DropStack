@@ -269,23 +269,27 @@ namespace DropStackWinUI
 
             if (folder != null)
             {
-                PortalFileLoadingProgressBar.Value = 0;
-                if (source == "regular") PortalFileLoadingProgressBar.Opacity = 1;
-
+                if (source == "regular")
+                {
+                    PortalFileLoadingProgressBar.Value = 0;
+                    PortalFileLoadingProgressBar.Opacity = 1; 
+                }
                 IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
-
                 double totalFiles = Convert.ToDouble(files.Count);
                 int currentFile = 1;
 
                 foreach (StorageFile file in files)
                 {
-                    await Task.Run(() =>
+                    if (source == "regular")
                     {
-                        double percentageOfFiles = currentFile / totalFiles;
-                        percentageOfFiles = percentageOfFiles * 100;
-                        progress.Report(Convert.ToInt32(percentageOfFiles));
-                        currentFile++;
-                    });
+                        await Task.Run(() =>
+                        {
+                            double percentageOfFiles = currentFile / totalFiles;
+                            percentageOfFiles = percentageOfFiles * 100;
+                            progress.Report(Convert.ToInt32(percentageOfFiles));
+                            currentFile++;
+                        });
+                    }
 
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
                     StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
