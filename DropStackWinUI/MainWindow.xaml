@@ -258,11 +258,6 @@
                               OffContent="Use simple view by default"
                               Toggled="UseSimpleViewByDefaultToggle_Toggled"
                               ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
-                    <ToggleSwitch x:Name="PinToolbarInSimpleModeToggleSwitch"
-                              OnContent="Pin toolbar in simple mode"
-                              OffContent="Pin toolbar in simple mode"
-                              Toggled="PinToolbarInSimpleModeToggleSwitch_Toggled"
-                              ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
                     <Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                         <StackPanel Spacing="10">
                             <RadioButtons Header="Options:">
@@ -411,7 +406,7 @@
                     <ScalarTransition/>
                 </Grid.OpacityTransition>
                 <Rectangle Fill="Black" Opacity="0.4"/>
-                <Rectangle RadiusX="8" RadiusY="8" Margin="20,20,20,20" Fill="DarkGray" Opacity="0.25"/>
+                <Rectangle RadiusX="8" RadiusY="8" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
                 <Grid x:Name="AboutDropStackContentGrid" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>

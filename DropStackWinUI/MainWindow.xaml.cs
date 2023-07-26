@@ -122,11 +122,6 @@ namespace DropStackWinUI
                 if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) UseSimpleViewByDefaultToggle.IsOn = true;
             }
 
-            if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
-            {
-                if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
-            }
-
             var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
             if (WinHelloAvailability != UserConsentVerifierAvailability.Available) PinsProtectedRadioButton.IsEnabled = false;
             if (localSettings.Values.ContainsKey("PinBarBehavior"))
@@ -524,119 +519,6 @@ namespace DropStackWinUI
             askForAccess("pinned");
         }
 
-        /*private async void PickPinnedFolder()
-        {
-            NoPinnedFolderStackpanel.Visibility = Visibility.Collapsed;
-
-            // Close the teaching tip
-            noFolderpathTechingTip.IsOpen = false;
-
-            var folderPicker = new FolderPicker();
-            folderPicker.FileTypeFilter.Add("*");
-            folderPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            folderPicker.ViewMode = PickerViewMode.List;
-
-            // Get the window handle of the app window
-            var windowHandle = WindowNative.GetWindowHandle(this);
-            // Associate the picker with the app window
-            InitializeWithWindow.Initialize(folderPicker, windowHandle);
-
-            // Pick a folder
-            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-            if (folder != null)
-            {
-                // Request access to the selected folder
-                try
-                {
-                    folderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
-                    nextOOBEpage();
-
-                    // Save the folder access token to local settings
-                    ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = folderToken;
-
-                    if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                    createListener();
-                    obtainFolderAndFiles("regular");
-                }
-                catch { }
-            }
-            else
-            {
-                //canceled operation, do nothing
-            }
-        }*/
-
-        /*private async void obtainPinnedFiles()
-        {
-            NoPinnedFilesTextBlock.Visibility = Visibility.Collapsed;
-
-            pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
-            StorageFolder pinnedFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-            if (pinnedFolder != null)
-            {
-                // Access the selected folder
-                IReadOnlyList<StorageFile> pinnedFiles = await pinnedFolder.GetFilesAsync();
-                ObservableCollection<FileItem> pinnedFileMetadataList = new ObservableCollection<FileItem>();
-
-                pinnedFileListView.ItemsSource = pinnedFileMetadataList;
-
-                // Sort the files by modification date in descending order
-                pinnedFiles = pinnedFiles.OrderByDescending(f => f.DateCreated).ToList();
-
-                foreach (StorageFile pinnedFile in pinnedFiles)
-                {
-                    BasicProperties basicProperties = await pinnedFile.GetBasicPropertiesAsync();
-                    StorageItemThumbnail thumbnail = await pinnedFile.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
-                    BitmapImage bitmapThumbnail = new BitmapImage();
-                    bitmapThumbnail.SetSource(thumbnail);
-
-                    int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
-                    string generativefilesizesuffix = "B"; //default file suffix
-
-                    if (filesizecalc >= 1000 && filesizecalc < 1000000)
-                    {
-                        filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000; //convert to kb
-                        generativefilesizesuffix = "KB";
-                    }
-
-                    else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
-                    {
-                        filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000; //convert to mb
-                        generativefilesizesuffix = "MB";
-                    }
-
-                    else if (filesizecalc >= 1000000000)
-                    {
-                        filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000000; //convert to gb
-                        generativefilesizesuffix = "GB";
-                    }
-
-                    string modifiedDateFormatted = "n/a";
-                    if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
-                    else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
-
-                    pinnedFileMetadataList.Add(new FileItem()
-                    {
-                        FileName = pinnedFile.Name,
-                        FileDisplayName = pinnedFile.DisplayName,
-                        FilePath = pinnedFile.Path,
-                        FileType = pinnedFile.DisplayType,
-                        FileSize = filesizecalc.ToString(),
-                        FileSizeSuffix = " " + generativefilesizesuffix,
-                        ModifiedDate = modifiedDateFormatted,
-                        FileIcon = bitmapThumbnail,
-                    });
-                }
-                _filteredPinnedFileMetadataList = pinnedFileMetadataList;
-            }
-            else
-            {
-                //there was an error fetching the pinned files
-            }
-
-            if (pinnedFileListView.Items.Count == 0) { NoPinnedFilesTextBlock.Visibility = Visibility.Visible; }
-        }*/
-
         private void cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
             askForAccess("pinned");
@@ -685,6 +567,7 @@ namespace DropStackWinUI
         {
             if (OOBEpivot.SelectedIndex == OOBEpivot.Items.Count - 1)
             {
+                ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                 if (OOBEsimpleViewOfferCheckBox.IsChecked == false) 
                 {
                     OOBEgrid.Opacity = 0;
@@ -694,12 +577,10 @@ namespace DropStackWinUI
                     else enableButtonVisibility();
                     await Task.Delay(1000);
                     OOBEgrid.Visibility = Visibility.Collapsed;
-                    ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                     localSettings.Values["LoadSimpleViewBoolean"] = false;
                 }
                 else if (OOBEsimpleViewOfferCheckBox.IsChecked == true)
                 {
-                    ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                     localSettings.Values["LoadSimpleViewBoolean"] = true;
 
                     var simpleWindow = new SimpleMode();
@@ -707,8 +588,7 @@ namespace DropStackWinUI
 
                     this.Close();
                 }
-
-                
+                localSettings.Values["KeepSimpleModeRunning"] = OOBEsimpleViewOfferCheckBox.IsChecked;
             }
             else
             {
@@ -798,12 +678,6 @@ namespace DropStackWinUI
         private void CopyRecentFileButton_Click(object sender, RoutedEventArgs e)
         {
             copyMostRecentFile();
-        }
-
-        private void PinToolbarInSimpleModeToggleSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] = PinToolbarInSimpleModeToggleSwitch.IsOn;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -1131,4 +1005,4 @@ namespace DropStackWinUI
             AboutDropStackGrid.Visibility = Visibility.Collapsed;
         }
     }
-    }
+}
