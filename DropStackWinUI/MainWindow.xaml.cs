@@ -38,6 +38,7 @@ using Microsoft.UI;
 using WinUIEx;
 using WinRT.Interop;
 using System.ComponentModel.Design;
+using Windows.Storage.Search;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -90,7 +91,7 @@ namespace DropStackWinUI
         int pinBarBehaviorIndex = 0;
         bool isWindowsHelloRequiredForPins = false;
 
-        bool needsToRelaunchForSimpleModeSetting = false;
+        bool shouldIncludeSubfolders = false;
         
         
         public MainWindow()
@@ -119,7 +120,13 @@ namespace DropStackWinUI
 
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
-                if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) UseSimpleViewByDefaultToggle.IsOn = true;
+                UseSimpleViewByDefaultToggle.IsOn = (bool)localSettings.Values["LoadSimpleViewBoolean"];
+            }
+
+            if (localSettings.Values.ContainsKey("SearchSubDir"))
+            {
+                shouldIncludeSubfolders = (bool)localSettings.Values["SearchSubDir"];
+                SearchSubDirectoriesToggle.IsOn = (bool)localSettings.Values["SearchSubDir"];
             }
 
             var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
@@ -253,7 +260,10 @@ namespace DropStackWinUI
             if (source == "pinned") folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
 
             // Access the selected folder
-            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync(); ;
+            
+            if (shouldIncludeSubfolders && source == "regular") files = await folder.GetFilesAsync(CommonFileQuery.OrderByName, 0, uint.MaxValue);
+
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
             if (source == "regular") regularFileListView.ItemsSource = fileMetadataList;
@@ -663,9 +673,6 @@ namespace DropStackWinUI
 
         private void UseSimpleViewByDefaultToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            if (!needsToRelaunchForSimpleModeSetting) needsToRelaunchForSimpleModeSetting = true;
-            else if (needsToRelaunchForSimpleModeSetting) needsToRelaunchForSimpleModeSetting = false;
-
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
             localSettings.Values["LoadSimpleViewBoolean"] = UseSimpleViewByDefaultToggle.IsOn;
@@ -1007,6 +1014,14 @@ namespace DropStackWinUI
             AboutDropStackContentGrid.Translation = new Vector3(0, 50, 0);
             await Task.Delay(500);
             AboutDropStackGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void SearchSubDirectoriesToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["SearchSubDir"] = SearchSubDirectoriesToggle.IsOn;
+            shouldIncludeSubfolders = SearchSubDirectoriesToggle.IsOn;
+            obtainFolderAndFiles("regular");
         }
     }
 }

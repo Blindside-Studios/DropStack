@@ -29,8 +29,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Rectangle x:ConnectionId='54' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Expander x:ConnectionId='55'
+                <Rectangle x:ConnectionId='55' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Expander x:ConnectionId='56'
                         x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
                         VerticalAlignment="Top"
@@ -45,18 +45,18 @@
                                                       
                                                                  >
                     <Grid>
-                        <StackPanel x:ConnectionId='65' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <ProgressRing x:ConnectionId='76' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                        <StackPanel x:ConnectionId='66' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ProgressRing x:ConnectionId='77' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                             <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                         </StackPanel>
-                        <TextBlock x:ConnectionId='66' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel x:ConnectionId='67' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                            <TextBlock x:ConnectionId='74' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                            <HyperlinkButton x:ConnectionId='75' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"                                              />
+                        <TextBlock x:ConnectionId='67' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel x:ConnectionId='68' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                            <TextBlock x:ConnectionId='75' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                            <HyperlinkButton x:ConnectionId='76' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"                                              />
                         </StackPanel>
-                        <Grid x:ConnectionId='68' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                        <Grid x:ConnectionId='69' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                             <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
-                                <GridView x:ConnectionId='69'   x:Name="pinnedFileListView"
+                                <GridView x:ConnectionId='70'   x:Name="pinnedFileListView"
                                                                                              
                                                                                            
                                                                                    
@@ -95,19 +95,19 @@
                         </Grid>
                     </Grid>
                 </Expander>
-                <Grid x:ConnectionId='56' x:Name="regularFileGrid" Grid.Row="1">
+                <Grid x:ConnectionId='57' x:Name="regularFileGrid" Grid.Row="1">
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='57' x:Name="ContentBackgroundRectangle" Fill="DarkGray" Opacity="0.15" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
-                    <ProgressBar x:ConnectionId='58' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
+                    <Rectangle x:ConnectionId='58' x:Name="ContentBackgroundRectangle" Fill="DarkGray" Opacity="0.15" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
+                    <ProgressBar x:ConnectionId='59' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
                         <ProgressBar.OpacityTransition>
                             <ScalarTransition />
                         </ProgressBar.OpacityTransition>
                     </ProgressBar>
                     <ScrollViewer Margin="0,10,0,0" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
-                            <ListView x:ConnectionId='59'   x:Name="regularFileListView"
+                            <ListView x:ConnectionId='60'   x:Name="regularFileListView"
                                                                                      
                                                                                    
                                                                            
@@ -153,60 +153,60 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <Rectangle x:ConnectionId='60' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
+                            <Rectangle x:ConnectionId='61' x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </Grid>
             <CommandBar x:ConnectionId='6' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                <AppBarButton x:ConnectionId='45' x:Name="SearchButton" Icon="Find" Label="Search"                           >
+                <AppBarButton x:ConnectionId='46' x:Name="SearchButton" Icon="Find" Label="Search"                           >
                     <ToolTip Content="Search this list (Ctrl+F)"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="F" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='46' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+                <AppBarButton x:ConnectionId='47' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
                     <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="C" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='47' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+                <AppBarButton x:ConnectionId='48' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
                     <ToolTip Content="Refresh this list (Ctrl+R)"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="R" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='48' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
+                <AppBarButton x:ConnectionId='49' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
                     <ToolTip Content="Reveal the Portal folder in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="E" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='49' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
+                <AppBarButton x:ConnectionId='50' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
                     <ToolTip Content="Launch Simple Mode..."/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='50' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                <AppBarButton x:ConnectionId='51' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='51' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
+                <AppBarButton x:ConnectionId='52' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
                     <ToolTip Content="Opens the last selected file"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="A"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='52' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings"                                  >
+                    <AppBarButton x:ConnectionId='53' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings"                                  >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="I" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='53' x:Name="AboutDropStackButton" Icon="List" Label="About DropStack"                                   />
+                    <AppBarButton x:ConnectionId='54' x:Name="AboutDropStackButton" Icon="List" Label="About DropStack"                                   />
                 </CommandBar.SecondaryCommands>
             </CommandBar>
             <Grid x:ConnectionId='7' x:Name="SearchGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0" Visibility="Collapsed" Translation="0,-60,0" Height="40" Margin="12,60,12,0">
@@ -217,17 +217,17 @@
                     <ScalarTransition/>
                 </Grid.OpacityTransition>
                 <Rectangle Fill="DarkGray" Opacity="0.25" RadiusX="4" RadiusY="4" />
-                <TextBox x:ConnectionId='44' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
+                <TextBox x:ConnectionId='45' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
             </Grid>
             <TeachingTip x:ConnectionId='8' x:Name="fileInClipboardReminder"
             Title="Copied successfully!"
             Subtitle="The file is now in your clipboard">
-                <ProgressBar x:ConnectionId='43' x:Name="reminderTimer" Value="0" />
+                <ProgressBar x:ConnectionId='44' x:Name="reminderTimer" Value="0" />
             </TeachingTip>
             <TeachingTip x:ConnectionId='9' x:Name="failedToDragTeachingTip"
             Title="Dragging unsuccessful"
             Subtitle="Are you sure the file still exists?">
-                <ProgressBar x:ConnectionId='42' x:Name="failureReminderTimer" Value="0" />
+                <ProgressBar x:ConnectionId='43' x:Name="failureReminderTimer" Value="0" />
             </TeachingTip>
             <TeachingTip x:ConnectionId='10' 
             x:Name="noFolderpathTechingTip"
@@ -258,18 +258,23 @@
                               OffContent="Use simple view by default"
                                                                             
                               ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
-                    <Expander x:ConnectionId='29' x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                    <ToggleSwitch x:ConnectionId='29' x:Name="SearchSubDirectoriesToggle"
+                                  OnContent="Include subdirectories"
+                                  OffContent="Include subdirectories"
+                                                                              
+                                  ToolTipService.ToolTip="Also searches subfolders inside of the portal folder. This might take longer, but it will also show files that were automatically organized into folders by a third-party downloads manager."/>
+                    <Expander x:ConnectionId='30' x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                         <StackPanel Spacing="10">
                             <RadioButtons Header="Options:">
-                                <RadioButton x:ConnectionId='38' x:Name="PinsAlwaysOpenRadioButton" Content="Always opened"                               ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                <RadioButton x:ConnectionId='39' x:Name="PinsRememberStateRadioButton" Content="Remember last state"                               ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
-                                <RadioButton x:ConnectionId='40' x:Name="PinsAlwaysClosedRadioButton" Content="Always closed"                               ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                <RadioButton x:ConnectionId='41' x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️"                               ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
+                                <RadioButton x:ConnectionId='39' x:Name="PinsAlwaysOpenRadioButton" Content="Always opened"                               ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                <RadioButton x:ConnectionId='40' x:Name="PinsRememberStateRadioButton" Content="Remember last state"                               ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
+                                <RadioButton x:ConnectionId='41' x:Name="PinsAlwaysClosedRadioButton" Content="Always closed"                               ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                <RadioButton x:ConnectionId='42' x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️"                               ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
                             </RadioButtons>
-                            <Button x:ConnectionId='37' x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch"                                             Visibility="Collapsed"/>
+                            <Button x:ConnectionId='38' x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch"                                             Visibility="Collapsed"/>
                         </StackPanel>
                     </Expander>
-                    <Button x:ConnectionId='30' x:Name="deleteFolderCookieButton"
+                    <Button x:ConnectionId='31' x:Name="deleteFolderCookieButton"
                     Content="Revoke Folder Access"
                     Background="DarkRed"
                     Foreground="White"
@@ -277,7 +282,7 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Center">
                         <Button.Flyout>
-                            <Flyout x:ConnectionId='31'                       >
+                            <Flyout x:ConnectionId='32'                       >
                                 <StackPanel Spacing="10">
                                     <TextBlock MaxWidth="300" 
                                        Style="{ThemeResource BaseTextBlockStyle}" 
@@ -288,8 +293,8 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="50"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBox x:ConnectionId='35' Grid.Column="0" x:Name="RegularFolderPathDisplay" Header="Your Portal folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
-                                        <Button x:ConnectionId='36'  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0"                                           VerticalAlignment="Bottom">
+                                        <TextBox x:ConnectionId='36' Grid.Column="0" x:Name="RegularFolderPathDisplay" Header="Your Portal folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
+                                        <Button x:ConnectionId='37'  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0"                                           VerticalAlignment="Bottom">
                                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
                                         </Button>
                                     </Grid>
@@ -298,12 +303,12 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="50"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBox x:ConnectionId='33' Grid.Column="0" x:Name="PinnedFolderPathDisplay" Header="Your Pinned folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
-                                        <Button x:ConnectionId='34'  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0"                                          VerticalAlignment="Bottom">
+                                        <TextBox x:ConnectionId='34' Grid.Column="0" x:Name="PinnedFolderPathDisplay" Header="Your Pinned folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
+                                        <Button x:ConnectionId='35'  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0"                                          VerticalAlignment="Bottom">
                                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
                                         </Button>
                                     </Grid>
-                                    <Button x:ConnectionId='32'                                      
+                                    <Button x:ConnectionId='33'                                      
                                             Content="Yes, disconnect and quit!" 
                                             Background="DarkRed"
                                             Foreground="White"

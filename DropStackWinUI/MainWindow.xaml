@@ -258,6 +258,11 @@
                               OffContent="Use simple view by default"
                               Toggled="UseSimpleViewByDefaultToggle_Toggled"
                               ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
+                    <ToggleSwitch x:Name="SearchSubDirectoriesToggle"
+                                  OnContent="Include subdirectories"
+                                  OffContent="Include subdirectories"
+                                  Toggled="SearchSubDirectoriesToggle_Toggled"
+                                  ToolTipService.ToolTip="Also searches subfolders inside of the portal folder. This might take longer, but it will also show files that were automatically organized into folders by a third-party downloads manager."/>
                     <Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                         <StackPanel Spacing="10">
                             <RadioButtons Header="Options:">

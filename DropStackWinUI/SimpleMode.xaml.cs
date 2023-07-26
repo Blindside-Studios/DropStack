@@ -31,6 +31,7 @@ using Microsoft.UI.Windowing;
 using System.Numerics;
 using Windows.UI.Core;
 using System.Diagnostics;
+using Windows.Storage.Search;
 
 namespace DropStackWinUI
 {
@@ -52,6 +53,7 @@ namespace DropStackWinUI
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
+        bool includeSubDir = false;
 
         public SimpleMode()
         {
@@ -59,7 +61,7 @@ namespace DropStackWinUI
             
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(DragZone);
-            obtainFolderAndFiles("portal");
+            obtainFolderAndFiles("regular");
             this.CenterOnScreen();
 
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
@@ -91,6 +93,11 @@ namespace DropStackWinUI
         {
             isLoading = true;
 
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("SearchSubDir"))
+            {
+                includeSubDir = (bool)ApplicationData.Current.LocalSettings.Values["SearchSubDir"];
+            }
+
             // Get the folder from the access token
             folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
@@ -103,6 +110,9 @@ namespace DropStackWinUI
 
             // Access the selected folder
             IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+
+            if (includeSubDir && source == "regular") files = await folder.GetFilesAsync(CommonFileQuery.OrderByName, 0, uint.MaxValue);
+
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
             regularFileListView.ItemsSource = fileMetadataList;
@@ -233,7 +243,7 @@ namespace DropStackWinUI
                             ProgressActivity = false
                         });
                     }
-                    if(source == "portal")_filteredFileMetadataList = fileMetadataList;
+                    if(source == "regularp")_filteredFileMetadataList = fileMetadataList;
                 }
             }
             else
@@ -410,7 +420,7 @@ namespace DropStackWinUI
             {
                 if (isRefreshRequested)
                 {
-                    obtainFolderAndFiles("portal");
+                    obtainFolderAndFiles("regular");
                     isRefreshRequested = false;
                 }
                 else
