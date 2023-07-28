@@ -76,7 +76,6 @@ namespace DropStackWinUI
             SetTitleBar(DragZone);
             loadSettings();
             obtainFolderAndFiles("regular");
-            this.CenterOnScreen();
 
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
