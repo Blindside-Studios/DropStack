@@ -39,6 +39,8 @@ using WinUIEx;
 using WinRT.Interop;
 using System.ComponentModel.Design;
 using Windows.Storage.Search;
+using static System.Net.WebRequestMethods;
+using Windows.ApplicationModel.Contacts;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -77,6 +79,12 @@ namespace DropStackWinUI
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
 
+        string secondaryFolderToken1 = ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] as string;
+        string secondaryFolderToken2 = ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] as string;
+        string secondaryFolderToken3 = ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] as string;
+        string secondaryFolderToken4 = ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] as string;
+        string secondaryFolderToken5 = ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] as string;
+
         IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
 
         IList<object> GlobalClickedItems = null;
@@ -91,7 +99,13 @@ namespace DropStackWinUI
         int pinBarBehaviorIndex = 0;
         bool isWindowsHelloRequiredForPins = false;
 
-        bool shouldIncludeSubfolders = false;
+        bool showPrimPortal = true;
+        bool showSecPortal1 = false;
+        bool showSecPortal2 = false;
+        bool showSecPortal3 = false;
+        bool showSecPortal4 = false;
+        bool showSecPortal5 = false;
+
         
         
         public MainWindow()
@@ -100,7 +114,7 @@ namespace DropStackWinUI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
 
-            if (string.IsNullOrEmpty(folderToken) & string.IsNullOrEmpty(pinnedFolderToken))
+            if (string.IsNullOrEmpty(folderToken) && string.IsNullOrEmpty(pinnedFolderToken))
             {
                 RegularAndPinnedFileGrid.Visibility = Visibility.Collapsed;
                 disableButtonVisibility();
@@ -121,12 +135,6 @@ namespace DropStackWinUI
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
                 UseSimpleViewByDefaultToggle.IsOn = (bool)localSettings.Values["LoadSimpleViewBoolean"];
-            }
-
-            if (localSettings.Values.ContainsKey("SearchSubDir"))
-            {
-                shouldIncludeSubfolders = (bool)localSettings.Values["SearchSubDir"];
-                SearchSubDirectoriesToggle.IsOn = (bool)localSettings.Values["SearchSubDir"];
             }
 
             var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
@@ -158,6 +166,94 @@ namespace DropStackWinUI
                     PinsProtectedRadioButton.IsChecked = true;
                     setPinBarOptionVisibility(false);
                     break;
+            }
+
+            if (localSettings.Values.ContainsKey("showPrimaryPortal")) { showPrimPortal = (bool)localSettings.Values["showPrimaryPortal"]; }
+
+            if (localSettings.Values.ContainsKey("showSecondaryPortal1")) { showSecPortal1 = (bool)localSettings.Values["showSecondaryPortal1"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal2")) { showSecPortal2 = (bool)localSettings.Values["showSecondaryPortal2"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal3")) { showSecPortal3 = (bool)localSettings.Values["showSecondaryPortal3"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal4")) { showSecPortal4 = (bool)localSettings.Values["showSecondaryPortal4"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal5")) { showSecPortal5 = (bool)localSettings.Values["showSecondaryPortal5"]; }
+        }
+
+        public void applySettingsToMenu()
+        {
+            PrimaryPortalFolderCheckBox.IsChecked = showPrimPortal;
+            SecondaryPortalFolder1CheckBox.IsChecked = showSecPortal1;
+            SecondaryPortalFolder2CheckBox.IsChecked = showSecPortal2;
+            SecondaryPortalFolder3CheckBox.IsChecked = showSecPortal3;
+            SecondaryPortalFolder4CheckBox.IsChecked = showSecPortal4;
+            SecondaryPortalFolder5CheckBox.IsChecked = showSecPortal5;
+            refreshFolderNames();
+        }
+
+        public async void refreshFolderNames()
+        {
+            if (!string.IsNullOrEmpty(folderToken))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+                PrimaryPortalFolderChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                PrimaryPortalFolderCheckBox.Content = "Set New...";
+                showPrimPortal = false;
+            }
+
+            if (!string.IsNullOrEmpty(secondaryFolderToken1))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
+                SecondaryPortalFolder1ChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                SecondaryPortalFolder1ChangeButton.Content = "Set New...";
+                showSecPortal1 = false;
+            }
+
+            if (!string.IsNullOrEmpty(secondaryFolderToken2))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken2);
+                SecondaryPortalFolder2ChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                SecondaryPortalFolder2ChangeButton.Content = "Set New...";
+                showSecPortal2 = false;
+            }
+
+            if (!string.IsNullOrEmpty(secondaryFolderToken3))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken3);
+                SecondaryPortalFolder3ChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                SecondaryPortalFolder3ChangeButton.Content = "Set New...";
+                showSecPortal3 = false;
+            }
+
+            if (!string.IsNullOrEmpty(secondaryFolderToken4))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken4);
+                SecondaryPortalFolder4ChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                SecondaryPortalFolder4ChangeButton.Content = "Set New...";
+                showSecPortal4 = false;
+            }
+
+            if (!string.IsNullOrEmpty(secondaryFolderToken5))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken5);
+                SecondaryPortalFolder5ChangeButton.Content = folder.Name;
+            }
+            else
+            {
+                SecondaryPortalFolder5ChangeButton.Content = "Set New...";
+                showSecPortal5 = false;
             }
         }
 
@@ -221,28 +317,49 @@ namespace DropStackWinUI
                     string currentFolderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
                     nextOOBEpage();
 
-                    if (purpose == "regular")
+                    switch (purpose)
                     {
-                        ApplicationData.Current.LocalSettings.Values["FolderToken"] = currentFolderToken;
-                        folderToken = currentFolderToken;
-                        
-
-                        if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                        createListener();
-                        obtainFolderAndFiles("regular");
-
-                        RegularFolderPath = folder.Path;
-                    }
-
-                    if (purpose == "pinned")
-                    {
-                        ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = currentFolderToken;
-                        pinnedFolderToken = currentFolderToken;
-
-                        if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                        obtainFolderAndFiles("pinned");
-
-                        PinnedFolderPath = folder.Path;
+                        case "regular":
+                            ApplicationData.Current.LocalSettings.Values["FolderToken"] = currentFolderToken;
+                            folderToken = currentFolderToken;
+                            if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                            createListener();
+                            if (OOBEgrid.Visibility == Visibility.Visible) obtainFolderAndFiles("regular");
+                            RegularFolderPath = folder.Path;
+                            PrimaryPortalFolderChangeButton.Content = folder.Name;
+                            break;
+                        case "pinned":
+                            ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = currentFolderToken;
+                            pinnedFolderToken = currentFolderToken;
+                            if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
+                            obtainFolderAndFiles("pinned");
+                            PinnedFolderPath = folder.Path;
+                            break;
+                        case "Sec1":
+                            ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] = currentFolderToken;
+                            secondaryFolderToken1 = currentFolderToken;
+                            SecondaryPortalFolder1ChangeButton.Content = folder.Name;
+                            break;
+                        case "Sec2":
+                            ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] = currentFolderToken;
+                            secondaryFolderToken2 = currentFolderToken;
+                            SecondaryPortalFolder2ChangeButton.Content = folder.Name;
+                            break;
+                        case "Sec3":
+                            ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] = currentFolderToken;
+                            secondaryFolderToken3 = currentFolderToken;
+                            SecondaryPortalFolder3ChangeButton.Content = folder.Name;
+                            break;
+                        case "Sec4":
+                            ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] = currentFolderToken;
+                            secondaryFolderToken4 = currentFolderToken;
+                            SecondaryPortalFolder4ChangeButton.Content = folder.Name;
+                            break;
+                        case "Sec5":
+                            ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] = currentFolderToken;
+                            secondaryFolderToken5 = currentFolderToken;
+                            SecondaryPortalFolder5ChangeButton.Content = folder.Name;
+                            break;
                     }
                 }
                 catch { }
@@ -260,9 +377,51 @@ namespace DropStackWinUI
             if (source == "pinned") folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
 
             // Access the selected folder
-            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync(); ;
-            
-            if (shouldIncludeSubfolders && source == "regular") files = await folder.GetFilesAsync(CommonFileQuery.OrderByName, 0, uint.MaxValue);
+            IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
+
+            // Create a list of StorageFile to add more files to
+            List<StorageFile> fileList = files.ToList();
+
+            if (!showPrimPortal && source == "regular") fileList.Clear();
+
+            if (source == "regular") 
+            {
+                if (showSecPortal1 || showSecPortal2 || showSecPortal3 || showSecPortal4 || showSecPortal5)
+                {                    
+                    if (showSecPortal1)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal2)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken2);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal3)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken3);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal4)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken4);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal5)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken5);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+
+                    files = fileList.Cast<StorageFile>().ToList();
+                }
+            }
 
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
@@ -288,17 +447,14 @@ namespace DropStackWinUI
                 double totalFiles = Convert.ToDouble(files.Count);
                 int currentFile = 1;
 
-                foreach (StorageFile file in files)
+                foreach (StorageFile file in files.Take(1024))
                 {
                     if (source == "regular")
                     {
-                        await Task.Run(() =>
-                        {
-                            double percentageOfFiles = currentFile / totalFiles;
-                            percentageOfFiles = percentageOfFiles * 100;
-                            progress.Report(Convert.ToInt32(percentageOfFiles));
-                            currentFile++;
-                        });
+                        double percentageOfFiles = currentFile / totalFiles;
+                        percentageOfFiles = percentageOfFiles * 100;
+                        progress.Report(Convert.ToInt32(percentageOfFiles));
+                        currentFile++;
                     }
 
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
@@ -457,6 +613,7 @@ namespace DropStackWinUI
 
         private void QuickSettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            applySettingsToMenu();
             if (!quickSettingsFlyoutTeachingTip.IsOpen) quickSettingsFlyoutTeachingTip.IsOpen = true;
             else quickSettingsFlyoutTeachingTip.IsOpen = false;
         }
@@ -492,7 +649,7 @@ namespace DropStackWinUI
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            obtainFolderAndFiles("regular");
+                            //obtainFolderAndFiles("regular");
                         });
                     };
 
@@ -500,7 +657,7 @@ namespace DropStackWinUI
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            obtainFolderAndFiles("regular");
+                            //obtainFolderAndFiles("regular");
                         });
                     };
                 }
@@ -508,10 +665,24 @@ namespace DropStackWinUI
             catch { }; //failed to create listener
         }
 
-        private void disconnectFolderButton_Click(object sender, RoutedEventArgs e)
+        private async void disconnectFolderButton_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
             ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = null;
+
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] = null;
+
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal1"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal2"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal3"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal4"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal5"] = false;
+
+            await Task.Delay(1000);
 
             var newMainWindow = new MainWindow();
             newMainWindow.Show();
@@ -992,6 +1163,7 @@ namespace DropStackWinUI
         private void quickSettingsFlyoutTeachingTip_Closed(Microsoft.UI.Xaml.Controls.TeachingTip sender, Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs args)
         {
             ExpanderSettingsExpander.IsExpanded = false;
+            SecondaryFolderSettingsExpander.IsExpanded = false;
             if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
             else if (!isWindowsHelloRequiredForPins) setPinBarOptionVisibility(true);
         }
@@ -1016,11 +1188,111 @@ namespace DropStackWinUI
             AboutDropStackGrid.Visibility = Visibility.Collapsed;
         }
 
-        private void SearchSubDirectoriesToggle_Toggled(object sender, RoutedEventArgs e)
+        private void PrimaryPortalFolderCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values["SearchSubDir"] = SearchSubDirectoriesToggle.IsOn;
-            shouldIncludeSubfolders = SearchSubDirectoriesToggle.IsOn;
+            localSettings.Values["showPrimaryPortal"] = true;
+            showPrimPortal = true;
+        }
+
+        private void PrimaryPortalFolderCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["showPrimaryPortal"] = false;
+            showPrimPortal = false;
+        }
+
+        private void SecondaryPortalFolderCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            CheckBox thisCheckBox = sender as CheckBox;
+
+            switch (thisCheckBox.Tag.ToString())
+            {
+                case "1":
+                    localSettings.Values["showSecondaryPortal1"] = true;
+                    showSecPortal1 = true;
+                    break;
+                case "2":
+                    localSettings.Values["showSecondaryPortal2"] = true;
+                    showSecPortal2 = true;
+                    break;
+                case "3":
+                    localSettings.Values["showSecondaryPortal3"] = true;
+                    showSecPortal3 = true;
+                    break;
+                case "4":
+                    localSettings.Values["showSecondaryPortal4"] = true;
+                    showSecPortal4 = true;
+                    break;
+                case "5":
+                    localSettings.Values["showSecondaryPortal5"] = true;
+                    showSecPortal5 = true;
+                    break;
+            }
+        }
+
+        private void SecondaryPortalFolderCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            CheckBox thisCheckBox = sender as CheckBox;
+
+            switch (thisCheckBox.Tag.ToString())
+            {
+                case "1":
+                    localSettings.Values["showSecondaryPortal1"] = false;
+                    showSecPortal1 = false;
+                    break;
+                case "2":
+                    localSettings.Values["showSecondaryPortal2"] = false;
+                    showSecPortal2 = false;
+                    break;
+                case "3":
+                    localSettings.Values["showSecondaryPortal3"] = false;
+                    showSecPortal3 = false;
+                    break;
+                case "4":
+                    localSettings.Values["showSecondaryPortal4"] = false;
+                    showSecPortal4 = false;
+                    break;
+                case "5":
+                    localSettings.Values["showSecondaryPortal5"] = false;
+                    showSecPortal5 = false;
+                    break;
+            }
+        }
+
+        private void PrimaryPortalFolderChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            askForAccess("regular");
+        }
+
+        private void SecondaryPortalFolderChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            
+            switch (thisButton.Tag.ToString())
+            {
+                case "1":
+                    askForAccess("Sec1");
+                    break;
+                case "2":
+                    askForAccess("Sec2");
+                    break;
+                case "3":
+                    askForAccess("Sec3");
+                    break;
+                case "4":
+                    askForAccess("Sec4");
+                    break;
+                case "5":
+                    askForAccess("Sec5");
+                    break;
+            }
+        }
+
+        private void ApplyMultiFolderSettings_Click(object sender, RoutedEventArgs e)
+        {
             obtainFolderAndFiles("regular");
         }
     }

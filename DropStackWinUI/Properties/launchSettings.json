@@ -3,7 +3,7 @@
     "DropStackWinUI (Package)": {
       "commandName": "MsixPackage",
       "allowLocalNetworkLoopbackProperty": true,
-      "alwaysReinstallApp": false
+      "alwaysReinstallApp": true
     },
     "DropStackWinUI (Unpackaged)": {
       "commandName": "Project"

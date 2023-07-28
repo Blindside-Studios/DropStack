@@ -44,6 +44,13 @@ namespace DropStackWinUI
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            if (args.Arguments.Contains("resetSecondaryPortal")) resetSecondaryPortalFolders();
+            if (args.Arguments.Contains("resetDropStack"))
+            {
+                resetSecondaryPortalFolders();
+                resetAllOtherSettings();
+            }
+            
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
             string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
@@ -59,12 +66,38 @@ namespace DropStackWinUI
 
             if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken)) shouldBeSimpleView = false;
 
-            if (args.Arguments == "forceNormalView") shouldBeSimpleView = false;
-            else if (args.Arguments == "forceSimpleView") shouldBeSimpleView = true;
+            if (args.Arguments.Contains("forceNormalView")) shouldBeSimpleView = false;
+            else if (args.Arguments.Contains("forceSimpleView")) shouldBeSimpleView = true;
 
             if (shouldBeSimpleView) m_window = new SimpleMode();
             else if (!shouldBeSimpleView) m_window = new MainWindow();
             m_window.Activate();
+        }
+
+        private void resetSecondaryPortalFolders()
+        {
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] = null;
+            ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] = null;
+
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal1"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal2"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal3"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal4"] = false;
+            ApplicationData.Current.LocalSettings.Values["showSecondaryPortal5"] = false;
+        }
+
+        private void resetAllOtherSettings()
+        {
+            ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
+            ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = null;
+            ApplicationData.Current.LocalSettings.Values["LoadSimpleViewBoolean"] = false;
+            ApplicationData.Current.LocalSettings.Values["PinBarBehavior"] = 0;
+            ApplicationData.Current.LocalSettings.Values["HasPinBarBeenExpanded"] = true;
+
+
         }
 
         private static Window m_window;

@@ -39,6 +39,20 @@ namespace DropStackWinUI
     {
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
+
+        string secondaryFolderToken1 = ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] as string;
+        string secondaryFolderToken2 = ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] as string;
+        string secondaryFolderToken3 = ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] as string;
+        string secondaryFolderToken4 = ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] as string;
+        string secondaryFolderToken5 = ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] as string;
+
+        bool showPrimPortal = true;
+        bool showSecPortal1 = false;
+        bool showSecPortal2 = false;
+        bool showSecPortal3 = false;
+        bool showSecPortal4 = false;
+        bool showSecPortal5 = false;
+
         IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
         IList<string> documentFileTypes = new List<string> { ".pdf", ".doc", ".docx", ".txt", ".html", ".htm", ".xls", ".xlsx", ".odt", ".fodt", ".ods", ".fods", ".rtf", ".xml" };
         IList<string> pictureFileTypes = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".ico", ".webp", ".raw", ".psd", ".ai" };
@@ -53,7 +67,6 @@ namespace DropStackWinUI
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
-        bool includeSubDir = false;
 
         public SimpleMode()
         {
@@ -61,6 +74,7 @@ namespace DropStackWinUI
             
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(DragZone);
+            loadSettings();
             obtainFolderAndFiles("regular");
             this.CenterOnScreen();
 
@@ -81,22 +95,28 @@ namespace DropStackWinUI
             EverythingGrid.Opacity = 1;
         }
 
-        private async void CoreWindow_PointerRoutedAway(Windows.UI.Core.ICorePointerRedirector sender, Windows.UI.Core.PointerEventArgs args)
+        private void loadSettings()
         {
-            EverythingGrid.Opacity = 0;
-            EverythingGrid.Translation = new Vector3(0, 20, 0);
-            await Task.Delay(200);
-            this.Close();
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+            if (localSettings.Values.ContainsKey("showPrimaryPortal")) { showPrimPortal = (bool)localSettings.Values["showPrimaryPortal"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal1")) { showSecPortal1 = (bool)localSettings.Values["showSecondaryPortal1"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal2")) { showSecPortal2 = (bool)localSettings.Values["showSecondaryPortal2"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal3")) { showSecPortal3 = (bool)localSettings.Values["showSecondaryPortal3"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal4")) { showSecPortal4 = (bool)localSettings.Values["showSecondaryPortal4"]; }
+            if (localSettings.Values.ContainsKey("showSecondaryPortal5")) { showSecPortal5 = (bool)localSettings.Values["showSecondaryPortal5"]; }
+
+            if (string.IsNullOrEmpty(folderToken)) showPrimPortal = false;
+            if (string.IsNullOrEmpty(secondaryFolderToken1)) showSecPortal1 = false;
+            if (string.IsNullOrEmpty(secondaryFolderToken2)) showSecPortal2 = false;
+            if (string.IsNullOrEmpty(secondaryFolderToken3)) showSecPortal3 = false;
+            if (string.IsNullOrEmpty(secondaryFolderToken4)) showSecPortal4 = false;
+            if (string.IsNullOrEmpty(secondaryFolderToken5)) showSecPortal5 = false;
         }
 
         public async void obtainFolderAndFiles(string source)
         {
             isLoading = true;
-
-            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("SearchSubDir"))
-            {
-                includeSubDir = (bool)ApplicationData.Current.LocalSettings.Values["SearchSubDir"];
-            }
 
             // Get the folder from the access token
             folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
@@ -111,7 +131,49 @@ namespace DropStackWinUI
             // Access the selected folder
             IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
 
-            if (includeSubDir && source == "regular") files = await folder.GetFilesAsync(CommonFileQuery.OrderByName, 0, uint.MaxValue);
+            // Create a list of StorageFile to add more files to
+            List<StorageFile> fileList = files.ToList();
+
+            if (!showPrimPortal && source == "regular") fileList.Clear();
+
+            if (source == "regular")
+            {
+                if (showSecPortal1 || showSecPortal2 || showSecPortal3 || showSecPortal4 || showSecPortal5)
+                {
+                    if (showSecPortal1)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal2)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken2);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal3)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken3);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal4)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken4);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+                    if (showSecPortal5)
+                    {
+                        StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken5);
+                        var folderFiles = await thisFolder.GetFilesAsync();
+                        fileList.AddRange(folderFiles);
+                    }
+
+                    files = fileList.Cast<StorageFile>().ToList();
+                }
+            }
 
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
