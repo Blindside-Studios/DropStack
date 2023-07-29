@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-29T18:51:25.514</Modified>
+      <Modified>2023-07-29T18:53:59.769</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2023-07-29T18:51:25.208</Modified>
+      <Modified>2023-07-29T18:53:59.461</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2023-07-29T18:51:25.216</Modified>
+      <Modified>2023-07-29T18:53:59.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>

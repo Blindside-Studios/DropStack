@@ -461,6 +461,7 @@ namespace DropStackWinUI
                 }
                 IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
                 double totalFiles = Convert.ToDouble(files.Count);
+                if (totalFiles > 1024) totalFiles = 1024;
                 int currentFile = 1;
 
                 foreach (StorageFile file in files.Take(1024))
