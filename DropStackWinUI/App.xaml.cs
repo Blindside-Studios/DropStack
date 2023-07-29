@@ -96,6 +96,8 @@ namespace DropStackWinUI
             ApplicationData.Current.LocalSettings.Values["LoadSimpleViewBoolean"] = false;
             ApplicationData.Current.LocalSettings.Values["PinBarBehavior"] = 0;
             ApplicationData.Current.LocalSettings.Values["HasPinBarBeenExpanded"] = true;
+            ApplicationData.Current.LocalSettings.Values["IsPanosUnlocked"] = false;
+            ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Default";
 
 
         }

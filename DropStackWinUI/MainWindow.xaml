@@ -16,7 +16,7 @@
 
     <Grid>
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=RegularFilesScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:Name="ParallaxImage" Source="ms-appx:///Assets/Themes/Default.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+            <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
         </ParallaxView>
         <Grid x:Name="WindowGrid">
             <Grid.RowDefinitions>
@@ -225,14 +225,21 @@
                     <TextBox x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4" TextChanged="SearchTextBox_TextChanged"/>
                 </Grid>
                 <TeachingTip x:Name="fileInClipboardReminder"
-            Title="Copied successfully!"
-            Subtitle="The file is now in your clipboard">
+                             Title="Copied successfully!"
+                             Subtitle="The file is now in your clipboard">
                     <ProgressBar x:Name="reminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:Name="failedToDragTeachingTip"
-            Title="Dragging unsuccessful"
-            Subtitle="Are you sure the file still exists?">
+                             Title="Dragging unsuccessful"
+                             Subtitle="Are you sure the file still exists?">
                     <ProgressBar x:Name="failureReminderTimer" Value="0" />
+                </TeachingTip>
+                <TeachingTip x:Name="panosUnlockedTeachingTip"
+                             Title="Panos theme unlocked!"
+                             Subtitle="Reading the privacy statement unlocks the exclusive Panos Panay easter egg theme! Congrats!"
+                             ActionButtonContent="Apply Panos theme now!"
+                             ActionButtonClick="panosUnlockedTeachingTip_ActionButtonClick">
+                    <ProgressBar x:Name="panosUnlockedTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip 
             x:Name="noFolderpathTechingTip"
@@ -263,7 +270,7 @@
                               OffContent="Use simple view by default"
                               Toggled="UseSimpleViewByDefaultToggle_Toggled"
                               ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
-                        <ComboBox x:Name="ThemePickerCombobox" Margin="0,10,0,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged" SelectedIndex="0">
+                        <ComboBox x:Name="ThemePickerCombobox" Margin="0,5,0,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
                             <x:String>Default</x:String>
                             <x:String>Colorful</x:String>
                             <x:String>Evening</x:String>

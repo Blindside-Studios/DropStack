@@ -76,7 +76,6 @@ namespace DropStackWinUI
             Add("Ukraine");
             Add("Bliss");
             Add("Microsoft");
-            //Add("Panos");
         }
     }
 
@@ -191,6 +190,24 @@ namespace DropStackWinUI
             if (localSettings.Values.ContainsKey("showSecondaryPortal3")) { showSecPortal3 = (bool)localSettings.Values["showSecondaryPortal3"]; }
             if (localSettings.Values.ContainsKey("showSecondaryPortal4")) { showSecPortal4 = (bool)localSettings.Values["showSecondaryPortal4"]; }
             if (localSettings.Values.ContainsKey("showSecondaryPortal5")) { showSecPortal5 = (bool)localSettings.Values["showSecondaryPortal5"]; }
+
+            if (localSettings.Values.ContainsKey("IsPanosUnlocked"))
+            {
+                if ((bool)localSettings.Values["IsPanosUnlocked"]) unlockPanos(false);
+            }
+
+            if (localSettings.Values.ContainsKey("SelectedTheme"))
+            {
+                string selectedTheme = (string)localSettings.Values["SelectedTheme"];
+                ThemePickerCombobox.SelectedItem = selectedTheme;
+                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/"+selectedTheme+".png"));
+            }
+            else
+            {
+                string selectedTheme = "Default";
+                ThemePickerCombobox.SelectedItem = selectedTheme;
+                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + selectedTheme + ".png"));
+            }
         }
 
         public void applySettingsToMenu()
@@ -1319,17 +1336,60 @@ namespace DropStackWinUI
         private void ThemePickerCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as ComboBox;
-            string selectedTheme = comboBox.SelectedItem.ToString();
-            ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/"+selectedTheme+".png"));
-
-            /*ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values["SelectedTheme"] = selectedTheme;*/
+            string selectedItem = comboBox.SelectedItem.ToString();
+            setTheme(selectedItem);
+            ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = selectedItem;
         }
 
         private void PrivacyStamentExpander_Expanding(Expander sender, ExpanderExpandingEventArgs args)
         {
-            /*ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values["IsPanosUnlocked"] = true;*/
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["IsPanosUnlocked"] = true;
+            unlockPanos(true);
+        }
+
+        private void setTheme(string themeName)
+        {
+            ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
+
+            if (themeName != "Default")
+            {
+                PinnedExpanderBackgroundRectangle.Opacity = 0.3;
+                ContentBackgroundRectangle.Opacity = 0.35;
+            }
+            else
+            {
+                PinnedExpanderBackgroundRectangle.Opacity = 0.1;
+                ContentBackgroundRectangle.Opacity = 0.15;
+            }
+        }
+
+        private async void unlockPanos(bool showNotification)
+        {
+            if (!ThemePickerCombobox.Items.Contains("Panos"))
+            {
+                ThemePickerCombobox.Items.Add("Panos");
+
+                if (showNotification)
+                {
+                    //show teaching tip
+                    panosUnlockedTeachingTip.IsOpen = true;
+                    for (int i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(10);
+                        panosUnlockedTimer.Value = i;
+                    }
+                    panosUnlockedTeachingTip.IsOpen = false;
+                    await Task.Delay(100);
+                    panosUnlockedTimer.Value = 0;
+                }
+            }
+        }
+
+        private void panosUnlockedTeachingTip_ActionButtonClick(TeachingTip sender, object args)
+        {
+            ThemePickerCombobox.SelectedItem = "Panos";
+            //setTheme("Panos");
         }
     }
 }
