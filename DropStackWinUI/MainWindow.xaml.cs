@@ -66,8 +66,24 @@ namespace DropStackWinUI
         public bool ProgressActivity { get; set; }
     }
 
+    public class Themes : ObservableCollection<string>
+    {
+        public Themes()
+        {
+            Add("Default");
+            Add("Colorful");
+            Add("Evening");
+            Add("Ukraine");
+            Add("Bliss");
+            Add("Microsoft");
+            //Add("Panos");
+        }
+    }
+
     public sealed partial class MainWindow : WinUIEx.WindowEx
     {
+        public Themes ThemeNames { get; set; } = new Themes();
+
         public string GetAppVersion()
         {
             Package package = Package.Current;
@@ -956,29 +972,32 @@ namespace DropStackWinUI
 
         private async void openLastSelectedFile()
         {
-            FileItem selectedFile = (FileItem)GlobalClickedItems[0];
-            string selectedFileName = selectedFile.FileName;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-
-            try
+            if (GlobalClickedItems != null)
             {
-                // get the file
-                var file = await folder.GetFileAsync(selectedFileName);
+                FileItem selectedFile = (FileItem)GlobalClickedItems[0];
+                string selectedFileName = selectedFile.FileName;
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
 
-                // launch the file
-                var success = await Launcher.LaunchFileAsync(file);
-            }
+                try
+                {
+                    // get the file
+                    var file = await folder.GetFileAsync(selectedFileName);
 
-            catch
-            {
-                // handle the exception
-            }
-            finally
-            {
-                // clear the selection after a short delay
-                await Task.Delay(250);
-                regularFileListView.SelectedItem = null;
-                pinnedFileListView.SelectedItem = null;
+                    // launch the file
+                    var success = await Launcher.LaunchFileAsync(file);
+                }
+
+                catch
+                {
+                    // handle the exception
+                }
+                finally
+                {
+                    // clear the selection after a short delay
+                    await Task.Delay(250);
+                    regularFileListView.SelectedItem = null;
+                    pinnedFileListView.SelectedItem = null;
+                }
             }
         }
 
@@ -1294,6 +1313,22 @@ namespace DropStackWinUI
         private void ApplyMultiFolderSettings_Click(object sender, RoutedEventArgs e)
         {
             obtainFolderAndFiles("regular");
+        }
+
+        private void ThemePickerCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            string selectedTheme = comboBox.SelectedItem.ToString();
+            ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/"+selectedTheme+".png"));
+
+            /*ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["SelectedTheme"] = selectedTheme;*/
+        }
+
+        private void PrivacyStamentExpander_Expanding(Expander sender, ExpanderExpandingEventArgs args)
+        {
+            /*ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["IsPanosUnlocked"] = true;*/
         }
     }
 }
