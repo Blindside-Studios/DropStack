@@ -57,18 +57,18 @@
                             <TextBlock x:ConnectionId='87' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <StackPanel x:ConnectionId='88' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
                                 <TextBlock x:ConnectionId='95' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='96' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"                                              />
+                                <HyperlinkButton x:ConnectionId='96' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
                             <Grid x:ConnectionId='89' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
-                                <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                                <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
                                     <GridView x:ConnectionId='90'   x:Name="pinnedFileListView"
-                                                                                             
-                                                                                           
-                                                                                   
-                                            CanDragItems="True" 
-                                                                                              
-                                            Height="150"
-                                            HorizontalAlignment="Stretch">
+                                                                                                 
+                                                                                               
+                                                                                       
+                                                CanDragItems="True" 
+                                                                                                  
+                                                Height="150"
+                                                HorizontalAlignment="Stretch">
                                         <GridView.ItemContainerTransitions>
                                             <TransitionCollection>
                                                 <EntranceThemeTransition  FromVerticalOffset="0" />
