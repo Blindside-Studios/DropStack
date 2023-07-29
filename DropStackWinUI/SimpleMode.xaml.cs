@@ -111,6 +111,17 @@ namespace DropStackWinUI
             if (string.IsNullOrEmpty(secondaryFolderToken3)) showSecPortal3 = false;
             if (string.IsNullOrEmpty(secondaryFolderToken4)) showSecPortal4 = false;
             if (string.IsNullOrEmpty(secondaryFolderToken5)) showSecPortal5 = false;
+
+            if (localSettings.Values.ContainsKey("SelectedTheme"))
+            {
+                string selectedTheme = (string)localSettings.Values["SelectedTheme"];
+                setTheme(selectedTheme);
+            }
+            else
+            {
+                string selectedTheme = "Default";
+                setTheme(selectedTheme);
+            }
         }
 
         public async void obtainFolderAndFiles(string source)
@@ -545,6 +556,11 @@ namespace DropStackWinUI
         private void regularFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
         {
             closeWithAnimation();
+        }
+
+        private void setTheme(string themeName)
+        {
+            ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
         }
     }
 }

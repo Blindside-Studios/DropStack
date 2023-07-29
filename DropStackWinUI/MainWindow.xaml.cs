@@ -66,23 +66,8 @@ namespace DropStackWinUI
         public bool ProgressActivity { get; set; }
     }
 
-    public class Themes : ObservableCollection<string>
-    {
-        public Themes()
-        {
-            Add("Default");
-            Add("Colorful");
-            Add("Evening");
-            Add("Ukraine");
-            Add("Bliss");
-            Add("Microsoft");
-        }
-    }
-
     public sealed partial class MainWindow : WinUIEx.WindowEx
     {
-        public Themes ThemeNames { get; set; } = new Themes();
-
         public string GetAppVersion()
         {
             Package package = Package.Current;
@@ -200,13 +185,13 @@ namespace DropStackWinUI
             {
                 string selectedTheme = (string)localSettings.Values["SelectedTheme"];
                 ThemePickerCombobox.SelectedItem = selectedTheme;
-                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/"+selectedTheme+".png"));
+                setTheme(selectedTheme);
             }
             else
             {
                 string selectedTheme = "Default";
                 ThemePickerCombobox.SelectedItem = selectedTheme;
-                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + selectedTheme + ".png"));
+                setTheme(selectedTheme);
             }
         }
 
@@ -1389,7 +1374,7 @@ namespace DropStackWinUI
         private void panosUnlockedTeachingTip_ActionButtonClick(TeachingTip sender, object args)
         {
             ThemePickerCombobox.SelectedItem = "Panos";
-            //setTheme("Panos");
+            setTheme("Panos");
         }
     }
 }
