@@ -147,7 +147,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0" Margin="0,-3,2,3" Height="18">
                                         <Rectangle Fill="DarkGray" Opacity="{Binding PillOpacity}" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,2,0,-2"/>
-                                        <TextBlock Text="{Binding FileType}" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding FileType}" Tag="{Binding TypeTag}" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center"/>
                                     </Grid>
                                     <Grid Grid.Column="1" Height="18" Margin="2,-3,0,3">
                                         <Rectangle Fill="DarkGray" Opacity="{Binding PillOpacity}" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,2,0,-2"/>

@@ -5,13 +5,13 @@
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x86|x64</AppxBuildConfigurationSelection>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
-    <Source>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</Source>
-    <SmallTileSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</SmallTileSource>
-    <MediumTileSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</MediumTileSource>
-    <WideTileSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</WideTileSource>
-    <LargeTileSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</LargeTileSource>
-    <AppIconSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</AppIconSource>
-    <SplashScreenSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</SplashScreenSource>
-    <PackageLogoSource>C:\Users\nicol\OneDrive\Documents\DropStack pins\Icon.png</PackageLogoSource>
+    <Source>C:\Users\nicol\Downloads\dropstackv2.png</Source>
+    <SmallTileSource>C:\Users\nicol\Downloads\dropstackv2.png</SmallTileSource>
+    <MediumTileSource>C:\Users\nicol\Downloads\dropstackv2.png</MediumTileSource>
+    <WideTileSource>C:\Users\nicol\Downloads\dropstackv2.png</WideTileSource>
+    <LargeTileSource>C:\Users\nicol\Downloads\dropstackv2.png</LargeTileSource>
+    <AppIconSource>C:\Users\nicol\Downloads\dropstackv2.png</AppIconSource>
+    <SplashScreenSource>C:\Users\nicol\Downloads\dropstackv2.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\nicol\Downloads\dropstackv2.png</PackageLogoSource>
   </PropertyGroup>
 </Project>

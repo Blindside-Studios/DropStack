@@ -315,7 +315,7 @@ namespace DropStackWinUI
                             ProgressActivity = false
                         });
                     }
-                    if(source == "regularp")_filteredFileMetadataList = fileMetadataList;
+                    if (source == "regular") _filteredFileMetadataList = fileMetadataList;
                 }
             }
             else
