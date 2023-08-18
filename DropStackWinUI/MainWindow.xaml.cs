@@ -123,7 +123,7 @@ namespace DropStackWinUI
 
             loadSettings();
 
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles("regular"); createListener(); setFolderPath("Regular"); }
+            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); obtainFolderAndFiles("regular"); setFolderPath("Regular"); }
             if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
             else if (string.IsNullOrEmpty(pinnedFolderToken) && !string.IsNullOrEmpty(folderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
         }
@@ -341,7 +341,6 @@ namespace DropStackWinUI
                             ApplicationData.Current.LocalSettings.Values["FolderToken"] = currentFolderToken;
                             folderToken = currentFolderToken;
                             if (OOBEgrid.Visibility == Visibility.Collapsed) enableButtonVisibility();
-                            createListener();
                             if (OOBEgrid.Visibility == Visibility.Visible) obtainFolderAndFiles("regular");
                             RegularFolderPath = folder.Path;
                             PrimaryPortalFolderChangeButton.Content = folder.Name;
@@ -647,45 +646,9 @@ namespace DropStackWinUI
             obtainFolderAndFiles("pinned");
         }
 
-        private async void createListener()
+        private void Query_ContentsChanged(IStorageQueryResultBase sender, object args)
         {
-            try
-            {
-                //check if the folder token is not null or empty
-                if (!string.IsNullOrEmpty(folderToken))
-                {
-                    //obtain the folder path
-                    StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                    string folderPath = folder.Path;
-
-                    // create a new FileSystemWatcher object to monitor the directory
-                    var watcher = new FileSystemWatcher
-                    {
-                        Path = folderPath,
-                        Filter = "*",
-                        NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite | NotifyFilters.LastAccess,
-                        EnableRaisingEvents = true
-                    };
-
-                    // add event handlers to respond to file system changes
-                    watcher.Created += async (sender, e) =>
-                    {
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            //obtainFolderAndFiles("regular");
-                        });
-                    };
-
-                    watcher.Renamed += async (sender, e) =>
-                    {
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            //obtainFolderAndFiles("regular");
-                        });
-                    };
-                }
-            }
-            catch { }; //failed to create listener
+            obtainFolderAndFiles("regular");
         }
 
         private async void disconnectFolderButton_Click(object sender, RoutedEventArgs e)

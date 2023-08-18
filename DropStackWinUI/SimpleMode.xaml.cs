@@ -67,7 +67,6 @@ namespace DropStackWinUI
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
-        bool isTerminatingApp = false;
 
         public SimpleMode()
         {
@@ -77,6 +76,8 @@ namespace DropStackWinUI
             SetTitleBar(DragZone);
             loadSettings();
             obtainFolderAndFiles("regular");
+
+            this.Activated += OnWindowActivated;
 
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
@@ -93,6 +94,14 @@ namespace DropStackWinUI
 
             EverythingGrid.Translation = new Vector3(0,0,0);
             EverythingGrid.Opacity = 1;
+        }
+
+        private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
+        {
+            if (e.WindowActivationState == WindowActivationState.Deactivated)
+            {
+                closeWithAnimation();
+            }
         }
 
         private void loadSettings()
@@ -336,7 +345,6 @@ namespace DropStackWinUI
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            isTerminatingApp = true;
             FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
 
             await Task.Run(async () =>
