@@ -584,6 +584,7 @@ namespace DropStackWinUI
 
             // copy the data package to the clipboard
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
 
             //show teaching tip
             fileInClipboardReminder.IsOpen = true;
@@ -954,6 +955,7 @@ namespace DropStackWinUI
 
                 // copy the data package to the clipboard
                 Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
 
                 //show teaching tip
                 fileInClipboardReminder.IsOpen = true;
@@ -1027,6 +1029,7 @@ namespace DropStackWinUI
 
             // copy the data package to the clipboard
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
 
             //show teaching tip
             fileInClipboardReminder.IsOpen = true;
@@ -1045,6 +1048,7 @@ namespace DropStackWinUI
             DataPackage dataPackage = new DataPackage();
             dataPackage.SetText(RegularFolderPath);
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
         }
 
         private void CopyPinnedFolderPathButton_Click(object sender, RoutedEventArgs e)
@@ -1052,6 +1056,7 @@ namespace DropStackWinUI
             DataPackage dataPackage = new DataPackage();
             dataPackage.SetText(PinnedFolderPath);
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
         }
 
         private void Flyout_Opened(object sender, object e)

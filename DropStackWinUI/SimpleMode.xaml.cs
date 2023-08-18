@@ -340,9 +340,9 @@ namespace DropStackWinUI
             var dataPackage = new DataPackage();
             dataPackage.SetStorageItems(new List<IStorageItem> { file });
             Clipboard.SetContent(dataPackage);
-
-            // TODO: not do this, because memory leak - the window isn't visible in switchers and the taskbar icon creates a new instance
-            //minimizeWithAnimation();
+            await Task.Delay(100);
+            Clipboard.Flush();
+            closeWithAnimation();
         }
 
         private void Clipboard_HistoryChanged(object sender, ClipboardHistoryChangedEventArgs e)
