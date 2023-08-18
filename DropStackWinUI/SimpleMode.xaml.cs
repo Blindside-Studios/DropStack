@@ -67,6 +67,7 @@ namespace DropStackWinUI
         bool isRefreshRequested = false;
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
+        bool isTerminatingApp = false;
 
         public SimpleMode()
         {
@@ -335,18 +336,25 @@ namespace DropStackWinUI
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
+            isTerminatingApp = true;
             FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
-            StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
-            var dataPackage = new DataPackage();
-            dataPackage.SetStorageItems(new List<IStorageItem> { file });
-            Clipboard.SetContent(dataPackage);
-            await Task.Delay(100);
-            Clipboard.Flush();
-            closeWithAnimation();
-        }
 
-        private void Clipboard_HistoryChanged(object sender, ClipboardHistoryChangedEventArgs e)
-        {
+            await Task.Run(async () =>
+            {
+                // get the file
+                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                // create a new data package
+                var dataPackage = new DataPackage();
+
+                // add the file to the data package
+                dataPackage.SetStorageItems(new List<IStorageItem> { file });
+
+                // copy the data package to the clipboard
+                Clipboard.SetContent(dataPackage);
+                await Task.Delay(100);
+                Clipboard.Flush();
+            });
             closeWithAnimation();
         }
 
@@ -364,6 +372,8 @@ namespace DropStackWinUI
 
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
+
+                minimizeWithAnimation();
             }
             catch { }
         }
@@ -555,7 +565,7 @@ namespace DropStackWinUI
 
         private void regularFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
         {
-            closeWithAnimation();
+            Close();
         }
 
         private void setTheme(string themeName)
