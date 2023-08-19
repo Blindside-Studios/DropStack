@@ -1,5 +1,5 @@
 # DropStack
-An emulation of the dock stacks feature from MacOS, built with the UWP framework
+Playing hide-and-seek with your files was never an option!
 
 ![Screenshot of DropStack on the Windows desktop](Screenshots/v0.4.0/ondesktop.png)
 
