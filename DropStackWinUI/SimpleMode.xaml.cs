@@ -32,11 +32,15 @@ using System.Numerics;
 using Windows.UI.Core;
 using System.Diagnostics;
 using Windows.Storage.Search;
+using System.Runtime.InteropServices;
 
 namespace DropStackWinUI
 {
     public sealed partial class SimpleMode : WinUIEx.WindowEx
     {
+        [DllImport("User32.dll")]
+        public static extern uint GetDpiForWindow(IntPtr hwnd);
+
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
         string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
 
@@ -83,15 +87,18 @@ namespace DropStackWinUI
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Nearest);
 
+            uint dpi = GetDpiForWindow(hWnd);
+            double scaleFactor = (double)dpi / 96;
+
             int displayWidth = displayArea.WorkArea.Width;
             int displayHeight = displayArea.WorkArea.Height;
 
             int windowWidth = 400;
             int windowHeight = 700;
 
-            if (displayHeight < 900) windowHeight = (int)Math.Round(displayHeight * 0.9,0);
+            if (displayHeight < 900*scaleFactor) windowHeight = (int)Math.Round(displayHeight * 0.9 /scaleFactor , 0);
 
-            this.MoveAndResize((displayWidth / 2) - (windowWidth/2), displayHeight - (windowHeight + 10), windowWidth, windowHeight);
+            this.MoveAndResize(((displayWidth / 2) - ((windowWidth*scaleFactor)/2)), (displayHeight - (windowHeight * scaleFactor) - (10 * scaleFactor)), windowWidth, windowHeight);
 
             EverythingGrid.Translation = new Vector3(0,0,0);
             EverythingGrid.Opacity = 1;
