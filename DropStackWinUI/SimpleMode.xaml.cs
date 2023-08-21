@@ -379,9 +379,7 @@ namespace DropStackWinUI
             try
             {
                 var selectedFile = e.Items[0] as FileItem;
-                var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                if (isPinsOnScreen) folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
-                var file = await folder.GetFileAsync(selectedFile.FileName);
+                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
                 // Create a list of storage items with the file
                 var storageItems = new List<StorageFile> { file };
@@ -402,13 +400,10 @@ namespace DropStackWinUI
         private async void openLastSelectedFile()
         {
             FileItem selectedFile = (FileItem)GlobalClickedItems[0];
-            string selectedFileName = selectedFile.FileName;
-            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
 
             try
             {
-                // get the file
-                var file = await folder.GetFileAsync(selectedFileName);
+                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
                 // launch the file
                 var success = await Launcher.LaunchFileAsync(file);

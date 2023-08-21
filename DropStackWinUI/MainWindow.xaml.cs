@@ -949,13 +949,10 @@ namespace DropStackWinUI
             if (GlobalClickedItems != null)
             {
                 FileItem selectedFile = (FileItem)GlobalClickedItems[0];
-                string selectedFileName = selectedFile.FileName;
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
 
                 try
                 {
-                    // get the file
-                    var file = await folder.GetFileAsync(selectedFileName);
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
                     // launch the file
                     var success = await Launcher.LaunchFileAsync(file);
@@ -979,18 +976,8 @@ namespace DropStackWinUI
         {
             await Task.Run(async () =>
             {
-                // Get the folder from the access token
-                string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-                folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-
-                // Access the selected folder
-                IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
-
-                // Sort the files by modification date in descending order
-                files = files.OrderByDescending(f => f.DateCreated).ToList();
-
-                StorageFile recentFile = files[0];
+                StorageFile file = await StorageFile.GetFileFromPathAsync(fileMetadataListCopy[0].FilePath);
+                StorageFile recentFile = file;
 
                 // create a new data package
                 var dataPackage = new DataPackage();
