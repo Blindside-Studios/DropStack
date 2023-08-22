@@ -345,10 +345,7 @@ namespace DropStackWinUI
 
         private void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.AddedItems.Count > 0)
-            {
-                GlobalClickedItems = e.AddedItems;
-            }
+            GlobalClickedItems = regularFileListView.SelectedItems;
         }
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
