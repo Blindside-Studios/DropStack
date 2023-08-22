@@ -67,6 +67,7 @@
                                                                                        
                                                 CanDragItems="True" 
                                                                                                   
+                                                                                                          
                                                 Height="150"
                                                 HorizontalAlignment="Stretch">
                                         <GridView.ItemContainerTransitions>
@@ -113,11 +114,13 @@
                         <ScrollViewer x:ConnectionId='79' x:Name="RegularFilesScrollViewer" Margin="0,10,0,0" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
                             <StackPanel>
                                 <ListView x:ConnectionId='80'   x:Name="regularFileListView"
-                                                                                     
+                                            SelectionMode="Extended"
+                                                                                             
+                                                                                           
                                                                                    
-                                                                           
-                                    CanDragItems="True" 
-                                                                                      >
+                                            CanDragItems="True" 
+                                                                                              
+                                                                                                       >
                                     <ListView.ItemContainerTransitions>
                                         <TransitionCollection>
                                             <EntranceThemeTransition  FromVerticalOffset="0" />

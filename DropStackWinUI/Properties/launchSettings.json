@@ -3,7 +3,10 @@
     "DropStackWinUI (Package)": {
       "commandName": "MsixPackage",
       "allowLocalNetworkLoopbackProperty": true,
-      "alwaysReinstallApp": false
+      "alwaysReinstallApp": false,
+      "remoteDebugEnabled": false,
+      "remoteDebugMachine": "Surface-Pro-8",
+      "authenticationMode": "None"
     },
     "DropStackWinUI (Unpackaged)": {
       "commandName": "Project"

@@ -387,7 +387,8 @@ namespace DropStackWinUI
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
 
-                minimizeWithAnimation();
+                var window = this;
+                window.Hide();
             }
             catch { }
         }
@@ -430,15 +431,6 @@ namespace DropStackWinUI
             EverythingGrid.Translation = new Vector3(0, 20, 0);
             await Task.Delay(200);
             this.Close();
-        }
-
-        private async void minimizeWithAnimation()
-        {
-            EverythingGrid.Opacity = 0;
-            EverythingGrid.Translation = new Vector3(0, 20, 0);
-            await Task.Delay(200);
-            var window = this;
-            window.Minimize();
         }
 
         private void SimpleModeMeatballMenu_Click(object sender, RoutedEventArgs e)

@@ -16,7 +16,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=RegularFilesScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='98' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+            <Image x:ConnectionId='100' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid">
             <Grid.RowDefinitions>
@@ -50,18 +50,18 @@
                                                       
                                                                  >
                         <Grid>
-                            <StackPanel x:ConnectionId='86' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='97' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='88' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='99' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='87' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='88' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='95' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='96' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='89' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='90' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='97' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='98' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='89' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='91' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='90'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='92'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -123,6 +123,19 @@
                                             <EntranceThemeTransition  FromVerticalOffset="0" />
                                         </TransitionCollection>
                                     </ListView.ItemContainerTransitions>
+
+                                    <ListView.Resources>
+                                        <FontIconSource x:Key="ReplyAllIcon" Glyph="&#xE8C2;"/>
+                                        <FontIconSource x:Key="ReadIcon" Glyph="&#xE8C3;"/>
+                                        <FontIconSource x:Key="DeleteIcon" Glyph="&#xE74D;"/>
+
+                                        <SwipeItems x:Key="left" Mode="Execute">
+                                            <SwipeItem x:ConnectionId='82' x:Name="CopySwipeItem" Text="Copy" Background="DarkBlue" Foreground="White"                                />
+                                            <SwipeItem x:ConnectionId='83' x:Name="RevealSwipeItem" Text="Reveal" Background="DarkSlateBlue" Foreground="White"                                  />
+                                        </SwipeItems>
+                                    </ListView.Resources>
+
+
                                     <ListView.ItemTemplate>
                                         <DataTemplate x:Name="FilesDataTemplate">
                                             <Grid x:Name="regularFileInfoStackpanel" HorizontalAlignment="Stretch">

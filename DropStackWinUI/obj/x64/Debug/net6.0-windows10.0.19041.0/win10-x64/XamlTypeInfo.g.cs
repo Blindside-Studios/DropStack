@@ -224,15 +224,15 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[49];
+            _typeNameTable = new string[54];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "WinUIEx.WindowEx";
             _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[6] = "Double";
-            _typeNameTable[7] = "String";
+            _typeNameTable[6] = "String";
+            _typeNameTable[7] = "Double";
             _typeNameTable[8] = "Microsoft.UI.Windowing.AppWindow";
             _typeNameTable[9] = "WinUIEx.Icon";
             _typeNameTable[10] = "Microsoft.UI.Windowing.AppWindowPresenter";
@@ -270,20 +270,25 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.ProgressBar";
             _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
             _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
-            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.ProgressRing";
-            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
-            _typeNameTable[47] = "DropStackWinUI.MainWindow";
-            _typeNameTable[48] = "DropStackWinUI.SimpleMode";
+            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.SwipeItems";
+            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.SwipeItem";
+            _typeNameTable[47] = "Microsoft.UI.Xaml.Media.Brush";
+            _typeNameTable[48] = "Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked";
+            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.SwipeMode";
+            _typeNameTable[50] = "Microsoft.UI.Xaml.Controls.ProgressRing";
+            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
+            _typeNameTable[52] = "DropStackWinUI.MainWindow";
+            _typeNameTable[53] = "DropStackWinUI.SimpleMode";
 
-            _typeTable = new global::System.Type[49];
+            _typeTable = new global::System.Type[54];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::WinUIEx.WindowEx);
             _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[6] = typeof(global::System.Double);
-            _typeTable[7] = typeof(global::System.String);
+            _typeTable[6] = typeof(global::System.String);
+            _typeTable[7] = typeof(global::System.Double);
             _typeTable[8] = typeof(global::Microsoft.UI.Windowing.AppWindow);
             _typeTable[9] = typeof(global::WinUIEx.Icon);
             _typeTable[10] = typeof(global::Microsoft.UI.Windowing.AppWindowPresenter);
@@ -323,10 +328,15 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
             _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
             _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
-            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
-            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
-            _typeTable[47] = typeof(global::DropStackWinUI.MainWindow);
-            _typeTable[48] = typeof(global::DropStackWinUI.SimpleMode);
+            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.SwipeItems);
+            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.SwipeItem);
+            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.Media.Brush);
+            _typeTable[48] = typeof(global::Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked);
+            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.SwipeMode);
+            _typeTable[50] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
+            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
+            _typeTable[52] = typeof(global::DropStackWinUI.MainWindow);
+            _typeTable[53] = typeof(global::DropStackWinUI.SimpleMode);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -370,9 +380,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_33_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
         private object Activate_38_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
         private object Activate_42_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
-        private object Activate_45_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
-        private object Activate_47_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
-        private object Activate_48_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
+        private object Activate_45_SwipeItems() { return new global::Microsoft.UI.Xaml.Controls.SwipeItems(); }
+        private object Activate_46_SwipeItem() { return new global::Microsoft.UI.Xaml.Controls.SwipeItem(); }
+        private object Activate_50_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
+        private object Activate_52_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
+        private object Activate_53_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -384,6 +396,12 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_45_SwipeItems(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.SwipeItem>)instance;
+            var newItem = (global::Microsoft.UI.Xaml.Controls.SwipeItem)item;
             collection.Add(newItem);
         }
 
@@ -422,17 +440,17 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.Activator = Activate_4_WindowEx;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.AddMemberName("WindowContent");
+                userType.AddMemberName("Title");
+                userType.AddMemberName("Width");
+                userType.AddMemberName("Height");
+                userType.AddMemberName("MinWidth");
+                userType.AddMemberName("MinHeight");
                 userType.AddMemberName("IsMinimizable");
                 userType.AddMemberName("IsMaximizable");
                 userType.AddMemberName("IsShownInSwitchers");
-                userType.AddMemberName("Width");
-                userType.AddMemberName("Height");
                 userType.AddMemberName("IsTitleBarVisible");
                 userType.AddMemberName("IsResizable");
                 userType.AddMemberName("IsAlwaysOnTop");
-                userType.AddMemberName("Title");
-                userType.AddMemberName("MinWidth");
-                userType.AddMemberName("MinHeight");
                 userType.AddMemberName("AppWindow");
                 userType.AddMemberName("TaskBarIcon");
                 userType.AddMemberName("PersistenceId");
@@ -448,11 +466,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Double
+            case 6:   //  String
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  String
+            case 7:   //  Double
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
@@ -733,9 +751,51 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 45:   //  Microsoft.UI.Xaml.Controls.ProgressRing
+            case 45:   //  Microsoft.UI.Xaml.Controls.SwipeItems
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_45_SwipeItems;
+                userType.CollectionAdd = VectorAdd_45_SwipeItems;
+                userType.AddMemberName("Mode");
+                userType.AddMemberName("Count");
+                userType.AddMemberName("IsReadOnly");
+                xamlType = userType;
+                break;
+
+            case 46:   //  Microsoft.UI.Xaml.Controls.SwipeItem
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_46_SwipeItem;
+                userType.AddMemberName("Text");
+                userType.AddMemberName("Background");
+                userType.AddMemberName("Foreground");
+                userType.AddMemberName("BehaviorOnInvoked");
+                userType.AddMemberName("Command");
+                userType.AddMemberName("CommandParameter");
+                userType.AddMemberName("IconSource");
+                xamlType = userType;
+                break;
+
+            case 47:   //  Microsoft.UI.Xaml.Media.Brush
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 48:   //  Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked.Auto);
+                userType.AddEnumValue("Close", global::Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked.Close);
+                userType.AddEnumValue("RemainOpen", global::Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked.RemainOpen);
+                xamlType = userType;
+                break;
+
+            case 49:   //  Microsoft.UI.Xaml.Controls.SwipeMode
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Reveal", global::Microsoft.UI.Xaml.Controls.SwipeMode.Reveal);
+                userType.AddEnumValue("Execute", global::Microsoft.UI.Xaml.Controls.SwipeMode.Execute);
+                xamlType = userType;
+                break;
+
+            case 50:   //  Microsoft.UI.Xaml.Controls.ProgressRing
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_45_ProgressRing;
+                userType.Activator = Activate_50_ProgressRing;
                 userType.AddMemberName("IsActive");
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("Maximum");
@@ -745,23 +805,23 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 46:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
+            case 51:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 47:   //  DropStackWinUI.MainWindow
+            case 52:   //  DropStackWinUI.MainWindow
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_47_MainWindow;
+                userType.Activator = Activate_52_MainWindow;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 48:   //  DropStackWinUI.SimpleMode
+            case 53:   //  DropStackWinUI.SimpleMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_48_SimpleMode;
+                userType.Activator = Activate_53_SimpleMode;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -845,115 +905,115 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::WinUIEx.WindowEx)instance;
             that.WindowContent = (global::System.Object)Value;
         }
-        private object get_2_WindowEx_IsMinimizable(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsMinimizable;
-        }
-        private void set_2_WindowEx_IsMinimizable(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsMinimizable = (global::System.Boolean)Value;
-        }
-        private object get_3_WindowEx_IsMaximizable(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsMaximizable;
-        }
-        private void set_3_WindowEx_IsMaximizable(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsMaximizable = (global::System.Boolean)Value;
-        }
-        private object get_4_WindowEx_IsShownInSwitchers(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsShownInSwitchers;
-        }
-        private void set_4_WindowEx_IsShownInSwitchers(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsShownInSwitchers = (global::System.Boolean)Value;
-        }
-        private object get_5_WindowEx_Width(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.Width;
-        }
-        private void set_5_WindowEx_Width(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.Width = (global::System.Double)Value;
-        }
-        private object get_6_WindowEx_Height(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.Height;
-        }
-        private void set_6_WindowEx_Height(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.Height = (global::System.Double)Value;
-        }
-        private object get_7_WindowEx_IsTitleBarVisible(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsTitleBarVisible;
-        }
-        private void set_7_WindowEx_IsTitleBarVisible(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsTitleBarVisible = (global::System.Boolean)Value;
-        }
-        private object get_8_WindowEx_IsResizable(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsResizable;
-        }
-        private void set_8_WindowEx_IsResizable(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsResizable = (global::System.Boolean)Value;
-        }
-        private object get_9_WindowEx_IsAlwaysOnTop(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsAlwaysOnTop;
-        }
-        private void set_9_WindowEx_IsAlwaysOnTop(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsAlwaysOnTop = (global::System.Boolean)Value;
-        }
-        private object get_10_WindowEx_Title(object instance)
+        private object get_2_WindowEx_Title(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.Title;
         }
-        private void set_10_WindowEx_Title(object instance, object Value)
+        private void set_2_WindowEx_Title(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_11_WindowEx_MinWidth(object instance)
+        private object get_3_WindowEx_Width(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.Width;
+        }
+        private void set_3_WindowEx_Width(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.Width = (global::System.Double)Value;
+        }
+        private object get_4_WindowEx_Height(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.Height;
+        }
+        private void set_4_WindowEx_Height(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.Height = (global::System.Double)Value;
+        }
+        private object get_5_WindowEx_MinWidth(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.MinWidth;
         }
-        private void set_11_WindowEx_MinWidth(object instance, object Value)
+        private void set_5_WindowEx_MinWidth(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.MinWidth = (global::System.Double)Value;
         }
-        private object get_12_WindowEx_MinHeight(object instance)
+        private object get_6_WindowEx_MinHeight(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.MinHeight;
         }
-        private void set_12_WindowEx_MinHeight(object instance, object Value)
+        private void set_6_WindowEx_MinHeight(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.MinHeight = (global::System.Double)Value;
+        }
+        private object get_7_WindowEx_IsMinimizable(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsMinimizable;
+        }
+        private void set_7_WindowEx_IsMinimizable(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsMinimizable = (global::System.Boolean)Value;
+        }
+        private object get_8_WindowEx_IsMaximizable(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsMaximizable;
+        }
+        private void set_8_WindowEx_IsMaximizable(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsMaximizable = (global::System.Boolean)Value;
+        }
+        private object get_9_WindowEx_IsShownInSwitchers(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsShownInSwitchers;
+        }
+        private void set_9_WindowEx_IsShownInSwitchers(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsShownInSwitchers = (global::System.Boolean)Value;
+        }
+        private object get_10_WindowEx_IsTitleBarVisible(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsTitleBarVisible;
+        }
+        private void set_10_WindowEx_IsTitleBarVisible(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsTitleBarVisible = (global::System.Boolean)Value;
+        }
+        private object get_11_WindowEx_IsResizable(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsResizable;
+        }
+        private void set_11_WindowEx_IsResizable(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsResizable = (global::System.Boolean)Value;
+        }
+        private object get_12_WindowEx_IsAlwaysOnTop(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsAlwaysOnTop;
+        }
+        private void set_12_WindowEx_IsAlwaysOnTop(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsAlwaysOnTop = (global::System.Boolean)Value;
         }
         private object get_13_WindowEx_AppWindow(object instance)
         {
@@ -1547,57 +1607,147 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.TemplateSettings;
         }
-        private object get_75_ProgressRing_IsActive(object instance)
+        private object get_75_SwipeItem_Text(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.Text;
+        }
+        private void set_75_SwipeItem_Text(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.Text = (global::System.String)Value;
+        }
+        private object get_76_SwipeItem_Background(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.Background;
+        }
+        private void set_76_SwipeItem_Background(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.Background = (global::Microsoft.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_77_SwipeItem_Foreground(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.Foreground;
+        }
+        private void set_77_SwipeItem_Foreground(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.Foreground = (global::Microsoft.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_78_SwipeItem_BehaviorOnInvoked(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.BehaviorOnInvoked;
+        }
+        private void set_78_SwipeItem_BehaviorOnInvoked(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.BehaviorOnInvoked = (global::Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked)Value;
+        }
+        private object get_79_SwipeItem_Command(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.Command;
+        }
+        private void set_79_SwipeItem_Command(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.Command = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_80_SwipeItem_CommandParameter(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.CommandParameter;
+        }
+        private void set_80_SwipeItem_CommandParameter(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.CommandParameter = (global::System.Object)Value;
+        }
+        private object get_81_SwipeItem_IconSource(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            return that.IconSource;
+        }
+        private void set_81_SwipeItem_IconSource(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItem)instance;
+            that.IconSource = (global::Microsoft.UI.Xaml.Controls.IconSource)Value;
+        }
+        private object get_82_SwipeItems_Mode(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItems)instance;
+            return that.Mode;
+        }
+        private void set_82_SwipeItems_Mode(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItems)instance;
+            that.Mode = (global::Microsoft.UI.Xaml.Controls.SwipeMode)Value;
+        }
+        private object get_83_SwipeItems_Count(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItems)instance;
+            return that.Count;
+        }
+        private object get_84_SwipeItems_IsReadOnly(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.SwipeItems)instance;
+            return that.IsReadOnly;
+        }
+        private object get_85_ProgressRing_IsActive(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsActive;
         }
-        private void set_75_ProgressRing_IsActive(object instance, object Value)
+        private void set_85_ProgressRing_IsActive(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsActive = (global::System.Boolean)Value;
         }
-        private object get_76_ProgressRing_IsIndeterminate(object instance)
+        private object get_86_ProgressRing_IsIndeterminate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsIndeterminate;
         }
-        private void set_76_ProgressRing_IsIndeterminate(object instance, object Value)
+        private void set_86_ProgressRing_IsIndeterminate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsIndeterminate = (global::System.Boolean)Value;
         }
-        private object get_77_ProgressRing_Maximum(object instance)
+        private object get_87_ProgressRing_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Maximum;
         }
-        private void set_77_ProgressRing_Maximum(object instance, object Value)
+        private void set_87_ProgressRing_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_78_ProgressRing_Minimum(object instance)
+        private object get_88_ProgressRing_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Minimum;
         }
-        private void set_78_ProgressRing_Minimum(object instance, object Value)
+        private void set_88_ProgressRing_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_79_ProgressRing_TemplateSettings(object instance)
+        private object get_89_ProgressRing_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.TemplateSettings;
         }
-        private object get_80_ProgressRing_Value(object instance)
+        private object get_90_ProgressRing_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Value;
         }
-        private void set_80_ProgressRing_Value(object instance, object Value)
+        private void set_90_ProgressRing_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Value = (global::System.Double)Value;
@@ -1623,71 +1773,71 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_1_WindowEx_WindowContent;
                 xamlMember.Setter = set_1_WindowEx_WindowContent;
                 break;
-            case "WinUIEx.WindowEx.IsMinimizable":
+            case "WinUIEx.WindowEx.Title":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMinimizable", "Boolean");
-                xamlMember.Getter = get_2_WindowEx_IsMinimizable;
-                xamlMember.Setter = set_2_WindowEx_IsMinimizable;
-                break;
-            case "WinUIEx.WindowEx.IsMaximizable":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMaximizable", "Boolean");
-                xamlMember.Getter = get_3_WindowEx_IsMaximizable;
-                xamlMember.Setter = set_3_WindowEx_IsMaximizable;
-                break;
-            case "WinUIEx.WindowEx.IsShownInSwitchers":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsShownInSwitchers", "Boolean");
-                xamlMember.Getter = get_4_WindowEx_IsShownInSwitchers;
-                xamlMember.Setter = set_4_WindowEx_IsShownInSwitchers;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Title", "String");
+                xamlMember.Getter = get_2_WindowEx_Title;
+                xamlMember.Setter = set_2_WindowEx_Title;
                 break;
             case "WinUIEx.WindowEx.Width":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Width", "Double");
-                xamlMember.Getter = get_5_WindowEx_Width;
-                xamlMember.Setter = set_5_WindowEx_Width;
+                xamlMember.Getter = get_3_WindowEx_Width;
+                xamlMember.Setter = set_3_WindowEx_Width;
                 break;
             case "WinUIEx.WindowEx.Height":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Height", "Double");
-                xamlMember.Getter = get_6_WindowEx_Height;
-                xamlMember.Setter = set_6_WindowEx_Height;
-                break;
-            case "WinUIEx.WindowEx.IsTitleBarVisible":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsTitleBarVisible", "Boolean");
-                xamlMember.Getter = get_7_WindowEx_IsTitleBarVisible;
-                xamlMember.Setter = set_7_WindowEx_IsTitleBarVisible;
-                break;
-            case "WinUIEx.WindowEx.IsResizable":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsResizable", "Boolean");
-                xamlMember.Getter = get_8_WindowEx_IsResizable;
-                xamlMember.Setter = set_8_WindowEx_IsResizable;
-                break;
-            case "WinUIEx.WindowEx.IsAlwaysOnTop":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsAlwaysOnTop", "Boolean");
-                xamlMember.Getter = get_9_WindowEx_IsAlwaysOnTop;
-                xamlMember.Setter = set_9_WindowEx_IsAlwaysOnTop;
-                break;
-            case "WinUIEx.WindowEx.Title":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Title", "String");
-                xamlMember.Getter = get_10_WindowEx_Title;
-                xamlMember.Setter = set_10_WindowEx_Title;
+                xamlMember.Getter = get_4_WindowEx_Height;
+                xamlMember.Setter = set_4_WindowEx_Height;
                 break;
             case "WinUIEx.WindowEx.MinWidth":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinWidth", "Double");
-                xamlMember.Getter = get_11_WindowEx_MinWidth;
-                xamlMember.Setter = set_11_WindowEx_MinWidth;
+                xamlMember.Getter = get_5_WindowEx_MinWidth;
+                xamlMember.Setter = set_5_WindowEx_MinWidth;
                 break;
             case "WinUIEx.WindowEx.MinHeight":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinHeight", "Double");
-                xamlMember.Getter = get_12_WindowEx_MinHeight;
-                xamlMember.Setter = set_12_WindowEx_MinHeight;
+                xamlMember.Getter = get_6_WindowEx_MinHeight;
+                xamlMember.Setter = set_6_WindowEx_MinHeight;
+                break;
+            case "WinUIEx.WindowEx.IsMinimizable":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMinimizable", "Boolean");
+                xamlMember.Getter = get_7_WindowEx_IsMinimizable;
+                xamlMember.Setter = set_7_WindowEx_IsMinimizable;
+                break;
+            case "WinUIEx.WindowEx.IsMaximizable":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMaximizable", "Boolean");
+                xamlMember.Getter = get_8_WindowEx_IsMaximizable;
+                xamlMember.Setter = set_8_WindowEx_IsMaximizable;
+                break;
+            case "WinUIEx.WindowEx.IsShownInSwitchers":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsShownInSwitchers", "Boolean");
+                xamlMember.Getter = get_9_WindowEx_IsShownInSwitchers;
+                xamlMember.Setter = set_9_WindowEx_IsShownInSwitchers;
+                break;
+            case "WinUIEx.WindowEx.IsTitleBarVisible":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsTitleBarVisible", "Boolean");
+                xamlMember.Getter = get_10_WindowEx_IsTitleBarVisible;
+                xamlMember.Setter = set_10_WindowEx_IsTitleBarVisible;
+                break;
+            case "WinUIEx.WindowEx.IsResizable":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsResizable", "Boolean");
+                xamlMember.Getter = get_11_WindowEx_IsResizable;
+                xamlMember.Setter = set_11_WindowEx_IsResizable;
+                break;
+            case "WinUIEx.WindowEx.IsAlwaysOnTop":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsAlwaysOnTop", "Boolean");
+                xamlMember.Getter = get_12_WindowEx_IsAlwaysOnTop;
+                xamlMember.Setter = set_12_WindowEx_IsAlwaysOnTop;
                 break;
             case "WinUIEx.WindowEx.AppWindow":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
@@ -2113,46 +2263,114 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_74_ProgressBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.Text":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_75_SwipeItem_Text;
+                xamlMember.Setter = set_75_SwipeItem_Text;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.Background":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Background", "Microsoft.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_76_SwipeItem_Background;
+                xamlMember.Setter = set_76_SwipeItem_Background;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.Foreground":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Foreground", "Microsoft.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_77_SwipeItem_Foreground;
+                xamlMember.Setter = set_77_SwipeItem_Foreground;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.BehaviorOnInvoked":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "BehaviorOnInvoked", "Microsoft.UI.Xaml.Controls.SwipeBehaviorOnInvoked");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_78_SwipeItem_BehaviorOnInvoked;
+                xamlMember.Setter = set_78_SwipeItem_BehaviorOnInvoked;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.Command":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Command", "System.Windows.Input.ICommand");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_79_SwipeItem_Command;
+                xamlMember.Setter = set_79_SwipeItem_Command;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.CommandParameter":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CommandParameter", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_80_SwipeItem_CommandParameter;
+                xamlMember.Setter = set_80_SwipeItem_CommandParameter;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItem.IconSource":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItem");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IconSource", "Microsoft.UI.Xaml.Controls.IconSource");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_81_SwipeItem_IconSource;
+                xamlMember.Setter = set_81_SwipeItem_IconSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItems.Mode":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItems");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Mode", "Microsoft.UI.Xaml.Controls.SwipeMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_82_SwipeItems_Mode;
+                xamlMember.Setter = set_82_SwipeItems_Mode;
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItems.Count":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItems");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Count", "Int32");
+                xamlMember.Getter = get_83_SwipeItems_Count;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.SwipeItems.IsReadOnly":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.SwipeItems");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsReadOnly", "Boolean");
+                xamlMember.Getter = get_84_SwipeItems_IsReadOnly;
+                xamlMember.SetIsReadOnly();
+                break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsActive":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_ProgressRing_IsActive;
-                xamlMember.Setter = set_75_ProgressRing_IsActive;
+                xamlMember.Getter = get_85_ProgressRing_IsActive;
+                xamlMember.Setter = set_85_ProgressRing_IsActive;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_ProgressRing_IsIndeterminate;
-                xamlMember.Setter = set_76_ProgressRing_IsIndeterminate;
+                xamlMember.Getter = get_86_ProgressRing_IsIndeterminate;
+                xamlMember.Setter = set_86_ProgressRing_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_ProgressRing_Maximum;
-                xamlMember.Setter = set_77_ProgressRing_Maximum;
+                xamlMember.Getter = get_87_ProgressRing_Maximum;
+                xamlMember.Setter = set_87_ProgressRing_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Minimum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_78_ProgressRing_Minimum;
-                xamlMember.Setter = set_78_ProgressRing_Minimum;
+                xamlMember.Getter = get_88_ProgressRing_Minimum;
+                xamlMember.Setter = set_88_ProgressRing_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings");
-                xamlMember.Getter = get_79_ProgressRing_TemplateSettings;
+                xamlMember.Getter = get_89_ProgressRing_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_80_ProgressRing_Value;
-                xamlMember.Setter = set_80_ProgressRing_Value;
+                xamlMember.Getter = get_90_ProgressRing_Value;
+                xamlMember.Setter = set_90_ProgressRing_Value;
                 break;
             }
             return xamlMember;

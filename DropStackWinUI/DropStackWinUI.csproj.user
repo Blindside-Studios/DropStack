@@ -13,5 +13,6 @@
     <AppIconSource>C:\Users\nicol\Downloads\dropstackv2.png</AppIconSource>
     <SplashScreenSource>C:\Users\nicol\Downloads\dropstackv2.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\nicol\Downloads\dropstackv2.png</PackageLogoSource>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
   </PropertyGroup>
 </Project>

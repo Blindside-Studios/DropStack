@@ -41,6 +41,7 @@ using System.ComponentModel.Design;
 using Windows.Storage.Search;
 using static System.Net.WebRequestMethods;
 using Windows.ApplicationModel.Contacts;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -604,11 +605,15 @@ namespace DropStackWinUI
         {
             try
             {
-                var selectedFile = e.Items[0] as FileItem;
-                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
-
                 // Create a list of storage items with the file
-                var storageItems = new List<StorageFile> { file };
+                var storageItems = new List<StorageFile>();
+
+                foreach (FileItem selectedFile in e.Items)
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    storageItems.Add(file);
+                }
 
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
@@ -626,6 +631,16 @@ namespace DropStackWinUI
                 await Task.Delay(100);
                 failureReminderTimer.Value = 0;
             }
+        }
+
+        private void regularFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            obtainFolderAndFiles("regular");
+        }
+
+        private void pinnedFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            obtainFolderAndFiles("pinned");
         }
 
         private void noFolderpathTechingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -896,30 +911,42 @@ namespace DropStackWinUI
 
         private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
         {
+            GlobalClickedItems = regularFileListView.SelectedItems;
+
             if (GlobalClickedItems == null) copyMostRecentFile();
 
             else
             {
-                // get the selected file item
-                FileItem selectedFile = (FileItem)GlobalClickedItems[0];
+                IList<object> itemsToCopy = GlobalClickedItems;
 
                 await Task.Run(async () =>
                 {
-                    // get the folder path
-                    StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
-                    string folderPath = folder.Path;
+                    List<IStorageItem> fileList = new List<IStorageItem>();
 
-                    // construct the full file path
-                    string filePath = Path.Combine(folderPath, selectedFile.FileName);
+                    // create a capture variable that is a value type
+                    FileItem[] filesToCopy = new FileItem[itemsToCopy.Count];
 
-                    // get the file
-                    StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+                    // copy the elements of itemsToCopy to the capture variable
+                    for (int i = 0; i < itemsToCopy.Count; i++)
+                    {
+                        filesToCopy[i] = (FileItem)itemsToCopy[i];
+                    }
+
+                    foreach (FileItem selectedFile in filesToCopy)
+                    {
+                        string filePath = selectedFile.FilePath;
+
+                        // get the file
+                        StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+
+                        fileList.Add(file);
+                    }
 
                     // create a new data package
                     var dataPackage = new DataPackage();
 
                     // add the file to the data package
-                    dataPackage.SetStorageItems(new List<IStorageItem> { file });
+                    dataPackage.SetStorageItems(fileList);
 
                     // copy the data package to the clipboard
                     Clipboard.SetContent(dataPackage);
