@@ -868,7 +868,7 @@ namespace DropStackWinUI
                 SearchGrid.Opacity = 1;
                 SearchGrid.Translation = new Vector3(0, 0, 0);
                 RegularAndPinnedFileGrid.Translation = new Vector3(0, 60, 0);
-                regularFilePusher.Visibility = Visibility.Visible;
+                regularFileListView.Margin = new Thickness(0, 10, 0, 60);
                 SearchTextBox.Focus(FocusState.Programmatic);
             }
             else if (SearchGrid.Opacity == 1)
@@ -877,7 +877,7 @@ namespace DropStackWinUI
                 SearchGrid.Translation = new Vector3(0, -60, 0);
                 SearchGrid.Visibility = Visibility.Collapsed;
                 RegularAndPinnedFileGrid.Translation = new Vector3(0, 0, 0);
-                regularFilePusher.Visibility = Visibility.Collapsed;
+                regularFileListView.Margin = new Thickness(0, 10, 0, 0);
             }
             SearchTextBox.Text = "";
         }

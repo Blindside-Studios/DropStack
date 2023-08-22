@@ -15,7 +15,7 @@
     </Window.SystemBackdrop>
 
     <Grid>
-        <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=RegularFilesScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
         </ParallaxView>
         <Grid x:Name="WindowGrid">
@@ -111,59 +111,55 @@
                                 <ScalarTransition />
                             </ProgressBar.OpacityTransition>
                         </ProgressBar>
-                        <ScrollViewer x:Name="RegularFilesScrollViewer" Margin="0,10,0,0" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
-                            <StackPanel>
-                                <ListView   x:Name="regularFileListView"
-                                            SelectionMode="Extended"
-                                            SelectionChanged="fileListView_SelectionChanged" 
-                                            DoubleTapped="regularFileListView_DoubleTapped"
-                                            RightTapped="fileListView_RightTapped" 
-                                            CanDragItems="True" 
-                                            DragItemsStarting="fileListView_DragItemsStarting"
-                                            DragItemsCompleted="regularFileListView_DragItemsCompleted">
-                                    <ListView.ItemContainerTransitions>
-                                        <TransitionCollection>
-                                            <EntranceThemeTransition  FromVerticalOffset="0" />
-                                        </TransitionCollection>
-                                    </ListView.ItemContainerTransitions>
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate x:Name="FilesDataTemplate">
-                                            <Grid x:Name="regularFileInfoStackpanel" HorizontalAlignment="Stretch">
+                        <ListView   x:Name="regularFileListView"
+                                    Margin="0,10,0,0"
+                                    SelectionMode="Extended"
+                                    SelectionChanged="fileListView_SelectionChanged" 
+                                    DoubleTapped="regularFileListView_DoubleTapped"
+                                    RightTapped="fileListView_RightTapped" 
+                                    CanDragItems="True" 
+                                    DragItemsStarting="fileListView_DragItemsStarting"
+                                    DragItemsCompleted="regularFileListView_DragItemsCompleted">
+                            <ListView.ItemContainerTransitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition  FromVerticalOffset="0" />
+                                </TransitionCollection>
+                            </ListView.ItemContainerTransitions>
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:Name="FilesDataTemplate">
+                                    <Grid x:Name="regularFileInfoStackpanel" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="-5,3,5,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <ProgressRing IsActive="{Binding ProgressActivity}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="35"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
+                                            <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="50"/>
-                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0">
-                                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Width="43" Height="43" Stretch="Uniform" Margin="-5,3,5,3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                    <ProgressRing IsActive="{Binding ProgressActivity}"/>
-                                                </Grid>
-                                                <Grid Grid.Column="1" HorizontalAlignment="Stretch" Tag="{Binding FilePath}" Opacity="{Binding TextOpacity}">
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="35"/>
-                                                        <RowDefinition Height="*"/>
-                                                    </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Row="0" Text="{Binding FileName}" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
-                                                    <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="{Binding FileType}" FontSize="10"/>
-                                                        <TextBlock Grid.Column="1" Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                                        <TextBlock Grid.Column="2" Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                                        <TextBlock Grid.Column="3" Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
-                                                    </Grid>
-                                                    <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
-                                                </Grid>
+                                                <TextBlock Grid.Column="0" Text="{Binding FileType}" FontSize="10"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
+                                                <TextBlock Grid.Column="2" Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                <TextBlock Grid.Column="3" Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
                                             </Grid>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                                <Rectangle x:Name="regularFilePusher"  Fill="Transparent" Height="50" Visibility="Collapsed"/>
-                            </StackPanel>
-                        </ScrollViewer>
+                                            <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                 </Grid>
                 <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
