@@ -33,6 +33,8 @@ using Windows.UI.Core;
 using System.Diagnostics;
 using Windows.Storage.Search;
 using System.Runtime.InteropServices;
+using Windows.Devices.PointOfService.Provider;
+using Windows.ApplicationModel.VoiceCommands;
 
 namespace DropStackWinUI
 {
@@ -375,17 +377,19 @@ namespace DropStackWinUI
         {
             try
             {
-                var selectedFile = e.Items[0] as FileItem;
-                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
-
                 // Create a list of storage items with the file
-                var storageItems = new List<StorageFile> { file };
+                var storageItems = new List<StorageFile>();
+
+                foreach (FileItem selectedFile in e.Items)
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    storageItems.Add(file);
+                }
 
                 // Set the data package on the event args using SetData
                 e.Data.SetData(StandardDataFormats.StorageItems, storageItems);
-
-                var window = this;
-                window.Hide();
+                hideWithAnimation();
             }
             catch { }
         }
@@ -427,7 +431,17 @@ namespace DropStackWinUI
             EverythingGrid.Opacity = 0;
             EverythingGrid.Translation = new Vector3(0, 20, 0);
             await Task.Delay(200);
-            this.Close();
+            var window = this;
+            window.Close();
+        }
+
+        private async void hideWithAnimation()
+        {
+            EverythingGrid.Opacity = 0;
+            EverythingGrid.Translation = new Vector3(0, 20, 0);
+            await Task.Delay(200);
+            var window = this;
+            window.MoveAndResize(20000, 20000, 0, 0);
         }
 
         private void SimpleModeMeatballMenu_Click(object sender, RoutedEventArgs e)
@@ -540,7 +554,7 @@ namespace DropStackWinUI
             var mainWindow = new MainWindow();
             mainWindow.Activate();
 
-            this.Close();
+            Close();
         }
 
         private void PinnedFilesToggleButton_DragOver(object sender, DragEventArgs e)
