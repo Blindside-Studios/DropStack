@@ -74,6 +74,10 @@ namespace DropStackWinUI
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
 
+        int loadedItemsSimple = 250;
+        int loadedThumbnails = 250;
+        int thumbnailResolution = 64;
+
         public SimpleMode()
         {
             this.InitializeComponent();
@@ -141,6 +145,19 @@ namespace DropStackWinUI
             {
                 string selectedTheme = "Default";
                 setTheme(selectedTheme);
+            }
+
+            if (localSettings.Values.ContainsKey("SimpleLoadedItems"))
+            {
+                loadedItemsSimple = (int)localSettings.Values["SimpleLoadedItems"];
+            }
+            if (localSettings.Values.ContainsKey("LoadedThumbnails"))
+            {
+                loadedThumbnails = (int)localSettings.Values["LoadedThumbnails"];
+            }
+            if (localSettings.Values.ContainsKey("ThumbnailResolution"))
+            {
+                thumbnailResolution = (int)localSettings.Values["ThumbnailResolution"];
             }
         }
 
@@ -219,12 +236,19 @@ namespace DropStackWinUI
 
             if (folder != null)
             {
-                foreach (StorageFile file in files.Take(256))
+                int currentFile = 1;
+                
+                foreach (StorageFile file in files.Take(loadedItemsSimple))
                 {
-                    BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
-                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
                     BitmapImage bitmapThumbnail = new BitmapImage();
-                    bitmapThumbnail.SetSource(thumbnail);
+                    BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+
+                    if (currentFile < (loadedThumbnails + 1))
+                    {
+                        StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                        bitmapThumbnail.SetSource(thumbnail);
+                    }
+                    currentFile++;
 
                     double filesizecalc = Convert.ToDouble(basicProperties.Size); //size in byte
                     string generativefilesizesuffix = "B"; //default file suffix

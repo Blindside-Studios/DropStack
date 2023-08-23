@@ -224,7 +224,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[49];
+            _typeNameTable = new string[56];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -267,15 +267,22 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.Control";
             _typeNameTable[40] = "System.Collections.Generic.IList`1<Object>";
             _typeNameTable[41] = "Int32";
-            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.ProgressBar";
-            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
-            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
-            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.ProgressRing";
-            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
-            _typeNameTable[47] = "DropStackWinUI.MainWindow";
-            _typeNameTable[48] = "DropStackWinUI.SimpleMode";
+            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.NumberBox";
+            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
+            _typeNameTable[44] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
+            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
+            _typeNameTable[46] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[47] = "Microsoft.UI.Xaml.TextReadingOrder";
+            _typeNameTable[48] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
+            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.ProgressBar";
+            _typeNameTable[50] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
+            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
+            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.ProgressRing";
+            _typeNameTable[53] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
+            _typeNameTable[54] = "DropStackWinUI.MainWindow";
+            _typeNameTable[55] = "DropStackWinUI.SimpleMode";
 
-            _typeTable = new global::System.Type[49];
+            _typeTable = new global::System.Type[56];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -320,13 +327,20 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
             _typeTable[40] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
             _typeTable[41] = typeof(global::System.Int32);
-            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
-            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
-            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
-            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
-            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
-            _typeTable[47] = typeof(global::DropStackWinUI.MainWindow);
-            _typeTable[48] = typeof(global::DropStackWinUI.SimpleMode);
+            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
+            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
+            _typeTable[44] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
+            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
+            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
+            _typeTable[48] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
+            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
+            _typeTable[50] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
+            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
+            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
+            _typeTable[53] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
+            _typeTable[54] = typeof(global::DropStackWinUI.MainWindow);
+            _typeTable[55] = typeof(global::DropStackWinUI.SimpleMode);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -369,10 +383,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_31_TeachingTipTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings(); }
         private object Activate_33_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
         private object Activate_38_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
-        private object Activate_42_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
-        private object Activate_45_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
-        private object Activate_47_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
-        private object Activate_48_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
+        private object Activate_42_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
+        private object Activate_49_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
+        private object Activate_52_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
+        private object Activate_54_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
+        private object Activate_55_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -713,9 +728,67 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 42:   //  Microsoft.UI.Xaml.Controls.ProgressBar
+            case 42:   //  Microsoft.UI.Xaml.Controls.NumberBox
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_42_NumberBox;
+                userType.AddMemberName("Header");
+                userType.AddMemberName("SmallChange");
+                userType.AddMemberName("LargeChange");
+                userType.AddMemberName("Minimum");
+                userType.AddMemberName("SpinButtonPlacementMode");
+                userType.AddMemberName("AcceptsExpression");
+                userType.AddMemberName("Description");
+                userType.AddMemberName("HeaderTemplate");
+                userType.AddMemberName("IsWrapEnabled");
+                userType.AddMemberName("Maximum");
+                userType.AddMemberName("NumberFormatter");
+                userType.AddMemberName("PlaceholderText");
+                userType.AddMemberName("PreventKeyboardDisplayOnProgrammaticFocus");
+                userType.AddMemberName("SelectionFlyout");
+                userType.AddMemberName("SelectionHighlightColor");
+                userType.AddMemberName("Text");
+                userType.AddMemberName("TextReadingOrder");
+                userType.AddMemberName("ValidationMode");
+                userType.AddMemberName("Value");
+                xamlType = userType;
+                break;
+
+            case 43:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Hidden", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Hidden);
+                userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Compact);
+                userType.AddEnumValue("Inline", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Inline);
+                xamlType = userType;
+                break;
+
+            case 44:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 45:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 46:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 47:   //  Microsoft.UI.Xaml.TextReadingOrder
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 48:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("InvalidInputOverwritten", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.InvalidInputOverwritten);
+                userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.Disabled);
+                xamlType = userType;
+                break;
+
+            case 49:   //  Microsoft.UI.Xaml.Controls.ProgressBar
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.RangeBase"));
-                userType.Activator = Activate_42_ProgressBar;
+                userType.Activator = Activate_49_ProgressBar;
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("ShowError");
                 userType.AddMemberName("ShowPaused");
@@ -723,19 +796,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 43:   //  Microsoft.UI.Xaml.Controls.Primitives.RangeBase
+            case 50:   //  Microsoft.UI.Xaml.Controls.Primitives.RangeBase
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 44:   //  Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings
+            case 51:   //  Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 45:   //  Microsoft.UI.Xaml.Controls.ProgressRing
+            case 52:   //  Microsoft.UI.Xaml.Controls.ProgressRing
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_45_ProgressRing;
+                userType.Activator = Activate_52_ProgressRing;
                 userType.AddMemberName("IsActive");
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("Maximum");
@@ -745,23 +818,23 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 46:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
+            case 53:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 47:   //  DropStackWinUI.MainWindow
+            case 54:   //  DropStackWinUI.MainWindow
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_47_MainWindow;
+                userType.Activator = Activate_54_MainWindow;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 48:   //  DropStackWinUI.SimpleMode
+            case 55:   //  DropStackWinUI.SimpleMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_48_SimpleMode;
+                userType.Activator = Activate_55_SimpleMode;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1512,92 +1585,282 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.SelectedItem = (global::System.Object)Value;
         }
-        private object get_71_ProgressBar_IsIndeterminate(object instance)
+        private object get_71_NumberBox_Header(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Header;
+        }
+        private void set_71_NumberBox_Header(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_72_NumberBox_SmallChange(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SmallChange;
+        }
+        private void set_72_NumberBox_SmallChange(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SmallChange = (global::System.Double)Value;
+        }
+        private object get_73_NumberBox_LargeChange(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.LargeChange;
+        }
+        private void set_73_NumberBox_LargeChange(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.LargeChange = (global::System.Double)Value;
+        }
+        private object get_74_NumberBox_Minimum(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Minimum;
+        }
+        private void set_74_NumberBox_Minimum(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Minimum = (global::System.Double)Value;
+        }
+        private object get_75_NumberBox_SpinButtonPlacementMode(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SpinButtonPlacementMode;
+        }
+        private void set_75_NumberBox_SpinButtonPlacementMode(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
+        }
+        private object get_76_NumberBox_AcceptsExpression(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.AcceptsExpression;
+        }
+        private void set_76_NumberBox_AcceptsExpression(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.AcceptsExpression = (global::System.Boolean)Value;
+        }
+        private object get_77_NumberBox_Description(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Description;
+        }
+        private void set_77_NumberBox_Description(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Description = (global::System.Object)Value;
+        }
+        private object get_78_NumberBox_HeaderTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_78_NumberBox_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_79_NumberBox_IsWrapEnabled(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.IsWrapEnabled;
+        }
+        private void set_79_NumberBox_IsWrapEnabled(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.IsWrapEnabled = (global::System.Boolean)Value;
+        }
+        private object get_80_NumberBox_Maximum(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Maximum;
+        }
+        private void set_80_NumberBox_Maximum(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Maximum = (global::System.Double)Value;
+        }
+        private object get_81_NumberBox_NumberFormatter(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.NumberFormatter;
+        }
+        private void set_81_NumberBox_NumberFormatter(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
+        }
+        private object get_82_NumberBox_PlaceholderText(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.PlaceholderText;
+        }
+        private void set_82_NumberBox_PlaceholderText(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.PlaceholderText = (global::System.String)Value;
+        }
+        private object get_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.PreventKeyboardDisplayOnProgrammaticFocus;
+        }
+        private void set_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
+        }
+        private object get_84_NumberBox_SelectionFlyout(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SelectionFlyout;
+        }
+        private void set_84_NumberBox_SelectionFlyout(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
+        }
+        private object get_85_NumberBox_SelectionHighlightColor(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SelectionHighlightColor;
+        }
+        private void set_85_NumberBox_SelectionHighlightColor(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
+        }
+        private object get_86_NumberBox_Text(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Text;
+        }
+        private void set_86_NumberBox_Text(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Text = (global::System.String)Value;
+        }
+        private object get_87_NumberBox_TextReadingOrder(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.TextReadingOrder;
+        }
+        private void set_87_NumberBox_TextReadingOrder(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
+        }
+        private object get_88_NumberBox_ValidationMode(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.ValidationMode;
+        }
+        private void set_88_NumberBox_ValidationMode(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
+        }
+        private object get_89_NumberBox_Value(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Value;
+        }
+        private void set_89_NumberBox_Value(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Value = (global::System.Double)Value;
+        }
+        private object get_90_ProgressBar_IsIndeterminate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.IsIndeterminate;
         }
-        private void set_71_ProgressBar_IsIndeterminate(object instance, object Value)
+        private void set_90_ProgressBar_IsIndeterminate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.IsIndeterminate = (global::System.Boolean)Value;
         }
-        private object get_72_ProgressBar_ShowError(object instance)
+        private object get_91_ProgressBar_ShowError(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.ShowError;
         }
-        private void set_72_ProgressBar_ShowError(object instance, object Value)
+        private void set_91_ProgressBar_ShowError(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.ShowError = (global::System.Boolean)Value;
         }
-        private object get_73_ProgressBar_ShowPaused(object instance)
+        private object get_92_ProgressBar_ShowPaused(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.ShowPaused;
         }
-        private void set_73_ProgressBar_ShowPaused(object instance, object Value)
+        private void set_92_ProgressBar_ShowPaused(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.ShowPaused = (global::System.Boolean)Value;
         }
-        private object get_74_ProgressBar_TemplateSettings(object instance)
+        private object get_93_ProgressBar_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.TemplateSettings;
         }
-        private object get_75_ProgressRing_IsActive(object instance)
+        private object get_94_ProgressRing_IsActive(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsActive;
         }
-        private void set_75_ProgressRing_IsActive(object instance, object Value)
+        private void set_94_ProgressRing_IsActive(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsActive = (global::System.Boolean)Value;
         }
-        private object get_76_ProgressRing_IsIndeterminate(object instance)
+        private object get_95_ProgressRing_IsIndeterminate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsIndeterminate;
         }
-        private void set_76_ProgressRing_IsIndeterminate(object instance, object Value)
+        private void set_95_ProgressRing_IsIndeterminate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsIndeterminate = (global::System.Boolean)Value;
         }
-        private object get_77_ProgressRing_Maximum(object instance)
+        private object get_96_ProgressRing_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Maximum;
         }
-        private void set_77_ProgressRing_Maximum(object instance, object Value)
+        private void set_96_ProgressRing_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_78_ProgressRing_Minimum(object instance)
+        private object get_97_ProgressRing_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Minimum;
         }
-        private void set_78_ProgressRing_Minimum(object instance, object Value)
+        private void set_97_ProgressRing_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_79_ProgressRing_TemplateSettings(object instance)
+        private object get_98_ProgressRing_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.TemplateSettings;
         }
-        private object get_80_ProgressRing_Value(object instance)
+        private object get_99_ProgressRing_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Value;
         }
-        private void set_80_ProgressRing_Value(object instance, object Value)
+        private void set_99_ProgressRing_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Value = (global::System.Double)Value;
@@ -2086,73 +2349,206 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_70_RadioButtons_SelectedItem;
                 xamlMember.Setter = set_70_RadioButtons_SelectedItem;
                 break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Header":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_71_NumberBox_Header;
+                xamlMember.Setter = set_71_NumberBox_Header;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.SmallChange":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SmallChange", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_72_NumberBox_SmallChange;
+                xamlMember.Setter = set_72_NumberBox_SmallChange;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.LargeChange":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "LargeChange", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_73_NumberBox_LargeChange;
+                xamlMember.Setter = set_73_NumberBox_LargeChange;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Minimum":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_74_NumberBox_Minimum;
+                xamlMember.Setter = set_74_NumberBox_Minimum;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_75_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Setter = set_75_NumberBox_SpinButtonPlacementMode;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_76_NumberBox_AcceptsExpression;
+                xamlMember.Setter = set_76_NumberBox_AcceptsExpression;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Description", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_77_NumberBox_Description;
+                xamlMember.Setter = set_77_NumberBox_Description;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_78_NumberBox_HeaderTemplate;
+                xamlMember.Setter = set_78_NumberBox_HeaderTemplate;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_79_NumberBox_IsWrapEnabled;
+                xamlMember.Setter = set_79_NumberBox_IsWrapEnabled;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Maximum":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_80_NumberBox_Maximum;
+                xamlMember.Setter = set_80_NumberBox_Maximum;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.NumberFormatter":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "NumberFormatter", "Windows.Globalization.NumberFormatting.INumberFormatter2");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_81_NumberBox_NumberFormatter;
+                xamlMember.Setter = set_81_NumberBox_NumberFormatter;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.PlaceholderText":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_82_NumberBox_PlaceholderText;
+                xamlMember.Setter = set_82_NumberBox_PlaceholderText;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.PreventKeyboardDisplayOnProgrammaticFocus":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PreventKeyboardDisplayOnProgrammaticFocus", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Setter = set_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionFlyout":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionFlyout", "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_84_NumberBox_SelectionFlyout;
+                xamlMember.Setter = set_84_NumberBox_SelectionFlyout;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionHighlightColor":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionHighlightColor", "Microsoft.UI.Xaml.Media.SolidColorBrush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_85_NumberBox_SelectionHighlightColor;
+                xamlMember.Setter = set_85_NumberBox_SelectionHighlightColor;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Text":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_86_NumberBox_Text;
+                xamlMember.Setter = set_86_NumberBox_Text;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.TextReadingOrder":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TextReadingOrder", "Microsoft.UI.Xaml.TextReadingOrder");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_87_NumberBox_TextReadingOrder;
+                xamlMember.Setter = set_87_NumberBox_TextReadingOrder;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.ValidationMode":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_88_NumberBox_ValidationMode;
+                xamlMember.Setter = set_88_NumberBox_ValidationMode;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_89_NumberBox_Value;
+                xamlMember.Setter = set_89_NumberBox_Value;
+                break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_ProgressBar_IsIndeterminate;
-                xamlMember.Setter = set_71_ProgressBar_IsIndeterminate;
+                xamlMember.Getter = get_90_ProgressBar_IsIndeterminate;
+                xamlMember.Setter = set_90_ProgressBar_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.ShowError":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ShowError", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_72_ProgressBar_ShowError;
-                xamlMember.Setter = set_72_ProgressBar_ShowError;
+                xamlMember.Getter = get_91_ProgressBar_ShowError;
+                xamlMember.Setter = set_91_ProgressBar_ShowError;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.ShowPaused":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ShowPaused", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_ProgressBar_ShowPaused;
-                xamlMember.Setter = set_73_ProgressBar_ShowPaused;
+                xamlMember.Getter = get_92_ProgressBar_ShowPaused;
+                xamlMember.Setter = set_92_ProgressBar_ShowPaused;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings");
-                xamlMember.Getter = get_74_ProgressBar_TemplateSettings;
+                xamlMember.Getter = get_93_ProgressBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsActive":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_ProgressRing_IsActive;
-                xamlMember.Setter = set_75_ProgressRing_IsActive;
+                xamlMember.Getter = get_94_ProgressRing_IsActive;
+                xamlMember.Setter = set_94_ProgressRing_IsActive;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_ProgressRing_IsIndeterminate;
-                xamlMember.Setter = set_76_ProgressRing_IsIndeterminate;
+                xamlMember.Getter = get_95_ProgressRing_IsIndeterminate;
+                xamlMember.Setter = set_95_ProgressRing_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_ProgressRing_Maximum;
-                xamlMember.Setter = set_77_ProgressRing_Maximum;
+                xamlMember.Getter = get_96_ProgressRing_Maximum;
+                xamlMember.Setter = set_96_ProgressRing_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Minimum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_78_ProgressRing_Minimum;
-                xamlMember.Setter = set_78_ProgressRing_Minimum;
+                xamlMember.Getter = get_97_ProgressRing_Minimum;
+                xamlMember.Setter = set_97_ProgressRing_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings");
-                xamlMember.Getter = get_79_ProgressRing_TemplateSettings;
+                xamlMember.Getter = get_98_ProgressRing_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_80_ProgressRing_Value;
-                xamlMember.Setter = set_80_ProgressRing_Value;
+                xamlMember.Getter = get_99_ProgressRing_Value;
+                xamlMember.Setter = set_99_ProgressRing_Value;
                 break;
             }
             return xamlMember;

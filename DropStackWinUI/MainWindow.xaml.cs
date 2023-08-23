@@ -107,6 +107,11 @@ namespace DropStackWinUI
         bool showSecPortal4 = false;
         bool showSecPortal5 = false;
 
+        int loadedItems = 1000;
+        int loadedItemsSimple = 250;
+        int loadedThumbnails = 250;
+        int thumbnailResolution = 64;
+
         
         
         public MainWindow()
@@ -194,6 +199,29 @@ namespace DropStackWinUI
                 ThemePickerCombobox.SelectedItem = selectedTheme;
                 setTheme(selectedTheme);
             }
+
+            if (localSettings.Values.ContainsKey("NormalLoadedItems"))
+            {
+                loadedItems = (int)localSettings.Values["NormalLoadedItems"];
+            }
+            if (localSettings.Values.ContainsKey("SimpleLoadedItems"))
+            {
+                loadedItemsSimple = (int)localSettings.Values["SimpleLoadedItems"];
+            }
+            if (localSettings.Values.ContainsKey("LoadedThumbnails"))
+            {
+                loadedThumbnails = (int)localSettings.Values["LoadedThumbnails"];
+            }
+            if (localSettings.Values.ContainsKey("ThumbnailResolution"))
+            {
+                thumbnailResolution = (int)localSettings.Values["ThumbnailResolution"];
+            }
+            
+            RegularFileCapNumberBox.Value = Convert.ToDouble(loadedItems);
+            SimpleFileCapNumberBox.Value = Convert.ToDouble(loadedItemsSimple);
+            ThumbnailCapNumberBox.Value = Convert.ToDouble(loadedThumbnails);
+            ThumbnailResolutionNumberBox.Value = Convert.ToDouble(thumbnailResolution);
+
         }
 
         public void applySettingsToMenu()
@@ -466,20 +494,26 @@ namespace DropStackWinUI
                 if (totalFiles > 1024) totalFiles = 1024;
                 int currentFile = 1;
 
-                foreach (StorageFile file in files.Take(1024))
+                foreach (StorageFile file in files.Take(loadedItems))
                 {
                     if (source == "regular")
                     {
                         double percentageOfFiles = currentFile / totalFiles;
                         percentageOfFiles = percentageOfFiles * 100;
                         progress.Report(Convert.ToInt32(percentageOfFiles));
-                        currentFile++;
                     }
 
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
-                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 256);
+
                     BitmapImage bitmapThumbnail = new BitmapImage();
-                    bitmapThumbnail.SetSource(thumbnail);
+
+                    if (currentFile < (loadedThumbnails + 1))
+                    {
+                        StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                        bitmapThumbnail.SetSource(thumbnail);
+                    }
+
+                    currentFile++;
 
                     int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
                     string generativefilesizesuffix = "B"; //default file suffix
@@ -1172,6 +1206,7 @@ namespace DropStackWinUI
 
         private void quickSettingsFlyoutTeachingTip_Closed(Microsoft.UI.Xaml.Controls.TeachingTip sender, Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs args)
         {
+            PerformanceSettingsExpander.IsExpanded = false;
             ExpanderSettingsExpander.IsExpanded = false;
             SecondaryFolderSettingsExpander.IsExpanded = false;
             if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
@@ -1363,6 +1398,42 @@ namespace DropStackWinUI
         {
             ThemePickerCombobox.SelectedItem = "Panos";
             setTheme("Panos");
+        }
+
+        private void RegularFileCapNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            loadedItems = Convert.ToInt32(RegularFileCapNumberBox.Value);
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["NormalLoadedItems"] = Convert.ToInt32(RegularFileCapNumberBox.Value);
+        }
+
+        private void SimpleFileCapNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            loadedItemsSimple = Convert.ToInt32(SimpleFileCapNumberBox.Value);
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["SimpleLoadedItems"] = Convert.ToInt32(SimpleFileCapNumberBox.Value);
+        }
+
+        private void ThumbnailCapNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            loadedThumbnails = Convert.ToInt32(ThumbnailCapNumberBox.Value);
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["LoadedThumbnails"] = Convert.ToInt32(ThumbnailCapNumberBox.Value);
+        }
+
+        private void ThumbnailResolutionNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            thumbnailResolution = Convert.ToInt32(ThumbnailResolutionNumberBox.Value);
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["ThumbnailResolution"] = Convert.ToInt32(ThumbnailResolutionNumberBox.Value);
+        }
+
+        private void ResetCapsToDefaultButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegularFileCapNumberBox.Value = Convert.ToDouble(1000);
+            SimpleFileCapNumberBox.Value = Convert.ToDouble(250);
+            ThumbnailCapNumberBox.Value = Convert.ToDouble(250);
+            ThumbnailResolutionNumberBox.Value = Convert.ToDouble(64);
         }
     }
 }

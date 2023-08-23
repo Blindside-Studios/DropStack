@@ -278,6 +278,61 @@
                             <x:String>Microsoft</x:String>
                             <x:String>Thunderstorm</x:String>
                         </ComboBox>
+                        <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                            <StackPanel Spacing="10" Margin="-25,0,-25,0">
+                                <TextBlock HorizontalAlignment="Stretch"
+                                           Text="*Changes are reflected after reloading."
+                                           Margin="0,0,0,5"/>
+                                <NumberBox x:Name="RegularFileCapNumberBox"
+                                           Header="Loaded items in normal view"
+                                           SmallChange="100"
+                                           LargeChange="500"
+                                           Minimum="1"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Restrict the amount of loaded files in normal mode. 
+                                           Takes effect after refreshing the list"
+                                           ValueChanged="RegularFileCapNumberBox_ValueChanged"/>
+                                <NumberBox x:Name="SimpleFileCapNumberBox"
+                                           Header="Loaded items in simple view"
+                                           SmallChange="50"
+                                           LargeChange="200"
+                                           Minimum="1"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Restrict the amount of loaded files in simple mode. 
+                                           Typically, this is less than normal mode."
+                                           ValueChanged="SimpleFileCapNumberBox_ValueChanged"/>
+                                <NumberBox x:Name="ThumbnailCapNumberBox"
+                                           Header="Loaded thumbnails in both views"
+                                           SmallChange="50"
+                                           LargeChange="200"
+                                           Minimum="0"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Restrict the amount of thumbnails that are being loaded. 
+                                           This helps improve speed and reduce RAM usage, so you can load more items without your RAM filling up as quickly. 
+                                           Typically, this is equal to the number of items loaded in simple mode. Takes effect after refreshing."
+                                           ValueChanged="ThumbnailCapNumberBox_ValueChanged"/>
+                                <NumberBox x:Name="ThumbnailResolutionNumberBox"
+                                           Header="Thumbnail resolution (Recommended:64)"
+                                           SmallChange="2"
+                                           LargeChange="10"
+                                           Minimum="20"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Set the resolution in which thumbnails are loaded. 
+                                           This should greatly improve speed and RAM usage at the cost of recognizability. 
+                                           Therefore, we recommend 64 as a balance. Takes effect after refr4eshing the list."
+                                           ValueChanged="ThumbnailResolutionNumberBox_ValueChanged"/>
+                                <Button x:Name="ResetCapsToDefaultButton"
+                                        Content="Reset to default values"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="0,10,0,0"
+                                        ToolTipService.ToolTip="Reset these values to their defaults"
+                                        Click="ResetCapsToDefaultButton_Click"/>
+                            </StackPanel>
+                        </Expander>
                         <Expander x:Name="SecondaryFolderSettingsExpander" Header="Manage your portal folders" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                             <StackPanel Spacing="10" Margin="-25,0,-25,0">
                                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -37,6 +38,7 @@ namespace DropStackWinUI
         }
 
         public static Window Window { get { return m_window; } }
+        bool shouldLaunchWindow = true;
 
         /// <summary>
         /// Invoked when the application is launched.
@@ -45,12 +47,10 @@ namespace DropStackWinUI
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             if (args.Arguments.Contains("resetSecondaryPortal")) resetSecondaryPortalFolders();
-            if (args.Arguments.Contains("resetDropStack"))
-            {
-                resetSecondaryPortalFolders();
-                resetAllOtherSettings();
-            }
-            
+            if (args.Arguments.Contains("resetDropStack")) { resetSecondaryPortalFolders(); resetAllOtherSettings(); }
+            if (args.Arguments.Contains("resetPerformanceSettings")) resetPerformanceSettings();
+            if (args.Arguments.Contains("lowerPerformanceSettings")) engageUltraResourceSaverMode();
+
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
             string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
@@ -69,13 +69,23 @@ namespace DropStackWinUI
             if (args.Arguments.Contains("forceNormalView")) shouldBeSimpleView = false;
             else if (args.Arguments.Contains("forceSimpleView")) shouldBeSimpleView = true;
 
-            if (shouldBeSimpleView) m_window = new SimpleMode();
-            else if (!shouldBeSimpleView) m_window = new MainWindow();
-            m_window.Activate();
+
+            if (shouldLaunchWindow)
+            {
+                if (shouldBeSimpleView) m_window = new SimpleMode();
+                else if (!shouldBeSimpleView) m_window = new MainWindow();
+                m_window.Activate();
+            }
+            else if (!shouldLaunchWindow)
+            {
+                CoreApplication.Exit();
+            }
         }
 
         private void resetSecondaryPortalFolders()
         {
+            shouldLaunchWindow = false;
+
             ApplicationData.Current.LocalSettings.Values["SecFolderToken1"] = null;
             ApplicationData.Current.LocalSettings.Values["SecFolderToken2"] = null;
             ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] = null;
@@ -91,6 +101,8 @@ namespace DropStackWinUI
 
         private void resetAllOtherSettings()
         {
+            shouldLaunchWindow = false;
+
             ApplicationData.Current.LocalSettings.Values["FolderToken"] = null;
             ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] = null;
             ApplicationData.Current.LocalSettings.Values["LoadSimpleViewBoolean"] = false;
@@ -98,8 +110,30 @@ namespace DropStackWinUI
             ApplicationData.Current.LocalSettings.Values["HasPinBarBeenExpanded"] = true;
             ApplicationData.Current.LocalSettings.Values["IsPanosUnlocked"] = false;
             ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Default";
+            ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1000;
+            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 250;
+            ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 250;
+            ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 64;
+        }
 
+        private void resetPerformanceSettings()
+        {
+            shouldLaunchWindow = false;
+            
+            ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1000;
+            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 250;
+            ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 250;
+            ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 64;
+        }
 
+        private void engageUltraResourceSaverMode()
+        {
+            shouldLaunchWindow = false;
+            
+            ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1;
+            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 1;
+            ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 1;
+            ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 16;
         }
 
         private static Window m_window;
