@@ -109,13 +109,14 @@
             </ScrollViewer>
             
             <ListView x:ConnectionId='4'   x:Name="regularFileListView"
-                    Grid.Row="2"
-                                                                     
-                                                                   
-                                                           
-                    CanDragItems="True" 
-                                                                      
-                                                                               >
+                        Grid.Row="2"
+                                                                         
+                                                                       
+                                                               
+                        CanDragItems="True" 
+                                                                          
+                                                                                   
+                        SelectionMode="Single">
                 <ListView.ItemContainerTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition  FromVerticalOffset="0" />

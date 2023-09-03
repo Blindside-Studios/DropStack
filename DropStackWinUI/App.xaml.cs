@@ -111,7 +111,6 @@ namespace DropStackWinUI
             ApplicationData.Current.LocalSettings.Values["IsPanosUnlocked"] = false;
             ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Default";
             ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1000;
-            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 250;
             ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 250;
             ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 64;
         }
@@ -121,7 +120,6 @@ namespace DropStackWinUI
             shouldLaunchWindow = false;
             
             ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1000;
-            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 250;
             ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 250;
             ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 64;
         }
@@ -131,9 +129,8 @@ namespace DropStackWinUI
             shouldLaunchWindow = false;
             
             ApplicationData.Current.LocalSettings.Values["NormalLoadedItems"] = 1;
-            ApplicationData.Current.LocalSettings.Values["SimpleLoadedItems"] = 1;
             ApplicationData.Current.LocalSettings.Values["LoadedThumbnails"] = 1;
-            ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 16;
+            ApplicationData.Current.LocalSettings.Values["ThumbnailResolution"] = 20;
         }
 
         private static Window m_window;

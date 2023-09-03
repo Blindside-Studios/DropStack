@@ -35,6 +35,7 @@ using Windows.Storage.Search;
 using System.Runtime.InteropServices;
 using Windows.Devices.PointOfService.Provider;
 using Windows.ApplicationModel.VoiceCommands;
+using System.Xml.Serialization;
 
 namespace DropStackWinUI
 {
@@ -85,7 +86,7 @@ namespace DropStackWinUI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(DragZone);
             loadSettings();
-            obtainFolderAndFiles("regular");
+            loadFromCache();
 
             this.Activated += OnWindowActivated;
 
@@ -147,9 +148,9 @@ namespace DropStackWinUI
                 setTheme(selectedTheme);
             }
 
-            if (localSettings.Values.ContainsKey("SimpleLoadedItems"))
+            if (localSettings.Values.ContainsKey("NormalLoadedItems"))
             {
-                loadedItemsSimple = (int)localSettings.Values["SimpleLoadedItems"];
+                loadedItemsSimple = (int)localSettings.Values["NormalLoadedItems"];
             }
             if (localSettings.Values.ContainsKey("LoadedThumbnails"))
             {
@@ -161,7 +162,7 @@ namespace DropStackWinUI
             }
         }
 
-        public async void obtainFolderAndFiles(string source)
+        public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)
         {
             isLoading = true;
 
@@ -223,6 +224,7 @@ namespace DropStackWinUI
             }
 
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
+            if (cachedItems != null) fileMetadataList = cachedItems;
 
             regularFileListView.ItemsSource = fileMetadataList;
 
@@ -237,6 +239,7 @@ namespace DropStackWinUI
             if (folder != null)
             {
                 int currentFile = 1;
+                int addIndex = 0;
                 
                 foreach (StorageFile file in files.Take(loadedItemsSimple))
                 {
@@ -319,47 +322,118 @@ namespace DropStackWinUI
                         typeDisplayName = "Presentation (" + file.FileType + ")";
                     }
 
-                    if (downloadFileTypes.Contains(file.FileType))
+                    bool shouldAdd = true;
+                    if (cachedItems != null)
                     {
+                        for (int i = 0; i < fileMetadataList.Count; i++)
+                        {
+                            FileItem fileItem = fileMetadataList.ElementAt(i);
+                            if (fileItem.FilePath == file.Path)
+                            {
+                                shouldAdd = false;
+                                int indexToReplace = fileMetadataList.IndexOf(fileItem);
+                                FileItem newFileItem = new FileItem();
 
-                        fileMetadataList.Add(new FileItem()
-                        {
-                            FileName = file.Name,
-                            FileDisplayName = file.DisplayName,
-                            FilePath = file.Path,
-                            FileType = "This file is still being downloaded",
-                            FileSize = "",
-                            FileSizeSuffix = "",
-                            ModifiedDate = "",
-                            FileIcon = bitmapThumbnail,
-                            IconOpacity = 0.25,
-                            TextOpacity = 0.5,
-                            TextOpacityDate = 0,
-                            PillOpacity = 0,
-                            ProgressActivity = true
-                        });
+                                if (downloadFileTypes.Contains(file.FileType))
+                                {
+                                    newFileItem = new FileItem()
+                                    {
+                                        FileName = file.Name,
+                                        FileDisplayName = file.DisplayName,
+                                        FilePath = file.Path,
+                                        FileType = "This file is still being downloaded",
+                                        FileSize = "",
+                                        FileSizeSuffix = "",
+                                        ModifiedDate = "",
+                                        FileIcon = bitmapThumbnail,
+                                        IconOpacity = 0.25,
+                                        PillOpacity = 0,
+                                        TextOpacity = 0.5,
+                                        ProgressActivity = true,
+                                    };
+                                }
+                                else
+                                {
+                                    newFileItem = new FileItem()
+                                    {
+                                        FileName = file.Name,
+                                        FileDisplayName = file.DisplayName,
+                                        FilePath = file.Path,
+                                        FileType = file.DisplayType,
+                                        TypeTag = typeTag,
+                                        FileSize = filesizecalc.ToString(),
+                                        FileSizeSuffix = " " + generativefilesizesuffix,
+                                        ModifiedDate = modifiedDateFormatted,
+                                        FileIcon = bitmapThumbnail,
+                                        IconOpacity = 1,
+                                        PillOpacity = 0.25,
+                                        TextOpacity = 1,
+                                        ProgressActivity = false,
+                                    };
+                                }
+
+                                fileMetadataList.RemoveAt(indexToReplace);
+                                fileMetadataList.Insert(indexToReplace, newFileItem);
+
+                            }
+                        }
                     }
-                    else
+
+                    if (shouldAdd)
                     {
-                        fileMetadataList.Add(new FileItem()
+                        if (downloadFileTypes.Contains(file.FileType))
                         {
-                            FileName = file.Name,
-                            FileDisplayName = file.DisplayName,
-                            FilePath = file.Path,
-                            FileType = typeDisplayName,
-                            TypeTag = typeTag,
-                            FileSize = filesizecalc.ToString(),
-                            FileSizeSuffix = " " + generativefilesizesuffix,
-                            ModifiedDate = modifiedDateFormatted,
-                            FileIcon = bitmapThumbnail,
-                            IconOpacity = 1,
-                            TextOpacity = 1,
-                            TextOpacityDate = 0.5,
-                            PillOpacity = 0.25,
-                            ProgressActivity = false
-                        });
+                            fileMetadataList.Insert(addIndex, new FileItem()
+                            {
+                                FileName = file.Name,
+                                FileDisplayName = file.DisplayName,
+                                FilePath = file.Path,
+                                FileType = "This file is still being downloaded",
+                                FileSize = "",
+                                FileSizeSuffix = "",
+                                ModifiedDate = "",
+                                FileIcon = bitmapThumbnail,
+                                IconOpacity = 0.25,
+                                PillOpacity = 0,
+                                TextOpacity = 0.5,
+                                ProgressActivity = true
+                            });
+                        }
+                        else
+                        {
+                            fileMetadataList.Insert(addIndex, new FileItem()
+                            {
+                                FileName = file.Name,
+                                FileDisplayName = file.DisplayName,
+                                FilePath = file.Path,
+                                FileType = file.DisplayType,
+                                TypeTag = typeTag,
+                                FileSize = filesizecalc.ToString(),
+                                FileSizeSuffix = " " + generativefilesizesuffix,
+                                ModifiedDate = modifiedDateFormatted,
+                                FileIcon = bitmapThumbnail,
+                                IconOpacity = 1,
+                                PillOpacity = 0.25,
+                                TextOpacity = 1,
+                                ProgressActivity = false
+                            });
+                        }
+                        addIndex++;
                     }
-                    if (source == "regular") _filteredFileMetadataList = fileMetadataList;
+
+                }
+                if (source == "regular")
+                {
+                    if (cachedItems != null)
+                    {
+                        //check if all the files still exist, else remove them
+                        foreach (FileItem item in cachedItems)
+                        {
+                            if (!System.IO.File.Exists(item.FilePath)) cachedItems.Remove(item);
+                        }
+                    }
+                    _filteredFileMetadataList = fileMetadataList;
+                    saveToCache(fileMetadataList);
                 }
             }
             else
@@ -483,7 +557,7 @@ namespace DropStackWinUI
             if (sortTag == "all" && !isLoading) filterListView("");
             else if (sortTag != "all") filterListView(sortTag);
 
-            if (sortTag == "pins") obtainFolderAndFiles("pinned");
+            if (sortTag == "pins") obtainFolderAndFiles("pinned", null);
 
             isPinsOnScreen = ((ToggleButton)sender == PinnedFilesToggleButton);
 
@@ -533,14 +607,14 @@ namespace DropStackWinUI
             }
             else if (!string.IsNullOrEmpty(filter) && filter == "pins")
             {
-                obtainFolderAndFiles("pinned");
+                obtainFolderAndFiles("pinned", null);
                 isPinsRefreshRequested = false;
             }
             else
             {
                 if (isRefreshRequested)
                 {
-                    obtainFolderAndFiles("regular");
+                    obtainFolderAndFiles("regular", null);
                     isRefreshRequested = false;
                 }
                 else
@@ -596,7 +670,7 @@ namespace DropStackWinUI
                 {
                     var storageFile = items[0] as StorageFile; StorageFolder storageFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
                     StorageFile copiedFile = await storageFile.CopyAsync(storageFolder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
-                    if (isPinsOnScreen) obtainFolderAndFiles("pinned");
+                    if (isPinsOnScreen) obtainFolderAndFiles("pinned", null);
                 }
             }
         }
@@ -609,6 +683,44 @@ namespace DropStackWinUI
         private void setTheme(string themeName)
         {
             ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
+        }
+
+        private async void saveToCache(ObservableCollection<FileItem> subjectToCache)
+        {
+            if (subjectToCache.Count > loadedItemsSimple) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItemsSimple) subjectToCache.Remove(item); }
+            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
+            StringWriter writer = new StringWriter();
+            serializer.Serialize(writer, subjectToCache);
+            string xmlContent = writer.ToString();
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, xmlContent);
+        }
+
+        private async void loadFromCache()
+        {
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await localFolder.GetFileAsync("cachedfiles.xml");
+            if (file == null) obtainFolderAndFiles("regular", null);
+            else
+            {
+                string xmlContent = await FileIO.ReadTextAsync(file);
+
+                // Deserialize the XML string into ArrayOfFileItem
+                XmlSerializer serializer = new XmlSerializer(typeof(ArrayOfFileItem));
+                using (TextReader reader = new StringReader(xmlContent))
+                {
+                    ArrayOfFileItem arrayOfFileItem = (ArrayOfFileItem)serializer.Deserialize(reader);
+
+                    // Create an ObservableCollection from the deserialized data
+                    ObservableCollection<FileItem> cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
+
+                    regularFileListView.ItemsSource = cachedFileMetadataList;
+
+                    //check for new files
+                    obtainFolderAndFiles("regular", cachedFileMetadataList);
+                }
+            }
         }
     }
 }

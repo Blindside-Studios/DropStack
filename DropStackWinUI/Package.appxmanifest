@@ -10,7 +10,7 @@
   <Identity
     Name="991afa5e-1b92-4f84-98a9-98295385903c"
     Publisher="CN=Blindside Studios"
-    Version="0.4.2.0" />
+    Version="0.4.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="991afa5e-1b92-4f84-98a9-98295385903c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

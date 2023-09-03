@@ -284,27 +284,17 @@
                                            Text="*Changes are reflected after reloading."
                                            Margin="0,0,0,5"/>
                                 <NumberBox x:Name="RegularFileCapNumberBox"
-                                           Header="Loaded items in normal view"
+                                           Header="Loaded items"
                                            SmallChange="100"
                                            LargeChange="500"
                                            Minimum="1"
                                            HorizontalAlignment="Stretch"
                                            SpinButtonPlacementMode="Compact"
-                                           ToolTipService.ToolTip="Restrict the amount of loaded files in normal mode. 
+                                           ToolTipService.ToolTip="Restrict the amount of loaded files in normal mode and simple mode. 
                                            Takes effect after refreshing the list"
                                            ValueChanged="RegularFileCapNumberBox_ValueChanged"/>
-                                <NumberBox x:Name="SimpleFileCapNumberBox"
-                                           Header="Loaded items in simple view"
-                                           SmallChange="50"
-                                           LargeChange="200"
-                                           Minimum="1"
-                                           HorizontalAlignment="Stretch"
-                                           SpinButtonPlacementMode="Compact"
-                                           ToolTipService.ToolTip="Restrict the amount of loaded files in simple mode. 
-                                           Typically, this is less than normal mode."
-                                           ValueChanged="SimpleFileCapNumberBox_ValueChanged"/>
                                 <NumberBox x:Name="ThumbnailCapNumberBox"
-                                           Header="Loaded thumbnails in both views"
+                                           Header="Loaded thumbnails"
                                            SmallChange="50"
                                            LargeChange="200"
                                            Minimum="0"
@@ -312,7 +302,7 @@
                                            SpinButtonPlacementMode="Compact"
                                            ToolTipService.ToolTip="Restrict the amount of thumbnails that are being loaded. 
                                            This helps improve speed and reduce RAM usage, so you can load more items without your RAM filling up as quickly. 
-                                           Typically, this is equal to the number of items loaded in simple mode. Takes effect after refreshing."
+                                           Takes effect after refreshing."
                                            ValueChanged="ThumbnailCapNumberBox_ValueChanged"/>
                                 <NumberBox x:Name="ThumbnailResolutionNumberBox"
                                            Header="Thumbnail resolution (Recommended:64)"
