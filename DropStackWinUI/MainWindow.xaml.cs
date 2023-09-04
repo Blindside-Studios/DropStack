@@ -140,8 +140,8 @@ namespace DropStackWinUI
 
             loadSettings();
 
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); /*obtainFolderAndFiles("regular")*/ loadFromCache(); setFolderPath("Regular"); }
-            if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); }
+            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); loadFromCache("regular"); setFolderPath("Regular"); }
+            if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); loadFromCache("pinned"); }
             else if (string.IsNullOrEmpty(pinnedFolderToken) && !string.IsNullOrEmpty(folderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
         }
 
@@ -477,12 +477,16 @@ namespace DropStackWinUI
 
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
-            if (source == "regular") 
+            if (source == "regular")
             {
                 if (cachedItems != null) fileMetadataList = cachedItems;
                 regularFileListView.ItemsSource = fileMetadataList;
             }
-            else if (source == "pinned") pinnedFileListView.ItemsSource = fileMetadataList;
+            else if (source == "pinned")
+            {
+                if (cachedItems != null) fileMetadataList = cachedItems;
+                pinnedFileListView.ItemsSource = fileMetadataList;
+            }
 
             // Sort the files by modification date in descending order
             files = files.OrderByDescending(f => f.DateCreated).ToList();
@@ -649,17 +653,9 @@ namespace DropStackWinUI
                 PortalFileLoadingProgressBar.Opacity = 0;
                 if (source == "regular")
                 {
-                    if (cachedItems != null)
-                    {
-                        //check if all the files still exist, else remove them
-                        foreach (FileItem item in cachedItems)
-                        {
-                            if (!System.IO.File.Exists(item.FilePath)) cachedItems.Remove(item);
-                        }
-                    }
+                    
                     _filteredFileMetadataList = fileMetadataList;
                     fileMetadataListCopy = fileMetadataList;
-                    saveToCache(fileMetadataList);
 
                 }
                 else if (source == "pinned")
@@ -667,6 +663,16 @@ namespace DropStackWinUI
                     _filteredPinnedFileMetadataList = fileMetadataList;
                     pinnedFileMetadataListCopy = fileMetadataList;
                 }
+
+                //check if all the files still exist, else remove them, then save to cache
+                if (cachedItems != null)
+                {
+                    foreach (FileItem item in cachedItems)
+                    {
+                        if (!System.IO.File.Exists(item.FilePath)) cachedItems.Remove(item);
+                    }
+                }
+                saveToCache(source, fileMetadataList);
             }
             else
             {
@@ -1211,7 +1217,7 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
 
-            if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { obtainFolderAndFiles("pinned", null); pinnedFileGrid.Visibility = Visibility.Visible; }
+            if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { loadFromCache("pinned"); pinnedFileGrid.Visibility = Visibility.Visible; }
             else if (isWindowsHelloRequiredForPins)
             {
                 pinnedFileGrid.Visibility = Visibility.Collapsed;
@@ -1510,7 +1516,7 @@ namespace DropStackWinUI
             ThumbnailResolutionNumberBox.Value = Convert.ToDouble(64);
         }
 
-        private async void saveToCache(ObservableCollection<FileItem> subjectToCache)
+        private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
             if (subjectToCache.Count > loadedItems) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItems) subjectToCache.Remove(item); }
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
@@ -1518,15 +1524,27 @@ namespace DropStackWinUI
             serializer.Serialize(writer, subjectToCache);
             string xmlContent = writer.ToString();
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, xmlContent);
+            if (source == "regular")
+            {
+                StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(file, xmlContent);
+            }
+            else if (source == "pinned")
+            {
+                StorageFile file = await localFolder.CreateFileAsync("cachedpins.xml", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(file, xmlContent);
+            }
         }
 
-        private async void loadFromCache()
+        private async void loadFromCache(string source)
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.GetFileAsync("cachedfiles.xml");
-            if (file == null) obtainFolderAndFiles("regular", null);
+            string fileName = "cachedfiles.xml";
+            if (source == "pinned") fileName = "cachedpins.xml";
+            StorageFile file = null;
+            try { file = await localFolder.GetFileAsync(fileName); }
+            catch { obtainFolderAndFiles(source, null); }
+            if (file == null) obtainFolderAndFiles(source, null);
             else
             {
                 string xmlContent = await FileIO.ReadTextAsync(file);
@@ -1540,23 +1558,20 @@ namespace DropStackWinUI
                     // Create an ObservableCollection from the deserialized data
                     ObservableCollection<FileItem> cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
 
-                    fileMetadataListCopy = cachedFileMetadataList;
-                    regularFileListView.ItemsSource = cachedFileMetadataList;
+                    if (source == "regular")
+                    {
+                        fileMetadataListCopy = cachedFileMetadataList;
+                        regularFileListView.ItemsSource = cachedFileMetadataList;
+                    }
+                    else if (source == "pinned")
+                    {
+                        pinnedFileListView.ItemsSource = cachedFileMetadataList;
+                    }
 
                     //check for new files
-                    obtainFolderAndFiles("regular", cachedFileMetadataList);
+                    obtainFolderAndFiles(source, cachedFileMetadataList);
                 }
             }
-        }
-
-        private void ForceLoadFromXMLButton_Click(object sender, RoutedEventArgs e)
-        {
-            loadFromCache();
-        }
-
-        private void ForeSaveToCacheButton_Click(object sender, RoutedEventArgs e)
-        {
-            saveToCache(fileMetadataListCopy);
         }
     }
 }

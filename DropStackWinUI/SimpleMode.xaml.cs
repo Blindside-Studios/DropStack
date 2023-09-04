@@ -433,8 +433,9 @@ namespace DropStackWinUI
                         }
                     }
                     _filteredFileMetadataList = fileMetadataList;
-                    saveToCache(fileMetadataList);
                 }
+                saveToCache(source, fileMetadataList);
+
             }
             else
             {
@@ -685,7 +686,7 @@ namespace DropStackWinUI
             ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
         }
 
-        private async void saveToCache(ObservableCollection<FileItem> subjectToCache)
+        private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
             if (subjectToCache.Count > loadedItemsSimple) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItemsSimple) subjectToCache.Remove(item); }
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
@@ -693,8 +694,16 @@ namespace DropStackWinUI
             serializer.Serialize(writer, subjectToCache);
             string xmlContent = writer.ToString();
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, xmlContent);
+            if (source == "regular")
+            {
+                StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(file, xmlContent);
+            }
+            else if (source == "pinned")
+            {
+                StorageFile file = await localFolder.CreateFileAsync("cachedpins.xml", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(file, xmlContent);
+            }
         }
 
         private async void loadFromCache()
