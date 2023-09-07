@@ -36,6 +36,7 @@ using System.Runtime.InteropServices;
 using Windows.Devices.PointOfService.Provider;
 using Windows.ApplicationModel.VoiceCommands;
 using System.Xml.Serialization;
+using Microsoft.Win32;
 
 namespace DropStackWinUI
 {
@@ -78,6 +79,8 @@ namespace DropStackWinUI
         int loadedItemsSimple = 250;
         int loadedThumbnails = 250;
         int thumbnailResolution = 64;
+
+        int checkboxBehavior = 1;
 
         public SimpleMode()
         {
@@ -160,6 +163,11 @@ namespace DropStackWinUI
             {
                 thumbnailResolution = (int)localSettings.Values["ThumbnailResolution"];
             }
+            if (localSettings.Values.ContainsKey("CheckboxBehavior"))
+            {
+                checkboxBehavior = (int)localSettings.Values["CheckboxBehavior"];
+            }
+            adjustCheckboxBehavior();
         }
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)
@@ -493,30 +501,35 @@ namespace DropStackWinUI
             catch { }
         }
 
-        private void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            openLastSelectedFile();
-        }
+            DependencyObject tappedElement = e.OriginalSource as DependencyObject;
 
-        private async void openLastSelectedFile()
-        {
-            FileItem selectedFile = (FileItem)GlobalClickedItems[GlobalClickedItems.Count()-1];
-
-            try
+            while (tappedElement != null && !(tappedElement is ListViewItem))
             {
-                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
-
-                // launch the file
-                var success = await Launcher.LaunchFileAsync(file);
+                tappedElement = VisualTreeHelper.GetParent(tappedElement);
             }
 
-            catch
+            if (tappedElement is ListViewItem item)
             {
-                // handle the exception. ehm.
-            }
-            finally
-            {
-                closeWithAnimation();
+                FileItem selectedFile = item.Content as FileItem;
+
+                try
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    // launch the file
+                    var success = await Launcher.LaunchFileAsync(file);
+                }
+
+                catch
+                {
+                    // handle the exception
+                }
+                finally
+                {
+                    closeWithAnimation();
+                }
             }
         }
 
@@ -728,6 +741,51 @@ namespace DropStackWinUI
 
                     //check for new files
                     obtainFolderAndFiles("regular", cachedFileMetadataList);
+                }
+            }
+        }
+        private void adjustCheckboxBehavior()
+        {
+            RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+
+            switch (checkboxBehavior)
+            {
+                case 0:
+                    regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    break;
+                case 1:
+                    int autoCheckSelect = (int)explorerKey.GetValue("AutoCheckSelect", 0);
+                    if (autoCheckSelect == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    break;
+                case 2:
+                    int convertibleSlateMode = (int)explorerKey.GetValue("ConvertibleSlateMode", 1);
+                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
+                    break;
+                case 3:
+                    regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    break;
+            }
+
+            // legend:
+            // 0: never show checkboxes
+            // 1: show checkboxes according to file explorer setting
+            // 2: show checkboxes when device is used as a tablet
+            // 3: always show checkboxes
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (checkboxBehavior == 2)
+            {
+                if (e.Category == UserPreferenceCategory.General)
+                {
+                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+                    int convertibleSlateMode = (int)explorerKey.GetValue("ConvertibleSlateMode", 1);
+                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
                 }
             }
         }

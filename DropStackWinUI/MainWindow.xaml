@@ -269,7 +269,13 @@
                               OffContent="Use simple view by default"
                               Toggled="UseSimpleViewByDefaultToggle_Toggled"
                               ToolTipService.ToolTip="Reduces clutter, simplifies input and improves launch speed by showing less items in a larger grid."/>
-                        <ComboBox x:Name="ThemePickerCombobox" Margin="0,5,0,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
+                        <ComboBox x:Name="CheckBoxBehaviorCombobox" Margin="0,5,0,5" HorizontalAlignment="Stretch" Header="Use check boxes to select items" SelectionChanged="CheckBoxBehaviorCombobox_SelectionChanged">
+                            <x:String>Never</x:String>
+                            <x:String>When turned on in File Explorer</x:String>
+                            <x:String>When I use my device as a tablet</x:String>
+                            <x:String>Always</x:String>
+                        </ComboBox>
+                        <ComboBox x:Name="ThemePickerCombobox" Margin="0,0,0,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
                             <x:String>Default</x:String>
                             <x:String>Colorful</x:String>
                             <x:String>Evening</x:String>

@@ -227,6 +227,7 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\ucrtbase.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.Windows.SDK.NET.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\WinRT.Runtime.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.Win32.SystemEvents.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.InteractiveExperiences.Projection.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.WinUI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.Windows.AppLifecycle.Projection.dll

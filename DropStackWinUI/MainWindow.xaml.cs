@@ -45,6 +45,7 @@ using System.Diagnostics;
 using Windows.Data.Xml.Dom;
 using System.Data;
 using System.Data.SqlTypes;
+using Microsoft.Win32;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -123,6 +124,8 @@ namespace DropStackWinUI
         int loadedThumbnails = 250;
         int thumbnailResolution = 64;
 
+        int checkboxBehavior = 1;
+
         
         
         public MainWindow()
@@ -139,6 +142,7 @@ namespace DropStackWinUI
             }
 
             loadSettings();
+            SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
 
             if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); loadFromCache("regular"); setFolderPath("Regular"); }
             if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); loadFromCache("pinned"); }
@@ -224,6 +228,12 @@ namespace DropStackWinUI
                 thumbnailResolution = (int)localSettings.Values["ThumbnailResolution"];
             }
             
+            if (localSettings.Values.ContainsKey("CheckboxBehavior"))
+            {
+                CheckBoxBehaviorCombobox.SelectedIndex = (int)localSettings.Values["CheckboxBehavior"];
+            }
+            else { CheckBoxBehaviorCombobox.SelectedIndex = 1; }
+
             RegularFileCapNumberBox.Value = Convert.ToDouble(loadedItems);
             ThumbnailCapNumberBox.Value = Convert.ToDouble(loadedThumbnails);
             ThumbnailResolutionNumberBox.Value = Convert.ToDouble(thumbnailResolution);
@@ -1018,9 +1028,39 @@ namespace DropStackWinUI
             pinnedFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredPinnedItems);
         }
 
-        private void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            openLastSelectedFile();
+            DependencyObject tappedElement = e.OriginalSource as DependencyObject;
+
+            while (tappedElement != null && !(tappedElement is ListViewItem))
+            {
+                tappedElement = VisualTreeHelper.GetParent(tappedElement);
+            }
+
+            if (tappedElement is ListViewItem item)
+            {
+                FileItem selectedFile = item.Content as FileItem;
+
+                try
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    // launch the file
+                    var success = await Launcher.LaunchFileAsync(file);
+                }
+
+                catch
+                {
+                    // handle the exception
+                }
+                finally
+                {
+                    // clear the selection after a short delay
+                    await Task.Delay(250);
+                    regularFileListView.SelectedItem = null;
+                    pinnedFileListView.SelectedItem = null;
+                }
+            }
         }
 
         private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
@@ -1080,17 +1120,10 @@ namespace DropStackWinUI
             }
         }
 
-        private void OpenFileButton_Click(object sender, RoutedEventArgs e)
+        private async void OpenFileButton_Click(object sender, RoutedEventArgs e)
         {
-            openLastSelectedFile();
-        }
-
-        private async void openLastSelectedFile()
-        {
-            if (GlobalClickedItems != null)
+            foreach (FileItem selectedFile in regularFileListView.SelectedItems)
             {
-                FileItem selectedFile = (FileItem)GlobalClickedItems[GlobalClickedItems.Count()-1];
-
                 try
                 {
                     StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
@@ -1565,6 +1598,70 @@ namespace DropStackWinUI
 
                     //check for new files
                     obtainFolderAndFiles(source, cachedFileMetadataList);
+                }
+            }
+        }
+
+        private void CheckBoxBehaviorCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            checkboxBehavior = CheckBoxBehaviorCombobox.SelectedIndex;
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["CheckboxBehavior"] = checkboxBehavior;
+            adjustCheckboxBehavior();
+        }
+
+        private void adjustCheckboxBehavior()
+        {
+            RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+
+            switch (checkboxBehavior)
+            {
+                case 0:
+                    regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    break;
+                case 1:
+                    int autoCheckSelect = (int)explorerKey.GetValue("AutoCheckSelect", 0);
+                    if (autoCheckSelect == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    break;
+                case 2:
+                    int convertibleSlateMode = (int)explorerKey.GetValue("TabletMode", 1);
+                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    break;
+                case 3:
+                    regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    break;
+            }
+
+            // legend:
+            // 0: never show checkboxes
+            // 1: show checkboxes according to file explorer setting
+            // 2: show checkboxes when device is used as a tablet
+            // 3: always show checkboxes
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (checkboxBehavior == 1)
+            {
+                if (e.Category == UserPreferenceCategory.General)
+                {
+                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+                    int autoCheckSelect = (int)explorerKey.GetValue("AutoCheckSelect", 0);
+                    if (autoCheckSelect == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                }
+            }
+
+            if (checkboxBehavior == 2)
+            {
+                if (e.Category == UserPreferenceCategory.General)
+                {
+                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+                    int convertibleSlateMode = (int)explorerKey.GetValue("TabletMode", 1);
+                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
                 }
             }
         }
