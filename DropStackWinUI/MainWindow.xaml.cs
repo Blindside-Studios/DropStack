@@ -1023,11 +1023,6 @@ namespace DropStackWinUI
             openLastSelectedFile();
         }
 
-        private void pinnedFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            openLastSelectedFile();
-        }
-
         private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
         {
             GlobalClickedItems = regularFileListView.SelectedItems;
@@ -1094,7 +1089,7 @@ namespace DropStackWinUI
         {
             if (GlobalClickedItems != null)
             {
-                FileItem selectedFile = (FileItem)GlobalClickedItems[0];
+                FileItem selectedFile = (FileItem)GlobalClickedItems[GlobalClickedItems.Count()-1];
 
                 try
                 {

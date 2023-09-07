@@ -500,7 +500,7 @@ namespace DropStackWinUI
 
         private async void openLastSelectedFile()
         {
-            FileItem selectedFile = (FileItem)GlobalClickedItems[0];
+            FileItem selectedFile = (FileItem)GlobalClickedItems[GlobalClickedItems.Count()-1];
 
             try
             {
