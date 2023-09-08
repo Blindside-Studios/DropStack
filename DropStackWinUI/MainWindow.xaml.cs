@@ -1127,23 +1127,13 @@ namespace DropStackWinUI
                 try
                 {
                     StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
-
-                    // launch the file
                     var success = await Launcher.LaunchFileAsync(file);
                 }
-
-                catch
-                {
-                    // handle the exception
-                }
-                finally
-                {
-                    // clear the selection after a short delay
-                    await Task.Delay(250);
-                    regularFileListView.SelectedItem = null;
-                    pinnedFileListView.SelectedItem = null;
-                }
+                catch{}
             }
+            await Task.Delay(250);
+            regularFileListView.SelectedItem = null;
+            pinnedFileListView.SelectedItem = null;
         }
 
         private async void copyMostRecentFile()
