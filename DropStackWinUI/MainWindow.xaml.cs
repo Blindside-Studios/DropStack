@@ -120,7 +120,6 @@ namespace DropStackWinUI
         bool showSecPortal5 = false;
 
         int loadedItems = 1000;
-        int loadedItemsSimple = 250;
         int loadedThumbnails = 250;
         int thumbnailResolution = 64;
 
@@ -815,6 +814,12 @@ namespace DropStackWinUI
             ApplicationData.Current.LocalSettings.Values["showSecondaryPortal3"] = false;
             ApplicationData.Current.LocalSettings.Values["showSecondaryPortal4"] = false;
             ApplicationData.Current.LocalSettings.Values["showSecondaryPortal5"] = false;
+
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await localFolder.GetFileAsync("cachedfiles.xml");
+            StorageFile pinsfile = await localFolder.GetFileAsync("cachedpins.xml");
+            await file.DeleteAsync();
+            await pinsfile.DeleteAsync();
 
             await Task.Delay(1000);
 
