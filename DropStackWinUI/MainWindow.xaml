@@ -406,7 +406,7 @@
                                             </Button>
                                         </Grid>
                                         <Button Click="disconnectFolderButton_Click" 
-                                            Content="Yes, disconnect and quit!" 
+                                            Content="Yes, disconnect and relaunch!" 
                                             Background="DarkRed"
                                             Foreground="White"
                                             HorizontalAlignment="Stretch"/>

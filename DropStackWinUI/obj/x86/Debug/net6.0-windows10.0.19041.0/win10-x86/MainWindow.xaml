@@ -406,7 +406,7 @@
                                             </Button>
                                         </Grid>
                                         <Button x:ConnectionId='40'                                      
-                                            Content="Yes, disconnect and quit!" 
+                                            Content="Yes, disconnect and relaunch!" 
                                             Background="DarkRed"
                                             Foreground="White"
                                             HorizontalAlignment="Stretch"/>

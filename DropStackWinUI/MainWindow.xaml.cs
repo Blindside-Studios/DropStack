@@ -142,8 +142,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
-
                 enableButtonVisibility();
                 loadFromCache("regular");
                 setFolderPath("Regular");
@@ -1650,31 +1648,6 @@ namespace DropStackWinUI
             // 1: show checkboxes according to file explorer setting
             // 2: show checkboxes when device is used as a tablet
             // 3: always show checkboxes
-        }
-
-        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
-        {
-            if (checkboxBehavior == 1)
-            {
-                if (e.Category == UserPreferenceCategory.General)
-                {
-                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
-                    int autoCheckSelect = (int)explorerKey.GetValue("AutoCheckSelect", 0);
-                    if (autoCheckSelect == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                    else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
-                }
-            }
-
-            if (checkboxBehavior == 2)
-            {
-                if (e.Category == UserPreferenceCategory.General)
-                {
-                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
-                    int convertibleSlateMode = (int)explorerKey.GetValue("TabletMode", 1);
-                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
-                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                }
-            }
         }
     }
 }

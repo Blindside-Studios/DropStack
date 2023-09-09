@@ -762,7 +762,6 @@ namespace DropStackWinUI
                     int convertibleSlateMode = (int)explorerKey.GetValue("ConvertibleSlateMode", 1);
                     if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
                     else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                    SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
                     break;
                 case 3:
                     regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
@@ -774,20 +773,6 @@ namespace DropStackWinUI
             // 1: show checkboxes according to file explorer setting
             // 2: show checkboxes when device is used as a tablet
             // 3: always show checkboxes
-        }
-
-        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
-        {
-            if (checkboxBehavior == 2)
-            {
-                if (e.Category == UserPreferenceCategory.General)
-                {
-                    RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
-                    int convertibleSlateMode = (int)explorerKey.GetValue("ConvertibleSlateMode", 1);
-                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
-                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                }
-            }
         }
     }
 }
