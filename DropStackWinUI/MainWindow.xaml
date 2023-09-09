@@ -492,7 +492,7 @@
                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock Text="🤗" FontSize="92" HorizontalAlignment="Center"/>
                                         <TextBlock Text="All done!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                        <TextBlock Text="Click 'Finish Setup!' to start using DropStack!" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
+                                        <TextBlock Text="Click 'Next' one last time to start using DropStack!" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                         <CheckBox x:Name="OOBEsimpleViewOfferCheckBox" Content="Always launch into simple mode first" IsChecked="True" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>

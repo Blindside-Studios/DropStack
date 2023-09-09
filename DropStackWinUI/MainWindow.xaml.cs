@@ -133,20 +133,24 @@ namespace DropStackWinUI
             this.InitializeComponent();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
+            loadSettings();
 
-            if (string.IsNullOrEmpty(folderToken) && string.IsNullOrEmpty(pinnedFolderToken))
+            if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken))
             {
                 RegularAndPinnedFileGrid.Visibility = Visibility.Collapsed;
                 disableButtonVisibility();
                 launchOnboarding();
             }
+            else
+            {
+                SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
 
-            loadSettings();
-            SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
-
-            if (!string.IsNullOrEmpty(folderToken)) { enableButtonVisibility(); loadFromCache("regular"); setFolderPath("Regular"); }
-            if (!string.IsNullOrEmpty(pinnedFolderToken)) { setFolderPath("Pin"); loadFromCache("pinned"); }
-            else if (string.IsNullOrEmpty(pinnedFolderToken) && !string.IsNullOrEmpty(folderToken)) { NoPinnedFolderStackpanel.Visibility = Visibility.Visible; }
+                enableButtonVisibility();
+                loadFromCache("regular");
+                setFolderPath("Regular");
+                setFolderPath("Pin");
+                loadFromCache("pinned");
+            }
         }
 
         private async void loadSettings()
@@ -880,7 +884,7 @@ namespace DropStackWinUI
 
         private async void OOBEgoNextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (OOBEpivot.SelectedIndex == OOBEpivot.Items.Count - 1)
+            if (allowOOBEExit())
             {
                 ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                 if (OOBEsimpleViewOfferCheckBox.IsChecked == false) 
@@ -903,7 +907,6 @@ namespace DropStackWinUI
 
                     this.Close();
                 }
-                localSettings.Values["KeepSimpleModeRunning"] = OOBEsimpleViewOfferCheckBox.IsChecked;
             }
             else
             {
@@ -915,23 +918,36 @@ namespace DropStackWinUI
         private void nextOOBEpage()
         {
             if (OOBEpivot.SelectedIndex == 1 & OOBEsetupPivot.SelectedIndex < OOBEsetupPivot.Items.Count - 1) OOBEsetupPivot.SelectedIndex = OOBEsetupPivot.SelectedIndex + 1;
-            else OOBEpivot.SelectedIndex = OOBEpivot.SelectedIndex + 1;
+            else
+            {
+                if (OOBEpivot.SelectedIndex < OOBEpivot.Items.Count - 1) { OOBEpivot.SelectedIndex = OOBEpivot.SelectedIndex + 1; }
+                else
+                {
+                    OOBEpivot.SelectedIndex = 1;
+                    if (String.IsNullOrEmpty(pinnedFolderToken)) OOBEsetupPivot.SelectedIndex = 1;
+                    if (String.IsNullOrEmpty(folderToken)) OOBEsetupPivot.SelectedIndex = 0;
+                }
+            }
         }
 
         private void OOBEpivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OOBEpivot.SelectedIndex == 0) OOBEgoBackButton.IsEnabled = false;
             else OOBEgoBackButton.IsEnabled = true;
-
+            
             OOBEgoNextButton.IsEnabled = checkIfNextButtonShouldBeEnabled();
-
-            if (OOBEpivot.SelectedIndex == OOBEpivot.Items.Count - 1) OOBEgoNextButton.Content = "Finish setup!";
-            else OOBEgoNextButton.Content = "Next ›";
         }
 
         private void OOBEsetupPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             OOBEgoNextButton.IsEnabled = checkIfNextButtonShouldBeEnabled();
+        }
+
+        private bool allowOOBEExit() 
+        {
+            bool allowExit = false;
+            if (OOBEpivot.SelectedIndex == OOBEpivot.Items.Count - 1 && !String.IsNullOrEmpty(folderToken) && !String.IsNullOrEmpty(pinnedFolderToken)) allowExit = true;
+            return allowExit;
         }
 
         public bool checkIfNextButtonShouldBeEnabled()
