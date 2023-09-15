@@ -76,7 +76,7 @@ namespace DropStackWinUI
         bool isPinsRefreshRequested = false;
         bool isPinsOnScreen = false;
 
-        int loadedItemsSimple = 250;
+        int loadedItems = 250;
         int loadedThumbnails = 250;
         int thumbnailResolution = 64;
 
@@ -89,7 +89,7 @@ namespace DropStackWinUI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(DragZone);
             loadSettings();
-            loadFromCache();
+            loadFromCache("regular");
 
             this.Activated += OnWindowActivated;
 
@@ -153,7 +153,7 @@ namespace DropStackWinUI
 
             if (localSettings.Values.ContainsKey("NormalLoadedItems"))
             {
-                loadedItemsSimple = (int)localSettings.Values["NormalLoadedItems"];
+                loadedItems = (int)localSettings.Values["NormalLoadedItems"];
             }
             if (localSettings.Values.ContainsKey("LoadedThumbnails"))
             {
@@ -248,8 +248,9 @@ namespace DropStackWinUI
             {
                 int currentFile = 1;
                 int addIndex = 0;
-                
-                foreach (StorageFile file in files.Take(loadedItemsSimple))
+                bool shouldContinue = true;
+
+                foreach (StorageFile file in files.Take(loadedItems))
                 {
                     BitmapImage bitmapThumbnail = new BitmapImage();
                     BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
@@ -330,73 +331,32 @@ namespace DropStackWinUI
                         typeDisplayName = "Presentation (" + file.FileType + ")";
                     }
 
-                    bool shouldAdd = true;
                     if (cachedItems != null)
                     {
-                        for (int i = 0; i < fileMetadataList.Count; i++)
+                        for (int i = 0; i < cachedItems.Count; i++)
                         {
-                            FileItem fileItem = fileMetadataList.ElementAt(i);
-                            if (fileItem.FilePath == file.Path)
+                            FileItem currentFileItem = cachedItems.ElementAt(i);
+                            if (currentFileItem.FileName == file.Name)
                             {
-                                shouldAdd = false;
-                                int indexToReplace = fileMetadataList.IndexOf(fileItem);
-                                FileItem newFileItem = new FileItem();
-
-                                if (downloadFileTypes.Contains(file.FileType))
-                                {
-                                    newFileItem = new FileItem()
-                                    {
-                                        FileName = file.Name,
-                                        FileDisplayName = file.DisplayName,
-                                        FilePath = file.Path,
-                                        FileType = "This file is still being downloaded",
-                                        FileSize = "",
-                                        FileSizeSuffix = "",
-                                        ModifiedDate = "",
-                                        FileIcon = bitmapThumbnail,
-                                        IconOpacity = 0.25,
-                                        PillOpacity = 0,
-                                        TextOpacity = 0.5,
-                                        ProgressActivity = true,
-                                    };
-                                }
-                                else
-                                {
-                                    newFileItem = new FileItem()
-                                    {
-                                        FileName = file.Name,
-                                        FileDisplayName = file.DisplayName,
-                                        FilePath = file.Path,
-                                        FileType = file.DisplayType,
-                                        TypeTag = typeTag,
-                                        FileSize = filesizecalc.ToString(),
-                                        FileSizeSuffix = " " + generativefilesizesuffix,
-                                        ModifiedDate = modifiedDateFormatted,
-                                        FileIcon = bitmapThumbnail,
-                                        IconOpacity = 1,
-                                        PillOpacity = 0.25,
-                                        TextOpacity = 1,
-                                        ProgressActivity = false,
-                                    };
-                                }
-
-                                fileMetadataList.RemoveAt(indexToReplace);
-                                fileMetadataList.Insert(indexToReplace, newFileItem);
-
+                                //assume that from now on, files are cached
+                                shouldContinue = false;
                             }
                         }
                     }
 
-                    if (shouldAdd)
+                    FileItem fileItem = null;
+
+                    if (shouldContinue)
                     {
                         if (downloadFileTypes.Contains(file.FileType))
                         {
-                            fileMetadataList.Insert(addIndex, new FileItem()
+                            fileItem = new FileItem()
                             {
                                 FileName = file.Name,
                                 FileDisplayName = file.DisplayName,
                                 FilePath = file.Path,
                                 FileType = "This file is still being downloaded",
+                                TypeTag = typeTag,
                                 FileSize = "",
                                 FileSizeSuffix = "",
                                 ModifiedDate = "",
@@ -405,11 +365,13 @@ namespace DropStackWinUI
                                 PillOpacity = 0,
                                 TextOpacity = 0.5,
                                 ProgressActivity = true
-                            });
+                            };
+
+                            fileMetadataList.Insert(addIndex, fileItem);
                         }
                         else
                         {
-                            fileMetadataList.Insert(addIndex, new FileItem()
+                            fileItem = new FileItem()
                             {
                                 FileName = file.Name,
                                 FileDisplayName = file.DisplayName,
@@ -424,26 +386,35 @@ namespace DropStackWinUI
                                 PillOpacity = 0.25,
                                 TextOpacity = 1,
                                 ProgressActivity = false
-                            });
-                        }
-                        addIndex++;
-                    }
+                            };
 
-                }
-                if (source == "regular")
-                {
-                    if (cachedItems != null)
-                    {
-                        //check if all the files still exist, else remove them
-                        foreach (FileItem item in cachedItems)
-                        {
-                            if (!System.IO.File.Exists(item.FilePath)) cachedItems.Remove(item);
+                            fileMetadataList.Insert(addIndex, fileItem);
                         }
                     }
-                    _filteredFileMetadataList = fileMetadataList;
+                    addIndex++;
+                }
+                //check if all the files still exist, else remove them, then save to cache
+                if (cachedItems != null)
+                {
+                    foreach (FileItem item in fileMetadataList)
+                    {
+                        if (!System.IO.File.Exists(item.FilePath)) fileMetadataList.Remove(item);
+                    }
                 }
                 saveToCache(source, fileMetadataList);
 
+                //load thumbnails
+                foreach (FileItem item in fileMetadataList.Take(loadedThumbnails))
+                {
+                    if (item.FileIcon == null)
+                    {
+                        BitmapImage bitmapThumbnail = new BitmapImage();
+                        StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                        StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                        bitmapThumbnail.SetSource(thumbnail);
+                        item.FileIcon = bitmapThumbnail;
+                    }
+                }
             }
             else
             {
@@ -701,7 +672,7 @@ namespace DropStackWinUI
 
         private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
-            if (subjectToCache.Count > loadedItemsSimple) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItemsSimple) subjectToCache.Remove(item); }
+            if (subjectToCache.Count > loadedItems) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItems) subjectToCache.Remove(item); }
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
             StringWriter writer = new StringWriter();
             serializer.Serialize(writer, subjectToCache);
@@ -719,14 +690,20 @@ namespace DropStackWinUI
             }
         }
 
-        private async void loadFromCache()
+        private async void loadFromCache(string source)
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.GetFileAsync("cachedfiles.xml");
-            if (file == null) obtainFolderAndFiles("regular", null);
+            string fileName = "cachedfiles.xml";
+            if (source == "pinned") fileName = "cachedpins.xml";
+            StorageFile file = null;
+            try { file = await localFolder.GetFileAsync(fileName); }
+            catch { obtainFolderAndFiles(source, null); }
+            if (file == null) obtainFolderAndFiles(source, null);
             else
             {
                 string xmlContent = await FileIO.ReadTextAsync(file);
+                ObservableCollection<FileItem> cachedFileMetadataList = null;
+
 
                 // Deserialize the XML string into ArrayOfFileItem
                 XmlSerializer serializer = new XmlSerializer(typeof(ArrayOfFileItem));
@@ -735,15 +712,25 @@ namespace DropStackWinUI
                     ArrayOfFileItem arrayOfFileItem = (ArrayOfFileItem)serializer.Deserialize(reader);
 
                     // Create an ObservableCollection from the deserialized data
-                    ObservableCollection<FileItem> cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
+                    cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
+                }
 
-                    regularFileListView.ItemsSource = cachedFileMetadataList;
-
+                if (cachedFileMetadataList.Count == 0)
+                {
+                    obtainFolderAndFiles(source, cachedFileMetadataList);
+                }
+                else
+                {
+                    if (source == "regular")
+                    {
+                        regularFileListView.ItemsSource = cachedFileMetadataList;
+                    }
                     //check for new files
-                    obtainFolderAndFiles("regular", cachedFileMetadataList);
+                    obtainFolderAndFiles(source, cachedFileMetadataList);
                 }
             }
         }
+
         private void adjustCheckboxBehavior()
         {
             RegistryKey explorerKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
