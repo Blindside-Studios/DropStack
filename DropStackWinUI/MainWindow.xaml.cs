@@ -88,6 +88,17 @@ namespace DropStackWinUI
         }
     }
 
+    public class FileTags
+    {
+        public static IList<string> DownloadFileTypes => downloadFileTypes; static IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
+        public static IList<string> DocumentFileTypes => documentFileTypes; static IList<string> documentFileTypes = new List<string> { ".pdf", ".doc", ".docx", ".txt", ".html", ".htm", ".xls", ".xlsx", ".odt", ".fodt", ".ods", ".fods", ".rtf", ".xml" };
+        public static IList<string> PictureFileTypes => pictureFileTypes; static IList<string> pictureFileTypes = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".ico", ".webp", ".raw", ".psd", ".ai" };
+        public static IList<string> MusicFileTypes => pictureFileTypes; static IList<string> musicFileTypes = new List<string> { ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".mid", ".amr", ".aiff", ".ape" };
+        public static IList<string> VideoFileTypes => videoFileTypes; static IList<string> videoFileTypes = new List<string> { ".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".mpeg", ".mpg", ".rm", ".vob" };
+        public static IList<string> ApplicationFileTypes => applicationFileTypes; static IList<string> applicationFileTypes = new List<string> { ".exe", ".dmg", ".app", ".deb", ".apk", ".msi", ".msix", ".rpm", ".jar", ".bat", ".sh", ".com", ".vb", ".gadget", ".ipa" };
+        public static IList<string> PresentationFileTypes => presentationFileTypes; static IList<string> presentationFileTypes = new List<string> { ".ppt", ".pptx", ".key", ".odp" };
+    }
+
     [XmlRoot("ArrayOfFileItem")]
     public class ArrayOfFileItem
     {
@@ -113,8 +124,6 @@ namespace DropStackWinUI
         string secondaryFolderToken3 = ApplicationData.Current.LocalSettings.Values["SecFolderToken3"] as string;
         string secondaryFolderToken4 = ApplicationData.Current.LocalSettings.Values["SecFolderToken4"] as string;
         string secondaryFolderToken5 = ApplicationData.Current.LocalSettings.Values["SecFolderToken5"] as string;
-
-        IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
 
         IList<object> GlobalClickedItems = null;
 
@@ -452,6 +461,22 @@ namespace DropStackWinUI
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems, bool isLoadingNew)
         {
+            ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
+
+            if (source == "regular")
+            {
+                if (cachedItems != null) fileMetadataList = cachedItems;
+                regularFileListView.ItemsSource = fileMetadataList;
+                _filteredFileMetadataList = fileMetadataList;
+                fileMetadataListCopy = fileMetadataList;
+            }
+            else if (source == "pinned")
+            {
+                if (cachedItems != null) fileMetadataList = cachedItems;
+                pinnedFileListView.ItemsSource = fileMetadataList;
+                _filteredPinnedFileMetadataList = fileMetadataList;
+            }
+
             // Get the folder from the access token
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
             if (source == "pinned") folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
@@ -501,19 +526,6 @@ namespace DropStackWinUI
 
                     files = fileList.Cast<StorageFile>().ToList();
                 }
-            }
-
-            ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
-
-            if (source == "regular")
-            {
-                if (cachedItems != null) fileMetadataList = cachedItems;
-                regularFileListView.ItemsSource = fileMetadataList;
-            }
-            else if (source == "pinned")
-            {
-                if (cachedItems != null) fileMetadataList = cachedItems;
-                pinnedFileListView.ItemsSource = fileMetadataList;
             }
 
             // Sort the files by modification date in descending order
@@ -586,6 +598,40 @@ namespace DropStackWinUI
                         if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
                         else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
 
+                        string typeTag = "";
+                        string typeDisplayName = file.FileType;
+
+                        if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "docs";
+                            typeDisplayName = "Document (" + file.FileType + ")";
+                        }
+                        else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "pics";
+                            typeDisplayName = "Picture (" + file.FileType + ")";
+                        }
+                        else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "music";
+                            typeDisplayName = "Music (" + file.FileType + ")";
+                        }
+                        else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "vids";
+                            typeDisplayName = "Video (" + file.FileType + ")";
+                        }
+                        else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "apps";
+                            typeDisplayName = "Application (" + file.FileType + ")";
+                        }
+                        else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "pres";
+                            typeDisplayName = "Presentation (" + file.FileType + ")";
+                        }
+
                         if (cachedItems != null)
                         {
                             for (int i = 0; i < cachedItems.Count; i++)
@@ -603,7 +649,7 @@ namespace DropStackWinUI
 
                         if (shouldContinue)
                         {
-                            if (downloadFileTypes.Contains(file.FileType))
+                            if (FileTags.DownloadFileTypes.Contains(file.FileType))
                             {
                                 fileItem = new FileItem()
                                 {
@@ -611,11 +657,13 @@ namespace DropStackWinUI
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
                                     FileType = "This file is still being downloaded",
+                                    TypeTag = typeTag,
                                     FileSize = "",
                                     FileSizeSuffix = "",
                                     ModifiedDate = "",
                                     FileIcon = bitmapThumbnail,
                                     IconOpacity = 0.25,
+                                    PillOpacity = 0,
                                     TextOpacity = 0.5,
                                     ProgressActivity = true
                                 };
@@ -630,11 +678,13 @@ namespace DropStackWinUI
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
                                     FileType = file.DisplayType,
+                                    TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
                                     FileSizeSuffix = " " + generativefilesizesuffix,
                                     ModifiedDate = modifiedDateFormatted,
                                     FileIcon = bitmapThumbnail,
                                     IconOpacity = 1,
+                                    PillOpacity = 0.25,
                                     TextOpacity = 1,
                                     ProgressActivity = false
                                 };
@@ -643,6 +693,12 @@ namespace DropStackWinUI
                             }
                         }
                         addIndex++;
+                        if (source == "regular")
+                        {
+                            _filteredFileMetadataList = fileMetadataList;
+                            fileMetadataListCopy = fileMetadataList;
+                        }
+                        else if (source=="pinned") _filteredPinnedFileMetadataList = fileMetadataList;
                     }
                 }
 
