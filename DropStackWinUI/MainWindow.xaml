@@ -78,7 +78,7 @@
                                         <GridView.ItemTemplate>
                                             <DataTemplate x:Name="pinnedFilesDataTemplate">
                                                 <Grid HorizontalAlignment="Center" Width="180">
-                                                    <Button x:Name="RemovePinnedFileButton" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                                                    <Button x:Name="RemovePinnedFileButton" Opacity="0.8" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
                                                         <FontIcon Glyph="&#xE74D;" />
                                                         <Button.Flyout>
                                                             <Flyout>
