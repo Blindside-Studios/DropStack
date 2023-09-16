@@ -311,10 +311,6 @@ namespace DropStackWinUI
                             generativefilesizesuffix = "TB";
                         }
 
-                        string modifiedDateFormatted = "n/a";
-                        if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
-                        else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
-
                         string typeTag = "";
                         string typeDisplayName = file.FileType;
 
@@ -399,7 +395,7 @@ namespace DropStackWinUI
                                     TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
                                     FileSizeSuffix = " " + generativefilesizesuffix,
-                                    ModifiedDate = modifiedDateFormatted,
+                                    ModifiedDate = basicProperties.DateModified.ToString("g"),
                                     FileIcon = bitmapThumbnail,
                                     IconOpacity = 1,
                                     PillOpacity = 0.25,
