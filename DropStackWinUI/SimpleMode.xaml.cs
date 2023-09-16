@@ -559,7 +559,7 @@ namespace DropStackWinUI
             if (sortTag == "all" && !isLoading) regularFileListView.ItemsSource = _filteredFileMetadataList;
             else if (sortTag != "all") { filterListView(sortTag); isLoading = false; }
 
-            if (sortTag == "pins") obtainFolderAndFiles("pinned", null);
+            if (sortTag == "pins") loadFromCache("pinned");
 
             isPinsOnScreen = ((ToggleButton)sender == PinnedFilesToggleButton);
 
