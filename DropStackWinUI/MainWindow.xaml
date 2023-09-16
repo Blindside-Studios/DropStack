@@ -78,7 +78,7 @@
                                         <GridView.ItemTemplate>
                                             <DataTemplate x:Name="pinnedFilesDataTemplate">
                                                 <Grid HorizontalAlignment="Center" Width="180">
-                                                    <Button x:Name="RemovePinnedFileButton" Opacity="0.8" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                                                    <Button x:Name="RemovePinnedFileButton" Opacity="0.8" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" ToolTipService.ToolTip="This deletes the pinned file from DropStack's pinned files folder. The file will still be available, provided you kept it around somewhere.">
                                                         <FontIcon Glyph="&#xE74D;" />
                                                         <Button.Flyout>
                                                             <Flyout>
@@ -261,18 +261,18 @@
 	        ActionButtonClick="noFolderpathTechingTip_ActionButtonClick"
 	        ActionButtonContent="Choose folder..."/>
                 <TeachingTip 
-            x:Name="noPinnedFolderpathTechingTip"
-	        Title="Choose a pin folder..."
-	        Subtitle="The app stores pinned files by copying them to a user-defined folder, so you can even delete files from their origin and they will still be here. However, as of now, no pin folder has been specified. Please choose one below."
-	        PreferredPlacement="Center"
-	        PlacementMargin="20"
-	        IsLightDismissEnabled="False"
-	        ActionButtonClick="noPinnedFolderpathTechingTip_ActionButtonClick"
-	        ActionButtonContent="Choose folder..."/>
+                            x:Name="noPinnedFolderpathTechingTip"
+	                        Title="Choose a pin folder..."
+	                        Subtitle="The app stores pinned files by copying them to a user-defined folder, so you can even delete files from their origin and they will still be here. However, as of now, no pin folder has been specified. Please choose one below."
+	                        PreferredPlacement="Center"
+	                        PlacementMargin="20"
+	                        IsLightDismissEnabled="False"
+	                        ActionButtonClick="noPinnedFolderpathTechingTip_ActionButtonClick"
+	                        ActionButtonContent="Choose folder..."/>
                 <TeachingTip x:Name="quickSettingsFlyoutTeachingTip"
-                          Title="Settings"
-                          PreferredPlacement="Top"
-                          Closed="quickSettingsFlyoutTeachingTip_Closed">
+                             Title="Settings"
+                             PreferredPlacement="Top"
+                             Closed="quickSettingsFlyoutTeachingTip_Closed">
                     <StackPanel>
                         <ToggleSwitch x:Name="UseSimpleViewByDefaultToggle"
                               IsOn="False"
@@ -518,7 +518,7 @@
                     <Grid.OpacityTransition>
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
-                    <Rectangle Fill="Black" Opacity="0.4"/>
+                    <Rectangle Fill="Black" Opacity="0.4" Margin="0,-100,0,0"/>
                     <Rectangle RadiusX="8" RadiusY="8" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
                     <Grid x:Name="AboutDropStackContentGrid" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
                         <Grid.TranslationTransition>
