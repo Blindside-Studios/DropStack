@@ -49,6 +49,8 @@ using Microsoft.Win32;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.UI.Xaml.Documents;
 using System.ComponentModel;
+using Microsoft.UI.Windowing;
+using System.Runtime.InteropServices;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -108,6 +110,8 @@ namespace DropStackWinUI
 
     public sealed partial class MainWindow : WinUIEx.WindowEx
     {
+        [DllImport("User32.dll")]
+        public static extern uint GetDpiForWindow(IntPtr hwnd);
         public string GetAppVersion()
         {
             Package package = Package.Current;
@@ -721,6 +725,7 @@ namespace DropStackWinUI
                                 fileMetadataList.Insert(addIndex, fileItem);
                             }
                         }
+                        else break;
                         addIndex++;
                         if (source == "regular")
                         {

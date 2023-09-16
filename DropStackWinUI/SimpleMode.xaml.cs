@@ -268,147 +268,152 @@ namespace DropStackWinUI
 
                 foreach (StorageFile file in files.Take(loadedItems))
                 {
-                    BitmapImage bitmapThumbnail = new BitmapImage();
-                    BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
-
-                    if (currentFile < (loadedThumbnails + 1))
-                    {
-                        StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
-                        bitmapThumbnail.SetSource(thumbnail);
-                    }
-                    currentFile++;
-
-                    double filesizecalc = Convert.ToDouble(basicProperties.Size); //size in byte
-                    string generativefilesizesuffix = "B"; //default file suffix
-
-                    if (filesizecalc >= 1000 && filesizecalc < 1000000)
-                    {
-                        filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000; //convert to kb
-                        filesizecalc = Math.Round(filesizecalc, 0);
-                        generativefilesizesuffix = "KB";
-                    }
-
-                    else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
-                    {
-                        filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000; //convert to mb
-                        filesizecalc = Math.Round(filesizecalc, 1);
-                        generativefilesizesuffix = "MB";
-                    }
-
-                    else if (filesizecalc >= 1000000000)
-                    {
-                        filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000; //convert to gb
-                        filesizecalc = Math.Round(filesizecalc, 2);
-                        generativefilesizesuffix = "GB";
-                    }
-
-                    else if (filesizecalc >= 1000000000000)
-                    {
-                        filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000000; //convert to gb
-                        filesizecalc = Math.Round(filesizecalc, 3);
-                        generativefilesizesuffix = "TB";
-                    }
-
-                    string modifiedDateFormatted = "n/a";
-                    if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
-                    else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
-
-                    string typeTag = "";
-                    string typeDisplayName = file.FileType;
-
-                    if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "docs";
-                        typeDisplayName = "Document (" + file.FileType + ")";
-                    }
-                    else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "pics";
-                        typeDisplayName = "Picture (" + file.FileType + ")";
-                    }
-                    else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "music";
-                        typeDisplayName = "Music (" + file.FileType + ")";
-                    }
-                    else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "vids";
-                        typeDisplayName = "Video (" + file.FileType + ")";
-                    }
-                    else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "apps";
-                        typeDisplayName = "Application (" + file.FileType + ")";
-                    }
-                    else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
-                    {
-                        typeTag = "pres";
-                        typeDisplayName = "Presentation (" + file.FileType + ")";
-                    }
-
-                    if (cachedItems != null)
-                    {
-                        for (int i = 0; i < cachedItems.Count; i++)
-                        {
-                            FileItem currentFileItem = cachedItems.ElementAt(i);
-                            if (currentFileItem.FileName == file.Name)
-                            {
-                                //assume that from now on, files are cached
-                                shouldContinue = false;
-                            }
-                        }
-                    }
-
-                    FileItem fileItem = null;
-
                     if (shouldContinue)
                     {
-                        if (FileTags.DownloadFileTypes.Contains(file.FileType))
-                        {
-                            fileItem = new FileItem()
-                            {
-                                FileName = file.Name,
-                                FileDisplayName = file.DisplayName,
-                                FilePath = file.Path,
-                                FileType = "This file is still being downloaded",
-                                TypeTag = typeTag,
-                                FileSize = "",
-                                FileSizeSuffix = "",
-                                ModifiedDate = "",
-                                FileIcon = bitmapThumbnail,
-                                IconOpacity = 0.25,
-                                PillOpacity = 0,
-                                TextOpacity = 0.5,
-                                ProgressActivity = true
-                            };
+                        BitmapImage bitmapThumbnail = new BitmapImage();
+                        BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
 
-                            fileMetadataList.Insert(addIndex, fileItem);
-                        }
-                        else
+                        if (currentFile < (loadedThumbnails + 1))
                         {
-                            fileItem = new FileItem()
-                            {
-                                FileName = file.Name,
-                                FileDisplayName = file.DisplayName,
-                                FilePath = file.Path,
-                                FileType = file.DisplayType,
-                                TypeTag = typeTag,
-                                FileSize = filesizecalc.ToString(),
-                                FileSizeSuffix = " " + generativefilesizesuffix,
-                                ModifiedDate = modifiedDateFormatted,
-                                FileIcon = bitmapThumbnail,
-                                IconOpacity = 1,
-                                PillOpacity = 0.25,
-                                TextOpacity = 1,
-                                ProgressActivity = false
-                            };
-
-                            fileMetadataList.Insert(addIndex, fileItem);
+                            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                            bitmapThumbnail.SetSource(thumbnail);
                         }
+                        currentFile++;
+
+                        double filesizecalc = Convert.ToDouble(basicProperties.Size); //size in byte
+                        string generativefilesizesuffix = "B"; //default file suffix
+
+                        if (filesizecalc >= 1000 && filesizecalc < 1000000)
+                        {
+                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000; //convert to kb
+                            filesizecalc = Math.Round(filesizecalc, 0);
+                            generativefilesizesuffix = "KB";
+                        }
+
+                        else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
+                        {
+                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000; //convert to mb
+                            filesizecalc = Math.Round(filesizecalc, 1);
+                            generativefilesizesuffix = "MB";
+                        }
+
+                        else if (filesizecalc >= 1000000000)
+                        {
+                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000; //convert to gb
+                            filesizecalc = Math.Round(filesizecalc, 2);
+                            generativefilesizesuffix = "GB";
+                        }
+
+                        else if (filesizecalc >= 1000000000000)
+                        {
+                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000000; //convert to gb
+                            filesizecalc = Math.Round(filesizecalc, 3);
+                            generativefilesizesuffix = "TB";
+                        }
+
+                        string modifiedDateFormatted = "n/a";
+                        if (DateTime.Now.ToString("d") == basicProperties.DateModified.ToString("d")) modifiedDateFormatted = basicProperties.DateModified.ToString("t");
+                        else modifiedDateFormatted = basicProperties.DateModified.ToString("g");
+
+                        string typeTag = "";
+                        string typeDisplayName = file.FileType;
+
+                        if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "docs";
+                            typeDisplayName = "Document (" + file.FileType + ")";
+                        }
+                        else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "pics";
+                            typeDisplayName = "Picture (" + file.FileType + ")";
+                        }
+                        else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "music";
+                            typeDisplayName = "Music (" + file.FileType + ")";
+                        }
+                        else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "vids";
+                            typeDisplayName = "Video (" + file.FileType + ")";
+                        }
+                        else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "apps";
+                            typeDisplayName = "Application (" + file.FileType + ")";
+                        }
+                        else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
+                        {
+                            typeTag = "pres";
+                            typeDisplayName = "Presentation (" + file.FileType + ")";
+                        }
+
+                        if (cachedItems != null)
+                        {
+                            for (int i = 0; i < cachedItems.Count; i++)
+                            {
+                                FileItem currentFileItem = cachedItems.ElementAt(i);
+                                if (currentFileItem.FileName == file.Name)
+                                {
+                                    //assume that from now on, files are cached
+                                    shouldContinue = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                        FileItem fileItem = null;
+
+                        if (shouldContinue)
+                        {
+                            if (FileTags.DownloadFileTypes.Contains(file.FileType))
+                            {
+                                fileItem = new FileItem()
+                                {
+                                    FileName = file.Name,
+                                    FileDisplayName = file.DisplayName,
+                                    FilePath = file.Path,
+                                    FileType = "This file is still being downloaded",
+                                    TypeTag = typeTag,
+                                    FileSize = "",
+                                    FileSizeSuffix = "",
+                                    ModifiedDate = "",
+                                    FileIcon = bitmapThumbnail,
+                                    IconOpacity = 0.25,
+                                    PillOpacity = 0,
+                                    TextOpacity = 0.5,
+                                    ProgressActivity = true
+                                };
+
+                                fileMetadataList.Insert(addIndex, fileItem);
+                            }
+                            else
+                            {
+                                fileItem = new FileItem()
+                                {
+                                    FileName = file.Name,
+                                    FileDisplayName = file.DisplayName,
+                                    FilePath = file.Path,
+                                    FileType = file.DisplayType,
+                                    TypeTag = typeTag,
+                                    FileSize = filesizecalc.ToString(),
+                                    FileSizeSuffix = " " + generativefilesizesuffix,
+                                    ModifiedDate = modifiedDateFormatted,
+                                    FileIcon = bitmapThumbnail,
+                                    IconOpacity = 1,
+                                    PillOpacity = 0.25,
+                                    TextOpacity = 1,
+                                    ProgressActivity = false
+                                };
+
+                                fileMetadataList.Insert(addIndex, fileItem);
+                            }
+                        }
+                        else break;
+                        addIndex++;
+                        if (source == "regular") _filteredFileMetadataList = fileMetadataList;
                     }
-                    addIndex++;
-                    if(source=="regular")_filteredFileMetadataList = fileMetadataList;
                 }
                 //check if all the files still exist, else remove them, then save to cache
                 if (cachedItems != null)
