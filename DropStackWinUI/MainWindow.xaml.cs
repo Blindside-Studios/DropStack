@@ -224,6 +224,8 @@ namespace DropStackWinUI
             if (localSettings.Values.ContainsKey("showSecondaryPortal4")) { showSecPortal4 = (bool)localSettings.Values["showSecondaryPortal4"]; }
             if (localSettings.Values.ContainsKey("showSecondaryPortal5")) { showSecPortal5 = (bool)localSettings.Values["showSecondaryPortal5"]; }
 
+            refreshFolderNames();
+
             if (localSettings.Values.ContainsKey("IsPanosUnlocked"))
             {
                 if ((bool)localSettings.Values["IsPanosUnlocked"]) unlockPanos(false);
@@ -284,17 +286,23 @@ namespace DropStackWinUI
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
                 PrimaryPortalFolderChangeButton.Content = folder.Name;
+                PrimLinkToExplorerDisplay.Text = folder.Name;
+                PrimLinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else
             {
                 PrimaryPortalFolderCheckBox.Content = "Set New...";
                 showPrimPortal = false;
+                PrimLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken1))
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
                 SecondaryPortalFolder1ChangeButton.Content = folder.Name;
+                Sec1LinkToExplorerDisplay.Text = folder.Name;
+                Sec1LinkToExplorerDisplay.Visibility = Visibility.Visible;
+                Sec1LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -306,45 +314,65 @@ namespace DropStackWinUI
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken2);
                 SecondaryPortalFolder2ChangeButton.Content = folder.Name;
+                Sec2LinkToExplorerDisplay.Text = folder.Name;
+                Sec2LinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else
             {
                 SecondaryPortalFolder2ChangeButton.Content = "Set New...";
                 showSecPortal2 = false;
+                Sec2LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken3))
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken3);
                 SecondaryPortalFolder3ChangeButton.Content = folder.Name;
+                Sec3LinkToExplorerDisplay.Text = folder.Name;
+                Sec3LinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else
             {
                 SecondaryPortalFolder3ChangeButton.Content = "Set New...";
                 showSecPortal3 = false;
+                Sec3LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken4))
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken4);
                 SecondaryPortalFolder4ChangeButton.Content = folder.Name;
+                Sec4LinkToExplorerDisplay.Text = folder.Name;
+                Sec4LinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else
             {
                 SecondaryPortalFolder4ChangeButton.Content = "Set New...";
                 showSecPortal4 = false;
+                Sec4LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken5))
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken5);
                 SecondaryPortalFolder5ChangeButton.Content = folder.Name;
+                Sec5LinkToExplorerDisplay.Text = folder.Name;
+                Sec5LinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else
             {
                 SecondaryPortalFolder5ChangeButton.Content = "Set New...";
                 showSecPortal5 = false;
+                Sec5LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
+
+            if (!string.IsNullOrEmpty(pinnedFolderToken))
+            {
+                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                PinsLinkToExplorerDisplay.Text = folder.Name;
+                PinsLinkToExplorerDisplay.Visibility = Visibility.Visible;
+            }
+            else PinsLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
         }
 
         private async void setFolderPath(string folderToSet)
@@ -450,6 +478,7 @@ namespace DropStackWinUI
                             SecondaryPortalFolder5ChangeButton.Content = folder.Name;
                             break;
                     }
+                    refreshFolderNames();
                 }
                 catch { }
             }
@@ -1736,11 +1765,6 @@ namespace DropStackWinUI
                     else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
                     break;
                 case 2:
-                    int convertibleSlateMode = (int)explorerKey.GetValue("TabletMode", 1);
-                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
-                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                    break;
-                case 3:
                     regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
                     break;
             }
@@ -1748,8 +1772,13 @@ namespace DropStackWinUI
             // legend:
             // 0: never show checkboxes
             // 1: show checkboxes according to file explorer setting
-            // 2: show checkboxes when device is used as a tablet
-            // 3: always show checkboxes
+            // 2: always show checkboxes
+        }
+
+        private void SelectModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if      (regularFileListView.SelectionMode == ListViewSelectionMode.Extended) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+            else if (regularFileListView.SelectionMode == ListViewSelectionMode.Multiple) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
         }
     }
 }

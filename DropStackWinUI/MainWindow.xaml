@@ -192,12 +192,31 @@
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
+                    <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal...">
                         <ToolTip Content="Reveal the Portal folder in File Explorer"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]" Click="RevealInExplorerButton_Click" Tag="prim"/>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec1"/>
+                                <MenuFlyoutItem x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec2"/>
+                                <MenuFlyoutItem x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec3"/>
+                                <MenuFlyoutItem x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec4"/>
+                                <MenuFlyoutItem x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec5"/>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]" Click="RevealInExplorerButton_Click" Tag="pins"/>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
                     </AppBarButton>
+                    <AppBarButton x:Name="SelectModeButton" Icon="SelectAll" Label="Select" Click="SelectModeButton_Click">
+                        <ToolTip Content="Enable / Disable selection mode"/>
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="Q" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton> 
                     <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple" Click="LaunchSimpleModeButton_Click">
                         <ToolTip Content="Launch Simple Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
@@ -252,14 +271,14 @@
                     <ProgressBar x:Name="panosUnlockedTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip 
-            x:Name="noFolderpathTechingTip"
-	        Title="Choose a folder..."
-	        Subtitle="To operate as intended, the app needs access to a destination folder. It was designed to work best for the Downlaods folder, so we recommend you click 'Choose folder...' and choose the 'Downloads' folder from the sidebar."
-	        PreferredPlacement="Center"
-	        PlacementMargin="20"
-	        IsLightDismissEnabled="False"
-	        ActionButtonClick="noFolderpathTechingTip_ActionButtonClick"
-	        ActionButtonContent="Choose folder..."/>
+                            x:Name="noFolderpathTechingTip"
+	                        Title="Choose a folder..."
+	                        Subtitle="To operate as intended, the app needs access to a destination folder. It was designed to work best for the Downlaods folder, so we recommend you click 'Choose folder...' and choose the 'Downloads' folder from the sidebar."
+	                        PreferredPlacement="Center"
+	                        PlacementMargin="20"
+	                        IsLightDismissEnabled="False"
+	                        ActionButtonClick="noFolderpathTechingTip_ActionButtonClick"
+	                        ActionButtonContent="Choose folder..."/>
                 <TeachingTip 
                             x:Name="noPinnedFolderpathTechingTip"
 	                        Title="Choose a pin folder..."
@@ -283,7 +302,6 @@
                         <ComboBox x:Name="CheckBoxBehaviorCombobox" Margin="0,5,0,5" HorizontalAlignment="Stretch" Header="Use check boxes to select items" SelectionChanged="CheckBoxBehaviorCombobox_SelectionChanged">
                             <x:String>Never</x:String>
                             <x:String>When turned on in File Explorer</x:String>
-                            <x:String>When I use my device as a tablet</x:String>
                             <x:String>Always</x:String>
                         </ComboBox>
                         <ComboBox x:Name="ThemePickerCombobox" Margin="0,0,0,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
