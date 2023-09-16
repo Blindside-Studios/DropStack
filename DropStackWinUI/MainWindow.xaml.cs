@@ -113,7 +113,7 @@ namespace DropStackWinUI
             Package package = Package.Current;
             PackageId packageId = package.Id;
             PackageVersion version = packageId.Version;
-            return $"Version {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            return $"Version {version.Major}.{version.Minor}.{version.Build}";
         }
 
         string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
@@ -1457,6 +1457,7 @@ namespace DropStackWinUI
             PerformanceSettingsExpander.IsExpanded = false;
             ExpanderSettingsExpander.IsExpanded = false;
             SecondaryFolderSettingsExpander.IsExpanded = false;
+            AppearanceAndBehaviorExpander.IsExpanded = false;
             if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
             else if (!isWindowsHelloRequiredForPins) setPinBarOptionVisibility(true);
         }
