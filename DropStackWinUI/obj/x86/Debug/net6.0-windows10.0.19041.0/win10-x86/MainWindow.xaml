@@ -16,7 +16,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='102' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+            <Image x:ConnectionId='104' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid">
             <Grid.RowDefinitions>
@@ -51,13 +51,13 @@
                                                                  >
                         <Grid>
                             <StackPanel x:ConnectionId='90' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='101' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                                <ProgressRing x:ConnectionId='103' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
                             <TextBlock x:ConnectionId='91' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <StackPanel x:ConnectionId='92' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='99' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='100' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                                <TextBlock x:ConnectionId='101' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='102' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
                             <Grid x:ConnectionId='93' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
@@ -78,6 +78,17 @@
                                         <GridView.ItemTemplate>
                                             <DataTemplate x:Name="pinnedFilesDataTemplate">
                                                 <Grid HorizontalAlignment="Center" Width="180">
+                                                    <Button x:Name="RemovePinnedFileButton" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                                                        <FontIcon Glyph="&#xE74D;" />
+                                                        <Button.Flyout>
+                                                            <Flyout>
+                                                                <StackPanel>
+                                                                    <TextBlock Text="Delete this file from the pinned folder?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
+                                                                    <Button x:ConnectionId='100' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, remove from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                </StackPanel>
+                                                            </Flyout>
+                                                        </Button.Flyout>
+                                                    </Button>
                                                     <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
                                                         <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                         <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">

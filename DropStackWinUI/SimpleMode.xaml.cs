@@ -74,6 +74,7 @@ namespace DropStackWinUI
         int thumbnailResolution = 64;
 
         int checkboxBehavior = 1;
+        bool isWindowsHelloRequiredForPins = false;
 
         public SimpleMode()
         {
@@ -161,6 +162,18 @@ namespace DropStackWinUI
                 checkboxBehavior = (int)localSettings.Values["CheckboxBehavior"];
             }
             adjustCheckboxBehavior();
+
+            if (localSettings.Values.ContainsKey("PinBarBehavior"))
+            {
+                isWindowsHelloRequiredForPins = (int)localSettings.Values["PinBarBehavior"] == 3;
+            }
+            if (isWindowsHelloRequiredForPins)
+            {
+                PinnedFilesToggleButton.IsEnabled = false;
+                ToolTip toolTip = new ToolTip();
+                toolTip.Content = "You cannot see pinned files as Winows Hello is currently active. Please switch to normal view to unlock pinned files.";
+                ToolTipService.SetToolTip(PinnedFilesToggleButton, toolTip);
+            }
         }
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)

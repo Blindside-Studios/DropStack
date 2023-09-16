@@ -78,6 +78,17 @@
                                         <GridView.ItemTemplate>
                                             <DataTemplate x:Name="pinnedFilesDataTemplate">
                                                 <Grid HorizontalAlignment="Center" Width="180">
+                                                    <Button x:Name="RemovePinnedFileButton" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                                                        <FontIcon Glyph="&#xE74D;" />
+                                                        <Button.Flyout>
+                                                            <Flyout>
+                                                                <StackPanel>
+                                                                    <TextBlock Text="Delete this file from the pinned folder?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
+                                                                    <Button x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center" Click="DeletePinnedItemConfirmationButton_Click" Content="Yes, remove from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                </StackPanel>
+                                                            </Flyout>
+                                                        </Button.Flyout>
+                                                    </Button>
                                                     <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch">
                                                         <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Width="70" Height="70" Stretch="Uniform" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                         <StackPanel Orientation="Vertical" Spacing="1" HorizontalAlignment="Stretch" Margin="20,0,20,5">

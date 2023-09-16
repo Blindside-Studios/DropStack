@@ -705,9 +705,10 @@ namespace DropStackWinUI
                 //check if all the files still exist, else remove them, then save to cache
                 if (cachedItems != null)
                 {
-                    foreach (FileItem item in fileMetadataList)
+                    for (int i = 0; i < fileMetadataList.Count; i++)
                     {
-                        if (!System.IO.File.Exists(item.FilePath)) fileMetadataList.Remove(item);
+                        FileItem item = fileMetadataList.ElementAt(i);
+                        if (!System.IO.File.Exists(item.FilePath)) { fileMetadataList.Remove(item); }
                     }
                 }
                 saveToCache(source, fileMetadataList);
@@ -825,12 +826,16 @@ namespace DropStackWinUI
         {
             regularFileListView.ItemsSource = fileMetadataListCopy;
             foreach (FileItem file in fileMetadataListCopy) { if (!System.IO.File.Exists(file.FilePath)) fileMetadataListCopy.Remove(file); }
+            _filteredFileMetadataList = fileMetadataListCopy;
+            saveToCache("regular", fileMetadataListCopy);
         }
 
         private void pinnedFileListView_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
         {
             pinnedFileListView.ItemsSource = pinnedFileMetadataListCopy;
             foreach (FileItem file in pinnedFileMetadataListCopy) { if (!System.IO.File.Exists(file.FilePath)) pinnedFileMetadataListCopy.Remove(file); }
+            _filteredPinnedFileMetadataList = pinnedFileMetadataListCopy;
+            saveToCache("pinned", pinnedFileMetadataListCopy);
         }
 
         private void noFolderpathTechingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -920,21 +925,30 @@ namespace DropStackWinUI
 
         private void PinnedPivotSection_DragOver(object sender, DragEventArgs e)
         {
-            e.AcceptedOperation = DataPackageOperation.Copy;
-            e.DragUIOverride.Caption = "Drop to add to pinned files";
+            
+            if (isWindowsHelloRequiredForPins && !PinnedFilesExpander.IsExpanded)
+            {
+                e.AcceptedOperation = DataPackageOperation.None;
+                e.DragUIOverride.Caption = "Cannot save to pins since they are locked through Windows Hello";
+            }
+            else
+            {
+                e.AcceptedOperation = DataPackageOperation.Copy;
+                e.DragUIOverride.Caption = "Drop to add to pinned files";
+            }
         }
 
         private async void PinnedPivotSection_Drop(object sender, DragEventArgs e)
         {
-            if (e.DataView.Contains(StandardDataFormats.StorageItems))
+            if (isWindowsHelloRequiredForPins && !PinnedFilesExpander.IsExpanded) { }
+            else if (e.DataView.Contains(StandardDataFormats.StorageItems))
             {
                 var items = await e.DataView.GetStorageItemsAsync();
                 if (items.Count > 0)
                 {
                     var storageFile = items[0] as StorageFile; StorageFolder storageFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
                     StorageFile copiedFile = await storageFile.CopyAsync(storageFolder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
-                    pinnedFileListView.Items.Remove(0);
-                    obtainFolderAndFiles("pinned", null, false);
+                    obtainFolderAndFiles("pinned", pinnedFileMetadataListCopy, false);
                 }
             }
         }
@@ -1147,6 +1161,19 @@ namespace DropStackWinUI
                     pinnedFileListView.SelectedItem = null;
                 }
             }
+        }
+
+        private async void DeletePinnedItemConfirmationButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            FileItem item = button.DataContext as FileItem;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+            await file.DeleteAsync();
+
+            pinnedFileMetadataListCopy.Remove(item);
+            pinnedFileListView.ItemsSource = pinnedFileMetadataListCopy;
+            _filteredPinnedFileMetadataList = pinnedFileMetadataListCopy;
+            saveToCache("pinned", pinnedFileMetadataListCopy);
         }
 
         private async void CopyLastSelectedButton_Click(object sender, RoutedEventArgs e)
