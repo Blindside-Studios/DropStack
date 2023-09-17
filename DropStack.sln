@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropStack", "DropStack\DropStack.csproj", "{FDE858B0-CEBB-483B-9818-73053D399083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropStackWinUI", "DropStackWinUI\DropStackWinUI.csproj", "{29A0567A-C536-4B0B-8D2C-D37967A8270B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropStackWinUI", "DropStackWinUI\DropStackWinUI.csproj", "{29A0567A-C536-4B0B-8D2C-D37967A8270B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

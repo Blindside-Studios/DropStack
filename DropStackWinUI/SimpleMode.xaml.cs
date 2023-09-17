@@ -60,7 +60,6 @@ namespace DropStackWinUI
         bool showSecPortal3 = false;
         bool showSecPortal4 = false;
         bool showSecPortal5 = false;
-
         IList<object> GlobalClickedItems = null;
         ObservableCollection<FileItem> _filteredFileMetadataList = new ObservableCollection<FileItem>();
         bool isLoading = true;
@@ -446,27 +445,25 @@ namespace DropStackWinUI
             GlobalClickedItems = regularFileListView.SelectedItems;
         }
 
-        private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        private void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
+            FileItem rightTappedItem = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
 
-            await Task.Run(async () =>
+            if (regularFileListView.SelectedItems.Contains(rightTappedItem))
             {
-                // get the file
-                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+                GlobalClickedItems.Add(rightTappedItem);
+            }
+            else
+            {
+                regularFileListView.SelectedItems.Clear();
+                //I have to first set it to an instance or it crashes... this sucks!
+                GlobalClickedItems = regularFileListView.SelectedItems;
+                GlobalClickedItems.Clear();
+                GlobalClickedItems.Add(rightTappedItem);
+            }
 
-                // create a new data package
-                var dataPackage = new DataPackage();
-
-                // add the file to the data package
-                dataPackage.SetStorageItems(new List<IStorageItem> { file });
-
-                // copy the data package to the clipboard
-                Clipboard.SetContent(dataPackage);
-                await Task.Delay(100);
-                Clipboard.Flush();
-            });
-            closeWithAnimation();
+            if (GlobalClickedItems.Count != 1) FlyoutRevealButton.IsEnabled = false;
+            else if (GlobalClickedItems.Count ==1) FlyoutRevealButton.IsEnabled = true;
         }
 
         private async void fileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -764,11 +761,6 @@ namespace DropStackWinUI
                     else regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
                     break;
                 case 2:
-                    int convertibleSlateMode = (int)explorerKey.GetValue("ConvertibleSlateMode", 1);
-                    if (convertibleSlateMode == 0) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
-                    else regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
-                    break;
-                case 3:
                     regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
                     break;
             }
@@ -776,8 +768,97 @@ namespace DropStackWinUI
             // legend:
             // 0: never show checkboxes
             // 1: show checkboxes according to file explorer setting
-            // 2: show checkboxes when device is used as a tablet
-            // 3: always show checkboxes
+            // 2: always show checkboxes
+        }
+
+        private void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (regularFileListView.SelectedItems.Count == 1)
+            {
+                var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
+                var options = new FlyoutShowOptions()
+                {
+                    Position = e.GetPosition((FrameworkElement)sender),
+                    ShowMode = FlyoutShowMode.Transient
+                };
+                flyout?.ShowAt((FrameworkElement)sender, options);
+                FlyoutRevealButton.IsEnabled = true;
+            }
+        }
+
+        private async void FlyoutOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < regularFileListView.SelectedItems.Count; i++) {
+                FileItem selectedFile = (FileItem)regularFileListView.SelectedItems[i] as FileItem;
+
+                try
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    // launch the file
+                    var success = await Launcher.LaunchFileAsync(file);
+                }
+
+                catch
+                {
+                    // handle the exception
+                }
+            }
+
+            closeWithAnimation();
+        }
+
+        private async void FlyoutCopyButton_Click(object sender, RoutedEventArgs e)
+        {
+            IList<object> itemsToCopy = GlobalClickedItems;
+
+            await Task.Run(async () =>
+            {
+                List<IStorageItem> fileList = new List<IStorageItem>();
+
+                // create a capture variable that is a value type
+                FileItem[] filesToCopy = new FileItem[itemsToCopy.Count];
+
+                // copy the elements of itemsToCopy to the capture variable
+                for (int i = 0; i < itemsToCopy.Count; i++)
+                {
+                    filesToCopy[i] = (FileItem)itemsToCopy[i];
+                }
+
+                foreach (FileItem selectedFile in filesToCopy)
+                {
+                    string filePath = selectedFile.FilePath;
+
+                    // get the file
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+
+                    fileList.Add(file);
+                }
+
+                // create a new data package
+                var dataPackage = new DataPackage();
+
+                // add the file to the data package
+                dataPackage.SetStorageItems(fileList);
+
+                // copy the data package to the clipboard
+                Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
+            });
+                closeWithAnimation();
+        }
+
+        private async void FlyoutRevealButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileItem currentFile = GlobalClickedItems[0] as FileItem;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(currentFile.FilePath);
+            StorageFolder folder = await file.GetParentAsync();
+            await Launcher.LaunchFolderAsync(folder);
+        }
+
+        private void FlyoutSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
         }
     }
 }

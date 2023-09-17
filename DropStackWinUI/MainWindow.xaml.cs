@@ -930,9 +930,33 @@ namespace DropStackWinUI
 
         private async void RevealInExplorerButton_Click(object sender, RoutedEventArgs e)
         {
+            StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
+            MenuFlyoutItem menuFlyoutItem = sender as MenuFlyoutItem;
+            string tag = menuFlyoutItem.Tag.ToString();
+            switch (tag)
+            {
+                case "sec1":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
+                    break;
+                case "sec2":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken2);
+                    break;
+                case "sec3":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken3);
+                    break;
+                case "sec4":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken4);
+                    break;
+                case "sec5":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken5);
+                    break;
+                case "pins":
+                    folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                    break;
+            }
+
             try
             {
-                StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
                 await Launcher.LaunchFolderAsync(folder);
             }
             catch { cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip.IsOpen = true; }
@@ -1782,5 +1806,8 @@ namespace DropStackWinUI
             if      (regularFileListView.SelectionMode == ListViewSelectionMode.Extended) regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
             else if (regularFileListView.SelectionMode == ListViewSelectionMode.Multiple) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
         }
+
+        
+
     }
 }
