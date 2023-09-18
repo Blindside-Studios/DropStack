@@ -162,7 +162,10 @@ namespace DropStackWinUI
             this.InitializeComponent();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
+            adjustDarkLightMode();
             loadSettings();
+            this.Activated += OnWindowActivated;
+
 
             if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken))
             {
@@ -178,6 +181,39 @@ namespace DropStackWinUI
                 setFolderPath("Pin");
                 loadFromCache("pinned");
             }
+        }
+
+        private async void adjustDarkLightMode()
+        {
+            // Get the current UI settings
+            var uiSettings = new UISettings();
+
+            // Get the background and foreground colors
+            var background = uiSettings.GetColorValue(UIColorType.Background);
+            var foreground = uiSettings.GetColorValue(UIColorType.Foreground);
+
+            // Check if the background is darker than the foreground
+            bool isDarkMode = background.R + background.G + background.B < foreground.R + foreground.G + foreground.B;
+
+            if (isDarkMode)
+            {
+                ParallaxImage.Opacity = 1;
+                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
+                ContentBackgroundRectangle.Opacity = 0.15;
+
+            }
+            else if (!isDarkMode)
+            {
+                ParallaxImage.Opacity = 0.4;
+                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
+                ContentBackgroundRectangle.Opacity = 0.5;
+            }
+            PinnedFilesExpander.IsExpanded = false;
+        }
+
+        private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
+        {
+            adjustDarkLightMode();
         }
 
         private async void loadSettings()
@@ -260,7 +296,7 @@ namespace DropStackWinUI
             {
                 thumbnailResolution = (int)localSettings.Values["ThumbnailResolution"];
             }
-            
+
             if (localSettings.Values.ContainsKey("CheckboxBehavior"))
             {
                 CheckBoxBehaviorCombobox.SelectedIndex = (int)localSettings.Values["CheckboxBehavior"];
@@ -1636,13 +1672,11 @@ namespace DropStackWinUI
 
             if (themeName != "Default")
             {
-                PinnedExpanderBackgroundRectangle.Opacity = 0.3;
-                ContentBackgroundRectangle.Opacity = 0.35;
+                PinnedExpanderBackgroundRectangle.Opacity = 0.25;
             }
             else
             {
-                PinnedExpanderBackgroundRectangle.Opacity = 0.1;
-                ContentBackgroundRectangle.Opacity = 0.15;
+                PinnedExpanderBackgroundRectangle.Opacity = 0.15;
             }
         }
 
@@ -1807,7 +1841,7 @@ namespace DropStackWinUI
             else if (regularFileListView.SelectionMode == ListViewSelectionMode.Multiple) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
         }
 
-        
+
 
     }
 }

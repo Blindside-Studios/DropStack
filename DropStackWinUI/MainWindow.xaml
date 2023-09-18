@@ -116,7 +116,7 @@
                         <Grid.TranslationTransition>
                             <Vector3Transition/>
                         </Grid.TranslationTransition>
-                        <Rectangle x:Name="ContentBackgroundRectangle" Fill="DarkGray" Opacity="0.15" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
+                        <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
                         <ProgressBar x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
                             <ProgressBar.OpacityTransition>
                                 <ScalarTransition />
