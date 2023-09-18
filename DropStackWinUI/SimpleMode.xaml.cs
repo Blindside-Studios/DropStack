@@ -74,6 +74,7 @@ namespace DropStackWinUI
 
         int checkboxBehavior = 1;
         bool isWindowsHelloRequiredForPins = false;
+        string priorSortTag = null;
 
         public SimpleMode()
         {
@@ -378,7 +379,8 @@ namespace DropStackWinUI
                                     IconOpacity = 0.25,
                                     PillOpacity = 0,
                                     TextOpacity = 0.5,
-                                    ProgressActivity = true
+                                    ProgressActivity = true,
+                                    TextOpacityDate = 0
                                 };
 
                                 fileMetadataList.Insert(addIndex, fileItem);
@@ -390,7 +392,7 @@ namespace DropStackWinUI
                                     FileName = file.Name,
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
-                                    FileType = file.DisplayType,
+                                    FileType = typeDisplayName,
                                     TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
                                     FileSizeSuffix = " " + generativefilesizesuffix,
@@ -399,7 +401,8 @@ namespace DropStackWinUI
                                     IconOpacity = 1,
                                     PillOpacity = 0.25,
                                     TextOpacity = 1,
-                                    ProgressActivity = false
+                                    ProgressActivity = false,
+                                    TextOpacityDate = 0.25
                                 };
 
                                 fileMetadataList.Insert(addIndex, fileItem);
@@ -558,6 +561,7 @@ namespace DropStackWinUI
             else if (sortTag != "all") { filterListView(sortTag); isLoading = false; }
 
             if (sortTag == "pins") loadFromCache("pinned");
+            if (sortTag == "all" && priorSortTag == "all") obtainFolderAndFiles("regular", null);
 
             isPinsOnScreen = ((ToggleButton)sender == PinnedFilesToggleButton);
 
@@ -579,6 +583,9 @@ namespace DropStackWinUI
                 FolderDisplay.Text = folder.Name;
             }
             catch { SomethingWentWrongTeachingTip.IsOpen = true; }
+
+            isLoading = false;
+            priorSortTag = sortTag;
         }
 
         private void AllFilesToggleButton_Unchecked(object sender, RoutedEventArgs e)
@@ -859,6 +866,34 @@ namespace DropStackWinUI
         private void FlyoutSelectButton_Click(object sender, RoutedEventArgs e)
         {
             regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+        }
+
+        private async void PinUnpinButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(bool)PinnedFilesToggleButton.IsChecked)
+            {
+                foreach (FileItem item in GlobalClickedItems)
+                {
+                    var storageFile = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                    StorageFolder storageFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(pinnedFolderToken);
+                    StorageFile copiedFile = await storageFile.CopyAsync(storageFolder, storageFile.Name, NameCollisionOption.GenerateUniqueName);
+
+                    PinnedFilesToggleButton.IsChecked = true;
+                    obtainFolderAndFiles("pinned", null);
+                }
+            }
+            else
+            {
+                foreach (FileItem item in GlobalClickedItems)
+                {
+                    ObservableCollection<FileItem> pinnedFileMetadataListCopy = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                    await file.DeleteAsync();
+                    pinnedFileMetadataListCopy.Remove(item);
+                    regularFileListView.ItemsSource = pinnedFileMetadataListCopy;
+                }
+                saveToCache("pinned", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
+            }
         }
     }
 }

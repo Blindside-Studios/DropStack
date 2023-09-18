@@ -19,9 +19,11 @@
             <CommandBarFlyout x:Name="FileCommandsFlyout">
                 <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
                 <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
+                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin" Click="PinUnpinButton_Click"/>
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected files" Click="FlyoutOpenButton_Click"/>
-                    <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="CopySelectedFiles" Click="FlyoutCopyButton_Click"/>
+                    <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file(s)" Click="FlyoutOpenButton_Click"/>
+                    <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file(s)" Click="FlyoutCopyButton_Click"/>
+                    <AppBarButton x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin/Unpin selected file(s)" Click="PinUnpinButton_Click"/>
                     <AppBarSeparator/>
                     <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                     <AppBarButton x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll" Click="FlyoutSelectButton_Click"/>

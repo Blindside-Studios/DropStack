@@ -183,7 +183,7 @@ namespace DropStackWinUI
             }
         }
 
-        private async void adjustDarkLightMode()
+        private void adjustDarkLightMode()
         {
             // Get the current UI settings
             var uiSettings = new UISettings();
@@ -730,7 +730,8 @@ namespace DropStackWinUI
                                     IconOpacity = 0.25,
                                     PillOpacity = 0,
                                     TextOpacity = 0.5,
-                                    ProgressActivity = true
+                                    ProgressActivity = true,
+                                    TextOpacityDate = 0
                                 };
 
                                 fileMetadataList.Insert(addIndex, fileItem);
@@ -742,7 +743,7 @@ namespace DropStackWinUI
                                     FileName = file.Name,
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
-                                    FileType = file.DisplayType,
+                                    FileType = typeDisplayName,
                                     TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
                                     FileSizeSuffix = " " + generativefilesizesuffix,
@@ -751,7 +752,8 @@ namespace DropStackWinUI
                                     IconOpacity = 1,
                                     PillOpacity = 0.25,
                                     TextOpacity = 1,
-                                    ProgressActivity = false
+                                    ProgressActivity = false,
+                                    TextOpacityDate = 0.25
                                 };
 
                                 fileMetadataList.Insert(addIndex, fileItem);
