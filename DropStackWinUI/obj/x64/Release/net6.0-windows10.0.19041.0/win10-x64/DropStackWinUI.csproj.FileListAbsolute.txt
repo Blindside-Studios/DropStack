@@ -290,3 +290,4 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Releas
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll

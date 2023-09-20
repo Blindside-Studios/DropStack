@@ -79,12 +79,12 @@
                                             <DataTemplate x:Name="pinnedFilesDataTemplate">
                                                 <Grid HorizontalAlignment="Center" Width="180">
                                                     <Button x:Name="RemovePinnedFileButton" Opacity="0.8" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" ToolTipService.ToolTip="This deletes the pinned file from DropStack's pinned files folder. The file will still be available, provided you kept it around somewhere.">
-                                                        <FontIcon Glyph="&#xE74D;" />
+                                                        <FontIcon Glyph="&#xE77A;" />
                                                         <Button.Flyout>
                                                             <Flyout>
                                                                 <StackPanel>
-                                                                    <TextBlock Text="Delete this file from the pinned folder?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center" Click="DeletePinnedItemConfirmationButton_Click" Content="Yes, remove from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                    <TextBlock Text="Do you wish to unpin this file?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
+                                                                    <Button x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center" Click="DeletePinnedItemConfirmationButton_Click" Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>

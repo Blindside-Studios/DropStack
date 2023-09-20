@@ -226,6 +226,7 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\ne
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\WindowsBase.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\mscorlib.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\netstandard.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.Win32.SystemEvents.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.InteractiveExperiences.Projection.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.WinUI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\Release\net6.0-windows10.0.19041.0\win10-x64\publish\Microsoft.Windows.AppLifecycle.Projection.dll
