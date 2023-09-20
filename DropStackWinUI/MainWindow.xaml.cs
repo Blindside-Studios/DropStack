@@ -342,7 +342,6 @@ namespace DropStackWinUI
                 SecondaryPortalFolder1ChangeButton.Content = folder.Name;
                 Sec1LinkToExplorerDisplay.Text = folder.Name;
                 Sec1LinkToExplorerDisplay.Visibility = Visibility.Visible;
-                Sec1LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
             else
             {
