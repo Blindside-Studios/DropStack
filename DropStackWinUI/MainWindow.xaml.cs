@@ -208,7 +208,6 @@ namespace DropStackWinUI
                 PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
                 ContentBackgroundRectangle.Opacity = 0.5;
             }
-            PinnedFilesExpander.IsExpanded = false;
         }
 
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)

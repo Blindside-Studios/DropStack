@@ -224,7 +224,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[56];
+            _typeNameTable = new string[59];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -280,9 +280,12 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.ProgressRing";
             _typeNameTable[53] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
             _typeNameTable[54] = "DropStackWinUI.MainWindow";
-            _typeNameTable[55] = "DropStackWinUI.SimpleMode";
+            _typeNameTable[55] = "Microsoft.UI.Xaml.Controls.CommandBarFlyout";
+            _typeNameTable[56] = "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>";
+            _typeNameTable[57] = "Microsoft.UI.Xaml.Controls.ICommandBarElement";
+            _typeNameTable[58] = "DropStackWinUI.SimpleMode";
 
-            _typeTable = new global::System.Type[56];
+            _typeTable = new global::System.Type[59];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -340,7 +343,10 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
             _typeTable[53] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
             _typeTable[54] = typeof(global::DropStackWinUI.MainWindow);
-            _typeTable[55] = typeof(global::DropStackWinUI.SimpleMode);
+            _typeTable[55] = typeof(global::Microsoft.UI.Xaml.Controls.CommandBarFlyout);
+            _typeTable[56] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>);
+            _typeTable[57] = typeof(global::Microsoft.UI.Xaml.Controls.ICommandBarElement);
+            _typeTable[58] = typeof(global::DropStackWinUI.SimpleMode);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -387,7 +393,8 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_49_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
         private object Activate_52_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
         private object Activate_54_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
-        private object Activate_55_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
+        private object Activate_55_CommandBarFlyout() { return new global::Microsoft.UI.Xaml.Controls.CommandBarFlyout(); }
+        private object Activate_58_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -399,6 +406,12 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_56_IObservableVector(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>)instance;
+            var newItem = (global::Microsoft.UI.Xaml.Controls.ICommandBarElement)item;
             collection.Add(newItem);
         }
 
@@ -832,9 +845,30 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 55:   //  DropStackWinUI.SimpleMode
+            case 55:   //  Microsoft.UI.Xaml.Controls.CommandBarFlyout
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"));
+                userType.Activator = Activate_55_CommandBarFlyout;
+                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands");
+                userType.AddMemberName("PrimaryCommands");
+                userType.AddMemberName("SecondaryCommands");
+                userType.AddMemberName("AlwaysExpanded");
+                xamlType = userType;
+                break;
+
+            case 56:   //  Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_56_IObservableVector;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 57:   //  Microsoft.UI.Xaml.Controls.ICommandBarElement
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 58:   //  DropStackWinUI.SimpleMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_55_SimpleMode;
+                userType.Activator = Activate_58_SimpleMode;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1865,6 +1899,26 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Value = (global::System.Double)Value;
         }
+        private object get_100_CommandBarFlyout_PrimaryCommands(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
+            return that.PrimaryCommands;
+        }
+        private object get_101_CommandBarFlyout_SecondaryCommands(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
+            return that.SecondaryCommands;
+        }
+        private object get_102_CommandBarFlyout_AlwaysExpanded(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
+            return that.AlwaysExpanded;
+        }
+        private void set_102_CommandBarFlyout_AlwaysExpanded(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
+            that.AlwaysExpanded = (global::System.Boolean)Value;
+        }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -2549,6 +2603,24 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_99_ProgressRing_Value;
                 xamlMember.Setter = set_99_ProgressRing_Value;
+                break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PrimaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
+                xamlMember.Getter = get_100_CommandBarFlyout_PrimaryCommands;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.SecondaryCommands":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SecondaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
+                xamlMember.Getter = get_101_CommandBarFlyout_SecondaryCommands;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.AlwaysExpanded":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AlwaysExpanded", "Boolean");
+                xamlMember.Getter = get_102_CommandBarFlyout_AlwaysExpanded;
+                xamlMember.Setter = set_102_CommandBarFlyout_AlwaysExpanded;
                 break;
             }
             return xamlMember;
