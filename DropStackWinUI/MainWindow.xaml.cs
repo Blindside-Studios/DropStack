@@ -197,14 +197,12 @@ namespace DropStackWinUI
 
             if (isDarkMode)
             {
-                ParallaxImage.Opacity = 1;
                 PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                 ContentBackgroundRectangle.Opacity = 0.15;
 
             }
             else if (!isDarkMode)
             {
-                ParallaxImage.Opacity = 0.4;
                 PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
                 ContentBackgroundRectangle.Opacity = 0.5;
             }
@@ -221,9 +219,17 @@ namespace DropStackWinUI
 
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
-                UseSimpleViewByDefaultToggle.IsOn = (bool)localSettings.Values["LoadSimpleViewBoolean"];
+                if (localSettings.Values.ContainsKey("DefaultLaunchModeIndex"))
+                {
+                    LaunchModePickerComboBox.SelectedIndex = (int)localSettings.Values["DefaultLaunchModeIndex"]; ;
+                }
+                else
+                {
+                    if ((bool)localSettings.Values["LoadSimpleViewBoolean"]) LaunchModePickerComboBox.SelectedIndex = 1;
+                    else LaunchModePickerComboBox.SelectedIndex = 0;
+                }
             }
-
+            
             var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
             if (WinHelloAvailability != UserConsentVerifierAvailability.Available) PinsProtectedRadioButton.IsEnabled = false;
             if (localSettings.Values.ContainsKey("PinBarBehavior"))
@@ -306,6 +312,10 @@ namespace DropStackWinUI
             ThumbnailCapNumberBox.Value = Convert.ToDouble(loadedThumbnails);
             ThumbnailResolutionNumberBox.Value = Convert.ToDouble(thumbnailResolution);
 
+            if (localSettings.Values.ContainsKey("AlwaysShowToolbarInSimpleModeBoolean"))
+            {
+                if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
+            }
         }
 
         public void applySettingsToMenu()
@@ -1070,11 +1080,11 @@ namespace DropStackWinUI
                     else enableButtonVisibility();
                     await Task.Delay(1000);
                     OOBEgrid.Visibility = Visibility.Collapsed;
-                    localSettings.Values["LoadSimpleViewBoolean"] = false;
+                    localSettings.Values["DefaultLaunchModeIndex"] = 0;
                 }
                 else if (OOBEsimpleViewOfferCheckBox.IsChecked == true)
                 {
-                    localSettings.Values["LoadSimpleViewBoolean"] = true;
+                    localSettings.Values["DefaultLaunchModeIndex"] = 1;
 
                     var simpleWindow = new SimpleMode();
                     simpleWindow.Activate();
@@ -1160,13 +1170,6 @@ namespace DropStackWinUI
         private void OOBEpinnedFileAccessRequestButton_Click(object sender, RoutedEventArgs e)
         {
             askForAccess("pinned");
-        }
-
-        private void UseSimpleViewByDefaultToggle_Toggled(object sender, RoutedEventArgs e)
-        {
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-
-            localSettings.Values["LoadSimpleViewBoolean"] = UseSimpleViewByDefaultToggle.IsOn;
         }
 
         private void LaunchSimpleModeButton_Click(object sender, RoutedEventArgs e)
@@ -1841,7 +1844,24 @@ namespace DropStackWinUI
             else if (regularFileListView.SelectionMode == ListViewSelectionMode.Multiple) regularFileListView.SelectionMode = ListViewSelectionMode.Extended;
         }
 
+        private void LaunchModePickerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["DefaultLaunchModeIndex"] = Convert.ToInt32(LaunchModePickerComboBox.SelectedIndex);
+        }
 
+        private void PinToolbarInSimpleModeToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] = PinToolbarInSimpleModeToggleSwitch.IsOn;
+        }
 
+        private void LaunchMiniModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MiniMode();
+            mainWindow.Activate();
+
+            this.Close();
+        }
     }
 }

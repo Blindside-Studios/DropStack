@@ -56,24 +56,51 @@ namespace DropStackWinUI
             string folderToken = ApplicationData.Current.LocalSettings.Values["FolderToken"] as string;
             string pinnedFolderToken = ApplicationData.Current.LocalSettings.Values["PinnedFolderToken"] as string;
 
-            bool shouldBeSimpleView = false;
+            int selectedView = 0;
 
+            //checks for toggle state, this is kept to keep the user's choice from old app versions
+            //also converts to new settings so it can be removed in future revisions
             if (localSettings.Values.ContainsKey("LoadSimpleViewBoolean"))
             {
-                if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == false) shouldBeSimpleView = false;
-                else if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true) shouldBeSimpleView = true;
+                if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == false)
+                {
+                    selectedView = 0; 
+                    if (!localSettings.Values.ContainsKey("DefaultLaunchModeIndex"))
+                    {
+                        localSettings.Values["DefaultLaunchModeIndex"] = 0;
+                    }
+                }
+                else if ((bool)localSettings.Values["LoadSimpleViewBoolean"] == true)
+                {
+                    selectedView = 1; 
+                    if (!localSettings.Values.ContainsKey("DefaultLaunchModeIndex"))
+                    {
+                        localSettings.Values["DefaultLaunchModeIndex"] = 1;
+                    }
+                }
             }
 
-            if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken)) shouldBeSimpleView = false;
+            //checks the new settings
+            if (localSettings.Values.ContainsKey("DefaultLaunchModeIndex"))
+            {
+                selectedView = (int)localSettings.Values["DefaultLaunchModeIndex"]; ;
+            }
 
-            if (args.Arguments.Contains("forceNormalView")) shouldBeSimpleView = false;
-            else if (args.Arguments.Contains("forceSimpleView")) shouldBeSimpleView = true;
+            if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken)) selectedView = 0;
+
+            if (args.Arguments.Contains("forceNormalView")) selectedView = 0;
+            else if (args.Arguments.Contains("forceSimpleView")) selectedView = 1;
+            else if (args.Arguments.Contains("forceMiniView")) selectedView = 2;
 
 
             if (shouldLaunchWindow)
             {
-                if (shouldBeSimpleView) m_window = new SimpleMode();
-                else if (!shouldBeSimpleView) m_window = new MainWindow();
+                switch (selectedView)
+                {
+                    case 0: m_window = new MainWindow(); break;
+                    case 1: m_window = new SimpleMode(); break;
+                    case 2: m_window = new MiniMode(); break;
+                }
                 m_window.Activate();
             }
             else if (!shouldLaunchWindow)

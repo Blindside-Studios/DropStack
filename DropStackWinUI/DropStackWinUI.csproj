@@ -30,6 +30,7 @@
     <None Remove="Assets\Themes\Panos.png" />
     <None Remove="Assets\Themes\Thunderstorm.png" />
     <None Remove="Assets\Themes\Ukraine.png" />
+    <None Remove="MiniMode.xaml" />
     <None Remove="SimpleMode.xaml" />
   </ItemGroup>
 
@@ -57,6 +58,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MiniMode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="SimpleMode.xaml">

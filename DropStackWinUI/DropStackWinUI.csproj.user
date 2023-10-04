@@ -15,4 +15,9 @@
     <PackageLogoSource>C:\Users\nicol\Downloads\dropstackv2.png</PackageLogoSource>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
   </PropertyGroup>
+  <ItemGroup>
+    <Page Update="MiniMode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>
