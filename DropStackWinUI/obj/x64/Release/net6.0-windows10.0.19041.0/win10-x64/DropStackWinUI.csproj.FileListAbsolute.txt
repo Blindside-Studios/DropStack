@@ -291,3 +291,8 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Releas
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MiniMode.xbf
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MiniMode.g.i.cs
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MiniMode.g.cs
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MiniMode.xaml
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\MiniMode.xbf

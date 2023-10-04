@@ -34,7 +34,9 @@
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
-        
+
+        <Rectangle x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
+
         <Grid x:Name="EverythingGrid" Translation="0,20,0" Opacity="0">
             <Grid.TranslationTransition>
                 <Vector3Transition/>
@@ -44,18 +46,19 @@
             </Grid.OpacityTransition>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Rectangle x:Name="DragZone" VerticalAlignment="Top" Height="1" Fill="Transparent"/>
-                <TextBlock x:Name="FolderDisplay" 
+            <Grid x:Name="HeaderGrid" Grid.Row="0">
+                <Grid x:Name="FlyoutStyleGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle x:Name="DragZone" VerticalAlignment="Top" Height="1" Fill="Transparent"/>
+                    <TextBlock x:Name="FolderDisplay" 
                        Text="DropStack" 
                        FontSize="35" 
                        FontWeight="SemiBold" 
@@ -63,67 +66,82 @@
                        VerticalAlignment="Center" 
                        Margin="20,0,10,0" 
                        TextTrimming="CharacterEllipsis"/>
-                <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" Spacing="10">
-                    <Button x:Name="SimpleModeMeatballMenu" Click="SimpleModeMeatballMenu_Click" Background="Transparent" BorderBrush="Transparent">
-                        <FontIcon Glyph="&#xE8A7;"/>
-                        <ToolTipService.ToolTip>
-                            <ToolTip Content="Open DropStack's main window for more options"/>
-                        </ToolTipService.ToolTip>
-                    </Button>
-                    <Button x:Name="CloseSimpleModeButton" Click="CloseSimpleModeButton_Click" Background="Transparent" BorderBrush="Transparent">
-                        <FontIcon Glyph="&#xE8BB;"/>
-                        <ToolTipService.ToolTip>
-                            <ToolTip Content="Close this window"/>
-                        </ToolTipService.ToolTip>
-                    </Button>
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" Spacing="10">
+                        <Rectangle Opacity="0" Height="75" Width="1"/>
+                        <Button x:Name="SimpleModeMeatballMenu" Click="SimpleModeMeatballMenu_Click" Background="Transparent" BorderBrush="Transparent">
+                            <FontIcon Glyph="&#xE8A7;"/>
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Open DropStack's main window for more options"/>
+                            </ToolTipService.ToolTip>
+                        </Button>
+                        <Button x:Name="CloseSimpleModeButton" Click="CloseSimpleModeButton_Click" Background="Transparent" BorderBrush="Transparent">
+                            <FontIcon Glyph="&#xE8BB;"/>
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Close this window"/>
+                            </ToolTipService.ToolTip>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Grid x:Name="WindowStyleGrid" Visibility="Collapsed">
+                    <Rectangle x:Name="PlaceholderRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Opacity="0"/>
+                    <TextBlock x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0"/>
+                </Grid>
             </Grid>
 
-            <ScrollViewer Grid.Row="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
-                <StackPanel x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
-                    <ToggleButton x:Name="AllFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" RightTapped="AllFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True" DragOver="PinnedFilesToggleButton_DragOver" Drop="PinnedFilesToggleButton_Drop">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="docs" Content="Documents" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number3"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pics" Content="Pictures" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number4"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="music" Content="Music" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number5"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="vids" Content="Videos" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number6"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="apps" Content="Applications" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number7"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                    <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="0,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
-                        <ToggleButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="Number8"/>
-                        </ToggleButton.KeyboardAccelerators>
-                    </ToggleButton>
-                </StackPanel>
-            </ScrollViewer>
-            
+            <Grid x:Name="ToggleButtonStackPanel" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="AltLaunchNormalModeButton" Visibility="Collapsed" Grid.Column="0" Click="AltLaunchNormalModeButton_Click" Height="36" CornerRadius="18" ToolTipService.ToolTip="Use this button to navigate to normal mode while simple mode is active" Margin="10,0,5,0">
+                    <FontIcon Glyph="&#xE8A7;"/>
+                </Button>
+                <ScrollViewer HorizontalScrollMode="Enabled" Grid.Column="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
+                    <StackPanel x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
+                        <ToggleButton x:Name="AllFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" RightTapped="AllFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True" DragOver="PinnedFilesToggleButton_DragOver" Drop="PinnedFilesToggleButton_Drop">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="docs" Content="Documents" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number3"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pics" Content="Pictures" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number4"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="music" Content="Music" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number5"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="vids" Content="Videos" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number6"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="apps" Content="Applications" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number7"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="0,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
+                            <ToggleButton.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Number8"/>
+                            </ToggleButton.KeyboardAccelerators>
+                        </ToggleButton>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
             <ListView   x:Name="regularFileListView"
                         Grid.Row="2"
                         SelectionChanged="fileListView_SelectionChanged" 

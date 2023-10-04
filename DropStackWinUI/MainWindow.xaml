@@ -310,6 +310,11 @@
                                     <x:String>Simple Mode</x:String>
                                     <x:String>Mini Mode</x:String>
                                 </ComboBox>
+                                <ToggleSwitch x:Name="SimpleModeWindowingToggle"
+                                              OnContent="Windowing in simple mode"
+                                              OffContent="Windowing in simple mode"
+                                              Toggled="SimpleModeWindowingToggle_Toggled"
+                                              ToolTipService.ToolTip="Enables normal windowing in simple mode"/>
                                 <ToggleSwitch x:Name="PinToolbarInSimpleModeToggleSwitch"
                                                 OnContent="Pin toolbar in simple mode"
                                                 OffContent="Pin toolbar in simple mode"

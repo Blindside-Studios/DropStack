@@ -316,6 +316,11 @@ namespace DropStackWinUI
             {
                 if ((bool)localSettings.Values["AlwaysShowToolbarInSimpleModeBoolean"] == true) PinToolbarInSimpleModeToggleSwitch.IsOn = true;
             }
+
+            if (localSettings.Values.ContainsKey("FreeWindowingInSimpleMode"))
+            {
+                if ((bool)localSettings.Values["FreeWindowingInSimpleMode"] == true) SimpleModeWindowingToggle.IsOn = true;
+            }
         }
 
         public void applySettingsToMenu()
@@ -1862,6 +1867,12 @@ namespace DropStackWinUI
             mainWindow.Activate();
 
             this.Close();
+        }
+
+        private void SimpleModeWindowingToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["FreeWindowingInSimpleMode"] = SimpleModeWindowingToggle.IsOn;
         }
     }
 }

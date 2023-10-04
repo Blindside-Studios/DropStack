@@ -76,6 +76,8 @@ namespace DropStackWinUI
         bool isWindowsHelloRequiredForPins = false;
         string priorSortTag = null;
 
+        bool enableFreeWindowing = false;
+
         public SimpleMode()
         {
             this.InitializeComponent();
@@ -87,22 +89,25 @@ namespace DropStackWinUI
 
             this.Activated += OnWindowActivated;
 
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
-            var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Nearest);
+            if (!enableFreeWindowing)
+            {
+                var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+                var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+                var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Nearest);
 
-            uint dpi = GetDpiForWindow(hWnd);
-            double scaleFactor = (double)dpi / 96;
+                uint dpi = GetDpiForWindow(hWnd);
+                double scaleFactor = (double)dpi / 96;
 
-            int displayWidth = displayArea.WorkArea.Width;
-            int displayHeight = displayArea.WorkArea.Height;
+                int displayWidth = displayArea.WorkArea.Width;
+                int displayHeight = displayArea.WorkArea.Height;
 
-            int windowWidth = 400;
-            int windowHeight = 700;
+                int windowWidth = 400;
+                int windowHeight = 700;
 
-            if (displayHeight < 900*scaleFactor) windowHeight = (int)Math.Round(displayHeight * 0.9 /scaleFactor , 0);
+                if (displayHeight < 900 * scaleFactor) windowHeight = (int)Math.Round(displayHeight * 0.9 / scaleFactor, 0);
 
-            this.MoveAndResize(((displayWidth / 2) - ((windowWidth*scaleFactor)/2)), (displayHeight - (windowHeight * scaleFactor) - (10 * scaleFactor)), windowWidth, windowHeight);
+                this.MoveAndResize(((displayWidth / 2) - ((windowWidth * scaleFactor) / 2)), (displayHeight - (windowHeight * scaleFactor) - (10 * scaleFactor)), windowWidth, windowHeight);
+            }
 
             EverythingGrid.Translation = new Vector3(0,0,0);
             EverythingGrid.Opacity = 1;
@@ -112,13 +117,29 @@ namespace DropStackWinUI
         {
             if (e.WindowActivationState == WindowActivationState.Deactivated)
             {
-                closeWithAnimation();
+                 if (!enableFreeWindowing) closeWithAnimation();
             }
         }
 
         private void loadSettings()
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+            if (localSettings.Values.ContainsKey("FreeWindowingInSimpleMode"))
+            {
+                if ((bool)localSettings.Values["FreeWindowingInSimpleMode"] == true)
+                {
+                    enableFreeWindowing = true;
+                    WindowStyleGrid.Visibility = Visibility.Visible;
+                    FlyoutStyleGrid.Visibility = Visibility.Collapsed;
+                    SetTitleBar(TitleBarRectangle);
+                    IsShownInSwitchers = true;
+                    AltLaunchNormalModeButton.Visibility = Visibility.Visible;
+                    AllFilesToggleButton.Margin = new Thickness(5, 0, 0, 0);
+                    ToggleButtonStackPanel.Margin = new Thickness(0, 40, 0, 0);
+                    regularFileListView.Margin = new Thickness(0, -60, 0, 0);
+                }
+            }
 
             if (localSettings.Values.ContainsKey("showPrimaryPortal")) { showPrimPortal = (bool)localSettings.Values["showPrimaryPortal"]; }
             if (localSettings.Values.ContainsKey("showSecondaryPortal1")) { showSecPortal1 = (bool)localSettings.Values["showSecondaryPortal1"]; }
@@ -517,7 +538,7 @@ namespace DropStackWinUI
                 }
                 finally
                 {
-                    closeWithAnimation();
+                    if (!enableFreeWindowing) closeWithAnimation();
                 }
             }
         }
@@ -812,7 +833,7 @@ namespace DropStackWinUI
                 }
             }
 
-            closeWithAnimation();
+            if (!enableFreeWindowing) closeWithAnimation();
         }
 
         private async void FlyoutCopyButton_Click(object sender, RoutedEventArgs e)
@@ -852,7 +873,7 @@ namespace DropStackWinUI
                 Clipboard.SetContent(dataPackage);
                 Clipboard.Flush();
             });
-                closeWithAnimation();
+            if (!enableFreeWindowing) closeWithAnimation();
         }
 
         private async void FlyoutRevealButton_Click(object sender, RoutedEventArgs e)
@@ -894,6 +915,14 @@ namespace DropStackWinUI
                 }
                 saveToCache("pinned", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
             }
+        }
+
+        private void AltLaunchNormalModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Activate();
+
+            this.Close();
         }
     }
 }
