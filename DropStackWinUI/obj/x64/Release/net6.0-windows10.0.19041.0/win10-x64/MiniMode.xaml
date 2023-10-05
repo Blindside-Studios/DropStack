@@ -15,7 +15,7 @@
 
     <Grid Margin="0,30,0,0">
         <Grid.Resources>
-            <CommandBarFlyout x:ConnectionId='2' x:Name="FileCommandsFlyout">
+            <CommandBarFlyout x:ConnectionId='2' x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
                 <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open"                               />
                 <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy"                               />
                 <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin"                             />
@@ -37,7 +37,7 @@
         </TextBlock>
 
         <ParallaxView x:ConnectionId='12' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
-            <Image x:ConnectionId='29' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='28' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
 
         <Rectangle x:ConnectionId='13' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
@@ -111,10 +111,9 @@
             <CommandBar.OpacityTransition>
                 <ScalarTransition/>
             </CommandBar.OpacityTransition>
-            <AppBarButton x:ConnectionId='18' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
-                <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
+            <AppBarButton x:ConnectionId='18' x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                 <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="C" />
+                    <KeyboardAccelerator Modifiers="Control" Key="X"/>
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:ConnectionId='19' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
@@ -124,27 +123,22 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='20' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal"                                     >
+                <AppBarButton x:ConnectionId='20' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer"                                     >
                     <ToolTip Content="Reveal in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="E" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='21' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton x:ConnectionId='22' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                <AppBarButton x:ConnectionId='21' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="T"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='23' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
+                <AppBarButton x:ConnectionId='22' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
                 <AppBarSeparator/>
-                <AppBarButton x:ConnectionId='24' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
+                <AppBarButton x:ConnectionId='23' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="S" />
+                        <KeyboardAccelerator Modifiers="Control" Key="M" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>

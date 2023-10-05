@@ -590,8 +590,8 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.Activator = Activate_22_TeachingTip;
                 userType.AddMemberName("Title");
                 userType.AddMemberName("Subtitle");
-                userType.AddMemberName("ActionButtonContent");
                 userType.AddMemberName("PreferredPlacement");
+                userType.AddMemberName("ActionButtonContent");
                 userType.AddMemberName("PlacementMargin");
                 userType.AddMemberName("IsLightDismissEnabled");
                 userType.AddMemberName("Target");
@@ -1315,25 +1315,25 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.Subtitle = (global::System.String)Value;
         }
-        private object get_38_TeachingTip_ActionButtonContent(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
-            return that.ActionButtonContent;
-        }
-        private void set_38_TeachingTip_ActionButtonContent(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
-            that.ActionButtonContent = (global::System.Object)Value;
-        }
-        private object get_39_TeachingTip_PreferredPlacement(object instance)
+        private object get_38_TeachingTip_PreferredPlacement(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.PreferredPlacement;
         }
-        private void set_39_TeachingTip_PreferredPlacement(object instance, object Value)
+        private void set_38_TeachingTip_PreferredPlacement(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.PreferredPlacement = (global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode)Value;
+        }
+        private object get_39_TeachingTip_ActionButtonContent(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ActionButtonContent;
+        }
+        private void set_39_TeachingTip_ActionButtonContent(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ActionButtonContent = (global::System.Object)Value;
         }
         private object get_40_TeachingTip_PlacementMargin(object instance)
         {
@@ -2184,19 +2184,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_37_TeachingTip_Subtitle;
                 xamlMember.Setter = set_37_TeachingTip_Subtitle;
                 break;
-            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonContent":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonContent", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_38_TeachingTip_ActionButtonContent;
-                xamlMember.Setter = set_38_TeachingTip_ActionButtonContent;
-                break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.PreferredPlacement":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PreferredPlacement", "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_39_TeachingTip_PreferredPlacement;
-                xamlMember.Setter = set_39_TeachingTip_PreferredPlacement;
+                xamlMember.Getter = get_38_TeachingTip_PreferredPlacement;
+                xamlMember.Setter = set_38_TeachingTip_PreferredPlacement;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonContent":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonContent", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_39_TeachingTip_ActionButtonContent;
+                xamlMember.Setter = set_39_TeachingTip_ActionButtonContent;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.PlacementMargin":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");

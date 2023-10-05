@@ -261,12 +261,14 @@
                 </Grid>
                 <TeachingTip x:Name="fileInClipboardReminder"
                              Title="Copied successfully!"
-                             Subtitle="The file is now in your clipboard">
+                             Subtitle="The file is now in your clipboard"
+                             PreferredPlacement="Top">
                     <ProgressBar x:Name="reminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:Name="failedToDragTeachingTip"
                              Title="Dragging unsuccessful"
-                             Subtitle="Are you sure the file still exists?">
+                             Subtitle="Are you sure the file still exists?"
+                             PreferredPlacement="Top">
                     <ProgressBar x:Name="failureReminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:Name="panosUnlockedTeachingTip"
