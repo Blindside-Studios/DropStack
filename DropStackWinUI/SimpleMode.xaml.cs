@@ -134,10 +134,11 @@ namespace DropStackWinUI
                     FlyoutStyleGrid.Visibility = Visibility.Collapsed;
                     SetTitleBar(TitleBarRectangle);
                     IsShownInSwitchers = true;
+                    IsResizable = true;
                     AltLaunchNormalModeButton.Visibility = Visibility.Visible;
                     AllFilesToggleButton.Margin = new Thickness(5, 0, 0, 0);
-                    ToggleButtonStackPanel.Margin = new Thickness(0, 40, 0, 0);
-                    regularFileListView.Margin = new Thickness(0, -60, 0, 0);
+                    ToggleButtonStackPanel.Margin = new Thickness(0, -40, 0, 0);
+                    regularFileListView.Margin = new Thickness(0, -20, 0, 0);
                 }
             }
 
