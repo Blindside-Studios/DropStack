@@ -15,7 +15,7 @@
 
     <Grid Margin="0,30,0,0">
         <Grid.Resources>
-            <CommandBarFlyout x:Name="FileCommandsFlyout">
+            <CommandBarFlyout x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
                 <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
                 <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
                 <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin" Click="PinUnpinButton_Click"/>
@@ -111,10 +111,9 @@
             <CommandBar.OpacityTransition>
                 <ScalarTransition/>
             </CommandBar.OpacityTransition>
-            <AppBarButton x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy" Click="CopyLastSelectedButton_Click">
-                <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
+            <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
                 <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="C" />
+                    <KeyboardAccelerator Modifiers="Control" Key="X"/>
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
@@ -124,15 +123,10 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" Click="RevealInExplorerButton_Click">
+                <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer" Click="RevealInExplorerButton_Click">
                     <ToolTip Content="Reveal in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="E" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarButton x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back." Click="HideToolbarButton_Click">
