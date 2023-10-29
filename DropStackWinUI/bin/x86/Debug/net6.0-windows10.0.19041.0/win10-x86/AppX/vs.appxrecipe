@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-10-05T12:00:45.853</Modified>
+      <Modified>2023-10-29T23:15:39.564</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-10-05T12:00:45.592</Modified>
+      <Modified>2023-10-29T23:15:39.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.runtimeconfig.json">
       <PackagePath>DropStackWinUI.runtimeconfig.json</PackagePath>
-      <Modified>2023-10-05T11:33:51.944</Modified>
+      <Modified>2023-10-29T21:42:43.557</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2023-10-05T12:00:45.481</Modified>
+      <Modified>2023-10-29T23:15:39.205</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2023-10-05T12:00:45.487</Modified>
+      <Modified>2023-10-29T23:15:39.211</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>
-      <Modified>2023-10-05T11:33:51.816</Modified>
+      <Modified>2023-10-29T21:42:43.426</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.20\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

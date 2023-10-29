@@ -154,9 +154,10 @@ namespace DropStackWinUI
         int thumbnailResolution = 64;
 
         int checkboxBehavior = 1;
+        int searchThreshold = 3;
 
-        
-        
+
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -321,6 +322,12 @@ namespace DropStackWinUI
             {
                 if ((bool)localSettings.Values["FreeWindowingInSimpleMode"] == true) SimpleModeWindowingToggle.IsOn = true;
             }
+            
+            if (localSettings.Values.ContainsKey("SearchThreshold"))
+            {
+                searchThreshold = (int)localSettings.Values["SearchThreshold"];
+            }
+            SearchThresholdNumberBox.Value = searchThreshold;
         }
 
         public void applySettingsToMenu()
@@ -1212,18 +1219,84 @@ namespace DropStackWinUI
             SearchTextBox.Text = "";
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            filterListView(SearchTextBox.Text);
+            if (SearchTextBox.Text.Length == 0)
+            {
+                regularFileListView.ItemsSource = fileMetadataListCopy;
+                pinnedFileListView.ItemsSource = pinnedFileMetadataListCopy;
+            }
+            else
+            {
+                // store search and check later if it still matches up
+                string searchTerm = SearchTextBox.Text;
+                await Task.Delay(200);
+                if (searchTerm == SearchTextBox.Text) filterListView(SearchTextBox.Text);
+            }
         }
 
-        private void filterListView(string filter)
+        private async void filterListView(string filter)
         {
-            var filteredItems = _filteredFileMetadataList.Where(item => item.FileName.ToLower().Contains(filter) || item.FilePath.ToLower().Contains(filter) || item.FileType.ToLower().Contains(filter));
-            regularFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredItems);
+            IEnumerable<FileItem> filteredItems = null;
+            IEnumerable<FileItem> filteredPinnedItems = null;
 
-            var filteredPinnedItems = _filteredPinnedFileMetadataList.Where(item => item.FileName.ToLower().Contains(filter) || item.FilePath.ToLower().Contains(filter) || item.FileType.ToLower().Contains(filter));
+            await Task.Run(() =>
+            {
+                filteredItems = fileMetadataListCopy
+                .Where(item => FuzzyMatch(item.FileName.ToLower(), filter.ToLower())
+                            || FuzzyMatch(item.FilePath.ToLower(), filter.ToLower())
+                            || FuzzyMatch(item.FileType.ToLower(), filter.ToLower()));
+
+                filteredPinnedItems = pinnedFileMetadataListCopy
+                .Where(item => FuzzyMatch(item.FileName.ToLower(), filter.ToLower())
+                            || FuzzyMatch(item.FilePath.ToLower(), filter.ToLower())
+                            || FuzzyMatch(item.FileType.ToLower(), filter.ToLower()));
+            });
+
+            regularFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredItems);
             pinnedFileListView.ItemsSource = new ObservableCollection<FileItem>(filteredPinnedItems);
+        }
+
+        public bool FuzzyMatch(string item, string filter)
+        {
+            int distance = LevenshteinDistance(item, filter);
+            // Adjust threshold
+            int threshold = searchThreshold;
+            if (filter.Length <= threshold) threshold = filter.Length - 1;
+            return distance <= threshold;
+        }
+
+
+        public static int LevenshteinDistance(string s, string t)
+        {
+            // What is the Levenshtein distance?
+            // It is basically the amount of characters that need to be changed in a string to create another string.
+            // Here it is used to figure out how far two strings are apart, so strings that are one typo away from correct will also count,
+            // which is important for search.
+
+            if (s == t) return 0;
+
+            try { s = s.Substring(0, t.Length); }
+            catch {}
+
+            int[,] distance = new int[s.Length + 1, t.Length + 1];
+            for (int i = 0; i <= s.Length; i++) distance[i, 0] = i;
+            for (int j = 0; j <= t.Length; j++) distance[0, j] = j;
+
+            for (int i = 1; i <= s.Length; i++)
+            {
+                for (int j = 1; j <= t.Length; j++)
+                {
+                    int cost = (s[i - 1] == t[j - 1]) ? 0 : 1;
+                    distance[i, j] = Math.Min(
+                        Math.Min(
+                            distance[i - 1, j] + 1,
+                            distance[i, j - 1] + 1),
+                        distance[i - 1, j - 1] + cost);
+                }
+            }
+
+            return distance[s.Length, t.Length];
         }
 
         private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
@@ -1873,6 +1946,13 @@ namespace DropStackWinUI
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["FreeWindowingInSimpleMode"] = SimpleModeWindowingToggle.IsOn;
+        }
+
+        private void SearchThresholdNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["SearchThreshold"] = Convert.ToInt32(SearchThresholdNumberBox.Value);
+            searchThreshold = Convert.ToInt32(SearchThresholdNumberBox.Value);
         }
     }
 }

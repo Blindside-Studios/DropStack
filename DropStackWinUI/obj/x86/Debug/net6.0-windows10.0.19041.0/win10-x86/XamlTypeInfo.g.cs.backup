@@ -751,12 +751,13 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.AddMemberName("SmallChange");
                 userType.AddMemberName("LargeChange");
                 userType.AddMemberName("Minimum");
+                userType.AddMemberName("Value");
+                userType.AddMemberName("Maximum");
                 userType.AddMemberName("SpinButtonPlacementMode");
                 userType.AddMemberName("AcceptsExpression");
                 userType.AddMemberName("Description");
                 userType.AddMemberName("HeaderTemplate");
                 userType.AddMemberName("IsWrapEnabled");
-                userType.AddMemberName("Maximum");
                 userType.AddMemberName("NumberFormatter");
                 userType.AddMemberName("PlaceholderText");
                 userType.AddMemberName("PreventKeyboardDisplayOnProgrammaticFocus");
@@ -765,7 +766,6 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.AddMemberName("Text");
                 userType.AddMemberName("TextReadingOrder");
                 userType.AddMemberName("ValidationMode");
-                userType.AddMemberName("Value");
                 xamlType = userType;
                 break;
 
@@ -1670,155 +1670,155 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_75_NumberBox_SpinButtonPlacementMode(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.SpinButtonPlacementMode;
-        }
-        private void set_75_NumberBox_SpinButtonPlacementMode(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
-        }
-        private object get_76_NumberBox_AcceptsExpression(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.AcceptsExpression;
-        }
-        private void set_76_NumberBox_AcceptsExpression(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.AcceptsExpression = (global::System.Boolean)Value;
-        }
-        private object get_77_NumberBox_Description(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.Description;
-        }
-        private void set_77_NumberBox_Description(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.Description = (global::System.Object)Value;
-        }
-        private object get_78_NumberBox_HeaderTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.HeaderTemplate;
-        }
-        private void set_78_NumberBox_HeaderTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_79_NumberBox_IsWrapEnabled(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.IsWrapEnabled;
-        }
-        private void set_79_NumberBox_IsWrapEnabled(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.IsWrapEnabled = (global::System.Boolean)Value;
-        }
-        private object get_80_NumberBox_Maximum(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.Maximum;
-        }
-        private void set_80_NumberBox_Maximum(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.Maximum = (global::System.Double)Value;
-        }
-        private object get_81_NumberBox_NumberFormatter(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.NumberFormatter;
-        }
-        private void set_81_NumberBox_NumberFormatter(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
-        }
-        private object get_82_NumberBox_PlaceholderText(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.PlaceholderText;
-        }
-        private void set_82_NumberBox_PlaceholderText(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.PlaceholderText = (global::System.String)Value;
-        }
-        private object get_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.PreventKeyboardDisplayOnProgrammaticFocus;
-        }
-        private void set_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
-        }
-        private object get_84_NumberBox_SelectionFlyout(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.SelectionFlyout;
-        }
-        private void set_84_NumberBox_SelectionFlyout(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
-        }
-        private object get_85_NumberBox_SelectionHighlightColor(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.SelectionHighlightColor;
-        }
-        private void set_85_NumberBox_SelectionHighlightColor(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
-        }
-        private object get_86_NumberBox_Text(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.Text;
-        }
-        private void set_86_NumberBox_Text(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.Text = (global::System.String)Value;
-        }
-        private object get_87_NumberBox_TextReadingOrder(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.TextReadingOrder;
-        }
-        private void set_87_NumberBox_TextReadingOrder(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
-        }
-        private object get_88_NumberBox_ValidationMode(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            return that.ValidationMode;
-        }
-        private void set_88_NumberBox_ValidationMode(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
-            that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
-        }
-        private object get_89_NumberBox_Value(object instance)
+        private object get_75_NumberBox_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Value;
         }
-        private void set_89_NumberBox_Value(object instance, object Value)
+        private void set_75_NumberBox_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Value = (global::System.Double)Value;
+        }
+        private object get_76_NumberBox_Maximum(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Maximum;
+        }
+        private void set_76_NumberBox_Maximum(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Maximum = (global::System.Double)Value;
+        }
+        private object get_77_NumberBox_SpinButtonPlacementMode(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SpinButtonPlacementMode;
+        }
+        private void set_77_NumberBox_SpinButtonPlacementMode(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
+        }
+        private object get_78_NumberBox_AcceptsExpression(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.AcceptsExpression;
+        }
+        private void set_78_NumberBox_AcceptsExpression(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.AcceptsExpression = (global::System.Boolean)Value;
+        }
+        private object get_79_NumberBox_Description(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Description;
+        }
+        private void set_79_NumberBox_Description(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Description = (global::System.Object)Value;
+        }
+        private object get_80_NumberBox_HeaderTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_80_NumberBox_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_81_NumberBox_IsWrapEnabled(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.IsWrapEnabled;
+        }
+        private void set_81_NumberBox_IsWrapEnabled(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.IsWrapEnabled = (global::System.Boolean)Value;
+        }
+        private object get_82_NumberBox_NumberFormatter(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.NumberFormatter;
+        }
+        private void set_82_NumberBox_NumberFormatter(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
+        }
+        private object get_83_NumberBox_PlaceholderText(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.PlaceholderText;
+        }
+        private void set_83_NumberBox_PlaceholderText(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.PlaceholderText = (global::System.String)Value;
+        }
+        private object get_84_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.PreventKeyboardDisplayOnProgrammaticFocus;
+        }
+        private void set_84_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
+        }
+        private object get_85_NumberBox_SelectionFlyout(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SelectionFlyout;
+        }
+        private void set_85_NumberBox_SelectionFlyout(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
+        }
+        private object get_86_NumberBox_SelectionHighlightColor(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.SelectionHighlightColor;
+        }
+        private void set_86_NumberBox_SelectionHighlightColor(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
+        }
+        private object get_87_NumberBox_Text(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.Text;
+        }
+        private void set_87_NumberBox_Text(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.Text = (global::System.String)Value;
+        }
+        private object get_88_NumberBox_TextReadingOrder(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.TextReadingOrder;
+        }
+        private void set_88_NumberBox_TextReadingOrder(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
+        }
+        private object get_89_NumberBox_ValidationMode(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            return that.ValidationMode;
+        }
+        private void set_89_NumberBox_ValidationMode(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
+            that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
         }
         private object get_90_ProgressBar_IsIndeterminate(object instance)
         {
@@ -2442,110 +2442,110 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_74_NumberBox_Minimum;
                 xamlMember.Setter = set_74_NumberBox_Minimum;
                 break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_NumberBox_SpinButtonPlacementMode;
-                xamlMember.Setter = set_75_NumberBox_SpinButtonPlacementMode;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_NumberBox_AcceptsExpression;
-                xamlMember.Setter = set_76_NumberBox_AcceptsExpression;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Description", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_NumberBox_Description;
-                xamlMember.Setter = set_77_NumberBox_Description;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_78_NumberBox_HeaderTemplate;
-                xamlMember.Setter = set_78_NumberBox_HeaderTemplate;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_79_NumberBox_IsWrapEnabled;
-                xamlMember.Setter = set_79_NumberBox_IsWrapEnabled;
+                xamlMember.Getter = get_75_NumberBox_Value;
+                xamlMember.Setter = set_75_NumberBox_Value;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_80_NumberBox_Maximum;
-                xamlMember.Setter = set_80_NumberBox_Maximum;
+                xamlMember.Getter = get_76_NumberBox_Maximum;
+                xamlMember.Setter = set_76_NumberBox_Maximum;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_77_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Setter = set_77_NumberBox_SpinButtonPlacementMode;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_78_NumberBox_AcceptsExpression;
+                xamlMember.Setter = set_78_NumberBox_AcceptsExpression;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Description", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_79_NumberBox_Description;
+                xamlMember.Setter = set_79_NumberBox_Description;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_80_NumberBox_HeaderTemplate;
+                xamlMember.Setter = set_80_NumberBox_HeaderTemplate;
+                break;
+            case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_81_NumberBox_IsWrapEnabled;
+                xamlMember.Setter = set_81_NumberBox_IsWrapEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.NumberFormatter":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "NumberFormatter", "Windows.Globalization.NumberFormatting.INumberFormatter2");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_81_NumberBox_NumberFormatter;
-                xamlMember.Setter = set_81_NumberBox_NumberFormatter;
+                xamlMember.Getter = get_82_NumberBox_NumberFormatter;
+                xamlMember.Setter = set_82_NumberBox_NumberFormatter;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PlaceholderText":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_82_NumberBox_PlaceholderText;
-                xamlMember.Setter = set_82_NumberBox_PlaceholderText;
+                xamlMember.Getter = get_83_NumberBox_PlaceholderText;
+                xamlMember.Setter = set_83_NumberBox_PlaceholderText;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PreventKeyboardDisplayOnProgrammaticFocus":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PreventKeyboardDisplayOnProgrammaticFocus", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
-                xamlMember.Setter = set_83_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Getter = get_84_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Setter = set_84_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionFlyout":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionFlyout", "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_84_NumberBox_SelectionFlyout;
-                xamlMember.Setter = set_84_NumberBox_SelectionFlyout;
+                xamlMember.Getter = get_85_NumberBox_SelectionFlyout;
+                xamlMember.Setter = set_85_NumberBox_SelectionFlyout;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionHighlightColor":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionHighlightColor", "Microsoft.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_85_NumberBox_SelectionHighlightColor;
-                xamlMember.Setter = set_85_NumberBox_SelectionHighlightColor;
+                xamlMember.Getter = get_86_NumberBox_SelectionHighlightColor;
+                xamlMember.Setter = set_86_NumberBox_SelectionHighlightColor;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Text":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_86_NumberBox_Text;
-                xamlMember.Setter = set_86_NumberBox_Text;
+                xamlMember.Getter = get_87_NumberBox_Text;
+                xamlMember.Setter = set_87_NumberBox_Text;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.TextReadingOrder":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TextReadingOrder", "Microsoft.UI.Xaml.TextReadingOrder");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_87_NumberBox_TextReadingOrder;
-                xamlMember.Setter = set_87_NumberBox_TextReadingOrder;
+                xamlMember.Getter = get_88_NumberBox_TextReadingOrder;
+                xamlMember.Setter = set_88_NumberBox_TextReadingOrder;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.ValidationMode":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_88_NumberBox_ValidationMode;
-                xamlMember.Setter = set_88_NumberBox_ValidationMode;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_89_NumberBox_Value;
-                xamlMember.Setter = set_89_NumberBox_Value;
+                xamlMember.Getter = get_89_NumberBox_ValidationMode;
+                xamlMember.Setter = set_89_NumberBox_ValidationMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");

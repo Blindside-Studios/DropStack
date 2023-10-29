@@ -336,6 +336,20 @@
                                     <x:String>Microsoft</x:String>
                                     <x:String>Thunderstorm</x:String>
                                 </ComboBox>
+                                <NumberBox x:Name="SearchThresholdNumberBox"
+                                           Header="Search leniency"
+                                           SmallChange="1"
+                                           LargeChange="1"
+                                           Minimum="0"
+                                           Maximum="5"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ValueChanged="SearchThresholdNumberBox_ValueChanged"/>
+                                <TextBlock Text="*Search leniency describes how many typos you can make in your search query while still finding the file. Lowering this value will improve search accuracy."
+                                           TextWrapping="WrapWholeWords"
+                                           HorizontalAlignment="Center"
+                                           Opacity="0.7"
+                                           FontSize="10"/>
                             </StackPanel>
                         </Expander>
                         <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
