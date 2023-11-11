@@ -318,10 +318,10 @@
                                                                                          
                                               ToolTipService.ToolTip="Enables normal windowing in simple mode"/>
                                 <ToggleSwitch x:ConnectionId='67' x:Name="PinToolbarInSimpleModeToggleSwitch"
-                                                OnContent="Pin toolbar in simple mode"
-                                                OffContent="Pin toolbar in simple mode"
+                                                OnContent="Pin toolbar in mini mode"
+                                                OffContent="Pin toolbar in mini mode"
                                                                                                     
-                                                ToolTipService.ToolTip="Permanently shows the toolbar in simple mode instead of hiding it."/>
+                                                ToolTipService.ToolTip="Permanently shows the toolbar in mini mode instead of hiding it."/>
                                 <ComboBox x:ConnectionId='68' x:Name="CheckBoxBehaviorCombobox" Margin="-1,5,-1,5" HorizontalAlignment="Stretch" Header="Use check boxes to select items"                                                             >
                                     <x:String>Never</x:String>
                                     <x:String>When turned on in File Explorer</x:String>
