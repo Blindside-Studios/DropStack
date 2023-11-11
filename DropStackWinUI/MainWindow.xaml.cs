@@ -966,8 +966,9 @@ namespace DropStackWinUI
         private void QuickSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             applySettingsToMenu();
-            if (!quickSettingsFlyoutTeachingTip.IsOpen) quickSettingsFlyoutTeachingTip.IsOpen = true;
-            else quickSettingsFlyoutTeachingTip.IsOpen = false;
+            AboutDropStackGrid.Visibility = Visibility.Visible;
+            AboutDropStackGrid.Opacity = 1;
+            AboutDropStackContentGrid.Translation = new Vector3(0, 0, 0);
         }
 
         private async void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -1626,26 +1627,9 @@ namespace DropStackWinUI
             if (isVerified) setPinBarOptionVisibility(true);
         }
 
-        private void quickSettingsFlyoutTeachingTip_Closed(Microsoft.UI.Xaml.Controls.TeachingTip sender, Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs args)
-        {
-            PerformanceSettingsExpander.IsExpanded = false;
-            ExpanderSettingsExpander.IsExpanded = false;
-            SecondaryFolderSettingsExpander.IsExpanded = false;
-            AppearanceAndBehaviorExpander.IsExpanded = false;
-            if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
-            else if (!isWindowsHelloRequiredForPins) setPinBarOptionVisibility(true);
-        }
-
         private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             askForAccess("pinned");
-        }
-
-        private void AboutDropStackButton_Click(object sender, RoutedEventArgs e)
-        {
-            AboutDropStackGrid.Visibility = Visibility.Visible;
-            AboutDropStackGrid.Opacity = 1;
-            AboutDropStackContentGrid.Translation = new Vector3(0, 0, 0);
         }
 
         private async void AboutDropStackCloseButton_Click(object sender, RoutedEventArgs e)
@@ -1654,6 +1638,15 @@ namespace DropStackWinUI
             AboutDropStackContentGrid.Translation = new Vector3(0, 50, 0);
             await Task.Delay(500);
             AboutDropStackGrid.Visibility = Visibility.Collapsed;
+
+            PerformanceSettingsExpander.IsExpanded = false;
+            ExpanderSettingsExpander.IsExpanded = false;
+            SecondaryFolderSettingsExpander.IsExpanded = false;
+            AppearanceAndBehaviorExpander.IsExpanded = false;
+            AboutDropStackExpander.IsExpanded = false;
+            PrivacyStamentExpander.IsExpanded = false;
+            if (isWindowsHelloRequiredForPins) setPinBarOptionVisibility(false);
+            else if (!isWindowsHelloRequiredForPins) setPinBarOptionVisibility(true);
         }
 
         private void PrimaryPortalFolderCheckBox_Checked(object sender, RoutedEventArgs e)

@@ -241,12 +241,11 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton x:Name="QuickSettingsButton" Icon="Setting" Label="Settings" Click="QuickSettingsButton_Click">
+                        <AppBarButton x:Name="QuickSettingsButton" Icon="Setting" Label="Settings and About" Click="QuickSettingsButton_Click">
                             <AppBarButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="I" />
                             </AppBarButton.KeyboardAccelerators>
                         </AppBarButton>
-                        <AppBarButton x:Name="AboutDropStackButton" Icon="List" Label="About DropStack" Click="AboutDropStackButton_Click"/>
                     </CommandBar.SecondaryCommands>
                 </CommandBar>
                 <Grid x:Name="SearchGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0" Visibility="Collapsed" Translation="0,-60,0" Height="40" Margin="12,60,12,0">
@@ -296,194 +295,6 @@
 	                        IsLightDismissEnabled="False"
 	                        ActionButtonClick="noPinnedFolderpathTechingTip_ActionButtonClick"
 	                        ActionButtonContent="Choose folder..."/>
-                <TeachingTip x:Name="quickSettingsFlyoutTeachingTip"
-                             Title="Settings"
-                             PreferredPlacement="Top"
-                             Closed="quickSettingsFlyoutTeachingTip_Closed">
-                    <StackPanel>
-                        <Expander x:Name="AppearanceAndBehaviorExpander" Header="Appearance and general behavior" HorizontalAlignment="Stretch" Margin="0,10,0,5">
-                            <StackPanel HorizontalAlignment="Stretch">
-                                <ComboBox x:Name="LaunchModePickerComboBox"
-                                          Margin="-1,0,-1,10"
-                                          HorizontalAlignment="Stretch"
-                                          Header="Choose the default mode"
-                                          SelectionChanged="LaunchModePickerComboBox_SelectionChanged">
-                                    <x:String>Normal Mode</x:String>
-                                    <x:String>Simple Mode</x:String>
-                                    <x:String>Mini Mode</x:String>
-                                </ComboBox>
-                                <ToggleSwitch x:Name="SimpleModeWindowingToggle"
-                                              OnContent="Windowing in simple mode"
-                                              OffContent="Windowing in simple mode"
-                                              Toggled="SimpleModeWindowingToggle_Toggled"
-                                              ToolTipService.ToolTip="Enables normal windowing in simple mode"/>
-                                <ToggleSwitch x:Name="PinToolbarInSimpleModeToggleSwitch"
-                                                OnContent="Pin toolbar in mini mode"
-                                                OffContent="Pin toolbar in mini mode"
-                                                Toggled="PinToolbarInSimpleModeToggleSwitch_Toggled"
-                                                ToolTipService.ToolTip="Permanently shows the toolbar in mini mode instead of hiding it."/>
-                                <ComboBox x:Name="CheckBoxBehaviorCombobox" Margin="-1,5,-1,5" HorizontalAlignment="Stretch" Header="Use check boxes to select items" SelectionChanged="CheckBoxBehaviorCombobox_SelectionChanged">
-                                    <x:String>Never</x:String>
-                                    <x:String>When turned on in File Explorer</x:String>
-                                    <x:String>Always</x:String>
-                                </ComboBox>
-                                <ComboBox x:Name="ThemePickerCombobox" Margin="-1,0,-1,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
-                                    <x:String>Default</x:String>
-                                    <x:String>Colorful</x:String>
-                                    <x:String>Evening</x:String>
-                                    <x:String>Ukraine</x:String>
-                                    <x:String>Bliss</x:String>
-                                    <x:String>Microsoft</x:String>
-                                    <x:String>Thunderstorm</x:String>
-                                </ComboBox>
-                                <NumberBox x:Name="SearchThresholdNumberBox"
-                                           Header="Search leniency"
-                                           SmallChange="1"
-                                           LargeChange="1"
-                                           Minimum="0"
-                                           Maximum="5"
-                                           HorizontalAlignment="Stretch"
-                                           SpinButtonPlacementMode="Compact"
-                                           ValueChanged="SearchThresholdNumberBox_ValueChanged"/>
-                                <TextBlock Text="*Search leniency describes how many typos you can make in your search query while still finding the file. Lowering this value will improve search accuracy."
-                                           TextWrapping="WrapWholeWords"
-                                           HorizontalAlignment="Center"
-                                           Opacity="0.7"
-                                           FontSize="10"/>
-                            </StackPanel>
-                        </Expander>
-                        <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
-                            <StackPanel Spacing="10" Margin="-25,0,-25,0">
-                                <TextBlock HorizontalAlignment="Stretch"
-                                           Text="*Changes are reflected after reloading."
-                                           Margin="0,0,0,5"/>
-                                <NumberBox x:Name="RegularFileCapNumberBox"
-                                           Header="Loaded items"
-                                           SmallChange="100"
-                                           LargeChange="500"
-                                           Minimum="1"
-                                           HorizontalAlignment="Stretch"
-                                           SpinButtonPlacementMode="Compact"
-                                           ToolTipService.ToolTip="Restrict the amount of loaded files in normal mode and simple mode. 
-                                           Takes effect after refreshing the list"
-                                           ValueChanged="RegularFileCapNumberBox_ValueChanged"/>
-                                <NumberBox x:Name="ThumbnailCapNumberBox"
-                                           Header="Loaded thumbnails"
-                                           SmallChange="50"
-                                           LargeChange="200"
-                                           Minimum="0"
-                                           HorizontalAlignment="Stretch"
-                                           SpinButtonPlacementMode="Compact"
-                                           ToolTipService.ToolTip="Restrict the amount of thumbnails that are being loaded. 
-                                           This helps improve speed and reduce RAM usage, so you can load more items without your RAM filling up as quickly. 
-                                           Takes effect after refreshing."
-                                           ValueChanged="ThumbnailCapNumberBox_ValueChanged"/>
-                                <NumberBox x:Name="ThumbnailResolutionNumberBox"
-                                           Header="Thumbnail resolution (Recommended:64)"
-                                           SmallChange="2"
-                                           LargeChange="10"
-                                           Minimum="20"
-                                           HorizontalAlignment="Stretch"
-                                           SpinButtonPlacementMode="Compact"
-                                           ToolTipService.ToolTip="Set the resolution in which thumbnails are loaded. 
-                                           This should greatly improve speed and RAM usage at the cost of recognizability. 
-                                           Therefore, we recommend 64 as a balance. Takes effect after refr4eshing the list."
-                                           ValueChanged="ThumbnailResolutionNumberBox_ValueChanged"/>
-                                <Button x:Name="ResetCapsToDefaultButton"
-                                        Content="Reset to default values"
-                                        HorizontalAlignment="Stretch"
-                                        Margin="0,10,0,0"
-                                        ToolTipService.ToolTip="Reset these values to their defaults"
-                                        Click="ResetCapsToDefaultButton_Click"/>
-                            </StackPanel>
-                        </Expander>
-                        <Expander x:Name="SecondaryFolderSettingsExpander" Header="Manage your portal folders" HorizontalAlignment="Stretch" Margin="0,0,0,5">
-                            <StackPanel Spacing="10" Margin="-25,0,-25,0">
-                                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <CheckBox x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0" Content="Primary:" Checked="PrimaryPortalFolderCheckBox_Checked" Unchecked="PrimaryPortalFolderCheckBox_Unchecked"/>
-                                    <CheckBox x:Name="SecondaryPortalFolder1CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="1" Content="Secondary 1:" Tag="1" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
-                                    <CheckBox x:Name="SecondaryPortalFolder2CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="2" Content="Secondary 2:" Tag="2" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
-                                    <CheckBox x:Name="SecondaryPortalFolder3CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="3" Content="Secondary 3:" Tag="3" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
-                                    <CheckBox x:Name="SecondaryPortalFolder4CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="4" Content="Secondary 4:" Tag="4" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
-                                    <CheckBox x:Name="SecondaryPortalFolder5CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="5" Content="Secondary 5:" Tag="5" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
-                                    <Button x:Name="PrimaryPortalFolderChangeButton"    Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="0" HorizontalAlignment="Stretch" Content="Set New..." Click="PrimaryPortalFolderChangeButton_Click"/>
-                                    <Button x:Name="SecondaryPortalFolder1ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="1" HorizontalAlignment="Stretch" Tag="1" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
-                                    <Button x:Name="SecondaryPortalFolder2ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="2" HorizontalAlignment="Stretch" Tag="2" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
-                                    <Button x:Name="SecondaryPortalFolder3ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="3" HorizontalAlignment="Stretch" Tag="3" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
-                                    <Button x:Name="SecondaryPortalFolder4ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="4" HorizontalAlignment="Stretch" Tag="4" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
-                                    <Button x:Name="SecondaryPortalFolder5ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="5" HorizontalAlignment="Stretch" Tag="5" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
-                                </Grid>
-                                <Button x:Name="ApplyMultiFolderSettings" HorizontalAlignment="Stretch" Content="Apply" Click="ApplyMultiFolderSettings_Click"/>
-                            </StackPanel>
-                        </Expander>
-                        <Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
-                            <StackPanel Spacing="10">
-                                <RadioButtons Header="Options:">
-                                    <RadioButton x:Name="PinsAlwaysOpenRadioButton" Content="Always opened" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                    <RadioButton x:Name="PinsRememberStateRadioButton" Content="Remember last state" Checked="RadioButton_Checked" ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
-                                    <RadioButton x:Name="PinsAlwaysClosedRadioButton" Content="Always closed" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                    <RadioButton x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️" Checked="RadioButton_Checked" ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
-                                </RadioButtons>
-                                <Button x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch" Click="EnableAllOptionsForPinsButton_Click" Visibility="Collapsed"/>
-                            </StackPanel>
-                        </Expander>
-                        <Button x:Name="deleteFolderCookieButton"
-                    Content="Revoke Folder Access"
-                    Background="DarkRed"
-                    Foreground="White"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Center">
-                            <Button.Flyout>
-                                <Flyout Opened="Flyout_Opened">
-                                    <StackPanel Spacing="10">
-                                        <TextBlock MaxWidth="300" 
-                                       Style="{ThemeResource BaseTextBlockStyle}" 
-                                       Text="This will disconnect the app from the folders you chose during setup and you will need to repeat the setup process to use it again. All your files in Portal and Pins will persist, the app will just not be able to find them anymore."  
-                                       TextWrapping="WrapWholeWords"/>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="50"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBox Grid.Column="0" x:Name="RegularFolderPathDisplay" Header="Your Portal folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
-                                            <Button  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0" Click="CopyRegularFolderPathButton_Click" VerticalAlignment="Bottom">
-                                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
-                                            </Button>
-                                        </Grid>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="50"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBox Grid.Column="0" x:Name="PinnedFolderPathDisplay" Header="Your Pinned folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
-                                            <Button  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0" Click="CopyPinnedFolderPathButton_Click" VerticalAlignment="Bottom">
-                                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
-                                            </Button>
-                                        </Grid>
-                                        <Button Click="disconnectFolderButton_Click" 
-                                            Content="Yes, disconnect and relaunch!" 
-                                            Background="DarkRed"
-                                            Foreground="White"
-                                            HorizontalAlignment="Stretch"/>
-                                    </StackPanel>
-                                </Flyout>
-                            </Button.Flyout>
-                        </Button>
-                    </StackPanel>
-                </TeachingTip>
                 <TeachingTip
             x:Name="cannotOpenRegularFolderBecauseThereIsNoneTeachingTip"
 	        Title="Cannot open associated folder"
@@ -585,13 +396,194 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="About DropStack" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <TextBlock Grid.Row="0" Text="Settings and About" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <Button    Grid.Row="0" x:Name="AboutDropStackCloseButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Click="AboutDropStackCloseButton_Click">
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;"/>
                         </Button>
                         <ScrollViewer Grid.Row="1" Margin="10,10,10,10">
                             <StackPanel>
-                                <Expander Header="General App Info" HorizontalAlignment="Stretch" IsExpanded="True" HorizontalContentAlignment="Left">
+                                <Expander x:Name="AppearanceAndBehaviorExpander" Header="Appearance and general behavior" HorizontalAlignment="Stretch" Margin="0,10,0,5">
+                                    <StackPanel HorizontalAlignment="Stretch">
+                                        <ComboBox x:Name="LaunchModePickerComboBox"
+                                          Margin="-1,0,-1,10"
+                                          HorizontalAlignment="Stretch"
+                                          Header="Choose the default mode"
+                                          SelectionChanged="LaunchModePickerComboBox_SelectionChanged">
+                                            <x:String>Normal Mode</x:String>
+                                            <x:String>Simple Mode</x:String>
+                                            <x:String>Mini Mode</x:String>
+                                        </ComboBox>
+                                        <ToggleSwitch x:Name="SimpleModeWindowingToggle"
+                                              OnContent="Windowing in simple mode"
+                                              OffContent="Windowing in simple mode"
+                                              Toggled="SimpleModeWindowingToggle_Toggled"
+                                              ToolTipService.ToolTip="Enables normal windowing in simple mode"/>
+                                        <ToggleSwitch x:Name="PinToolbarInSimpleModeToggleSwitch"
+                                                OnContent="Pin toolbar in mini mode"
+                                                OffContent="Pin toolbar in mini mode"
+                                                Toggled="PinToolbarInSimpleModeToggleSwitch_Toggled"
+                                                ToolTipService.ToolTip="Permanently shows the toolbar in mini mode instead of hiding it."/>
+                                        <ComboBox x:Name="CheckBoxBehaviorCombobox" Margin="-1,5,-1,5" HorizontalAlignment="Stretch" Header="Use check boxes to select items" SelectionChanged="CheckBoxBehaviorCombobox_SelectionChanged">
+                                            <x:String>Never</x:String>
+                                            <x:String>When turned on in File Explorer</x:String>
+                                            <x:String>Always</x:String>
+                                        </ComboBox>
+                                        <ComboBox x:Name="ThemePickerCombobox" Margin="-1,0,-1,10" HorizontalAlignment="Stretch" Header="Theme" SelectionChanged="ThemePickerCombobox_SelectionChanged">
+                                            <x:String>Default</x:String>
+                                            <x:String>Colorful</x:String>
+                                            <x:String>Evening</x:String>
+                                            <x:String>Ukraine</x:String>
+                                            <x:String>Bliss</x:String>
+                                            <x:String>Microsoft</x:String>
+                                            <x:String>Thunderstorm</x:String>
+                                        </ComboBox>
+                                        <NumberBox x:Name="SearchThresholdNumberBox"
+                                           Header="Search leniency"
+                                           SmallChange="1"
+                                           LargeChange="1"
+                                           Minimum="0"
+                                           Maximum="5"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ValueChanged="SearchThresholdNumberBox_ValueChanged"/>
+                                        <TextBlock Text="*Search leniency describes how many typos you can make in your search query while still finding the file. Lowering this value will improve search accuracy."
+                                           TextWrapping="WrapWholeWords"
+                                           HorizontalAlignment="Center"
+                                           Opacity="0.7"
+                                           FontSize="10"/>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                    <StackPanel Spacing="10" Margin="-25,0,-25,0">
+                                        <TextBlock HorizontalAlignment="Stretch"
+                                           Text="*Changes are reflected after reloading."
+                                           Margin="0,0,0,5"/>
+                                        <NumberBox x:Name="RegularFileCapNumberBox"
+                                           Header="Loaded items"
+                                           SmallChange="100"
+                                           LargeChange="500"
+                                           Minimum="1"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Restrict the amount of loaded files in normal mode and simple mode. 
+                                           Takes effect after refreshing the list"
+                                           ValueChanged="RegularFileCapNumberBox_ValueChanged"/>
+                                        <NumberBox x:Name="ThumbnailCapNumberBox"
+                                           Header="Loaded thumbnails"
+                                           SmallChange="50"
+                                           LargeChange="200"
+                                           Minimum="0"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Restrict the amount of thumbnails that are being loaded. 
+                                           This helps improve speed and reduce RAM usage, so you can load more items without your RAM filling up as quickly. 
+                                           Takes effect after refreshing."
+                                           ValueChanged="ThumbnailCapNumberBox_ValueChanged"/>
+                                        <NumberBox x:Name="ThumbnailResolutionNumberBox"
+                                           Header="Thumbnail resolution (Recommended:64)"
+                                           SmallChange="2"
+                                           LargeChange="10"
+                                           Minimum="20"
+                                           HorizontalAlignment="Stretch"
+                                           SpinButtonPlacementMode="Compact"
+                                           ToolTipService.ToolTip="Set the resolution in which thumbnails are loaded. 
+                                           This should greatly improve speed and RAM usage at the cost of recognizability. 
+                                           Therefore, we recommend 64 as a balance. Takes effect after refr4eshing the list."
+                                           ValueChanged="ThumbnailResolutionNumberBox_ValueChanged"/>
+                                        <Button x:Name="ResetCapsToDefaultButton"
+                                        Content="Reset to default values"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="0,10,0,0"
+                                        ToolTipService.ToolTip="Reset these values to their defaults"
+                                        Click="ResetCapsToDefaultButton_Click"/>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander x:Name="SecondaryFolderSettingsExpander" Header="Manage your portal folders" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                    <StackPanel Spacing="10" Margin="-25,0,-25,0">
+                                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <CheckBox x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0" Content="Primary:" Checked="PrimaryPortalFolderCheckBox_Checked" Unchecked="PrimaryPortalFolderCheckBox_Unchecked"/>
+                                            <CheckBox x:Name="SecondaryPortalFolder1CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="1" Content="Secondary 1:" Tag="1" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
+                                            <CheckBox x:Name="SecondaryPortalFolder2CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="2" Content="Secondary 2:" Tag="2" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
+                                            <CheckBox x:Name="SecondaryPortalFolder3CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="3" Content="Secondary 3:" Tag="3" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
+                                            <CheckBox x:Name="SecondaryPortalFolder4CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="4" Content="Secondary 4:" Tag="4" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
+                                            <CheckBox x:Name="SecondaryPortalFolder5CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="5" Content="Secondary 5:" Tag="5" Checked="SecondaryPortalFolderCheckBox_Checked" Unchecked="SecondaryPortalFolderCheckBox_Unchecked"/>
+                                            <Button x:Name="PrimaryPortalFolderChangeButton"    Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="0" HorizontalAlignment="Stretch" Content="Set New..." Click="PrimaryPortalFolderChangeButton_Click"/>
+                                            <Button x:Name="SecondaryPortalFolder1ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="1" HorizontalAlignment="Stretch" Tag="1" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
+                                            <Button x:Name="SecondaryPortalFolder2ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="2" HorizontalAlignment="Stretch" Tag="2" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
+                                            <Button x:Name="SecondaryPortalFolder3ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="3" HorizontalAlignment="Stretch" Tag="3" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
+                                            <Button x:Name="SecondaryPortalFolder4ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="4" HorizontalAlignment="Stretch" Tag="4" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
+                                            <Button x:Name="SecondaryPortalFolder5ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="5" HorizontalAlignment="Stretch" Tag="5" Content="Set New..." Click="SecondaryPortalFolderChangeButton_Click"/>
+                                        </Grid>
+                                        <Button x:Name="ApplyMultiFolderSettings" HorizontalAlignment="Stretch" Content="Apply" Click="ApplyMultiFolderSettings_Click"/>
+                                        <Button x:Name="deleteFolderCookieButton"
+                    Content="Revoke Folder Access"
+                    Background="DarkRed"
+                    Foreground="White"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center">
+                                            <Button.Flyout>
+                                                <Flyout Opened="Flyout_Opened">
+                                                    <StackPanel Spacing="10">
+                                                        <TextBlock MaxWidth="300" 
+                                       Style="{ThemeResource BaseTextBlockStyle}" 
+                                       Text="This will disconnect the app from the folders you chose during setup and you will need to repeat the setup process to use it again. All your files in Portal and Pins will persist, the app will just not be able to find them anymore."  
+                                       TextWrapping="WrapWholeWords"/>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="50"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBox Grid.Column="0" x:Name="RegularFolderPathDisplay" Header="Your Portal folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
+                                                            <Button  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0" Click="CopyRegularFolderPathButton_Click" VerticalAlignment="Bottom">
+                                                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
+                                                            </Button>
+                                                        </Grid>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="50"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBox Grid.Column="0" x:Name="PinnedFolderPathDisplay" Header="Your Pinned folder path:" Text="Something went wrong" MaxWidth="250" IsReadOnly="True"/>
+                                                            <Button  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0" Click="CopyPinnedFolderPathButton_Click" VerticalAlignment="Bottom">
+                                                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
+                                                            </Button>
+                                                        </Grid>
+                                                        <Button Click="disconnectFolderButton_Click" 
+                                            Content="Yes, disconnect and relaunch!" 
+                                            Background="DarkRed"
+                                            Foreground="White"
+                                            HorizontalAlignment="Stretch"/>
+                                                    </StackPanel>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                    <StackPanel Spacing="10">
+                                        <RadioButtons Header="Options:">
+                                            <RadioButton x:Name="PinsAlwaysOpenRadioButton" Content="Always opened" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                            <RadioButton x:Name="PinsRememberStateRadioButton" Content="Remember last state" Checked="RadioButton_Checked" ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
+                                            <RadioButton x:Name="PinsAlwaysClosedRadioButton" Content="Always closed" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                            <RadioButton x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️" Checked="RadioButton_Checked" ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
+                                        </RadioButtons>
+                                        <Button x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch" Click="EnableAllOptionsForPinsButton_Click" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander x:Name="AboutDropStackExpander" Header="App Info" HorizontalAlignment="Stretch" IsExpanded="False" HorizontalContentAlignment="Left" Margin="0,0,0,5">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
