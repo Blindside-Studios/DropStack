@@ -52,6 +52,8 @@ using System.ComponentModel;
 using Microsoft.UI.Windowing;
 using System.Runtime.InteropServices;
 using Microsoft.VisualBasic.FileIO;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -102,7 +104,7 @@ namespace DropStackWinUI
         public static IList<string> DownloadFileTypes => downloadFileTypes; static IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
         public static IList<string> DocumentFileTypes => documentFileTypes; static IList<string> documentFileTypes = new List<string> { ".pdf", ".doc", ".docx", ".txt", ".html", ".htm", ".xls", ".xlsx", ".odt", ".fodt", ".ods", ".fods", ".rtf", ".xml" };
         public static IList<string> PictureFileTypes => pictureFileTypes; static IList<string> pictureFileTypes = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".ico", ".webp", ".raw", ".psd", ".ai" };
-        public static IList<string> MusicFileTypes => pictureFileTypes; static IList<string> musicFileTypes = new List<string> { ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".mid", ".amr", ".aiff", ".ape" };
+        public static IList<string> MusicFileTypes => musicFileTypes; static IList<string> musicFileTypes = new List<string> { ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".mid", ".amr", ".aiff", ".ape" };
         public static IList<string> VideoFileTypes => videoFileTypes; static IList<string> videoFileTypes = new List<string> { ".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".mpeg", ".mpg", ".rm", ".vob" };
         public static IList<string> ApplicationFileTypes => applicationFileTypes; static IList<string> applicationFileTypes = new List<string> { ".exe", ".dmg", ".app", ".deb", ".apk", ".msi", ".msix", ".rpm", ".jar", ".bat", ".sh", ".com", ".vb", ".gadget", ".ipa" };
         public static IList<string> PresentationFileTypes => presentationFileTypes; static IList<string> presentationFileTypes = new List<string> { ".ppt", ".pptx", ".key", ".odp" };
@@ -163,6 +165,7 @@ namespace DropStackWinUI
         int checkboxBehavior = 1;
         int searchThreshold = 3;
 
+        FileItem previewedItem = null;
 
 
         public MainWindow()
@@ -1998,7 +2001,7 @@ namespace DropStackWinUI
             bitmapThumbnail.SetSource(thumbnail);
             DetailsPaneFileThumbnail.Source = bitmapThumbnail;
 
-            sharedFileItem = fileItem;
+            previewedItem = fileItem;
 
             DetailsFileNameDisplay.Text = file.Name;
             DetailsFileTypeDisplay.Text = file.DisplayType;
@@ -2006,13 +2009,12 @@ namespace DropStackWinUI
             DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
             DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
 
-            if (file.FileType == ".pdf")
-            {
-
-            }
+            DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
+            DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
+            mediaPlayer.Pause();
+            DetailsPaneVideoPlayer.SetMediaPlayer(null);
         }
 
-        FileItem sharedFileItem = null;
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -2024,10 +2026,10 @@ namespace DropStackWinUI
         private async void DataTransferManager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
         {
             DataRequest request = args.Request;
-            request.Data.Properties.Title = sharedFileItem.FileDisplayName;
-            request.Data.Properties.Description = sharedFileItem.FileType;
+            request.Data.Properties.Title = previewedItem.FileDisplayName;
+            request.Data.Properties.Description = previewedItem.FileType;
 
-            StorageFile file = await StorageFile.GetFileFromPathAsync(sharedFileItem.FilePath);
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
             if (file != null)
             {
                 List<IStorageItem> storageItems = new List<IStorageItem>();
@@ -2038,6 +2040,53 @@ namespace DropStackWinUI
             {
                 request.FailWithDisplayText("File not found.");
             }
+        }
+
+        private void DetailsPaneFileThumbnail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        private async void DetailsPanePlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+            var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+            if (previewedItem.TypeTag == "vids" || previewedItem.TypeTag == "music")
+            {
+                if (DetailsPaneVideoPlayer.Visibility == Visibility.Collapsed)
+                {
+                    if (previewedItem.TypeTag == "vids")
+                    {
+                        DetailsPaneFileThumbnail.Visibility = Visibility.Collapsed;
+                        DetailsPaneVideoPlayer.Visibility = Visibility.Visible;
+                    }
+
+                    mediaPlayer.Source = MediaSource.CreateFromStream(stream, file.ContentType);
+                    if (previewedItem.TypeTag == "vids") DetailsPaneVideoPlayer.SetMediaPlayer(mediaPlayer);
+                    mediaPlayer.Play();
+
+                    mediaPlayer.MediaFailed += MediaPlayer_MediaFailed;
+
+                    
+                }
+                else
+                {
+                    if (mediaPlayer.PlaybackSession.PlaybackState == MediaPlaybackState.Playing)
+                    {
+                        mediaPlayer.Pause();
+                    }
+                    else if (mediaPlayer.PlaybackSession.PlaybackState == MediaPlaybackState.Paused)
+                    {
+                        mediaPlayer.Play();
+                    }
+                }
+            }
+        }
+        private void MediaPlayer_MediaFailed(MediaPlayer sender, MediaPlayerFailedEventArgs args)
+        {
+            DetailsPanePlayButton.Visibility = Visibility.Collapsed;
         }
     }
 }

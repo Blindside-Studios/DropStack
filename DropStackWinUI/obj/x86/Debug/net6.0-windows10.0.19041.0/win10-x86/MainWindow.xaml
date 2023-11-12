@@ -16,7 +16,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='126' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='128' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid">
             <Grid.RowDefinitions>
@@ -51,18 +51,18 @@
                                                       
                                                                  >
                         <Grid>
-                            <StackPanel x:ConnectionId='112' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='125' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='114' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='127' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='113' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='114' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='123' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='124' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='115' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='116' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='125' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='126' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='115' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='117' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='116'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='118'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -85,7 +85,7 @@
                                                             <Flyout>
                                                                 <StackPanel>
                                                                     <TextBlock Text="Do you wish to unpin this file?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:ConnectionId='122' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                    <Button x:ConnectionId='124' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>
@@ -124,7 +124,14 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='111' x:Name="DetailsPaneFileThumbnail" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <MediaPlayerElement x:ConnectionId='112' x:Name="DetailsPaneVideoPlayer" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent"/>
+                                    <Image x:ConnectionId='113' x:Name="DetailsPaneFileThumbnail" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"                                         />
+                                </Grid>
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -141,22 +148,23 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0" Margin="0,3,2,3" Height="18" MaxWidth="200">
                                         <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
-                                        <TextBlock x:ConnectionId='110' x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                                        <TextBlock x:ConnectionId='111' x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
                                     </Grid>
                                     <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
                                         <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
                                         <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
-                                            <TextBlock x:ConnectionId='108' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
-                                            <TextBlock x:ConnectionId='109' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                                            <TextBlock x:ConnectionId='109' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                                            <TextBlock x:ConnectionId='110' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Grid>
-                                    <TextBlock x:ConnectionId='107' x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock x:ConnectionId='108' x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
                                 </Grid>
                                 <Grid Grid.Row="2">
                                     <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+                                        <AppBarButton x:ConnectionId='106' x:Name="DetailsPanePlayButton" Icon="Play" Label="Play"                                    />
                                         <AppBarButton Icon="Rotate" Label="Rotate"/>
                                         <AppBarButton Icon="Edit" Label="Edit"/>
-                                        <AppBarButton x:ConnectionId='106' Icon="Share" Label="Share"                           />
+                                        <AppBarButton x:ConnectionId='107' Icon="Share" Label="Share"                           />
                                     </CommandBar>
                                 </Grid>
                             </Grid>

@@ -124,7 +124,14 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:Name="DetailsPaneFileThumbnail" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <MediaPlayerElement x:Name="DetailsPaneVideoPlayer" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent"/>
+                                    <Image x:Name="DetailsPaneFileThumbnail" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Tapped="DetailsPaneFileThumbnail_Tapped"/>
+                                </Grid>
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -154,6 +161,7 @@
                                 </Grid>
                                 <Grid Grid.Row="2">
                                     <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+                                        <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" Click="DetailsPanePlayButton_Click"/>
                                         <AppBarButton Icon="Rotate" Label="Rotate"/>
                                         <AppBarButton Icon="Edit" Label="Edit"/>
                                         <AppBarButton Icon="Share" Label="Share" Click="AppBarButton_Click"/>
