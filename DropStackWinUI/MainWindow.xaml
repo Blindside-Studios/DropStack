@@ -32,6 +32,7 @@
                     </Grid.TranslationTransition>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Rectangle x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -112,7 +113,56 @@
                             </Grid>
                         </Grid>
                     </Expander>
-                    <Grid x:Name="regularFileGrid" Grid.Row="1">
+                    <Grid Grid.Row="1" Visibility="Collapsed" x:Name="DetailsPaneGrid" Height="120" Margin="0,8,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="DetailsPaneFileThumbnail" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"/>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock x:Name="DetailsFileNameDisplay" Grid.Row="0" Text="This displays the file name" FontSize="25" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
+                                <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" Margin="0,3,2,3" Height="18" MaxWidth="200">
+                                        <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
+                                        <TextBlock x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
+                                        <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
+                                            <TextBlock x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                                            <TextBlock x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <TextBlock x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+                                        <AppBarButton Icon="Rotate" Label="Rotate"/>
+                                        <AppBarButton Icon="Edit" Label="Edit"/>
+                                        <AppBarButton Icon="Share" Label="Share" Click="AppBarButton_Click"/>
+                                    </CommandBar>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid x:Name="regularFileGrid" Grid.Row="2">
                         <Grid.TranslationTransition>
                             <Vector3Transition/>
                         </Grid.TranslationTransition>
@@ -216,7 +266,7 @@
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="Q" />
                         </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton> 
+                    </AppBarButton>
                     <AppBarButton x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple" Click="LaunchSimpleModeButton_Click">
                         <ToolTip Content="Launch Simple Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
@@ -624,7 +674,7 @@
                                         <HyperlinkButton HorizontalAlignment="Left" Margin="-5,-10,0,0" Content="Report a problem by creating an issue" FontSize="15" NavigateUri="https://github.com/Blindside-Studios/DropStack/issues" Grid.Row="4" />
                                     </Grid>
                                 </Expander>
-                                <Expander x:Name="PrivacyStamentExpander" Header="Privacy Statement" HorizontalAlignment="Stretch" IsExpanded="False" Expanding="PrivacyStamentExpander_Expanding">
+                                <Expander x:Name="PrivacyStamentExpander" Header="Privacy Statement" HorizontalAlignment="Stretch" IsExpanded="False" Expanding="PrivacyStamentExpander_Expanding" Margin="0,0,0,5">
                                     <RichTextBlock>
                                         <Paragraph>
                                             <Run FontWeight="ExtraBold">About the app's local abilities</Run>
@@ -639,6 +689,16 @@
                                         <Paragraph>Authenticating with Windows Hello means that only Windows ever gets to see your biometric details, PIN or hardware key. 
                                     There is no point in time where the app is able to see your login credentials or authentication details.</Paragraph>
                                     </RichTextBlock>
+                                </Expander>
+                                <Expander x:Name="FlagsExpander" Header="Experiments" HorizontalAlignment="Stretch">
+                                    <StackPanel Margin="5,5,5,5" Spacing="5">
+                                        <TextBlock Text="These settings are highly experimental. Please modify with caution"
+                                           TextWrapping="WrapWholeWords"
+                                           HorizontalAlignment="Center"
+                                           Opacity="0.7"
+                                           FontSize="10"/>
+                                        <Button x:Name="ShowDetailsPaneFlagButton" Content="EnableDetailsPane" Click="ShowDetailsPaneFlagButton_Click"/>
+                                    </StackPanel>
                                 </Expander>
                             </StackPanel>
                         </ScrollViewer>

@@ -875,6 +875,7 @@ namespace DropStackWinUI
         private void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GlobalClickedItems = regularFileListView.SelectedItems;
+            updatePreviewArea(GlobalClickedItems[0] as FileItem, regularFileListView.SelectedItems.Count < 1);
         }
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
@@ -1978,6 +1979,65 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["SearchThreshold"] = Convert.ToInt32(SearchThresholdNumberBox.Value);
             searchThreshold = Convert.ToInt32(SearchThresholdNumberBox.Value);
+        }
+
+        private void ShowDetailsPaneFlagButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DetailsPaneGrid.Visibility == Visibility.Collapsed) DetailsPaneGrid.Visibility = Visibility.Visible;
+            else DetailsPaneGrid.Visibility = Visibility.Collapsed;
+
+        }
+
+        private async void updatePreviewArea(FileItem fileItem, bool isSeveralItems)
+        {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
+            BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+
+            BitmapImage bitmapThumbnail = new BitmapImage();
+            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
+            bitmapThumbnail.SetSource(thumbnail);
+            DetailsPaneFileThumbnail.Source = bitmapThumbnail;
+
+            sharedFileItem = fileItem;
+
+            DetailsFileNameDisplay.Text = file.Name;
+            DetailsFileTypeDisplay.Text = file.DisplayType;
+            DetailsFileSizeDisplay.Text = fileItem.FileSize;
+            DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
+            DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
+
+            if (file.FileType == ".pdf")
+            {
+
+            }
+        }
+
+        FileItem sharedFileItem = null;
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            //DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
+            //dataTransferManager.DataRequested += DataTransferManager_DataRequested;
+            //DataTransferManager.ShowShareUI();
+        }
+
+        private async void DataTransferManager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            DataRequest request = args.Request;
+            request.Data.Properties.Title = sharedFileItem.FileDisplayName;
+            request.Data.Properties.Description = sharedFileItem.FileType;
+
+            StorageFile file = await StorageFile.GetFileFromPathAsync(sharedFileItem.FilePath);
+            if (file != null)
+            {
+                List<IStorageItem> storageItems = new List<IStorageItem>();
+                storageItems.Add(file);
+                request.Data.SetStorageItems(storageItems);
+            }
+            else
+            {
+                request.FailWithDisplayText("File not found.");
+            }
         }
     }
 }
