@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<winex:WindowEx
+    x:Class="DropStackWinUI.FileViews.PDFView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DropStackWinUI.FileViews"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:winex="using:WinUIEx" MinHeight="200" MinWidth="200">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt"/>
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <Grid x:Name="TitleBarGrid" Height="30" VerticalAlignment="Top">
+            <Rectangle x:Name="TitleBarRectangle" Opacity="0"/>
+            <TextBlock x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack PDF Viewer" Margin="10,5,0,0"/>
+        </Grid>
+        <WebView2 x:Name="WebViewRendererComponent" Margin="0,30,0,0" Source="https://www.github.com/Blindside-Studios/DropStack" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</winex:WindowEx>

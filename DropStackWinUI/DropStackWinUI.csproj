@@ -30,6 +30,9 @@
     <None Remove="Assets\Themes\Panos.png" />
     <None Remove="Assets\Themes\Thunderstorm.png" />
     <None Remove="Assets\Themes\Ukraine.png" />
+    <None Remove="FileViews\ImageView.xaml" />
+    <None Remove="FileViews\PDFView.xaml" />
+    <None Remove="FileViews\VideoView.xaml" />
     <None Remove="MiniMode.xaml" />
     <None Remove="SimpleMode.xaml" />
   </ItemGroup>
@@ -60,12 +63,27 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="FileViews\PDFView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FileViews\VideoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MiniMode.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="SimpleMode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FileViews\ImageView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -54,6 +54,7 @@ using System.Runtime.InteropServices;
 using Microsoft.VisualBasic.FileIO;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using DropStackWinUI.FileViews;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -108,6 +109,14 @@ namespace DropStackWinUI
         public static IList<string> VideoFileTypes => videoFileTypes; static IList<string> videoFileTypes = new List<string> { ".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".mpeg", ".mpg", ".rm", ".vob" };
         public static IList<string> ApplicationFileTypes => applicationFileTypes; static IList<string> applicationFileTypes = new List<string> { ".exe", ".dmg", ".app", ".deb", ".apk", ".msi", ".msix", ".rpm", ".jar", ".bat", ".sh", ".com", ".vb", ".gadget", ".ipa" };
         public static IList<string> PresentationFileTypes => presentationFileTypes; static IList<string> presentationFileTypes = new List<string> { ".ppt", ".pptx", ".key", ".odp" };
+    }
+
+    public class ImageViewerSettings
+    {
+        public string filePath { get; set; }
+        public bool isVideo { get; set; } = false;
+        public bool isAnnotating { get; set; } = false;
+        public bool isCropping { get; set; } = false;
     }
 
     [XmlRoot("ArrayOfFileItem")]
@@ -2065,11 +2074,7 @@ namespace DropStackWinUI
 
                     mediaPlayer.Source = MediaSource.CreateFromStream(stream, file.ContentType);
                     if (previewedItem.TypeTag == "vids") DetailsPaneVideoPlayer.SetMediaPlayer(mediaPlayer);
-                    mediaPlayer.Play();
-
-                    mediaPlayer.MediaFailed += MediaPlayer_MediaFailed;
-
-                    
+                    mediaPlayer.Play();                    
                 }
                 else
                 {
@@ -2084,9 +2089,51 @@ namespace DropStackWinUI
                 }
             }
         }
-        private void MediaPlayer_MediaFailed(MediaPlayer sender, MediaPlayerFailedEventArgs args)
+
+        private void DetailsPanePreviewButton_Click(object sender, RoutedEventArgs e)
         {
-            DetailsPanePlayButton.Visibility = Visibility.Collapsed;
+            switch (previewedItem.TypeTag)
+            {
+                case "pics":
+                    var quickImageViewer = new ImageView(new ImageViewerSettings { filePath = previewedItem.FilePath });
+                    quickImageViewer.Activate();
+                    break;
+                case "vids":
+                    var quickVideoViewer = new VideoView(previewedItem.FilePath);
+                    quickVideoViewer.Activate();
+                    break;
+                default:
+                    switch (previewedItem.FileType)
+                    {
+                        case "Document (.pdf)":
+                            var quickPDFViewer = new PDFView(previewedItem.FilePath);
+                            quickPDFViewer.Activate();
+                            break;
+                    }
+                    break;
+            }
+        }
+
+        private void DetailsPaneAnnotateButton_Click(object sender, RoutedEventArgs e)
+        {
+            var quickImageViewer = new ImageView(new ImageViewerSettings { filePath = previewedItem.FilePath, isAnnotating = true });
+            quickImageViewer.Activate();
+        }
+
+        private void DetailsPaneCropButton_Click(object sender, RoutedEventArgs e)
+        {
+            var quickImageViewer = new ImageView(new ImageViewerSettings { filePath = previewedItem.FilePath, isCropping = true });
+            quickImageViewer.Activate();
+        }
+
+        private void DetailsPaneRotateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DetailsPaneOpenWithButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -16,6 +16,21 @@
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
   </PropertyGroup>
   <ItemGroup>
+    <Page Update="FileViews\PDFView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FileViews\VideoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FileViews\ImageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MiniMode.xaml">
       <SubType>Designer</SubType>
     </Page>

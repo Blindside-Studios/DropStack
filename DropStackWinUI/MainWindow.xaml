@@ -160,11 +160,16 @@
                                     <TextBlock x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
                                 </Grid>
                                 <Grid Grid.Row="2">
-                                    <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
-                                        <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" Click="DetailsPanePlayButton_Click"/>
-                                        <AppBarButton Icon="Rotate" Label="Rotate"/>
-                                        <AppBarButton Icon="Edit" Label="Edit"/>
-                                        <AppBarButton Icon="Share" Label="Share" Click="AppBarButton_Click"/>
+                                    <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Collapsed">
+                                        <CommandBar.PrimaryCommands>
+                                            <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Click="DetailsPaneOpenWithButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" Click="DetailsPanePlayButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" Click="DetailsPaneCropButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click" Width="40"/>
+                                            <AppBarButton Icon="Share" Label="Share" Click="AppBarButton_Click" Width="40"/>
+                                        </CommandBar.PrimaryCommands>
                                     </CommandBar>
                                 </Grid>
                             </Grid>
