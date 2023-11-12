@@ -162,6 +162,27 @@
                                 <Grid Grid.Row="2">
                                     <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Collapsed">
                                         <CommandBar.PrimaryCommands>
+                                            <AppBarButton x:Name="DetailsPaneRenameFlyoutButton" Icon="Rename" Label="Rename" Click="DetailsPaneRenameFlyoutButton_Click" Width="40">
+                                                <AppBarButton.Flyout>
+                                                    <Flyout x:Name="RenameFlyout">
+                                                        <StackPanel Width="300" Spacing="10">
+                                                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Please enter a new name:" Margin="0,0,0,0" />
+                                                            <TextBox x:Name="FileNameTextBox" HorizontalAlignment="Stretch" IsEnabled="True" IsReadOnly="False"/>
+                                                            <Button x:Name="FileRenameButton" Click="FileRenameButton_Click"  Content="Rename" HorizontalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </AppBarButton.Flyout>
+                                            </AppBarButton>
+                                            <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" Width="40">
+                                                <AppBarButton.Flyout>
+                                                    <Flyout x:Name="DeleteFlyout">
+                                                        <StackPanel Spacing="10">
+                                                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Do you want to delete this file?" Margin="0,0,0,0" />
+                                                            <Button x:Name="FileDeleteButton" Click="FileDeleteButton_Click"  Content="Yes, delete!" HorizontalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </AppBarButton.Flyout>
+                                            </AppBarButton>
                                             <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Click="DetailsPaneOpenWithButton_Click" Width="40"/>
                                             <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click" Width="40"/>
                                             <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" Click="DetailsPanePlayButton_Click" Width="40"/>

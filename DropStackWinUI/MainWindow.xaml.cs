@@ -887,7 +887,8 @@ namespace DropStackWinUI
         private void fileListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GlobalClickedItems = regularFileListView.SelectedItems;
-            updatePreviewArea(GlobalClickedItems[0] as FileItem, regularFileListView.SelectedItems.Count < 1);
+            try { updatePreviewArea(GlobalClickedItems[0] as FileItem, regularFileListView.SelectedItems.Count < 1); }
+            catch{ updatePreviewArea(null, false); }
         }
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
@@ -2002,21 +2003,33 @@ namespace DropStackWinUI
 
         private async void updatePreviewArea(FileItem fileItem, bool isSeveralItems)
         {
-            StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
-            BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+            if (fileItem != null)
+            {
+                StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
+                BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
 
-            BitmapImage bitmapThumbnail = new BitmapImage();
-            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
-            bitmapThumbnail.SetSource(thumbnail);
-            DetailsPaneFileThumbnail.Source = bitmapThumbnail;
+                BitmapImage bitmapThumbnail = new BitmapImage();
+                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
+                bitmapThumbnail.SetSource(thumbnail);
+                DetailsPaneFileThumbnail.Source = bitmapThumbnail;
 
-            previewedItem = fileItem;
+                previewedItem = fileItem;
 
-            DetailsFileNameDisplay.Text = file.Name;
-            DetailsFileTypeDisplay.Text = file.DisplayType;
-            DetailsFileSizeDisplay.Text = fileItem.FileSize;
-            DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
-            DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
+                DetailsFileNameDisplay.Text = file.Name;
+                DetailsFileTypeDisplay.Text = file.DisplayType;
+                DetailsFileSizeDisplay.Text = fileItem.FileSize;
+                DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
+                DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
+            }
+            else
+            {
+                DetailsFileNameDisplay.Text = "No file selected";
+                DetailsFileTypeDisplay.Text = "No type";
+                DetailsFileSizeDisplay.Text = "No";
+                DetailsFileSizeSuffixDisplay.Text = "size";
+                DetailsFileModifiedDateDisplay.Text = "No date";
+                DetailsPaneFileThumbnail.Source = null;
+            }
 
             DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
             DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
@@ -2134,6 +2147,39 @@ namespace DropStackWinUI
         private void DetailsPaneOpenWithButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void FileRenameButton_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+            await file.RenameAsync(FileNameTextBox.Text);
+            DetailsFileNameDisplay.Text = FileNameTextBox.Text;
+            regularFileListView.ItemsSource = fileMetadataListCopy;
+            fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileDisplayName = file.DisplayName;
+            fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileName = file.Name;
+            FileNameTextBox.Text = "";
+            saveToCache("regular", fileMetadataListCopy);
+            RenameFlyout.Hide();
+        }
+
+        private void DetailsPaneRenameFlyoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FileNameTextBox.PlaceholderText = previewedItem.FileDisplayName;
+                FileNameTextBox.Focus(FocusState.Programmatic);
+            }
+            catch { RenameFlyout.Hide(); }
+        }
+
+        private async void FileDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+            await file.DeleteAsync();
+            regularFileListView.ItemsSource = fileMetadataListCopy;
+            fileMetadataListCopy.RemoveAt(fileMetadataListCopy.IndexOf(previewedItem));
+            saveToCache("regular", fileMetadataListCopy);
+            DeleteFlyout.Hide();
         }
     }
 }
