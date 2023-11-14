@@ -2149,29 +2149,6 @@ namespace DropStackWinUI
 
         }
 
-        private async void FileRenameButton_Click(object sender, RoutedEventArgs e)
-        {
-            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
-            await file.RenameAsync(FileNameTextBox.Text);
-            DetailsFileNameDisplay.Text = FileNameTextBox.Text;
-            regularFileListView.ItemsSource = fileMetadataListCopy;
-            fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileDisplayName = file.DisplayName;
-            fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileName = file.Name;
-            FileNameTextBox.Text = "";
-            saveToCache("regular", fileMetadataListCopy);
-            RenameFlyout.Hide();
-        }
-
-        private void DetailsPaneRenameFlyoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                FileNameTextBox.PlaceholderText = previewedItem.FileDisplayName;
-                FileNameTextBox.Focus(FocusState.Programmatic);
-            }
-            catch { RenameFlyout.Hide(); }
-        }
-
         private async void FileDeleteButton_Click(object sender, RoutedEventArgs e)
         {
             StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
@@ -2180,6 +2157,21 @@ namespace DropStackWinUI
             fileMetadataListCopy.RemoveAt(fileMetadataListCopy.IndexOf(previewedItem));
             saveToCache("regular", fileMetadataListCopy);
             DeleteFlyout.Hide();
+        }
+
+        private async void EnterKeyPressFileNameEdit_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            // this is called on textcompositionended event for the DetailsFileNameDisplay
+            try
+            {
+                StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+                await file.RenameAsync(DetailsFileNameDisplay.Text);
+                regularFileListView.ItemsSource = fileMetadataListCopy;
+                fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileDisplayName = file.DisplayName;
+                fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileName = file.Name;
+                saveToCache("regular", fileMetadataListCopy);
+            }
+            catch { }
         }
     }
 }
