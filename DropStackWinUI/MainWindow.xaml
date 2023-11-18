@@ -129,8 +129,8 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <MediaPlayerElement x:Name="DetailsPaneVideoPlayer" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent"/>
-                                    <Image x:Name="DetailsPaneFileThumbnail" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Tapped="DetailsPaneFileThumbnail_Tapped"/>
+                                    <MediaPlayerElement x:Name="DetailsPaneVideoPlayer" CenterPoint="40,40,40" Width="80" Height="80" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited"/>
+                                    <Image x:Name="DetailsPaneFileThumbnail" CenterPoint="40,40,40" Width="80" Height="80" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Tapped="DetailsPaneFileThumbnail_Tapped" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1">
@@ -144,7 +144,7 @@
                                         <KeyboardAccelerator x:Name="EnterKeyPressFileNameEdit" Key="Enter" Invoked="EnterKeyPressFileNameEdit_Invoked"/>
                                     </TextBox.KeyboardAccelerators>
                                 </TextBox>
-                                <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
+                                <Grid Grid.Row="1" Margin="10,0,0,5" HorizontalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>

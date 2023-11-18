@@ -55,6 +55,7 @@ using Microsoft.VisualBasic.FileIO;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using DropStackWinUI.FileViews;
+using Microsoft.UI.Composition;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -176,6 +177,9 @@ namespace DropStackWinUI
 
         FileItem previewedItem = null;
 
+        Compositor _compositor = null;
+        SpringVector3NaturalMotionAnimation _springAnimation;
+
 
         public MainWindow()
         {
@@ -201,6 +205,8 @@ namespace DropStackWinUI
                 setFolderPath("Pin");
                 loadFromCache("pinned");
             }
+            var window = this;
+            _compositor = window.Compositor;
         }
 
         private void adjustDarkLightMode()
@@ -2035,6 +2041,15 @@ namespace DropStackWinUI
             DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
             mediaPlayer.Pause();
             DetailsPaneVideoPlayer.SetMediaPlayer(null);
+
+            DetailsPaneVideoPlayer.CenterPoint = new Vector3(
+                (float)DetailsPaneVideoPlayer.ActualWidth / 2,
+                (float)DetailsPaneVideoPlayer.ActualHeight / 2, 
+                0);
+            DetailsPaneFileThumbnail.CenterPoint = new Vector3(
+                (float)DetailsPaneFileThumbnail.ActualWidth / 2, 
+                (float)DetailsPaneFileThumbnail.ActualHeight / 2, 
+                0);
         }
 
 
@@ -2172,6 +2187,33 @@ namespace DropStackWinUI
                 saveToCache("regular", fileMetadataListCopy);
             }
             catch { }
+        }
+
+        private void CreateOrUpdateSpringAnimation(float finalValue)
+        {
+            if (_springAnimation == null)
+            {
+                _springAnimation = _compositor.CreateSpringVector3Animation();
+                _springAnimation.Target = "Scale";
+            }
+
+            _springAnimation.FinalValue = new Vector3(finalValue);
+        }
+
+        private void DetailsPaneFileThumbnail_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            // Scale up to 1.5
+            CreateOrUpdateSpringAnimation(1.5f);
+
+            (sender as UIElement).StartAnimation(_springAnimation);
+        }
+
+        private void DetailsPaneFileThumbnail_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            // Scale back down to 1.0
+            CreateOrUpdateSpringAnimation(1.0f);
+
+            (sender as UIElement).StartAnimation(_springAnimation);
         }
     }
 }
