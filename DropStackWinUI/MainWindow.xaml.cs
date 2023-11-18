@@ -176,6 +176,7 @@ namespace DropStackWinUI
         int checkboxBehavior = 1;
         int searchThreshold = 3;
 
+        bool showDetailsPane = true;
         FileItem previewedItem = null;
 
         Compositor _compositor = null;
@@ -208,6 +209,8 @@ namespace DropStackWinUI
             }
             var window = this;
             _compositor = window.Compositor;
+
+            DetailsPaneGrid.Height = 0;
         }
 
         private void adjustDarkLightMode()
@@ -354,6 +357,12 @@ namespace DropStackWinUI
                 searchThreshold = (int)localSettings.Values["SearchThreshold"];
             }
             SearchThresholdNumberBox.Value = searchThreshold;
+
+            if (localSettings.Values.ContainsKey("ShowDetailsPane"))
+            {
+                showDetailsPane = (bool)localSettings.Values["ShowDetailsPane"];
+            }
+            ShowDetailsPaneToggleSwitch.IsOn = showDetailsPane;
         }
 
         public void applySettingsToMenu()
@@ -1791,6 +1800,7 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["IsPanosUnlocked"] = true;
             unlockPanos(true);
+            // TODO: hide new theme, unlock this for everyone
         }
 
         private void setTheme(string themeName)
@@ -2010,50 +2020,59 @@ namespace DropStackWinUI
 
         private async void updatePreviewArea(FileItem fileItem, bool isSeveralItems)
         {
-            if (fileItem != null)
+            if (showDetailsPane)
             {
-                StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
-                BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+                if (fileItem != null && regularFileListView.SelectedItems.Count == 1)
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
+                    BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
 
-                BitmapImage bitmapThumbnail = new BitmapImage();
-                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
-                bitmapThumbnail.SetSource(thumbnail);
-                DetailsPaneFileThumbnail.Source = bitmapThumbnail;
+                    BitmapImage bitmapThumbnail = new BitmapImage();
+                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
+                    bitmapThumbnail.SetSource(thumbnail);
+                    DetailsPaneFileThumbnail.Source = bitmapThumbnail;
 
-                previewedItem = fileItem;
+                    previewedItem = fileItem;
 
-                DetailsFileNameDisplay.Text = file.Name;
-                DetailsFileTypeDisplay.Text = file.DisplayType;
-                DetailsFileSizeDisplay.Text = fileItem.FileSize;
-                DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
-                DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
+                    DetailsFileNameDisplay.Text = file.Name;
+                    DetailsFileTypeDisplay.Text = file.DisplayType;
+                    DetailsFileSizeDisplay.Text = fileItem.FileSize;
+                    DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
+                    DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
 
-                adjustShownDetailsButtons(fileItem.TypeTag, file.FileType);
+                    adjustShownDetailsButtons(fileItem.TypeTag, file.FileType);
+
+                    if (regularFileListView.SelectionMode != ListViewSelectionMode.Multiple)
+                    {
+                        DetailsPaneGrid.Visibility = Visibility.Visible;
+                        for (int i = Convert.ToInt32(DetailsPaneGrid.Height); i < 130; i = i + 10)
+                        {
+                            DetailsPaneGrid.Height = (double)i;
+                            await Task.Delay(1);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = Convert.ToInt32(DetailsPaneGrid.Height); i > 0; i = i - 10)
+                    {
+                        DetailsPaneGrid.Height = (double)i;
+                        await Task.Delay(1);
+                    }
+                    adjustShownDetailsButtons(null, null);
+                    DetailsPaneGrid.Visibility = Visibility.Collapsed;
+                }
+
+                DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
+                DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
+                mediaPlayer.Pause();
+                DetailsPaneVideoPlayer.SetMediaPlayer(null);
+
+                DetailsPaneFileThumbnail.CenterPoint = new Vector3(
+                    (float)DetailsPaneFileThumbnail.ActualWidth / 2,
+                    (float)DetailsPaneFileThumbnail.ActualHeight / 2,
+                    0);
             }
-            else
-            {
-                DetailsFileNameDisplay.Text = "No file selected";
-                DetailsFileTypeDisplay.Text = "No type";
-                DetailsFileSizeDisplay.Text = "No";
-                DetailsFileSizeSuffixDisplay.Text = "size";
-                DetailsFileModifiedDateDisplay.Text = "No date";
-                DetailsPaneFileThumbnail.Source = null;
-                adjustShownDetailsButtons(null, null);
-            }
-
-            DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
-            DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
-            mediaPlayer.Pause();
-            DetailsPaneVideoPlayer.SetMediaPlayer(null);
-
-            DetailsPaneVideoPlayer.CenterPoint = new Vector3(
-                (float)DetailsPaneVideoPlayer.ActualWidth / 2,
-                (float)DetailsPaneVideoPlayer.ActualHeight / 2, 
-                0);
-            DetailsPaneFileThumbnail.CenterPoint = new Vector3(
-                (float)DetailsPaneFileThumbnail.ActualWidth / 2, 
-                (float)DetailsPaneFileThumbnail.ActualHeight / 2, 
-                0);
         }
 
         private void adjustShownDetailsButtons(string typeTag, string type)
@@ -2278,6 +2297,15 @@ namespace DropStackWinUI
             CreateOrUpdateSpringAnimation(1.0f);
 
             (sender as UIElement).StartAnimation(_springAnimation);
+        }
+
+        private void ShowDetailsPaneToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["ShowDetailsPane"] = ShowDetailsPaneToggleSwitch.IsOn;
+            showDetailsPane = ShowDetailsPaneToggleSwitch.IsOn;
+            if (ShowDetailsPaneToggleSwitch.IsOn && regularFileListView.SelectedItems.Count == 1) updatePreviewArea(previewedItem, false);
+            else if (!ShowDetailsPaneToggleSwitch.IsOn) DetailsPaneGrid.Visibility = Visibility.Collapsed;
         }
     }
 }

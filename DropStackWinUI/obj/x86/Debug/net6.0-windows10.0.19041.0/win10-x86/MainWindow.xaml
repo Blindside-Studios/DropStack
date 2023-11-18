@@ -16,7 +16,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='139' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='140' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid">
             <Grid.RowDefinitions>
@@ -35,8 +35,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:ConnectionId='94' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <Expander x:ConnectionId='95'
+                    <Rectangle x:ConnectionId='95' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Expander x:ConnectionId='96'
                         x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
                         VerticalAlignment="Top"
@@ -51,18 +51,18 @@
                                                       
                                                                  >
                         <Grid>
-                            <StackPanel x:ConnectionId='125' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='138' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='126' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='139' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='126' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='127' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='136' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='137' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='127' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='128' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='137' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='138' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='128' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='129' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='129'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='130'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -85,7 +85,7 @@
                                                             <Flyout>
                                                                 <StackPanel>
                                                                     <TextBlock Text="Do you wish to unpin this file?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:ConnectionId='135' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                    <Button x:ConnectionId='136' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>
@@ -113,12 +113,8 @@
                             </Grid>
                         </Grid>
                     </Expander>
-                    <Grid x:ConnectionId='96' Grid.Row="1" Visibility="Collapsed" x:Name="DetailsPaneGrid" Height="120" Margin="0,8,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="120"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                    <Grid x:ConnectionId='97' Grid.Row="1" Visibility="Collapsed" x:Name="DetailsPaneGrid" Height="120">
+                        <Grid Margin="0,8,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="*"/>
@@ -129,8 +125,8 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <MediaPlayerElement x:ConnectionId='123' x:Name="DetailsPaneVideoPlayer" CenterPoint="40,40,40" Width="80" Height="80" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent"                                                                                                                />
-                                    <Image x:ConnectionId='124' x:Name="DetailsPaneFileThumbnail" CenterPoint="40,40,40" Width="80" Height="80" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"                                                                                                                                                         />
+                                    <MediaPlayerElement x:ConnectionId='124' x:Name="DetailsPaneVideoPlayer" CenterPoint="40,40,40" Width="80" Height="80" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent"                                                                                                                />
+                                    <Image x:ConnectionId='125' x:Name="DetailsPaneFileThumbnail" CenterPoint="40,40,40" Width="80" Height="80" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform"                                                                                                                                                         />
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1">
@@ -139,12 +135,12 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox x:ConnectionId='105' x:Name="DetailsFileNameDisplay" Grid.Row="0" Text="This displays the file name" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" Background="Transparent" BorderThickness="0">
+                                <TextBox x:ConnectionId='106' x:Name="DetailsFileNameDisplay" Grid.Row="0" Text="This displays the file name" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" Background="Transparent" BorderThickness="0">
                                     <TextBox.KeyboardAccelerators>
-                                        <KeyboardAccelerator x:ConnectionId='122' x:Name="EnterKeyPressFileNameEdit" Key="Enter"                                            />
+                                        <KeyboardAccelerator x:ConnectionId='123' x:Name="EnterKeyPressFileNameEdit" Key="Enter"                                            />
                                     </TextBox.KeyboardAccelerators>
                                 </TextBox>
-                                <Grid Grid.Row="1" Margin="10,0,0,5" HorizontalAlignment="Stretch">
+                                <Grid Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
@@ -152,55 +148,57 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0" Margin="0,3,2,3" Height="18" MaxWidth="200">
                                         <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
-                                        <TextBlock x:ConnectionId='121' x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                                        <TextBlock x:ConnectionId='122' x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
                                     </Grid>
                                     <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
                                         <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
                                         <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
-                                            <TextBlock x:ConnectionId='119' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
-                                            <TextBlock x:ConnectionId='120' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                                            <TextBlock x:ConnectionId='120' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                                            <TextBlock x:ConnectionId='121' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Grid>
-                                    <TextBlock x:ConnectionId='118' x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock x:ConnectionId='119' x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
                                 </Grid>
-                                <Grid Grid.Row="2">
-                                    <CommandBar x:ConnectionId='106' x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Collapsed">
+                                <Grid Grid.Row="2" Margin="0,-5,0,0">
+                                    <CommandBar x:ConnectionId='107' x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
                                         <CommandBar.PrimaryCommands>
-                                            <AppBarButton x:ConnectionId='107' x:Name="DetailsPanePlayButton" Icon="Play" Label="Play"                                     Width="40"/>
-                                            <AppBarButton x:ConnectionId='108' x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate"                                         Width="40"/>
-                                            <AppBarButton x:ConnectionId='109' x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop"                                     Width="40"/>
-                                            <AppBarButton x:ConnectionId='110' x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate"                                       Width="40"/>
-                                            <AppBarSeparator x:ConnectionId='111' x:Name="DetailsPaneSeparator"/>
-                                            <AppBarButton x:ConnectionId='112' x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" Tag="alwaysshow" Width="40">
+                                            <AppBarButton x:ConnectionId='108' x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed"                                     Width="40"/>
+                                            <AppBarButton x:ConnectionId='109' x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed"                                         Width="40"/>
+                                            <AppBarButton x:ConnectionId='110' x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed"                                     Width="40"/>
+                                            <AppBarButton x:ConnectionId='111' x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed"                                       Width="40"/>
+                                            <AppBarSeparator x:ConnectionId='112' x:Name="DetailsPaneSeparator"/>
+                                            <AppBarButton x:ConnectionId='113' x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow"                                        Width="40"/>
+                                            <AppBarButton x:ConnectionId='114' x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                                 <AppBarButton.Flyout>
-                                                    <Flyout x:ConnectionId='116' x:Name="DeleteFlyout">
+                                                    <Flyout x:ConnectionId='115' x:Name="DeleteFlyout">
                                                         <StackPanel Spacing="10">
                                                             <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Do you want to delete this file?" Margin="0,0,0,0" />
-                                                            <Button x:ConnectionId='117' x:Name="FileDeleteButton"                                 Content="Yes, delete!" HorizontalAlignment="Center"/>
+                                                            <Button x:ConnectionId='116' x:Name="FileDeleteButton"                                 Content="Yes, delete!" HorizontalAlignment="Center"/>
                                                         </StackPanel>
                                                     </Flyout>
                                                 </AppBarButton.Flyout>
                                             </AppBarButton>
-                                            <AppBarButton x:ConnectionId='113' x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow"                                         Width="40"/>
-                                            <AppBarButton x:ConnectionId='114' x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" Tag="alwaysshow"                                        Width="40"/>
-                                            <AppBarButton x:ConnectionId='115' x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow"                            Width="40"/>
                                         </CommandBar.PrimaryCommands>
+                                        <CommandBar.SecondaryCommands>
+                                            <AppBarButton x:ConnectionId='117' x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default"                                        />
+                                            <AppBarButton x:ConnectionId='118' x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" LabelPosition="Default"                           />
+                                        </CommandBar.SecondaryCommands>
                                     </CommandBar>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid x:ConnectionId='97' x:Name="regularFileGrid" Grid.Row="2">
+                    <Grid x:ConnectionId='98' x:Name="regularFileGrid" Grid.Row="2">
                         <Grid.TranslationTransition>
                             <Vector3Transition/>
                         </Grid.TranslationTransition>
-                        <Rectangle x:ConnectionId='98' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
-                        <ProgressBar x:ConnectionId='99' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
+                        <Rectangle x:ConnectionId='99' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
+                        <ProgressBar x:ConnectionId='100' x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
                             <ProgressBar.OpacityTransition>
                                 <ScalarTransition />
                             </ProgressBar.OpacityTransition>
                         </ProgressBar>
-                        <ListView x:ConnectionId='100'   x:Name="regularFileListView"
+                        <ListView x:ConnectionId='101'   x:Name="regularFileListView"
                                     Margin="0,10,0,0"
                                     SelectionMode="Extended"
                                                                                      
@@ -252,74 +250,74 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:ConnectionId='8' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                    <AppBarButton x:ConnectionId='77' x:Name="SearchButton" Icon="Find" Label="Search"                           >
+                    <AppBarButton x:ConnectionId='78' x:Name="SearchButton" Icon="Find" Label="Search"                           >
                         <ToolTip Content="Search this list (Ctrl+F)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="F" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='78' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+                    <AppBarButton x:ConnectionId='79' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
                         <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="C" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='79' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+                    <AppBarButton x:ConnectionId='80' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
                         <ToolTip Content="Refresh this list (Ctrl+R)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='80' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal...">
+                    <AppBarButton x:ConnectionId='81' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal...">
                         <ToolTip Content="Reveal the Portal folder in File Explorer"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
                         <AppBarButton.Flyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem x:ConnectionId='86' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
+                                <MenuFlyoutItem x:ConnectionId='87' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
                                 <MenuFlyoutSeparator/>
-                                <MenuFlyoutItem x:ConnectionId='87' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
-                                <MenuFlyoutItem x:ConnectionId='88' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
-                                <MenuFlyoutItem x:ConnectionId='89' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
-                                <MenuFlyoutItem x:ConnectionId='90' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
-                                <MenuFlyoutItem x:ConnectionId='91' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
+                                <MenuFlyoutItem x:ConnectionId='88' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
+                                <MenuFlyoutItem x:ConnectionId='89' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
+                                <MenuFlyoutItem x:ConnectionId='90' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
+                                <MenuFlyoutItem x:ConnectionId='91' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
+                                <MenuFlyoutItem x:ConnectionId='92' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
                                 <MenuFlyoutSeparator/>
-                                <MenuFlyoutItem x:ConnectionId='92' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
+                                <MenuFlyoutItem x:ConnectionId='93' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='81' x:Name="SelectModeButton" Icon="SelectAll" Label="Select"                               >
+                    <AppBarButton x:ConnectionId='82' x:Name="SelectModeButton" Icon="SelectAll" Label="Select"                               >
                         <ToolTip Content="Enable / Disable selection mode"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="Q" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='82' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
+                    <AppBarButton x:ConnectionId='83' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
                         <ToolTip Content="Launch Simple Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="S" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='83' x:Name="LaunchMiniModeButton" Icon="Go" Label="Mini"                                   >
+                    <AppBarButton x:ConnectionId='84' x:Name="LaunchMiniModeButton" Icon="Go" Label="Mini"                                   >
                         <ToolTip Content="Launch Mini Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="M"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='84' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                    <AppBarButton x:ConnectionId='85' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="X"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='85' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
+                    <AppBarButton x:ConnectionId='86' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
                         <ToolTip Content="Opens the last selected file"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="A"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton x:ConnectionId='93' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings and About"                                  >
+                        <AppBarButton x:ConnectionId='94' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings and About"                                  >
                             <AppBarButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="I" />
                             </AppBarButton.KeyboardAccelerators>
@@ -334,26 +332,26 @@
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
                     <Rectangle Fill="DarkGray" Opacity="0.25" RadiusX="4" RadiusY="4" />
-                    <TextBox x:ConnectionId='76' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
+                    <TextBox x:ConnectionId='77' x:Name="SearchTextBox" PlaceholderText="Type here to search..." Height="15" Margin="4,4,4,4"                                        />
                 </Grid>
                 <TeachingTip x:ConnectionId='10' x:Name="fileInClipboardReminder"
                              Title="Copied successfully!"
                              Subtitle="The file is now in your clipboard"
                              PreferredPlacement="Top">
-                    <ProgressBar x:ConnectionId='75' x:Name="reminderTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='76' x:Name="reminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='11' x:Name="failedToDragTeachingTip"
                              Title="Dragging unsuccessful"
                              Subtitle="Are you sure the file still exists?"
                              PreferredPlacement="Top">
-                    <ProgressBar x:ConnectionId='74' x:Name="failureReminderTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='75' x:Name="failureReminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='12' x:Name="panosUnlockedTeachingTip"
                              Title="Panos theme unlocked!"
                              Subtitle="Reading the privacy statement unlocks the exclusive Panos Panay easter egg theme! Congrats!"
                              ActionButtonContent="Apply Panos theme now!"
                                                                                            >
-                    <ProgressBar x:ConnectionId='73' x:Name="panosUnlockedTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='74' x:Name="panosUnlockedTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='13' 
                             x:Name="noFolderpathTechingTip"
@@ -399,9 +397,9 @@
                     <Grid.TranslationTransition>
                         <Vector3Transition />
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='65' x:Name="OOBEbackgroundRectangle" Fill="DarkGray" Opacity="0.25" RadiusX="8" RadiusY="8"/>
+                    <Rectangle x:ConnectionId='66' x:Name="OOBEbackgroundRectangle" Fill="DarkGray" Opacity="0.25" RadiusX="8" RadiusY="8"/>
                     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <Pivot x:ConnectionId='66' x:Name="OOBEpivot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"                                               Margin="0,-30,0,0">
+                        <Pivot x:ConnectionId='67' x:Name="OOBEpivot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"                                               Margin="0,-30,0,0">
                             <PivotItem>
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -416,7 +414,7 @@
                             <PivotItem>
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
                                     <TextBlock Text="Let's get you set up!" FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                    <Pivot x:ConnectionId='70' x:Name="OOBEsetupPivot"                                                   >
+                                    <Pivot x:ConnectionId='71' x:Name="OOBEsetupPivot"                                                   >
                                         <PivotItem>
                                             <ScrollViewer VerticalAlignment="Center">
                                                 <StackPanel Spacing="20" VerticalAlignment="Center">
@@ -425,7 +423,7 @@
                                                     <TextBlock Text="Please click the button below and then pick the folder you would like DropStack to mirror. We would suggest using your downloads folder, however, feel free to pick a custom one. You can change the portal folder later by revoking the folder access."
                                                        FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                                     <TextBlock Height="10"/>
-                                                    <Button x:ConnectionId='72' x:Name="OOBEportalFileAccessRequestButton" Content="Set a portal folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                                    <Button x:ConnectionId='73' x:Name="OOBEportalFileAccessRequestButton" Content="Set a portal folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
                                                 </StackPanel>
                                             </ScrollViewer>
                                         </PivotItem>
@@ -437,7 +435,7 @@
                                                     <TextBlock Text="DropStack pins files by copying them to a folder you specify. This means that you can pin a folder and even delete the original. If you uninstall DropStack, your pinned files won't be lost, they will remain in the folder you specified. Please repeat what you just did with the portal folder, except with the pins folder. Once again, you can disconnect this folder later and pick a new one." 
                                                    FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                                     <TextBlock Height="10"/>
-                                                    <Button x:ConnectionId='71' x:Name="OOBEpinnedFileAccessRequestButton" Content="Set a pinned folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                                    <Button x:ConnectionId='72' x:Name="OOBEpinnedFileAccessRequestButton" Content="Set a pinned folder..."                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
                                                 </StackPanel>
                                             </ScrollViewer>
                                         </PivotItem>
@@ -450,13 +448,13 @@
                                         <TextBlock Text="🤗" FontSize="92" HorizontalAlignment="Center"/>
                                         <TextBlock Text="All done!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                         <TextBlock Text="Click 'Next' one last time to start using DropStack!" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                        <CheckBox x:ConnectionId='69' x:Name="OOBEsimpleViewOfferCheckBox" Content="Always launch into simple mode first" IsChecked="True" HorizontalAlignment="Center"/>
+                                        <CheckBox x:ConnectionId='70' x:Name="OOBEsimpleViewOfferCheckBox" Content="Always launch into simple mode first" IsChecked="True" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
                             </PivotItem>
                         </Pivot>
-                        <Button x:ConnectionId='67' x:Name="OOBEgoBackButton" Content="‹ Previous"                                VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"/>
-                        <Button x:ConnectionId='68' x:Name="OOBEgoNextButton" Content="Next ›"                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Margin="0,0,10,10"/>
+                        <Button x:ConnectionId='68' x:Name="OOBEgoBackButton" Content="‹ Previous"                                VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"/>
+                        <Button x:ConnectionId='69' x:Name="OOBEgoNextButton" Content="Next ›"                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Margin="0,0,10,10"/>
                     </Grid>
                 </Grid>
 
@@ -529,6 +527,11 @@
                                            HorizontalAlignment="Center"
                                            Opacity="0.7"
                                            FontSize="10"/>
+                                        <ToggleSwitch x:ConnectionId='65' x:Name="ShowDetailsPaneToggleSwitch"
+                                                      OnContent="Show details pane"
+                                                      OffContent="Show details pane"
+                                                                                                   
+                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files"/>
                                     </StackPanel>
                                 </Expander>
                                 <Expander x:ConnectionId='22' x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
@@ -718,7 +721,7 @@
                                     There is no point in time where the app is able to see your login credentials or authentication details.</Paragraph>
                                     </RichTextBlock>
                                 </Expander>
-                                <Expander x:ConnectionId='27' x:Name="FlagsExpander" Header="Experiments" HorizontalAlignment="Stretch">
+                                <Expander x:ConnectionId='27' x:Name="FlagsExpander" Header="Experiments" Visibility="Collapsed" HorizontalAlignment="Stretch">
                                     <StackPanel Margin="5,5,5,5" Spacing="5">
                                         <TextBlock Text="These settings are highly experimental. Please modify with caution"
                                            TextWrapping="WrapWholeWords"

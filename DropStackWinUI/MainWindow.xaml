@@ -113,12 +113,8 @@
                             </Grid>
                         </Grid>
                     </Expander>
-                    <Grid Grid.Row="1" Visibility="Collapsed" x:Name="DetailsPaneGrid" Height="120" Margin="0,8,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="120"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                    <Grid Grid.Row="1" Visibility="Collapsed" x:Name="DetailsPaneGrid" Height="120">
+                        <Grid Margin="0,8,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="*"/>
@@ -144,7 +140,7 @@
                                         <KeyboardAccelerator x:Name="EnterKeyPressFileNameEdit" Key="Enter" Invoked="EnterKeyPressFileNameEdit_Invoked"/>
                                     </TextBox.KeyboardAccelerators>
                                 </TextBox>
-                                <Grid Grid.Row="1" Margin="10,0,0,5" HorizontalAlignment="Stretch">
+                                <Grid Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
@@ -163,15 +159,16 @@
                                     </Grid>
                                     <TextBlock x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
                                 </Grid>
-                                <Grid Grid.Row="2">
-                                    <CommandBar x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Collapsed">
+                                <Grid Grid.Row="2" Margin="0,-5,0,0">
+                                    <CommandBar x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
                                         <CommandBar.PrimaryCommands>
-                                            <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" Click="DetailsPanePlayButton_Click" Width="40"/>
-                                            <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
-                                            <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" Click="DetailsPaneCropButton_Click" Width="40"/>
-                                            <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed" Click="DetailsPanePlayButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed" Click="DetailsPaneCropButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
                                             <AppBarSeparator x:Name="DetailsPaneSeparator"/>
-                                            <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" Tag="alwaysshow" Width="40">
+                                            <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
+                                            <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                                 <AppBarButton.Flyout>
                                                     <Flyout x:Name="DeleteFlyout">
                                                         <StackPanel Spacing="10">
@@ -181,10 +178,11 @@
                                                     </Flyout>
                                                 </AppBarButton.Flyout>
                                             </AppBarButton>
-                                            <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" Click="DetailsPaneOpenWithButton_Click" Width="40"/>
-                                            <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
-                                            <AppBarButton x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" Click="AppBarButton_Click" Width="40"/>
                                         </CommandBar.PrimaryCommands>
+                                        <CommandBar.SecondaryCommands>
+                                            <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
+                                            <AppBarButton x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" LabelPosition="Default" Click="AppBarButton_Click"/>
+                                        </CommandBar.SecondaryCommands>
                                     </CommandBar>
                                 </Grid>
                             </Grid>
@@ -529,6 +527,11 @@
                                            HorizontalAlignment="Center"
                                            Opacity="0.7"
                                            FontSize="10"/>
+                                        <ToggleSwitch x:Name="ShowDetailsPaneToggleSwitch"
+                                                      OnContent="Show details pane"
+                                                      OffContent="Show details pane"
+                                                      Toggled="ShowDetailsPaneToggleSwitch_Toggled"
+                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files"/>
                                     </StackPanel>
                                 </Expander>
                                 <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
@@ -718,7 +721,7 @@
                                     There is no point in time where the app is able to see your login credentials or authentication details.</Paragraph>
                                     </RichTextBlock>
                                 </Expander>
-                                <Expander x:Name="FlagsExpander" Header="Experiments" HorizontalAlignment="Stretch">
+                                <Expander x:Name="FlagsExpander" Header="Experiments" Visibility="Collapsed" HorizontalAlignment="Stretch">
                                     <StackPanel Margin="5,5,5,5" Spacing="5">
                                         <TextBlock Text="These settings are highly experimental. Please modify with caution"
                                            TextWrapping="WrapWholeWords"
