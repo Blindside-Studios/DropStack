@@ -62,6 +62,7 @@ namespace DropStackWinUI
         int thumbnailResolution = 64;
 
         bool isCommandBarPinned = false;
+        bool openCompactCommandBar = false;
 
         public MiniMode()
         {
@@ -589,6 +590,8 @@ namespace DropStackWinUI
 
         private async void fileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
+            openCompactCommandBar = false;
+
             DependencyObject tappedElement = e.OriginalSource as DependencyObject;
 
             while (tappedElement != null && !(tappedElement is ListViewItem))
@@ -735,15 +738,20 @@ namespace DropStackWinUI
             }
         }
 
-        private void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
-            var options = new FlyoutShowOptions()
+            openCompactCommandBar = true;
+            await Task.Delay(500);
+            if (openCompactCommandBar)
             {
-                Position = e.GetPosition((FrameworkElement)sender),
-                ShowMode = FlyoutShowMode.Transient
-            };
-            flyout?.ShowAt((FrameworkElement)sender, options);
+                var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
+                var options = new FlyoutShowOptions()
+                {
+                    Position = e.GetPosition((FrameworkElement)sender),
+                    ShowMode = FlyoutShowMode.Transient
+                };
+                flyout?.ShowAt((FrameworkElement)sender, options);
+            }
         }
 
         private async void FlyoutOpenButton_Click(object sender, RoutedEventArgs e)

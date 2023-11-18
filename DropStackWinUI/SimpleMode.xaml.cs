@@ -75,6 +75,7 @@ namespace DropStackWinUI
         int checkboxBehavior = 1;
         bool isWindowsHelloRequiredForPins = false;
         string priorSortTag = null;
+        bool openCompactCommandBar = false;
 
         bool enableFreeWindowing = false;
 
@@ -538,6 +539,9 @@ namespace DropStackWinUI
 
         private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
+            openCompactCommandBar = false;
+
+
             DependencyObject tappedElement = e.OriginalSource as DependencyObject;
 
             while (tappedElement != null && !(tappedElement is ListViewItem))
@@ -824,18 +828,23 @@ namespace DropStackWinUI
             // 2: always show checkboxes
         }
 
-        private void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (regularFileListView.SelectedItems.Count == 1)
             {
-                var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
-                var options = new FlyoutShowOptions()
+                openCompactCommandBar = true;
+                await Task.Delay(500);
+                if (openCompactCommandBar)
                 {
-                    Position = e.GetPosition((FrameworkElement)sender),
-                    ShowMode = FlyoutShowMode.Transient
-                };
-                flyout?.ShowAt((FrameworkElement)sender, options);
-                FlyoutRevealButton.IsEnabled = true;
+                    var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
+                    var options = new FlyoutShowOptions()
+                    {
+                        Position = e.GetPosition((FrameworkElement)sender),
+                        ShowMode = FlyoutShowMode.Transient
+                    };
+                    flyout?.ShowAt((FrameworkElement)sender, options);
+                    FlyoutRevealButton.IsEnabled = true;
+                }
             }
         }
 
