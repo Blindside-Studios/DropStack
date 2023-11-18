@@ -70,6 +70,7 @@ namespace DropStackWinUI
         public string FilePath { get; set; }
         public string FileType { get; set; }
         public string TypeTag { get; set; }
+        // may assume "docs", "pics", "music", "vids", "apps", "pres"
         public string FileSize { get; set; }
         public string FileSizeSuffix { get; set; }
         public string ModifiedDate { get; set; }
@@ -2026,6 +2027,8 @@ namespace DropStackWinUI
                 DetailsFileSizeDisplay.Text = fileItem.FileSize;
                 DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
                 DetailsFileModifiedDateDisplay.Text = fileItem.ModifiedDate;
+
+                adjustShownDetailsButtons(fileItem.TypeTag, file.FileType);
             }
             else
             {
@@ -2035,6 +2038,7 @@ namespace DropStackWinUI
                 DetailsFileSizeSuffixDisplay.Text = "size";
                 DetailsFileModifiedDateDisplay.Text = "No date";
                 DetailsPaneFileThumbnail.Source = null;
+                adjustShownDetailsButtons(null, null);
             }
 
             DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
@@ -2050,6 +2054,65 @@ namespace DropStackWinUI
                 (float)DetailsPaneFileThumbnail.ActualWidth / 2, 
                 (float)DetailsPaneFileThumbnail.ActualHeight / 2, 
                 0);
+        }
+
+        private void adjustShownDetailsButtons(string typeTag, string type)
+        {
+            foreach (AppBarButton button in DetailsPaneCommandBar.PrimaryCommands.OfType<AppBarButton>())
+            {
+                AppBarButton btn = button as AppBarButton;
+                string btnTag = btn.Tag as string;
+                if (btnTag == "alwaysshow") button.IsEnabled = false;
+                else button.Visibility = Visibility.Collapsed;
+            }
+            DetailsPaneSeparator.Visibility = Visibility.Collapsed;
+
+            switch (typeTag)
+            {
+                case null:
+                    break;
+                case "pics":
+                    DetailsPaneDeleteFlyoutButton.IsEnabled = true;
+                    DetailsPaneOpenWithButton.IsEnabled = true;
+                    DetailsPanePreviewButton.IsEnabled = true;
+                    DetailsPaneAnnotateButton.Visibility = Visibility.Visible;
+                    DetailsPaneCropButton.Visibility = Visibility.Visible;
+                    DetailsPaneRotateButton.Visibility = Visibility.Visible;
+                    DetailsPaneShareButton.IsEnabled = true;
+                    DetailsPaneSeparator.Visibility = Visibility.Visible;
+                    break;
+                case "vids":
+                    DetailsPaneDeleteFlyoutButton.IsEnabled = true;
+                    DetailsPaneOpenWithButton.IsEnabled = true;
+                    DetailsPanePreviewButton.IsEnabled = true;
+                    DetailsPanePlayButton.Visibility = Visibility.Visible;
+                    DetailsPaneShareButton.IsEnabled = true;
+                    DetailsPaneSeparator.Visibility = Visibility.Visible;
+                    break;
+                case "music":
+                    DetailsPaneDeleteFlyoutButton.IsEnabled = true;
+                    DetailsPaneOpenWithButton.IsEnabled = true;
+                    DetailsPanePlayButton.Visibility = Visibility.Visible;
+                    DetailsPaneShareButton.IsEnabled = true;
+                    DetailsPaneSeparator.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    switch (type)
+                    {
+                        case ".pdf":
+                            DetailsPaneDeleteFlyoutButton.IsEnabled = true;
+                            DetailsPaneOpenWithButton.IsEnabled = true;
+                            DetailsPanePreviewButton.IsEnabled = true;
+                            DetailsPaneShareButton.IsEnabled = true;
+                            break;
+                        default:
+                            DetailsPaneDeleteFlyoutButton.IsEnabled = true;
+                            DetailsPaneOpenWithButton.IsEnabled = true;
+                            DetailsPaneShareButton.IsEnabled = true;
+                            break;
+                    }
+                    break;
+            }
         }
 
 
@@ -2118,8 +2181,9 @@ namespace DropStackWinUI
             }
         }
 
-        private void DetailsPanePreviewButton_Click(object sender, RoutedEventArgs e)
+        private async void DetailsPanePreviewButton_Click(object sender, RoutedEventArgs e)
         {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
             switch (previewedItem.TypeTag)
             {
                 case "pics":
@@ -2131,9 +2195,9 @@ namespace DropStackWinUI
                     quickVideoViewer.Activate();
                     break;
                 default:
-                    switch (previewedItem.FileType)
+                    switch (file.FileType)
                     {
-                        case "Document (.pdf)":
+                        case ".pdf":
                             var quickPDFViewer = new PDFView(previewedItem.FilePath);
                             quickPDFViewer.Activate();
                             break;
