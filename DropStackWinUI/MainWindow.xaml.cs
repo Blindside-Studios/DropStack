@@ -56,6 +56,7 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using DropStackWinUI.FileViews;
 using Microsoft.UI.Composition;
+using Windows.Networking.Proximity;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -65,8 +66,20 @@ namespace DropStackWinUI
     public class FileItem : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public string FileName { get; set; }
-        public string FileDisplayName { get; set; }
+        [XmlIgnore]
+        private string _fileName;
+        public string FileName
+            { get { return _fileName; } set {
+        if (value != _fileName){
+            _fileName = value;
+            OnPropertyChanged(nameof(FileName)); }}}
+        [XmlIgnore]
+        private string _fileDisplayName;
+        public string FileDisplayName
+            { get { return _fileDisplayName; } set {
+        if (value != _fileDisplayName){
+            _fileDisplayName = value;
+            OnPropertyChanged(nameof(FileDisplayName)); }}}
         public string FilePath { get; set; }
         public string FileType { get; set; }
         public string TypeTag { get; set; }
@@ -1800,7 +1813,6 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["IsPanosUnlocked"] = true;
             unlockPanos(true);
-            // TODO: hide new theme, unlock this for everyone
         }
 
         private void setTheme(string themeName)
@@ -2034,7 +2046,7 @@ namespace DropStackWinUI
 
                     previewedItem = fileItem;
 
-                    DetailsFileNameDisplay.Text = file.Name;
+                    DetailsFileNameDisplay.Text = file.DisplayName;
                     DetailsFileTypeDisplay.Text = file.DisplayType;
                     DetailsFileSizeDisplay.Text = fileItem.FileSize;
                     DetailsFileSizeSuffixDisplay.Text = fileItem.FileSizeSuffix;
@@ -2263,10 +2275,15 @@ namespace DropStackWinUI
             try
             {
                 StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
-                await file.RenameAsync(DetailsFileNameDisplay.Text);
+                await file.RenameAsync(DetailsFileNameDisplay.Text + file.FileType);
+                StorageFolder folder = await file.GetParentAsync();
+                // get file again to make sure renaming has been adopted by the system
                 regularFileListView.ItemsSource = fileMetadataListCopy;
-                fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileDisplayName = file.DisplayName;
-                fileMetadataListCopy[fileMetadataListCopy.IndexOf(previewedItem)].FileName = file.Name;
+                foreach (FileItem item in fileMetadataListCopy) { if (item.FilePath == previewedItem.FilePath) {
+                        item.FileName = DetailsFileNameDisplay.Text + file.FileType;
+                        item.FileDisplayName = DetailsFileNameDisplay.Text;
+                        item.FilePath = folder.Path + "\\" + previewedItem.FileName;
+                    } }
                 saveToCache("regular", fileMetadataListCopy);
             }
             catch { }
