@@ -73,13 +73,7 @@ namespace DropStackWinUI.FileViews
                 ImageViewerComponent.Height = ImageViewerComponent.Width * contentHeight / contentWidth;
             }
 
-            /*this.MoveAndResize(
-                (displayWidth / 2) - ((ImageViewerComponent.Width * scaleFactor) / 2),
-                displayHeight - (ImageViewerComponent.Height * scaleFactor) - (10 * scaleFactor),
-                ImageViewerComponent.Width,
-                ImageViewerComponent.Height);*/
-
-            this.MoveAndResize( 100, 100, ImageViewerComponent.Width, ImageViewerComponent.Height);
+            this.MoveAndResize( 100, 100, ImageViewerComponent.Width + 15, ImageViewerComponent.Height + 9);
         }
     }
 }

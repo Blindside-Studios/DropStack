@@ -57,6 +57,7 @@ using Windows.Media.Playback;
 using DropStackWinUI.FileViews;
 using Microsoft.UI.Composition;
 using Windows.Networking.Proximity;
+using System.Drawing;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -222,8 +223,6 @@ namespace DropStackWinUI
             }
             var window = this;
             _compositor = window.Compositor;
-
-            DetailsPaneGrid.Height = 0;
         }
 
         private void adjustDarkLightMode()
@@ -2025,15 +2024,28 @@ namespace DropStackWinUI
 
         private void ShowDetailsPaneFlagButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DetailsPaneGrid.Visibility == Visibility.Collapsed) DetailsPaneGrid.Visibility = Visibility.Visible;
-            else DetailsPaneGrid.Visibility = Visibility.Collapsed;
+            int detailsPaneHeight = (int)DetailsPaneGrid.Height;
 
+            if (DetailsPaneGrid.Visibility == Visibility.Collapsed)
+            {
+                DetailsPaneGrid.Visibility = Visibility.Visible;
+                regularFileGrid.Translation = new Vector3(0, -detailsPaneHeight, 0);
+                regularFileGrid.Height = regularFileGrid.Height - detailsPaneHeight;
+            }
+            else
+            {
+                DetailsPaneGrid.Visibility = Visibility.Collapsed;
+                regularFileGrid.Translation = new Vector3(0, 0, 0);
+                regularFileGrid.Height = regularFileGrid.Height + detailsPaneHeight;
+            }
         }
 
         private async void updatePreviewArea(FileItem fileItem, bool isSeveralItems)
         {
             if (showDetailsPane)
             {
+                int detailsPaneHeight = 120;
+
                 if (fileItem != null && regularFileListView.SelectedItems.Count == 1)
                 {
                     StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
@@ -2043,6 +2055,7 @@ namespace DropStackWinUI
                     StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(128));
                     bitmapThumbnail.SetSource(thumbnail);
                     DetailsPaneFileThumbnail.Source = bitmapThumbnail;
+                    DetailsPaneFileThumbnail.Rotation = 0;
 
                     previewedItem = fileItem;
 
@@ -2054,25 +2067,26 @@ namespace DropStackWinUI
 
                     adjustShownDetailsButtons(fileItem.TypeTag, file.FileType);
 
-                    if (regularFileListView.SelectionMode != ListViewSelectionMode.Multiple)
+                    if (regularFileListView.SelectionMode != ListViewSelectionMode.Multiple && DetailsPaneGrid.Visibility == Visibility.Collapsed)
                     {
                         DetailsPaneGrid.Visibility = Visibility.Visible;
-                        for (int i = Convert.ToInt32(DetailsPaneGrid.Height); i < 130; i = i + 10)
-                        {
-                            DetailsPaneGrid.Height = (double)i;
-                            await Task.Delay(1);
-                        }
+                        DetailsPaneGrid.Opacity = 1;
+                        regularFileGrid.Translation = new Vector3(0, detailsPaneHeight, 0);
+                        await Task.Delay(200);
+                        if (DetailsPaneGrid.Visibility == Visibility.Visible) regularFileGrid.Margin = new Thickness(0, 0, 0, detailsPaneHeight);
                     }
                 }
                 else
                 {
-                    for (int i = Convert.ToInt32(DetailsPaneGrid.Height); i > 0; i = i - 10)
+                    if (DetailsPaneGrid.Visibility == Visibility.Visible)
                     {
-                        DetailsPaneGrid.Height = (double)i;
-                        await Task.Delay(1);
+                        DetailsPaneGrid.Visibility = Visibility.Collapsed;
+                        DetailsPaneGrid.Opacity = 0;
+                        regularFileGrid.Translation = new Vector3(0, 0, 0);
+                        regularFileGrid.Margin = new Thickness(0, 0, 0, 0);
+                        await Task.Delay(200);
+                        adjustShownDetailsButtons(null, null);
                     }
-                    adjustShownDetailsButtons(null, null);
-                    DetailsPaneGrid.Visibility = Visibility.Collapsed;
                 }
 
                 DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
@@ -2252,6 +2266,9 @@ namespace DropStackWinUI
         private void DetailsPaneRotateButton_Click(object sender, RoutedEventArgs e)
         {
 
+            DetailsPaneFileThumbnail.RotationTransition = new ScalarTransition();
+            DetailsPaneFileThumbnail.Rotation = DetailsPaneFileThumbnail.Rotation + 90;
+            DetailsPaneFileThumbnail.RotationTransition = null;
         }
 
         private void DetailsPaneOpenWithButton_Click(object sender, RoutedEventArgs e)
@@ -2321,8 +2338,6 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowDetailsPane"] = ShowDetailsPaneToggleSwitch.IsOn;
             showDetailsPane = ShowDetailsPaneToggleSwitch.IsOn;
-            if (ShowDetailsPaneToggleSwitch.IsOn && regularFileListView.SelectedItems.Count == 1) updatePreviewArea(previewedItem, false);
-            else if (!ShowDetailsPaneToggleSwitch.IsOn) DetailsPaneGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
