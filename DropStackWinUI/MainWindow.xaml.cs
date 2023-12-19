@@ -58,6 +58,9 @@ using DropStackWinUI.FileViews;
 using Microsoft.UI.Composition;
 using Windows.Networking.Proximity;
 using System.Drawing;
+using Windows.Graphics.Imaging;
+using Windows.Storage.Streams;
+using System.Runtime.CompilerServices;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -2263,12 +2266,24 @@ namespace DropStackWinUI
             quickImageViewer.Activate();
         }
 
-        private void DetailsPaneRotateButton_Click(object sender, RoutedEventArgs e)
+        private async void DetailsPaneRotateButton_Click(object sender, RoutedEventArgs e)
         {
+            System.Drawing.Image image = System.Drawing.Image.FromFile(previewedItem.FilePath);
+            image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            image.Save(previewedItem.FilePath);
 
             DetailsPaneFileThumbnail.RotationTransition = new ScalarTransition();
             DetailsPaneFileThumbnail.Rotation = DetailsPaneFileThumbnail.Rotation + 90;
             DetailsPaneFileThumbnail.RotationTransition = null;
+
+            int index = regularFileListView.SelectedIndex;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+
+            FileItem fileItem = regularFileListView.Items[index] as FileItem;
+            BitmapImage bitmapThumbnail = new BitmapImage();
+            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+            bitmapThumbnail.SetSource(thumbnail);
+            fileItem.FileIcon = bitmapThumbnail;
         }
 
         private void DetailsPaneOpenWithButton_Click(object sender, RoutedEventArgs e)

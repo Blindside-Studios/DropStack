@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-12-19T21:47:51.484</Modified>
+      <Modified>2023-12-19T22:44:36.642</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-12-19T21:47:51.124</Modified>
+      <Modified>2023-12-19T22:44:36.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.runtimeconfig.json">
       <PackagePath>DropStackWinUI.runtimeconfig.json</PackagePath>
-      <Modified>2023-10-29T21:42:43.557</Modified>
+      <Modified>2023-12-19T22:16:48.473</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2023-12-19T21:47:50.756</Modified>
+      <Modified>2023-12-19T22:44:36.282</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2023-12-19T21:47:50.808</Modified>
+      <Modified>2023-12-19T22:44:36.288</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>
-      <Modified>2023-12-18T20:23:14.055</Modified>
+      <Modified>2023-12-19T22:16:48.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.20\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -953,9 +953,9 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2023-06-09T20:10:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.win32.systemevents\7.0.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll">
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.win32.systemevents\8.0.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll">
       <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
-      <Modified>2022-10-18T16:23:26.000</Modified>
+      <Modified>2023-10-31T15:00:34.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
@@ -1016,6 +1016,10 @@
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Release.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Release.Net.dll</PackagePath>
       <Modified>2023-07-24T19:10:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\system.drawing.common\8.0.0\lib\net6.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+      <Modified>2023-10-31T22:15:42.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\winuiex\2.2.0\lib\net6.0-windows10.0.18362\WinUIEx.dll">
       <PackagePath>WinUIEx.dll</PackagePath>
