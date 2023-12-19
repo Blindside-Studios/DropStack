@@ -2339,5 +2339,18 @@ namespace DropStackWinUI
             localSettings.Values["ShowDetailsPane"] = ShowDetailsPaneToggleSwitch.IsOn;
             showDetailsPane = ShowDetailsPaneToggleSwitch.IsOn;
         }
+
+        private async void DetailsPaneFileThumbnail_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            try
+            {
+                StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+                var success = await Launcher.LaunchFileAsync(file);
+            }
+            catch { }
+            await Task.Delay(250);
+            regularFileListView.SelectedItem = null;
+            pinnedFileListView.SelectedItem = null;
+        }
     }
 }
