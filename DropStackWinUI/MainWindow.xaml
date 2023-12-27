@@ -18,7 +18,10 @@
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
-        <Grid x:Name="WindowGrid">
+        <Grid x:Name="WindowGrid" Opacity="1">
+            <Grid.OpacityTransition>
+                <ScalarTransition/>
+            </Grid.OpacityTransition>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
@@ -113,84 +116,6 @@
                         </Grid>
                     </Expander>
                     <Grid Grid.Row="1">
-                        <Grid Visibility="Collapsed" Opacity="0" x:Name="DetailsPaneGrid" Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                            <Grid.OpacityTransition>
-                                <ScalarTransition/>
-                            </Grid.OpacityTransition>
-                            <Grid Margin="0,8,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <MediaPlayerElement x:Name="DetailsPaneVideoPlayer" CenterPoint="40,40,40" Width="80" Height="80" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited" DoubleTapped="DetailsPaneFileThumbnail_DoubleTapped"/>
-                                        <Image x:Name="DetailsPaneFileThumbnail" CenterPoint="40,40,40" Width="80" Height="80" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Tapped="DetailsPaneFileThumbnail_Tapped" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited" DoubleTapped="DetailsPaneFileThumbnail_DoubleTapped"/>
-                                    </Grid>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBox x:Name="DetailsFileNameDisplay" Grid.Row="0" Text="This displays the file name" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" Background="Transparent" BorderThickness="0">
-                                        <TextBox.KeyboardAccelerators>
-                                            <KeyboardAccelerator x:Name="EnterKeyPressFileNameEdit" Key="Enter" Invoked="EnterKeyPressFileNameEdit_Invoked"/>
-                                        </TextBox.KeyboardAccelerators>
-                                    </TextBox>
-                                    <Grid Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Stretch">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0" Margin="0,3,2,3" Height="18" MaxWidth="200">
-                                            <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
-                                            <TextBlock x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
-                                        </Grid>
-                                        <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
-                                            <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
-                                            <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
-                                                <TextBlock x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
-                                                <TextBlock x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
-                                            </StackPanel>
-                                        </Grid>
-                                        <TextBlock x:Name="DetailsFileModifiedDateDisplay" Grid.Column="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Right" Margin="5,3,0,3" TextTrimming="CharacterEllipsis"/>
-                                    </Grid>
-                                    <Grid Grid.Row="2" Margin="0,-5,0,0">
-                                        <CommandBar x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
-                                            <CommandBar.PrimaryCommands>
-                                                <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed" Click="DetailsPanePlayButton_Click" Width="40"/>
-                                                <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
-                                                <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed" Click="DetailsPaneCropButton_Click" Width="40"/>
-                                                <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
-                                                <AppBarSeparator x:Name="DetailsPaneSeparator"/>
-                                                <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
-                                                <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
-                                                    <AppBarButton.Flyout>
-                                                        <Flyout x:Name="DeleteFlyout">
-                                                            <StackPanel Spacing="10">
-                                                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Do you want to delete this file?" Margin="0,0,0,0" />
-                                                                <Button x:Name="FileDeleteButton" Click="FileDeleteButton_Click"  Content="Yes, delete!" HorizontalAlignment="Center"/>
-                                                            </StackPanel>
-                                                        </Flyout>
-                                                    </AppBarButton.Flyout>
-                                                </AppBarButton>
-                                            </CommandBar.PrimaryCommands>
-                                            <CommandBar.SecondaryCommands>
-                                                <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
-                                                <AppBarButton x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" LabelPosition="Default" Click="AppBarButton_Click"/>
-                                            </CommandBar.SecondaryCommands>
-                                        </CommandBar>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
                         <Grid x:Name="regularFileGrid">
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
@@ -738,6 +663,108 @@
                             </StackPanel>
                         </ScrollViewer>
                     </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="DetailsSheetGrid" Height="120" 
+              CornerRadius="20" 
+              VerticalAlignment="Bottom" 
+              HorizontalAlignment="Stretch" 
+              Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}" 
+              Margin="5,0,5,-120"
+              ManipulationMode="TranslateRailsY"
+              ManipulationDelta="DetailsSheetGrid_ManipulationDelta"
+              ManipulationCompleted="DetailsSheetGrid_ManipulationCompleted">
+            <Grid.TranslationTransition>
+                <Vector3Transition/>
+            </Grid.TranslationTransition>
+            <Grid x:Name="DetailsSheetGrabberGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50">
+                <Rectangle Fill="Silver" Height="4" Width="35" RadiusX="2" RadiusY="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <Rectangle x:Name="DetailsSheetResizeGrabber" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Button x:Name="DismissDetailsSheetButton" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" Margin="0,5,5,0" CornerRadius="15" Click="DismissDetailsSheetButton_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8BB;" FontSize="12" Margin="-10,0,-10,0"/>
+                </Button>
+            </Grid>
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,30,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="130"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <MediaPlayerElement x:Name="DetailsPaneVideoPlayer" CenterPoint="45,45,45" Width="90" Height="90" Visibility="Collapsed" Grid.Row="0" AutoPlay="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Background="Transparent" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited" DoubleTapped="DetailsPaneFileThumbnail_DoubleTapped"/>
+                            <Image x:Name="DetailsPaneFileThumbnail" CenterPoint="45,45,45" Width="90" Height="90" Grid.Row="0" Source="Assets/StoreLogo.scale-400.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20,20" Stretch="Uniform" Tapped="DetailsPaneFileThumbnail_Tapped" PointerEntered="DetailsPaneFileThumbnail_PointerEntered" PointerExited="DetailsPaneFileThumbnail_PointerExited" DoubleTapped="DetailsPaneFileThumbnail_DoubleTapped"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="DetailsFileNameDisplay" Grid.Row="0" Text="This displays the file name" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Margin="0,5,5,0" Background="Transparent" BorderThickness="0">
+                            <TextBox.KeyboardAccelerators>
+                                <KeyboardAccelerator x:Name="EnterKeyPressFileNameEdit" Key="Enter" Invoked="EnterKeyPressFileNameEdit_Invoked"/>
+                            </TextBox.KeyboardAccelerators>
+                        </TextBox>
+                        <Grid Grid.Row="1" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Margin="0,3,2,3" Height="18" MaxWidth="200">
+                                <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
+                                <TextBlock x:Name="DetailsFileTypeDisplay" Text="Filetype (.drpstck)" FontSize="13" Margin="7,0,7,0" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
+                                <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
+                                <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
+                                    <TextBlock x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <TextBlock x:Name="DetailsFileModifiedDateDisplay" Grid.Row="2" Text="Modified Date" Opacity="0.5" FontSize="13" HorizontalAlignment="Center" Margin="0,3,0,3" TextTrimming="CharacterEllipsis"/>
+                        <Grid Grid.Row="3" Margin="0,5,0,0">
+                            <CommandBar x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+                                <CommandBar.PrimaryCommands>
+                                    <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed" Click="DetailsPanePlayButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed" Click="DetailsPaneCropButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
+                                    <AppBarSeparator x:Name="DetailsPaneSeparator"/>
+                                    <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
+                                        <AppBarButton.Flyout>
+                                            <Flyout x:Name="DeleteFlyout">
+                                                <StackPanel Spacing="10">
+                                                    <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Do you want to delete this file?" Margin="0,0,0,0" />
+                                                    <Button x:Name="FileDeleteButton" Click="FileDeleteButton_Click"  Content="Yes, delete!" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Flyout>
+                                        </AppBarButton.Flyout>
+                                    </AppBarButton>
+                                </CommandBar.PrimaryCommands>
+                                <CommandBar.SecondaryCommands>
+                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
+                                    <AppBarButton x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" LabelPosition="Default" Click="AppBarButton_Click"/>
+                                </CommandBar.SecondaryCommands>
+                            </CommandBar>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <!-- put details here -->
                 </Grid>
             </Grid>
         </Grid>

@@ -61,6 +61,9 @@ using System.Drawing;
 using Windows.Graphics.Imaging;
 using Windows.Storage.Streams;
 using System.Runtime.CompilerServices;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Hosting;
+using System.Transactions;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -198,6 +201,8 @@ namespace DropStackWinUI
 
         Compositor _compositor = null;
         SpringVector3NaturalMotionAnimation _springAnimation;
+
+        double lastDetailsPaneHeight = 300;
 
 
         public MainWindow()
@@ -2027,7 +2032,7 @@ namespace DropStackWinUI
 
         private void ShowDetailsPaneFlagButton_Click(object sender, RoutedEventArgs e)
         {
-            int detailsPaneHeight = (int)DetailsPaneGrid.Height;
+            /*int detailsPaneHeight = (int)DetailsPaneGrid.Height;
 
             if (DetailsPaneGrid.Visibility == Visibility.Collapsed)
             {
@@ -2040,15 +2045,13 @@ namespace DropStackWinUI
                 DetailsPaneGrid.Visibility = Visibility.Collapsed;
                 regularFileGrid.Translation = new Vector3(0, 0, 0);
                 regularFileGrid.Height = regularFileGrid.Height + detailsPaneHeight;
-            }
+            }*/
         }
 
         private async void updatePreviewArea(FileItem fileItem, bool isSeveralItems)
         {
             if (showDetailsPane)
             {
-                int detailsPaneHeight = 120;
-
                 if (fileItem != null && regularFileListView.SelectedItems.Count == 1)
                 {
                     StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
@@ -2070,26 +2073,16 @@ namespace DropStackWinUI
 
                     adjustShownDetailsButtons(fileItem.TypeTag, file.FileType);
 
-                    if (regularFileListView.SelectionMode != ListViewSelectionMode.Multiple && DetailsPaneGrid.Visibility == Visibility.Collapsed)
+                    if (regularFileListView.SelectionMode != ListViewSelectionMode.Multiple)
                     {
-                        DetailsPaneGrid.Visibility = Visibility.Visible;
-                        DetailsPaneGrid.Opacity = 1;
-                        regularFileGrid.Translation = new Vector3(0, detailsPaneHeight, 0);
-                        await Task.Delay(200);
-                        if (DetailsPaneGrid.Visibility == Visibility.Visible) regularFileGrid.Margin = new Thickness(0, 0, 0, detailsPaneHeight);
+                        showOrHideDetailsPane(true);
                     }
                 }
                 else
                 {
-                    if (DetailsPaneGrid.Visibility == Visibility.Visible)
-                    {
-                        DetailsPaneGrid.Visibility = Visibility.Collapsed;
-                        DetailsPaneGrid.Opacity = 0;
-                        regularFileGrid.Translation = new Vector3(0, 0, 0);
-                        regularFileGrid.Margin = new Thickness(0, 0, 0, 0);
-                        await Task.Delay(200);
-                        adjustShownDetailsButtons(null, null);
-                    }
+                    showOrHideDetailsPane(false);
+                    await Task.Delay(200);
+                    adjustShownDetailsButtons(null, null);
                 }
 
                 DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
@@ -2366,6 +2359,77 @@ namespace DropStackWinUI
             await Task.Delay(250);
             regularFileListView.SelectedItem = null;
             pinnedFileListView.SelectedItem = null;
+        }
+
+        private void DetailsSheetGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            var grid = sender as Grid;
+            var newHeight = grid.Height - e.Delta.Translation.Y;
+            if (newHeight < 20) newHeight = 20;
+            if (newHeight > 600) newHeight = 600;
+            grid.Height = newHeight;
+        }
+
+        private void DetailsSheetGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            var grid = sender as Grid;
+
+            var velocity = e.Velocities.Linear.Y;
+            var currentHeight = grid.Height;
+            var newHeight = currentHeight;
+            if (velocity > 0) // dragging down
+            {
+                if (currentHeight > 500) newHeight = 500;
+                else if (currentHeight > 300) newHeight = 300;
+                else newHeight = 120; // snap below view
+            }
+            else // dragging up
+            {
+                if (currentHeight < 300) newHeight = 300;
+                else newHeight = 500;
+            }
+
+            if (newHeight != 120) lastDetailsPaneHeight = newHeight;
+            else WindowGrid.Opacity = 1;
+
+            animateDetailsPane(newHeight);
+        }
+
+        public void showOrHideDetailsPane(bool show)
+        {
+            var currentHeight = DetailsSheetGrid.Height;
+            if (show)
+            {
+                animateDetailsPane(lastDetailsPaneHeight);
+                WindowGrid.Opacity = 0.8;
+            }
+            else
+            {
+                animateDetailsPane(120);
+                WindowGrid.Opacity = 1;
+            }
+        }
+
+        public void animateDetailsPane(double height)
+        {
+            Grid grid = DetailsSheetGrid;
+
+            // the adjusted difference that needs to be covered by an animation
+            double adjustedDifference = height - grid.Height;
+            grid.Height = height;
+
+            grid.TranslationTransition = null;
+            Vector3 oldTranslation = grid.Translation;
+            grid.Translation = oldTranslation + new Vector3(0, (float)adjustedDifference, 0);
+
+            grid.TranslationTransition = new Vector3Transition();
+            Vector3 unadjustedTranslation = grid.Translation;
+            grid.Translation = unadjustedTranslation + new Vector3(0, (float)(-adjustedDifference), 0);
+        }
+
+        private void DismissDetailsSheetButton_Click(object sender, RoutedEventArgs e)
+        {
+            showOrHideDetailsPane(false);
         }
     }
 }
