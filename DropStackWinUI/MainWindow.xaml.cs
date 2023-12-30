@@ -809,7 +809,11 @@ namespace DropStackWinUI
                                     TextOpacityDate = 0
                                 };
 
-                                fileMetadataList.Insert(addIndex, fileItem);
+                                if (addIndex == 0)
+                                {
+                                    fileMetadataList.Clear();
+                                }
+                                fileMetadataList.Add(fileItem);
                             }
                             else
                             {
@@ -831,10 +835,25 @@ namespace DropStackWinUI
                                     TextOpacityDate = 0.25
                                 };
 
-                                fileMetadataList.Insert(addIndex, fileItem);
+                                if (addIndex == 0)
+                                {
+                                    fileMetadataList.Clear();
+                                }
+                                fileMetadataList.Add(fileItem);
                             }
                         }
-                        else break;
+                        else
+                        {
+                            if (source == "regular")
+                            {
+                                regularFileListView.Items.Prepend(fileMetadataList);
+                            }
+                            else if (source == "pinned")
+                            {
+                                pinnedFileListView.Items.Prepend(fileMetadataList);
+                            }
+                            break;
+                        }
                         addIndex++;
                         if (source == "regular")
                         {
@@ -856,20 +875,40 @@ namespace DropStackWinUI
                 }
                 saveToCache(source, fileMetadataList);
 
+                PortalFileLoadingProgressBar.Opacity = 0;
+                if (source == "regular")
+                {
+                    
+                    _filteredFileMetadataList = fileMetadataList;
+                    fileMetadataListCopy = fileMetadataList;
+
+                }
+                else if (source == "pinned")
+                {
+                    _filteredPinnedFileMetadataList = fileMetadataList;
+                    pinnedFileMetadataListCopy = fileMetadataList;
+                }
+            }
+            else
+            {
+                // Ah bleh
+            }
+        }
+
+        public async void loadInThumbnails(string target)
+        {
+            //load thumbnails
+            List<FileThumbnail> thumbnails = new();
+            int currentFile = 1;
+            PortalFileLoadingProgressBar.Value = 0;
 
 
-                //load thumbnails
-                List<FileThumbnail> thumbnails = new();
-                currentFile = 1;
-                PortalFileLoadingProgressBar.Value = 0;
-                foreach (FileItem item in fileMetadataList.Take(loadedThumbnails))
+            if (target == "regular")
+            {
+                foreach (FileItem item in regularFileListView.Items.Take(loadedThumbnails))
                 {
                     if (item.FileIcon == null)
                     {
-                        double percentageOfFiles = currentFile / totalFiles;
-                        percentageOfFiles = percentageOfFiles * 100;
-                        progress.Report(Convert.ToInt32(percentageOfFiles));
-
                         if (item.TypeTag == "pics" || item.TypeTag == "vids" || item.TypeTag == "apps")
                         {
                             BitmapImage bitmapThumbnail = new BitmapImage();
@@ -894,29 +933,47 @@ namespace DropStackWinUI
                                 // add new thumbnail entry to list
                                 thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
                             }
-                            
+
                         }
                         currentFile++;
                     }
                 }
-
-                PortalFileLoadingProgressBar.Opacity = 0;
-                if (source == "regular")
-                {
-                    
-                    _filteredFileMetadataList = fileMetadataList;
-                    fileMetadataListCopy = fileMetadataList;
-
-                }
-                else if (source == "pinned")
-                {
-                    _filteredPinnedFileMetadataList = fileMetadataList;
-                    pinnedFileMetadataListCopy = fileMetadataList;
-                }
             }
-            else
+            else if (target == "pinned")
             {
-                // Ah bleh
+                foreach (FileItem item in pinnedFileListView.Items.Take(loadedThumbnails))
+                {
+                    if (item.FileIcon == null)
+                    {
+                        if (item.TypeTag == "pics" || item.TypeTag == "vids" || item.TypeTag == "apps")
+                        {
+                            BitmapImage bitmapThumbnail = new BitmapImage();
+                            StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                            bitmapThumbnail.SetSource(thumbnail);
+                            item.FileIcon = bitmapThumbnail;
+                        }
+                        else
+                        {
+                            BitmapImage bitmapThumbnail = new BitmapImage();
+                            // look for thumbnail entry in list
+                            FileThumbnail cachedThumbnailEntry = thumbnails.Where(f => f.Type == item.FileType).FirstOrDefault();
+                            // if entry exists, take stored image
+                            if (cachedThumbnailEntry != null) item.FileIcon = cachedThumbnailEntry.Image;
+                            else
+                            {
+                                StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                                bitmapThumbnail.SetSource(thumbnail);
+                                item.FileIcon = bitmapThumbnail;
+                                // add new thumbnail entry to list
+                                thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                            }
+
+                        }
+                        currentFile++;
+                    }
+                }
             }
         }
 
@@ -1954,6 +2011,7 @@ namespace DropStackWinUI
                     }
                     //check for new files
                     obtainFolderAndFiles(source, cachedFileMetadataList, false);
+                    loadInThumbnails(source);
                 }
             }
         }
