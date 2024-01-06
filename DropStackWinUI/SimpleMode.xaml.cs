@@ -74,6 +74,7 @@ namespace DropStackWinUI
 
         int checkboxBehavior = 1;
         bool isWindowsHelloRequiredForPins = false;
+        bool isPinsHidden = false;
         string priorSortTag = null;
         bool openCompactCommandBar = false;
 
@@ -131,6 +132,7 @@ namespace DropStackWinUI
                 if ((bool)localSettings.Values["FreeWindowingInSimpleMode"] == true)
                 {
                     enableFreeWindowing = true;
+                    IsAlwaysOnTop = false;
                     WindowStyleGrid.Visibility = Visibility.Visible;
                     FlyoutStyleGrid.Visibility = Visibility.Collapsed;
                     SetTitleBar(TitleBarRectangle);
@@ -190,6 +192,11 @@ namespace DropStackWinUI
             {
                 isWindowsHelloRequiredForPins = (int)localSettings.Values["PinBarBehavior"] == 3;
             }
+            if (localSettings.Values.ContainsKey("PinBarBehavior"))
+            {
+                isPinsHidden = (int)localSettings.Values["PinBarBehavior"] == 4;
+            }
+
             if (isWindowsHelloRequiredForPins)
             {
                 PinnedFilesToggleButton.IsEnabled = false;
@@ -197,6 +204,7 @@ namespace DropStackWinUI
                 toolTip.Content = "You cannot see pinned files as Winows Hello is currently active. Please switch to normal view to unlock pinned files.";
                 ToolTipService.SetToolTip(PinnedFilesToggleButton, toolTip);
             }
+            else if (isPinsHidden) PinnedFilesToggleButton.Visibility = Visibility.Collapsed;
         }
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)

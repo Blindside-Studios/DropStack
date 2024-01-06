@@ -37,7 +37,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Rectangle x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
                     <Expander
                         x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
@@ -51,7 +51,8 @@
                         Drop="PinnedPivotSection_Drop"
                         IsExpanded="False"
                         Expanding="Expander_Expanding"
-                        Collapsed="PinnedFilesExpander_Collapsed">
+                        Collapsed="PinnedFilesExpander_Collapsed"
+                        Margin="0,0,0,10">
                         <Grid>
                             <StackPanel x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <ProgressRing x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
@@ -120,14 +121,14 @@
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
-                            <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,8,0,-10"/>
+                            <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
                             <ProgressBar x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
                                 <ProgressBar.OpacityTransition>
                                     <ScalarTransition />
                                 </ProgressBar.OpacityTransition>
                             </ProgressBar>
                             <ListView   x:Name="regularFileListView"
-                                    Margin="0,10,0,0"
+                                    Margin="0,2,0,0"
                                     SelectionMode="Extended"
                                     SelectionChanged="fileListView_SelectionChanged" 
                                     DoubleTapped="regularFileListView_DoubleTapped"
@@ -585,10 +586,11 @@
                                 <Expander x:Name="ExpanderSettingsExpander" Header="Pick the pinned row behavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                                     <StackPanel Spacing="10">
                                         <RadioButtons Header="Options:">
-                                            <RadioButton x:Name="PinsAlwaysOpenRadioButton" Content="Always opened" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                            <RadioButton x:Name="PinsRememberStateRadioButton" Content="Remember last state" Checked="RadioButton_Checked" ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
-                                            <RadioButton x:Name="PinsAlwaysClosedRadioButton" Content="Always closed" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
-                                            <RadioButton x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️" Checked="RadioButton_Checked" ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
+                                            <RadioButton x:Name="PinsAlwaysOpenRadioButton" Content="Always opened" Tag="opened" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                            <RadioButton x:Name="PinsRememberStateRadioButton" Content="Remember last state" Tag="remember" Checked="RadioButton_Checked" ToolTipService.ToolTip="Remembers if you left the pinned file row open or not"/>
+                                            <RadioButton x:Name="PinsAlwaysClosedRadioButton" Content="Always closed" Tag="closed" Checked="RadioButton_Checked" ToolTipService.ToolTip="Always expands the pinned file row"/>
+                                            <RadioButton x:Name="PinsProtectedRadioButton" Content="Protect with Windows Hello™️" Tag="protected" Checked="RadioButton_Checked" ToolTipService.ToolTip="Only lets you open the pinned file row after authenticating with Windows Hello™️"/>
+                                            <RadioButton x:Name="PinsHiddenRadioButton" Content="Hide pin bar" Tag="hidden" Checked="RadioButton_Checked" ToolTipService.ToolTip="The pinned files interface will be hidden in all modes"/>
                                         </RadioButtons>
                                         <Button x:Name="EnableAllOptionsForPinsButton" Content="Enable all options..." ToolTipService.ToolTip="Currently, some of these options are locked because you enabled Windows Hello™️ protection." HorizontalAlignment="Stretch" Click="EnableAllOptionsForPinsButton_Click" Visibility="Collapsed"/>
                                     </StackPanel>
@@ -642,7 +644,7 @@
                                         <Paragraph>DropStack will only ever access the folder paths that you specifically choose with the folder picker. 
                                     DropStack will also only see top-level files, meaning that anything that is inside a folder or a compressed file cannot be seen by the app. 
                                     DropStack never shares any information about your files with anyone, including first- and third-party software, as well as the developer.
-                                    In fact, DropStack's capability to access the internet has been fully disabled.</Paragraph>
+                                        </Paragraph>
                                         <Paragraph Margin="0,10,0,0">
                                             <Run FontWeight="ExtraBold">About Windows Hello™️</Run>
                                         </Paragraph>

@@ -97,43 +97,43 @@
                     <FontIcon Glyph="&#xE8A7;"/>
                 </Button>
                 <ScrollViewer HorizontalScrollMode="Enabled" Grid.Column="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
-                    <StackPanel x:Name="FilterButtonsStackPanel" Orientation="Horizontal" Spacing="10">
+                    <StackPanel x:Name="FilterButtonsStackPanel" Orientation="Horizontal">
                         <ToggleButton x:Name="AllFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True" RightTapped="AllFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True" DragOver="PinnedFilesToggleButton_DragOver" Drop="PinnedFilesToggleButton_Drop">
+                        <ToggleButton x:Name="PinnedFilesToggleButton" Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pins" Content="Pinned" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" RightTapped="PinnedFilesToggleButton_RightTapped" ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True" DragOver="PinnedFilesToggleButton_DragOver" Drop="PinnedFilesToggleButton_Drop">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="docs" Content="Documents" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="docs" Content="Documents" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number3"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pics" Content="Pictures" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pics" Content="Pictures" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number4"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="music" Content="Music" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="music" Content="Music" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number5"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="vids" Content="Videos" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="vids" Content="Videos" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number6"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="apps" Content="Applications" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="apps" Content="Applications" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number7"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="0,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
+                        <ToggleButton Checked="ToggleButton_Checked" Unchecked="AllFilesToggleButton_Unchecked" Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="10,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number8"/>
                             </ToggleButton.KeyboardAccelerators>

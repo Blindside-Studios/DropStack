@@ -309,6 +309,13 @@ namespace DropStackWinUI
                     PinsProtectedRadioButton.IsChecked = true;
                     setPinBarOptionVisibility(false);
                     break;
+                case 4:
+                    isWindowsHelloRequiredForPins = false;
+                    PinnedFilesExpander.IsExpanded = false;
+                    PinsHiddenRadioButton.IsChecked = true;
+                    PinnedFilesExpander.Visibility = Visibility.Collapsed;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
+                    break;
             }
 
             if (localSettings.Values.ContainsKey("showPrimaryPortal")) { showPrimPortal = (bool)localSettings.Values["showPrimaryPortal"]; }
@@ -1618,28 +1625,42 @@ namespace DropStackWinUI
             RadioButton selectedRadioButton = sender as RadioButton;
             int securitySeverityIndex = 0;
 
-            switch (selectedRadioButton.Content)
+            switch (selectedRadioButton.Tag.ToString())
             {
-                case "Always opened":
+                case "opened":
                     securitySeverityIndex = 0;
                     isWindowsHelloRequiredForPins = false;
                     PinnedFilesExpander.IsExpanded = true;
+                    PinnedFilesExpander.Visibility = Visibility.Visible;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                     break;
-                case "Remember last state":
+                case "remember":
                     securitySeverityIndex = 1;
                     isWindowsHelloRequiredForPins = false;
+                    PinnedFilesExpander.Visibility = Visibility.Visible;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                     localSettings.Values["HasPinBarBeenExpanded"] = PinnedFilesExpander.IsExpanded;
                     break;
-                case "Always closed":
+                case "closed":
                     securitySeverityIndex = 2;
                     isWindowsHelloRequiredForPins = false;
                     PinnedFilesExpander.IsExpanded = false;
+                    PinnedFilesExpander.Visibility = Visibility.Visible;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                     break;
-                case "Protect with Windows Hello™️":
+                case "protected":
                     securitySeverityIndex = 3;
                     isWindowsHelloRequiredForPins = true;
                     PinnedFilesExpander.IsExpanded = false;
+                    PinnedFilesExpander.Visibility = Visibility.Visible;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                     setPinBarOptionVisibility(false);
+                    break;
+                case "hidden":
+                    securitySeverityIndex = 4;
+                    isWindowsHelloRequiredForPins = true;
+                    PinnedFilesExpander.Visibility = Visibility.Collapsed;
+                    PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
                     break;
             }
             localSettings.Values["PinBarBehavior"] = securitySeverityIndex;
@@ -1650,6 +1671,7 @@ namespace DropStackWinUI
             PinsAlwaysOpenRadioButton.IsEnabled = shouldBeVisible;
             PinsRememberStateRadioButton.IsEnabled = shouldBeVisible;
             PinsAlwaysClosedRadioButton.IsEnabled = shouldBeVisible;
+            PinsHiddenRadioButton.IsEnabled = shouldBeVisible;
             if (shouldBeVisible) EnableAllOptionsForPinsButton.Visibility = Visibility.Collapsed;
             else if (!shouldBeVisible) EnableAllOptionsForPinsButton.Visibility = Visibility.Visible;
         }
