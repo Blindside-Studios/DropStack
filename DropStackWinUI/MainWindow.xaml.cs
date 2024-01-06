@@ -196,14 +196,13 @@ namespace DropStackWinUI
         int checkboxBehavior = 1;
         int searchThreshold = 3;
 
-        bool showDetailsPane = true;
+        bool showDetailsPane = false;
         FileItem previewedItem = null;
 
         Compositor _compositor = null;
         SpringVector3NaturalMotionAnimation _springAnimation;
 
-        double lastDetailsPaneHeight = 300;
-
+        bool hasDoubleTapped = false;
 
         public MainWindow()
         {
@@ -247,7 +246,7 @@ namespace DropStackWinUI
 
             if (isDarkMode)
             {
-                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
+                if (pinBarBehaviorIndex != 4) PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
                 ContentBackgroundRectangle.Opacity = 0.15;
 
             }
@@ -689,12 +688,6 @@ namespace DropStackWinUI
 
             if (folder != null)
             {
-                if (source == "regular")
-                {
-                    PortalFileLoadingProgressBar.Value = 0;
-                    PortalFileLoadingProgressBar.Opacity = 1; 
-                }
-                IProgress<int> progress = new Progress<int>(value => PortalFileLoadingProgressBar.Value = value);
                 double totalFiles = Convert.ToDouble(files.Count);
                 if (totalFiles > 1024) totalFiles = 1024;
                 int currentFile = 1;
@@ -705,13 +698,6 @@ namespace DropStackWinUI
                 {
                     if (shouldContinue)
                     {
-                        if (source == "regular")
-                        {
-                            double percentageOfFiles = currentFile / totalFiles;
-                            percentageOfFiles = percentageOfFiles * 100;
-                            progress.Report(Convert.ToInt32(percentageOfFiles));
-                        }
-
                         BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
 
                         BitmapImage bitmapThumbnail = new BitmapImage();
@@ -882,7 +868,6 @@ namespace DropStackWinUI
                 }
                 saveToCache(source, fileMetadataList);
 
-                PortalFileLoadingProgressBar.Opacity = 0;
                 if (source == "regular")
                 {
                     
@@ -907,8 +892,6 @@ namespace DropStackWinUI
             //load thumbnails
             List<FileThumbnail> thumbnails = new();
             int currentFile = 1;
-            PortalFileLoadingProgressBar.Value = 0;
-
 
             if (target == "regular")
             {
@@ -1448,6 +1431,8 @@ namespace DropStackWinUI
 
         private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
+            hasDoubleTapped = true;
+            
             DependencyObject tappedElement = e.OriginalSource as DependencyObject;
 
             while (tappedElement != null && !(tappedElement is ListViewItem))
@@ -2190,16 +2175,14 @@ namespace DropStackWinUI
 
             switch (typeTag)
             {
+                // modify these
                 case null:
                     break;
                 case "pics":
                     DetailsPaneDeleteFlyoutButton.IsEnabled = true;
                     DetailsPaneOpenWithButton.IsEnabled = true;
                     DetailsPanePreviewButton.IsEnabled = true;
-                    DetailsPaneAnnotateButton.Visibility = Visibility.Visible;
-                    DetailsPaneCropButton.Visibility = Visibility.Visible;
                     DetailsPaneRotateButton.Visibility = Visibility.Visible;
-                    DetailsPaneShareButton.IsEnabled = true;
                     DetailsPaneSeparator.Visibility = Visibility.Visible;
                     break;
                 case "vids":
@@ -2207,14 +2190,12 @@ namespace DropStackWinUI
                     DetailsPaneOpenWithButton.IsEnabled = true;
                     DetailsPanePreviewButton.IsEnabled = true;
                     DetailsPanePlayButton.Visibility = Visibility.Visible;
-                    DetailsPaneShareButton.IsEnabled = true;
                     DetailsPaneSeparator.Visibility = Visibility.Visible;
                     break;
                 case "music":
                     DetailsPaneDeleteFlyoutButton.IsEnabled = true;
                     DetailsPaneOpenWithButton.IsEnabled = true;
                     DetailsPanePlayButton.Visibility = Visibility.Visible;
-                    DetailsPaneShareButton.IsEnabled = true;
                     DetailsPaneSeparator.Visibility = Visibility.Visible;
                     break;
                 default:
@@ -2224,24 +2205,14 @@ namespace DropStackWinUI
                             DetailsPaneDeleteFlyoutButton.IsEnabled = true;
                             DetailsPaneOpenWithButton.IsEnabled = true;
                             DetailsPanePreviewButton.IsEnabled = true;
-                            DetailsPaneShareButton.IsEnabled = true;
                             break;
                         default:
                             DetailsPaneDeleteFlyoutButton.IsEnabled = true;
                             DetailsPaneOpenWithButton.IsEnabled = true;
-                            DetailsPaneShareButton.IsEnabled = true;
                             break;
                     }
                     break;
             }
-        }
-
-
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            //DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
-            //dataTransferManager.DataRequested += DataTransferManager_DataRequested;
-            //DataTransferManager.ShowShareUI();
         }
 
         private async void DataTransferManager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
@@ -2361,7 +2332,14 @@ namespace DropStackWinUI
 
         private void DetailsPaneOpenWithButton_Click(object sender, RoutedEventArgs e)
         {
+            ShowOpenWithDialog(previewedItem.FilePath);
+        }
 
+        public static void ShowOpenWithDialog(string path)
+        {
+            var args = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "shell32.dll");
+            args += ",OpenAs_RunDLL " + path;
+            Process.Start("rundll32.exe", args);
         }
 
         private async void FileDeleteButton_Click(object sender, RoutedEventArgs e)
@@ -2446,7 +2424,7 @@ namespace DropStackWinUI
             var grid = sender as Grid;
             var newHeight = grid.Height - e.Delta.Translation.Y;
             if (newHeight < 20) newHeight = 20;
-            if (newHeight > 600) newHeight = 600;
+            if (newHeight > 400) newHeight = 400;
             grid.Height = newHeight;
         }
 
@@ -2457,31 +2435,36 @@ namespace DropStackWinUI
             var velocity = e.Velocities.Linear.Y;
             var currentHeight = grid.Height;
             var newHeight = currentHeight;
-            if (velocity > 0) // dragging down
+            if (velocity > 0)
             {
-                if (currentHeight > 500) newHeight = 500;
-                else if (currentHeight > 300) newHeight = 300;
-                else newHeight = 120; // snap below view
+                if (currentHeight > 300) newHeight = 300;
+                else newHeight = 120;
             }
-            else // dragging up
+            else
             {
-                if (currentHeight < 300) newHeight = 300;
-                else newHeight = 500;
+                newHeight = 300;
             }
 
-            if (newHeight != 120) lastDetailsPaneHeight = newHeight;
-            else WindowGrid.Opacity = 1;
+            if (newHeight == 120) WindowGrid.Opacity = 1;
 
             animateDetailsPane(newHeight);
         }
 
-        public void showOrHideDetailsPane(bool show)
+        public async void showOrHideDetailsPane(bool show)
         {
-            var currentHeight = DetailsSheetGrid.Height;
             if (show)
             {
-                animateDetailsPane(lastDetailsPaneHeight);
-                WindowGrid.Opacity = 0.8;
+                await Task.Delay(150);
+                if (!hasDoubleTapped)
+                {
+                    animateDetailsPane(300);
+                    WindowGrid.Opacity = 0.8;
+                }
+                else
+                {
+                    await Task.Delay(200);
+                    hasDoubleTapped = false;
+                }
             }
             else
             {

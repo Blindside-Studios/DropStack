@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:winex="using:WinUIEx" Width="500" Height="850" MinWidth="500" MinHeight="273">
+    xmlns:winex="using:WinUIEx" Width="500" Height="800" MinWidth="500" MinHeight="273">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
@@ -122,20 +122,16 @@
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
                             <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
-                            <ProgressBar x:Name="PortalFileLoadingProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1,8,1,0" Opacity="0">
-                                <ProgressBar.OpacityTransition>
-                                    <ScalarTransition />
-                                </ProgressBar.OpacityTransition>
-                            </ProgressBar>
                             <ListView   x:Name="regularFileListView"
-                                    Margin="0,2,0,0"
-                                    SelectionMode="Extended"
-                                    SelectionChanged="fileListView_SelectionChanged" 
-                                    DoubleTapped="regularFileListView_DoubleTapped"
-                                    RightTapped="fileListView_RightTapped" 
-                                    CanDragItems="True" 
-                                    DragItemsStarting="fileListView_DragItemsStarting"
-                                    DragItemsCompleted="regularFileListView_DragItemsCompleted">
+                                        Margin="0,2,0,0"
+                                        SelectionMode="Extended"
+                                        SelectionChanged="fileListView_SelectionChanged" 
+                                        DoubleTapped="regularFileListView_DoubleTapped"
+                                        RightTapped="fileListView_RightTapped" 
+                                        CanDragItems="True" 
+                                        DragItemsStarting="fileListView_DragItemsStarting"
+                                        DragItemsCompleted="regularFileListView_DragItemsCompleted"
+                                        ShowsScrollingPlaceholders="True">
                                 <ListView.ItemContainerTransitions>
                                     <TransitionCollection>
                                         <EntranceThemeTransition  FromVerticalOffset="0" />
@@ -458,6 +454,7 @@
                                            Opacity="0.7"
                                            FontSize="10"/>
                                         <ToggleSwitch x:Name="ShowDetailsPaneToggleSwitch"
+                                                      IsOn="False"
                                                       OnContent="Show details pane"
                                                       OffContent="Show details pane"
                                                       Toggled="ShowDetailsPaneToggleSwitch_Toggled"
@@ -690,7 +687,7 @@
             <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,30,5,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"/>
-                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -746,6 +743,7 @@
                                     <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
                                     <AppBarSeparator x:Name="DetailsPaneSeparator"/>
                                     <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
                                     <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                         <AppBarButton.Flyout>
                                             <Flyout x:Name="DeleteFlyout">
@@ -757,16 +755,9 @@
                                         </AppBarButton.Flyout>
                                     </AppBarButton>
                                 </CommandBar.PrimaryCommands>
-                                <CommandBar.SecondaryCommands>
-                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
-                                    <AppBarButton x:Name="DetailsPaneShareButton" Icon="Share" Label="Share" Tag="alwaysshow" LabelPosition="Default" Click="AppBarButton_Click"/>
-                                </CommandBar.SecondaryCommands>
                             </CommandBar>
                         </Grid>
                     </Grid>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <!-- put details here -->
                 </Grid>
             </Grid>
         </Grid>
