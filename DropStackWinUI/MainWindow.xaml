@@ -8,7 +8,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:winex="using:WinUIEx" Width="500" Height="800" MinWidth="500" MinHeight="273">
+    xmlns:winex="using:WinUIEx" 
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls" 
+    Width="500" Height="800" MinWidth="500" MinHeight="273">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
@@ -33,6 +35,25 @@
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
+                    <Grid.Resources>
+                        <CommandBarFlyout x:Name="FileCommandsFlyout">
+                            <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
+                            <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
+                            <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview" Click="DetailsPanePreviewButton_Click"/>
+                            <AppBarButton x:Name="FlyoutRotateButton" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click"/>
+                            <CommandBarFlyout.SecondaryCommands>
+                                <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file(s)" Click="FlyoutOpenButton_Click"/>
+                                <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file(s)" Click="FlyoutCopyButton_Click"/>
+                                <AppBarButton x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..." Click="DetailsPanePreviewButton_Click"/>
+                                <AppBarButton x:Name="FlyoutRotateButtonSec" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click"/>
+                                <AppBarSeparator/>
+                                <AppBarButton x:Name="FlyoutOpenWithButton" Icon="OpenWith" Label="Open with..." Click="DetailsPaneOpenWithButton_Click"/>
+                                <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
+                                <AppBarButton x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll" Click="FlyoutSelectButton_Click"/>
+                                <AppBarButton x:Name="FlyoutDeleteButton" Label="Delete this file" Icon="Delete" Click="FileDeleteButton_Click"/>
+                            </CommandBarFlyout.SecondaryCommands>
+                        </CommandBarFlyout>
+                    </Grid.Resources>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -131,7 +152,10 @@
                                         CanDragItems="True" 
                                         DragItemsStarting="fileListView_DragItemsStarting"
                                         DragItemsCompleted="regularFileListView_DragItemsCompleted"
-                                        ShowsScrollingPlaceholders="True">
+                                        ShowsScrollingPlaceholders="True"
+                                        FlyoutBase.AttachedFlyout="{x:Bind FileCommandsFlyout}"
+                                        ContextFlyout="{x:Bind FileCommandsFlyout}"
+                                        Tapped="regularFileListView_Tapped">
                                 <ListView.ItemContainerTransitions>
                                     <TransitionCollection>
                                         <EntranceThemeTransition  FromVerticalOffset="0" />
@@ -496,7 +520,7 @@
                                            SpinButtonPlacementMode="Compact"
                                            ToolTipService.ToolTip="Set the resolution in which thumbnails are loaded. 
                                            This should greatly improve speed and RAM usage at the cost of recognizability. 
-                                           Therefore, we recommend 64 as a balance. Takes effect after refr4eshing the list."
+                                           Therefore, we recommend 64 as a balance. Takes effect after refreshing the list."
                                            ValueChanged="ThumbnailResolutionNumberBox_ValueChanged"/>
                                         <Button x:Name="ResetCapsToDefaultButton"
                                         Content="Reset to default values"

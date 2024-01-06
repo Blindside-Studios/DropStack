@@ -8,7 +8,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:winex="using:WinUIEx" Width="500" Height="800" MinWidth="500" MinHeight="273">
+    xmlns:winex="using:WinUIEx" 
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls" 
+    Width="500" Height="800" MinWidth="500" MinHeight="273">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
@@ -16,7 +18,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='142' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='155' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid" Opacity="1">
             <Grid.OpacityTransition>
@@ -33,12 +35,31 @@
                     <Grid.TranslationTransition>
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
+                    <Grid.Resources>
+                        <CommandBarFlyout x:ConnectionId='119' x:Name="FileCommandsFlyout">
+                            <AppBarButton x:ConnectionId='120' x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open"                               />
+                            <AppBarButton x:ConnectionId='121' x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy"                               />
+                            <AppBarButton x:ConnectionId='122' x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview"                                       />
+                            <AppBarButton x:ConnectionId='123' x:Name="FlyoutRotateButton" Icon="Rotate" Label="Rotate"                                      />
+                            <CommandBarFlyout.SecondaryCommands>
+                                <AppBarButton x:ConnectionId='124' x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file(s)"                               />
+                                <AppBarButton x:ConnectionId='125' x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file(s)"                               />
+                                <AppBarButton x:ConnectionId='126' x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..."                                       />
+                                <AppBarButton x:ConnectionId='127' x:Name="FlyoutRotateButtonSec" Icon="Rotate" Label="Rotate"                                      />
+                                <AppBarSeparator/>
+                                <AppBarButton x:ConnectionId='128' x:Name="FlyoutOpenWithButton" Icon="OpenWith" Label="Open with..."                                        />
+                                <AppBarButton x:ConnectionId='129' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
+                                <AppBarButton x:ConnectionId='130' x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll"                                 />
+                                <AppBarButton x:ConnectionId='131' x:Name="FlyoutDeleteButton" Label="Delete this file" Icon="Delete"                               />
+                            </CommandBarFlyout.SecondaryCommands>
+                        </CommandBarFlyout>
+                    </Grid.Resources>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:ConnectionId='119' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
-                    <Expander x:ConnectionId='120'
+                    <Rectangle x:ConnectionId='132' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
+                    <Expander x:ConnectionId='133'
                         x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
                         VerticalAlignment="Top"
@@ -54,18 +75,18 @@
                                                                  
                         Margin="0,0,0,10">
                         <Grid>
-                            <StackPanel x:ConnectionId='128' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='141' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='141' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='154' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='129' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='130' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='139' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='140' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='142' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='143' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='152' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='153' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='131' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='144' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='132'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='145'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -88,7 +109,7 @@
                                                             <Flyout>
                                                                 <StackPanel>
                                                                     <TextBlock Text="Do you wish to unpin this file?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:ConnectionId='138' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                    <Button x:ConnectionId='151' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>
@@ -117,12 +138,12 @@
                         </Grid>
                     </Expander>
                     <Grid Grid.Row="1">
-                        <Grid x:ConnectionId='121' x:Name="regularFileGrid">
+                        <Grid x:ConnectionId='134' x:Name="regularFileGrid">
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
-                            <Rectangle x:ConnectionId='122' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
-                            <ListView x:ConnectionId='123'   x:Name="regularFileListView"
+                            <Rectangle x:ConnectionId='135' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
+                            <ListView x:ConnectionId='136'   x:Name="regularFileListView"
                                         Margin="0,2,0,0"
                                         SelectionMode="Extended"
                                                                                          
@@ -131,7 +152,10 @@
                                         CanDragItems="True" 
                                                                                           
                                                                                                    
-                                        ShowsScrollingPlaceholders="True">
+                                        ShowsScrollingPlaceholders="True"
+                                                                                               
+                                                                                   
+                                                                           >
                                 <ListView.ItemContainerTransitions>
                                     <TransitionCollection>
                                         <EntranceThemeTransition  FromVerticalOffset="0" />
@@ -496,7 +520,7 @@
                                            SpinButtonPlacementMode="Compact"
                                            ToolTipService.ToolTip="Set the resolution in which thumbnails are loaded. 
                                            This should greatly improve speed and RAM usage at the cost of recognizability. 
-                                           Therefore, we recommend 64 as a balance. Takes effect after refr4eshing the list."
+                                           Therefore, we recommend 64 as a balance. Takes effect after refreshing the list."
                                                                                                    />
                                         <Button x:ConnectionId='82' x:Name="ResetCapsToDefaultButton"
                                         Content="Reset to default values"

@@ -45,6 +45,18 @@
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "dependencies": {
+            "CommunityToolkit.WinUI": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "CommunityToolkit.WinUI.Extensions": {
+              "target": "Package",
+              "version": "[8.0.230907, )"
+            },
+            "CommunityToolkit.WinUI.UI.Controls": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",
               "version": "[10.0.22621.756, )"

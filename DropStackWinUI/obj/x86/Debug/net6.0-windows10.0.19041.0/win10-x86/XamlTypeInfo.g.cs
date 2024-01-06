@@ -284,12 +284,12 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[56] = "Microsoft.UI.Xaml.Controls.ProgressBar";
             _typeNameTable[57] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
             _typeNameTable[58] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
-            _typeNameTable[59] = "Microsoft.UI.Xaml.Controls.ProgressRing";
-            _typeNameTable[60] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
-            _typeNameTable[61] = "DropStackWinUI.MainWindow";
-            _typeNameTable[62] = "Microsoft.UI.Xaml.Controls.CommandBarFlyout";
-            _typeNameTable[63] = "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>";
-            _typeNameTable[64] = "Microsoft.UI.Xaml.Controls.ICommandBarElement";
+            _typeNameTable[59] = "Microsoft.UI.Xaml.Controls.CommandBarFlyout";
+            _typeNameTable[60] = "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>";
+            _typeNameTable[61] = "Microsoft.UI.Xaml.Controls.ICommandBarElement";
+            _typeNameTable[62] = "Microsoft.UI.Xaml.Controls.ProgressRing";
+            _typeNameTable[63] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
+            _typeNameTable[64] = "DropStackWinUI.MainWindow";
             _typeNameTable[65] = "DropStackWinUI.MiniMode";
             _typeNameTable[66] = "DropStackWinUI.SimpleMode";
 
@@ -355,12 +355,12 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[56] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
             _typeTable[57] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
             _typeTable[58] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
-            _typeTable[59] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
-            _typeTable[60] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
-            _typeTable[61] = typeof(global::DropStackWinUI.MainWindow);
-            _typeTable[62] = typeof(global::Microsoft.UI.Xaml.Controls.CommandBarFlyout);
-            _typeTable[63] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>);
-            _typeTable[64] = typeof(global::Microsoft.UI.Xaml.Controls.ICommandBarElement);
+            _typeTable[59] = typeof(global::Microsoft.UI.Xaml.Controls.CommandBarFlyout);
+            _typeTable[60] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>);
+            _typeTable[61] = typeof(global::Microsoft.UI.Xaml.Controls.ICommandBarElement);
+            _typeTable[62] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
+            _typeTable[63] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
+            _typeTable[64] = typeof(global::DropStackWinUI.MainWindow);
             _typeTable[65] = typeof(global::DropStackWinUI.MiniMode);
             _typeTable[66] = typeof(global::DropStackWinUI.SimpleMode);
         }
@@ -408,9 +408,9 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_45_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
         private object Activate_49_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
         private object Activate_56_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
-        private object Activate_59_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
-        private object Activate_61_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
-        private object Activate_62_CommandBarFlyout() { return new global::Microsoft.UI.Xaml.Controls.CommandBarFlyout(); }
+        private object Activate_59_CommandBarFlyout() { return new global::Microsoft.UI.Xaml.Controls.CommandBarFlyout(); }
+        private object Activate_62_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
+        private object Activate_64_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
         private object Activate_65_MiniMode() { return new global::DropStackWinUI.MiniMode(); }
         private object Activate_66_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
@@ -426,7 +426,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_63_IObservableVector(object instance, object item)
+        private void VectorAdd_60_IObservableVector(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.ICommandBarElement)item;
@@ -887,9 +887,30 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 59:   //  Microsoft.UI.Xaml.Controls.ProgressRing
+            case 59:   //  Microsoft.UI.Xaml.Controls.CommandBarFlyout
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"));
+                userType.Activator = Activate_59_CommandBarFlyout;
+                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands");
+                userType.AddMemberName("PrimaryCommands");
+                userType.AddMemberName("SecondaryCommands");
+                userType.AddMemberName("AlwaysExpanded");
+                xamlType = userType;
+                break;
+
+            case 60:   //  Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>
+                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_60_IObservableVector;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 61:   //  Microsoft.UI.Xaml.Controls.ICommandBarElement
+                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 62:   //  Microsoft.UI.Xaml.Controls.ProgressRing
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_59_ProgressRing;
+                userType.Activator = Activate_62_ProgressRing;
                 userType.AddMemberName("IsActive");
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("Maximum");
@@ -899,39 +920,18 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 60:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
+            case 63:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 61:   //  DropStackWinUI.MainWindow
+            case 64:   //  DropStackWinUI.MainWindow
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_61_MainWindow;
+                userType.Activator = Activate_64_MainWindow;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
-                break;
-
-            case 62:   //  Microsoft.UI.Xaml.Controls.CommandBarFlyout
-                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"));
-                userType.Activator = Activate_62_CommandBarFlyout;
-                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands");
-                userType.AddMemberName("PrimaryCommands");
-                userType.AddMemberName("AlwaysExpanded");
-                userType.AddMemberName("SecondaryCommands");
-                xamlType = userType;
-                break;
-
-            case 63:   //  Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>
-                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_63_IObservableVector;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 64:   //  Microsoft.UI.Xaml.Controls.ICommandBarElement
-                xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 65:   //  DropStackWinUI.MiniMode
@@ -962,6 +962,18 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Core_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_DataGrid_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Input_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Layout_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Markdown_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Media_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
@@ -1965,80 +1977,80 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.TemplateSettings;
         }
-        private object get_99_ProgressRing_IsActive(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.IsActive;
-        }
-        private void set_99_ProgressRing_IsActive(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            that.IsActive = (global::System.Boolean)Value;
-        }
-        private object get_100_ProgressRing_IsIndeterminate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.IsIndeterminate;
-        }
-        private void set_100_ProgressRing_IsIndeterminate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            that.IsIndeterminate = (global::System.Boolean)Value;
-        }
-        private object get_101_ProgressRing_Maximum(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.Maximum;
-        }
-        private void set_101_ProgressRing_Maximum(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            that.Maximum = (global::System.Double)Value;
-        }
-        private object get_102_ProgressRing_Minimum(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.Minimum;
-        }
-        private void set_102_ProgressRing_Minimum(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            that.Minimum = (global::System.Double)Value;
-        }
-        private object get_103_ProgressRing_TemplateSettings(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.TemplateSettings;
-        }
-        private object get_104_ProgressRing_Value(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            return that.Value;
-        }
-        private void set_104_ProgressRing_Value(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
-            that.Value = (global::System.Double)Value;
-        }
-        private object get_105_CommandBarFlyout_PrimaryCommands(object instance)
+        private object get_99_CommandBarFlyout_PrimaryCommands(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             return that.PrimaryCommands;
         }
-        private object get_106_CommandBarFlyout_AlwaysExpanded(object instance)
+        private object get_100_CommandBarFlyout_SecondaryCommands(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
+            return that.SecondaryCommands;
+        }
+        private object get_101_CommandBarFlyout_AlwaysExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             return that.AlwaysExpanded;
         }
-        private void set_106_CommandBarFlyout_AlwaysExpanded(object instance, object Value)
+        private void set_101_CommandBarFlyout_AlwaysExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             that.AlwaysExpanded = (global::System.Boolean)Value;
         }
-        private object get_107_CommandBarFlyout_SecondaryCommands(object instance)
+        private object get_102_ProgressRing_IsActive(object instance)
         {
-            var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
-            return that.SecondaryCommands;
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.IsActive;
+        }
+        private void set_102_ProgressRing_IsActive(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            that.IsActive = (global::System.Boolean)Value;
+        }
+        private object get_103_ProgressRing_IsIndeterminate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.IsIndeterminate;
+        }
+        private void set_103_ProgressRing_IsIndeterminate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            that.IsIndeterminate = (global::System.Boolean)Value;
+        }
+        private object get_104_ProgressRing_Maximum(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.Maximum;
+        }
+        private void set_104_ProgressRing_Maximum(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            that.Maximum = (global::System.Double)Value;
+        }
+        private object get_105_ProgressRing_Minimum(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.Minimum;
+        }
+        private void set_105_ProgressRing_Minimum(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            that.Minimum = (global::System.Double)Value;
+        }
+        private object get_106_ProgressRing_TemplateSettings(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.TemplateSettings;
+        }
+        private object get_107_ProgressRing_Value(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            return that.Value;
+        }
+        private void set_107_ProgressRing_Value(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
+            that.Value = (global::System.Double)Value;
         }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -2718,64 +2730,64 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_98_ProgressBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PrimaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
+                xamlMember.Getter = get_99_CommandBarFlyout_PrimaryCommands;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.SecondaryCommands":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SecondaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
+                xamlMember.Getter = get_100_CommandBarFlyout_SecondaryCommands;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.AlwaysExpanded":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AlwaysExpanded", "Boolean");
+                xamlMember.Getter = get_101_CommandBarFlyout_AlwaysExpanded;
+                xamlMember.Setter = set_101_CommandBarFlyout_AlwaysExpanded;
+                break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsActive":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_99_ProgressRing_IsActive;
-                xamlMember.Setter = set_99_ProgressRing_IsActive;
+                xamlMember.Getter = get_102_ProgressRing_IsActive;
+                xamlMember.Setter = set_102_ProgressRing_IsActive;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_100_ProgressRing_IsIndeterminate;
-                xamlMember.Setter = set_100_ProgressRing_IsIndeterminate;
+                xamlMember.Getter = get_103_ProgressRing_IsIndeterminate;
+                xamlMember.Setter = set_103_ProgressRing_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_101_ProgressRing_Maximum;
-                xamlMember.Setter = set_101_ProgressRing_Maximum;
+                xamlMember.Getter = get_104_ProgressRing_Maximum;
+                xamlMember.Setter = set_104_ProgressRing_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Minimum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_102_ProgressRing_Minimum;
-                xamlMember.Setter = set_102_ProgressRing_Minimum;
+                xamlMember.Getter = get_105_ProgressRing_Minimum;
+                xamlMember.Setter = set_105_ProgressRing_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings");
-                xamlMember.Getter = get_103_ProgressRing_TemplateSettings;
+                xamlMember.Getter = get_106_ProgressRing_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_104_ProgressRing_Value;
-                xamlMember.Setter = set_104_ProgressRing_Value;
-                break;
-            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PrimaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
-                xamlMember.Getter = get_105_CommandBarFlyout_PrimaryCommands;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.AlwaysExpanded":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AlwaysExpanded", "Boolean");
-                xamlMember.Getter = get_106_CommandBarFlyout_AlwaysExpanded;
-                xamlMember.Setter = set_106_CommandBarFlyout_AlwaysExpanded;
-                break;
-            case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.SecondaryCommands":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SecondaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
-                xamlMember.Getter = get_107_CommandBarFlyout_SecondaryCommands;
-                xamlMember.SetIsReadOnly();
+                xamlMember.Getter = get_107_ProgressRing_Value;
+                xamlMember.Setter = set_107_ProgressRing_Value;
                 break;
             }
             return xamlMember;

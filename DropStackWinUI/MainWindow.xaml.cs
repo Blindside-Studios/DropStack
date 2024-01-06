@@ -1,69 +1,42 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Xml.Serialization;
 using Windows.ApplicationModel;
-using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Security.Credentials.UI;
 using Windows.Storage;
 using Windows.Storage.AccessCache;
 using Windows.Storage.FileProperties;
-using Microsoft.Windows.AppLifecycle;
 using Windows.Storage.Pickers;
 using Windows.System;
-using Windows.UI.Core;
-using Windows.UI.StartScreen;
 using Windows.UI.ViewManagement;
 using System.Numerics;
-using Microsoft.Windows.System;
-using Microsoft.UI.Composition.SystemBackdrops;
-using Microsoft.UI;
 using WinUIEx;
 using WinRT.Interop;
-using System.ComponentModel.Design;
 using Windows.Storage.Search;
-using static System.Net.WebRequestMethods;
-using Windows.ApplicationModel.Contacts;
 using System.Diagnostics;
 using Windows.Data.Xml.Dom;
 using System.Data;
-using System.Data.SqlTypes;
 using Microsoft.Win32;
-using Microsoft.Web.WebView2.Core;
-using Microsoft.UI.Xaml.Documents;
 using System.ComponentModel;
-using Microsoft.UI.Windowing;
 using System.Runtime.InteropServices;
-using Microsoft.VisualBasic.FileIO;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using DropStackWinUI.FileViews;
 using Microsoft.UI.Composition;
-using Windows.Networking.Proximity;
 using System.Drawing;
-using Windows.Graphics.Imaging;
-using Windows.Storage.Streams;
-using System.Runtime.CompilerServices;
-using Microsoft.UI.Xaml.Media.Animation;
-using Microsoft.UI.Xaml.Hosting;
-using System.Transactions;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -202,7 +175,10 @@ namespace DropStackWinUI
         Compositor _compositor = null;
         SpringVector3NaturalMotionAnimation _springAnimation;
 
+        bool openCompactCommandBar = false;
         bool hasDoubleTapped = false;
+
+        int totalFilesAmount = 1024;
 
         public MainWindow()
         {
@@ -689,7 +665,7 @@ namespace DropStackWinUI
             if (folder != null)
             {
                 double totalFiles = Convert.ToDouble(files.Count);
-                if (totalFiles > 1024) totalFiles = 1024;
+                totalFilesAmount = Convert.ToInt32(totalFiles);
                 int currentFile = 1;
                 int addIndex = 0;
                 bool shouldContinue = true;
@@ -976,35 +952,59 @@ namespace DropStackWinUI
 
         private async void fileListView_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            // get the selected file item
-            FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
-
-            await Task.Run(async () =>
+            if ((object)sender == pinnedFileListView)
             {
-                // get the file
-                StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+                // get the selected file item
+                FileItem selectedFile = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
 
-                // create a new data package
-                var dataPackage = new DataPackage();
+                await Task.Run(async () =>
+                {
+                    // get the file
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
 
-                // add the file to the data package
-                dataPackage.SetStorageItems(new List<IStorageItem> { file });
+                    // create a new data package
+                    var dataPackage = new DataPackage();
 
-                // copy the data package to the clipboard
-                Clipboard.SetContent(dataPackage);
-                Clipboard.Flush();
-            });
+                    // add the file to the data package
+                    dataPackage.SetStorageItems(new List<IStorageItem> { file });
 
-            //show teaching tip
-            fileInClipboardReminder.IsOpen = true;
-            for (int i = 0; i < 100; i++)
-            {
-                await Task.Delay(10);
-                reminderTimer.Value = i;
+                    // copy the data package to the clipboard
+                    Clipboard.SetContent(dataPackage);
+                    Clipboard.Flush();
+                });
+
+                //show teaching tip
+                fileInClipboardReminder.IsOpen = true;
+                for (int i = 0; i < 100; i++)
+                {
+                    await Task.Delay(10);
+                    reminderTimer.Value = i;
+                }
+                fileInClipboardReminder.IsOpen = false;
+                await Task.Delay(100);
+                reminderTimer.Value = 0;
             }
-            fileInClipboardReminder.IsOpen = false;
-            await Task.Delay(100);
-            reminderTimer.Value = 0;
+            else if ((object)sender == regularFileListView)
+            {
+                FileItem rightTappedItem = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
+
+                if (regularFileListView.SelectedItems.Contains(rightTappedItem))
+                {
+                    GlobalClickedItems.Add(rightTappedItem);
+                }
+                else
+                {
+                    regularFileListView.SelectedItems.Clear();
+                    //I have to first set it to an instance or it crashes... this sucks!
+                    GlobalClickedItems = regularFileListView.SelectedItems;
+                    GlobalClickedItems.Clear();
+                    GlobalClickedItems.Add(rightTappedItem);
+                }
+
+                if (GlobalClickedItems.Count == 1) previewedItem = GlobalClickedItems.First() as FileItem;
+
+                updateShownContextMenuItems();
+            }
         }
 
         private async void fileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -1432,6 +1432,7 @@ namespace DropStackWinUI
         private async void regularFileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             hasDoubleTapped = true;
+            openCompactCommandBar = false;
             
             DependencyObject tappedElement = e.OriginalSource as DependencyObject;
 
@@ -2182,6 +2183,7 @@ namespace DropStackWinUI
                     DetailsPaneDeleteFlyoutButton.IsEnabled = true;
                     DetailsPaneOpenWithButton.IsEnabled = true;
                     DetailsPanePreviewButton.IsEnabled = true;
+                    DetailsPaneCropButton.IsEnabled = true;
                     DetailsPaneRotateButton.Visibility = Visibility.Visible;
                     DetailsPaneSeparator.Visibility = Visibility.Visible;
                     break;
@@ -2493,6 +2495,165 @@ namespace DropStackWinUI
         private void DismissDetailsSheetButton_Click(object sender, RoutedEventArgs e)
         {
             showOrHideDetailsPane(false);
+        }
+
+        private async void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (regularFileListView.SelectedItems.Count == 1)
+            {
+                openCompactCommandBar = true;
+                await Task.Delay(500);
+                if (openCompactCommandBar)
+                {
+                    var flyout = FlyoutBase.GetAttachedFlyout((FrameworkElement)sender);
+                    var options = new FlyoutShowOptions()
+                    {
+                        Position = e.GetPosition((FrameworkElement)sender),
+                        ShowMode = FlyoutShowMode.Transient
+                    };
+                    flyout?.ShowAt((FrameworkElement)sender, options);
+                }
+            }
+            updateShownContextMenuItems();
+        }
+        
+        private async void updateShownContextMenuItems()
+        {
+            if (GlobalClickedItems.Count > 1)
+            {
+                FlyoutPreviewButton.IsEnabled = false;
+                FlyoutPreviewButtonSec.IsEnabled = false;
+                FlyoutRotateButton.Visibility = Visibility.Collapsed;
+                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
+                FlyoutOpenWithButton.IsEnabled = false;
+                FlyoutRevealButton.IsEnabled = false;
+                FlyoutDeleteButton.IsEnabled = false;
+            }
+            else if (GlobalClickedItems.Count == 1) 
+            {
+                previewedItem = GlobalClickedItems.First() as FileItem;
+                StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+
+                FlyoutOpenWithButton.IsEnabled = true;
+                FlyoutRevealButton.IsEnabled = true;
+                FlyoutDeleteButton.IsEnabled = true;
+
+                switch (previewedItem.TypeTag)
+                {
+                    // modify these
+                    case null:
+                        break;
+                    case "pics":
+                        FlyoutPreviewButton.IsEnabled = true;
+                        FlyoutPreviewButtonSec.IsEnabled = true;
+                        FlyoutRotateButton.Visibility = Visibility.Visible;
+                        FlyoutRotateButtonSec.Visibility = Visibility.Visible;
+                        break;
+                    case "vids":
+                        FlyoutPreviewButton.IsEnabled = true;
+                        FlyoutPreviewButtonSec.IsEnabled = true;
+                        FlyoutRotateButton.Visibility = Visibility.Collapsed;
+                        FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
+                        break;
+                    case "music":
+                        FlyoutPreviewButton.IsEnabled = true;
+                        FlyoutPreviewButtonSec.IsEnabled = true;
+                        FlyoutRotateButton.Visibility = Visibility.Collapsed;
+                        FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
+                        break;
+                    default:
+                        switch (file.FileType)
+                        {
+                            case ".pdf":
+                                FlyoutPreviewButton.IsEnabled = true;
+                                FlyoutPreviewButtonSec.IsEnabled = true;
+                                FlyoutRotateButton.Visibility = Visibility.Collapsed;
+                                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
+                                break;
+                            default:
+                                FlyoutPreviewButton.IsEnabled = false;
+                                FlyoutPreviewButtonSec.IsEnabled = false;
+                                FlyoutRotateButton.Visibility = Visibility.Collapsed;
+                                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
+                                break;
+                        }
+                        break;
+
+                }
+            }
+        }
+
+        private async void FlyoutOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < regularFileListView.SelectedItems.Count; i++)
+            {
+                FileItem selectedFile = (FileItem)regularFileListView.SelectedItems[i] as FileItem;
+
+                try
+                {
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(selectedFile.FilePath);
+
+                    // launch the file
+                    var success = await Launcher.LaunchFileAsync(file);
+                }
+
+                catch
+                {
+                    // handle the exception
+                }
+            }
+        }
+
+        private async void FlyoutCopyButton_Click(object sender, RoutedEventArgs e)
+        {
+            IList<object> itemsToCopy = GlobalClickedItems;
+
+            await Task.Run(async () =>
+            {
+                List<IStorageItem> fileList = new List<IStorageItem>();
+
+                // create a capture variable that is a value type
+                FileItem[] filesToCopy = new FileItem[itemsToCopy.Count];
+
+                // copy the elements of itemsToCopy to the capture variable
+                for (int i = 0; i < itemsToCopy.Count; i++)
+                {
+                    filesToCopy[i] = (FileItem)itemsToCopy[i];
+                }
+
+                foreach (FileItem selectedFile in filesToCopy)
+                {
+                    string filePath = selectedFile.FilePath;
+
+                    // get the file
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+
+                    fileList.Add(file);
+                }
+
+                // create a new data package
+                var dataPackage = new DataPackage();
+
+                // add the file to the data package
+                dataPackage.SetStorageItems(fileList);
+
+                // copy the data package to the clipboard
+                Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
+            });
+        }
+
+        private async void FlyoutRevealButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileItem currentFile = GlobalClickedItems[0] as FileItem;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(currentFile.FilePath);
+            StorageFolder folder = await file.GetParentAsync();
+            await Launcher.LaunchFolderAsync(folder);
+        }
+
+        private void FlyoutSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
         }
     }
 }
