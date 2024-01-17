@@ -19,10 +19,12 @@
                 <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
                 <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
                 <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin" Click="PinUnpinButton_Click"/>
+                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview" Click="DetailsPanePreviewButton_Click"/>
                 <CommandBarFlyout.SecondaryCommands>
                     <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file" Click="FlyoutOpenButton_Click"/>
                     <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file" Click="FlyoutCopyButton_Click"/>
                     <AppBarButton x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin selected file" Click="PinUnpinButton_Click"/>
+                    <AppBarButton x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..." Click="DetailsPanePreviewButton_Click"/>
                     <AppBarSeparator/>
                     <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                 </CommandBarFlyout.SecondaryCommands>

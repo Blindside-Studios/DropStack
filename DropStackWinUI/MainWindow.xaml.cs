@@ -1066,6 +1066,7 @@ namespace DropStackWinUI
             AboutDropStackGrid.Visibility = Visibility.Visible;
             AboutDropStackGrid.Opacity = 1;
             AboutDropStackContentGrid.Translation = new Vector3(0, 0, 0);
+            showOrHideDetailsPane(false);
         }
 
         private async void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -1610,6 +1611,7 @@ namespace DropStackWinUI
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             RadioButton selectedRadioButton = sender as RadioButton;
             int securitySeverityIndex = 0;
+
 
             switch (selectedRadioButton.Tag.ToString())
             {

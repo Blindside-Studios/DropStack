@@ -28,6 +28,7 @@ using Windows.UI.ViewManagement;
 using System.Numerics;
 using System.Xml.Serialization;
 using System.Diagnostics;
+using DropStackWinUI.FileViews;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -55,6 +56,7 @@ namespace DropStackWinUI
         bool showSecPortal4 = false;
         bool showSecPortal5 = false;
         IList<object> GlobalClickedItems = null;
+        FileItem previewedItem = null;
         public ObservableCollection<FileItem> fileMetadataListCopy;
 
         int loadedItems = 250;
@@ -63,6 +65,8 @@ namespace DropStackWinUI
 
         bool isCommandBarPinned = false;
         bool openCompactCommandBar = false;
+
+        bool isWindowsHelloRequiredForPins = false;
 
         public MiniMode()
         {
@@ -168,6 +172,16 @@ namespace DropStackWinUI
                 if ((int)localSettings.Values["DefaultLaunchModeIndex"] != 2)
                 {
                     MakeSimpleDefaultButton.Visibility = Visibility.Visible;
+                }
+            }
+
+            if (localSettings.Values.ContainsKey("PinBarBehavior"))
+            {
+                isWindowsHelloRequiredForPins = (int)localSettings.Values["PinBarBehavior"] == 3;
+                if (isWindowsHelloRequiredForPins)
+                {
+                    FlyoutPinUnpinButton.IsEnabled = false;
+                    FlyoutPinUnpinButtonSec.IsEnabled = false;
                 }
             }
         }
@@ -482,6 +496,8 @@ namespace DropStackWinUI
             FileItem rightTappedItem = ((FrameworkElement)e.OriginalSource).DataContext as FileItem;
 
             GlobalClickedItems = new List<object>{ rightTappedItem };
+
+            adjustIsPreviewButtonShown();
         }
 
         private async void fileListView_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -766,6 +782,7 @@ namespace DropStackWinUI
                 };
                 flyout?.ShowAt((FrameworkElement)sender, options);
             }
+            adjustIsPreviewButtonShown();
         }
 
         private async void FlyoutOpenButton_Click(object sender, RoutedEventArgs e)
@@ -843,6 +860,55 @@ namespace DropStackWinUI
                 regularFileListView.ItemsSource = pinnedFileMetadataListCopy;
             }
             saveToCache("pinned", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
+        }
+        private async void adjustIsPreviewButtonShown()
+        {
+            if (regularFileListView.SelectedItems.Count == 1)
+            {
+                FileItem fileItem = GlobalClickedItems[0] as FileItem;
+                StorageFile file = await StorageFile.GetFileFromPathAsync(fileItem.FilePath);
+                if (fileItem.TypeTag == "pics" || fileItem.TypeTag == "vids" || file.FileType == ".pdf")
+                {
+                    previewedItem = GlobalClickedItems[0] as FileItem;
+                    FlyoutPreviewButton.IsEnabled = true;
+                    FlyoutPreviewButtonSec.IsEnabled = true;
+                }
+                else
+                {
+                    FlyoutPreviewButton.IsEnabled = false;
+                    FlyoutPreviewButtonSec.IsEnabled = false;
+                }
+            }
+            else
+            {
+                FlyoutPreviewButton.IsEnabled = false;
+                FlyoutPreviewButtonSec.IsEnabled = false;
+            }
+        }
+
+        private async void DetailsPanePreviewButton_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
+            switch (previewedItem.TypeTag)
+            {
+                case "pics":
+                    var quickImageViewer = new ImageView(new ImageViewerSettings { filePath = previewedItem.FilePath });
+                    quickImageViewer.Activate();
+                    break;
+                case "vids":
+                    var quickVideoViewer = new VideoView(previewedItem.FilePath);
+                    quickVideoViewer.Activate();
+                    break;
+                default:
+                    switch (file.FileType)
+                    {
+                        case ".pdf":
+                            var quickPDFViewer = new PDFView(previewedItem.FilePath);
+                            quickPDFViewer.Activate();
+                            break;
+                    }
+                    break;
+            }
         }
     }
 }
