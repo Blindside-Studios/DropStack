@@ -208,8 +208,14 @@
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.20\runtimes\win-x64\native\ucrtbase.dll">
       <PackagePath>ucrtbase.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\runtime.win7-x64.runtime.native.system.io.compression\4.3.0\runtimes\win7-x64\native\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.20\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -706,6 +712,48 @@
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.20\runtimes\win-x64\lib\net6.0\netstandard.dll">
       <PackagePath>netstandard.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\ColorCode.Core.dll">
+      <PackagePath>ColorCode.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\ColorCode.WinUI.dll">
+      <PackagePath>ColorCode.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Common.dll">
+      <PackagePath>CommunityToolkit.Common.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.dll">
+      <PackagePath>CommunityToolkit.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.Extensions.dll">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Core.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Input.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Layout.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Markdown.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Media.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Graphics.Canvas.Interop.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Win32.SystemEvents.dll">
       <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
     </AppxPackagedFile>
@@ -754,6 +802,9 @@
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.WindowsAppRuntime.Release.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Release.Net.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\WinUIEx.dll">
       <PackagePath>WinUIEx.dll</PackagePath>
     </AppxPackagedFile>
@@ -765,6 +816,39 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\colorcode.winui\2.0.13\lib\net5.0-windows10.0.18362\ColorCode.WinUI.pri">
+      <PackagePath>ColorCode.WinUI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
+      <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.230907\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.pri">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\winuiex\2.2.0\lib\net6.0-windows10.0.18362\WinUIEx.pri">
       <PackagePath>WinUIEx.pri</PackagePath>

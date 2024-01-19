@@ -107,6 +107,7 @@ namespace DropStackWinUI
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             adjustDarkLightMode();
+            obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
         }
 
         private void loadSettings()
@@ -206,6 +207,8 @@ namespace DropStackWinUI
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)
         {
+            loadSettings();
+            
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
             if (cachedItems != null) fileMetadataList = cachedItems;
@@ -354,7 +357,7 @@ namespace DropStackWinUI
                             for (int i = 0; i < cachedItems.Count; i++)
                             {
                                 FileItem currentFileItem = cachedItems.ElementAt(i);
-                                if (currentFileItem.FileName == file.Name)
+                                if (currentFileItem.FilePath == file.Path)
                                 {
                                     //assume that from now on, files are cached
                                     shouldContinue = false;
@@ -472,12 +475,16 @@ namespace DropStackWinUI
                         if (cachedThumbnailEntry != null) item.FileIcon = cachedThumbnailEntry.Image;
                         else
                         {
-                            StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
-                            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
-                            bitmapThumbnail.SetSource(thumbnail);
-                            item.FileIcon = bitmapThumbnail;
-                            // add new thumbnail entry to list
-                            thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                            try
+                            {
+                                StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                                bitmapThumbnail.SetSource(thumbnail);
+                                item.FileIcon = bitmapThumbnail;
+                                // add new thumbnail entry to list
+                                thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                            }
+                            catch { }
                         }
 
                     }

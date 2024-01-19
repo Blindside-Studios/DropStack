@@ -37,6 +37,8 @@ using DropStackWinUI.FileViews;
 using Microsoft.UI.Composition;
 using System.Drawing;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.Windows.AppNotifications;
+using WinUIEx.Messaging;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -237,6 +239,7 @@ namespace DropStackWinUI
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             adjustDarkLightMode();
+            obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>, true);
         }
 
         private async void loadSettings()
@@ -747,7 +750,7 @@ namespace DropStackWinUI
                             for (int i = 0; i < cachedItems.Count; i++)
                             {
                                 FileItem currentFileItem = cachedItems.ElementAt(i);
-                                if (currentFileItem.FileName == file.Name)
+                                if (currentFileItem.FilePath == file.Path)
                                 {
                                     //assume that from now on, files are cached
                                     shouldContinue = false;
@@ -893,12 +896,16 @@ namespace DropStackWinUI
                             if (cachedThumbnailEntry != null) item.FileIcon = cachedThumbnailEntry.Image;
                             else
                             {
-                                StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
-                                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
-                                bitmapThumbnail.SetSource(thumbnail);
-                                item.FileIcon = bitmapThumbnail;
-                                // add new thumbnail entry to list
-                                thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                                try
+                                {
+                                    StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                                    bitmapThumbnail.SetSource(thumbnail);
+                                    item.FileIcon = bitmapThumbnail;
+                                    // add new thumbnail entry to list
+                                    thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                                }
+                                catch { }
                             }
 
                         }
@@ -989,11 +996,7 @@ namespace DropStackWinUI
             {
                 FileItem rightTappedItem = (FileItem)((FrameworkElement)e.OriginalSource).DataContext;
 
-                if (regularFileListView.SelectedItems.Contains(rightTappedItem))
-                {
-                    GlobalClickedItems.Add(rightTappedItem);
-                }
-                else
+                if (!regularFileListView.SelectedItems.Contains(rightTappedItem))
                 {
                     regularFileListView.SelectedItems.Clear();
                     //I have to first set it to an instance or it crashes... this sucks!
@@ -2349,11 +2352,12 @@ namespace DropStackWinUI
 
         private async void FileDeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            int deleteIndex = regularFileListView.SelectedIndex;
+            fileMetadataListCopy.RemoveAt(deleteIndex);
             StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
             await file.DeleteAsync();
-            regularFileListView.ItemsSource = fileMetadataListCopy;
-            fileMetadataListCopy.RemoveAt(fileMetadataListCopy.IndexOf(previewedItem));
             saveToCache("regular", fileMetadataListCopy);
+            regularFileListView.ItemsSource = fileMetadataListCopy;
             DeleteFlyout.Hide();
         }
 
@@ -2642,7 +2646,33 @@ namespace DropStackWinUI
 
                 // copy the data package to the clipboard
                 Clipboard.SetContent(dataPackage);
-                Clipboard.Flush();
+
+                //attempting to flush the clipboard several times
+                bool worked = false;
+                for (int i = 0; i < 10; i++)
+                {
+                    try
+                    {
+                        Clipboard.Flush();
+                        worked = true;
+                        break;
+                    }
+                    catch { }
+                    await Task.Delay(10);
+                }
+                if (!worked)
+                {
+                    var xmlPayload = new string($@"<toast>
+                        <visual>
+                            <binding template=""ToastGeneric"">
+                                <text>{"Copy failed"}</text>
+                                <text>{"Windows refused to grant permission to the clipboard."}</text>
+                            </binding>
+                        </visual>
+                    </toast>");
+                    var toast = new AppNotification(xmlPayload);
+                    AppNotificationManager.Default.Show(toast);
+                }
             });
         }
 
