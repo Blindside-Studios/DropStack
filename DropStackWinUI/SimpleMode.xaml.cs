@@ -220,18 +220,18 @@ namespace DropStackWinUI
             loadSettings();
 
             ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
-            if (cachedItems != null) fileMetadataList = cachedItems;
-
-            regularFileListView.ItemsSource = fileMetadataList;
 
             if (source == "regular")
             {
-                if (cachedItems != null) fileMetadataList = cachedItems;
-                _filteredFileMetadataList = fileMetadataList;
+                if (cachedItems == null) regularFileListView.ItemsSource = fileMetadataList;
+                else
+                {
+                    _filteredFileMetadataList = cachedItems;
+                }
             }
             else if (source == "pinned")
             {
-                if (cachedItems != null) fileMetadataList = cachedItems;
+                if (cachedItems == null) regularFileListView.ItemsSource = fileMetadataList;
             }
 
             isLoading = true;
@@ -462,9 +462,9 @@ namespace DropStackWinUI
                             ObservableCollection<FileItem> collection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
                             regularFileListView.ItemsSource = collection;
                             foreach (FileItem item in fileMetadataList) collection.Insert(0, item);
+                            break;
                         }
                         addIndex++;
-                        if (source == "regular") _filteredFileMetadataList = fileMetadataList;
                     }
                 }
                 //check if all the files still exist, else remove them, then save to cache
@@ -536,7 +536,7 @@ namespace DropStackWinUI
                         currentFile++;
                     }
                 }
-                catch { }
+                catch { break; }
             }
         }
 

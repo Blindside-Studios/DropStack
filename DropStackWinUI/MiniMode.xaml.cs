@@ -208,12 +208,9 @@ namespace DropStackWinUI
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)
         {
             loadSettings();
-            
-            ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
 
-            if (cachedItems != null) fileMetadataList = cachedItems;
-            regularFileListView.ItemsSource = fileMetadataList;
-            fileMetadataListCopy = fileMetadataList;
+            ObservableCollection<FileItem> fileMetadataList = new ObservableCollection<FileItem>();
+            if (cachedItems == null) regularFileListView.ItemsSource = fileMetadataList;
 
             // Get the folder from the access token
             StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
@@ -421,6 +418,7 @@ namespace DropStackWinUI
                                 }
                                 fileMetadataList.Add(fileItem);
                             }
+                            fileMetadataListCopy = fileMetadataList;
                         }
                         else
                         {
@@ -428,10 +426,10 @@ namespace DropStackWinUI
                             ObservableCollection<FileItem> collection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
                             regularFileListView.ItemsSource = collection;
                             foreach (FileItem item in fileMetadataList) collection.Insert(0, item);
+                            fileMetadataListCopy = fileMetadataList;
                             break;
                         }
                         addIndex++;
-                        fileMetadataListCopy = fileMetadataList;
                     }
                 }
 
@@ -504,7 +502,7 @@ namespace DropStackWinUI
                         currentFile++;
                     }
                 }
-                catch { }
+                catch { break; }
             }
         }
 

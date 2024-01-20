@@ -934,7 +934,7 @@ namespace DropStackWinUI
                             currentFile++;
                         }
                     }
-                    catch { /*there are no more files, this fails when the index exceeds the file count*/ }
+                    catch { break; /*there are no more files, this fails when the index exceeds the file count*/ }
                 }
             }
             else if (target == "pinned")
