@@ -479,8 +479,8 @@
                                            FontSize="10"/>
                                         <ToggleSwitch x:Name="ShowDetailsPaneToggleSwitch"
                                                       IsOn="False"
-                                                      OnContent="Show details pane"
-                                                      OffContent="Show details pane"
+                                                      OnContent="Show details pane (experimental)"
+                                                      OffContent="Show details pane (experimental)"
                                                       Toggled="ShowDetailsPaneToggleSwitch_Toggled"
                                                       ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files"/>
                                     </StackPanel>
@@ -767,7 +767,7 @@
                                     <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
                                     <AppBarSeparator x:Name="DetailsPaneSeparator"/>
                                     <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
-                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Default" Click="DetailsPaneOpenWithButton_Click"/>
+                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Collapsed" Click="DetailsPaneOpenWithButton_Click"/>
                                     <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                         <AppBarButton.Flyout>
                                             <Flyout x:Name="DeleteFlyout">

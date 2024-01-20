@@ -388,10 +388,9 @@ namespace DropStackWinUI
 
                         if (cachedItems != null)
                         {
-                            for (int i = 0; i < cachedItems.Count; i++)
+                            foreach (FileItem currentFileItem in cachedItems.Take(5))
                             {
-                                FileItem currentFileItem = cachedItems.ElementAt(i);
-                                if (currentFileItem.FilePath == file.Path)
+                                if (currentFileItem.FileName == file.Name)
                                 {
                                     //assume that from now on, files are cached
                                     shouldContinue = false;
@@ -459,8 +458,10 @@ namespace DropStackWinUI
                         }
                         else
                         {
-                            regularFileListView.Items.Prepend(fileMetadataList);
-                            break;
+                            fileMetadataList.Reverse();
+                            ObservableCollection<FileItem> collection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
+                            regularFileListView.ItemsSource = collection;
+                            foreach (FileItem item in fileMetadataList) collection.Insert(0, item);
                         }
                         addIndex++;
                         if (source == "regular") _filteredFileMetadataList = fileMetadataList;
@@ -474,7 +475,14 @@ namespace DropStackWinUI
                         if (!System.IO.File.Exists(item.FilePath)) fileMetadataList.Remove(item);
                     }
                 }
-                saveToCache(source, fileMetadataList);
+
+                if (cachedItems != null)
+                {
+                    ObservableCollection<FileItem> cachingCollection = new();
+                    foreach (FileItem item in regularFileListView.Items) cachingCollection.Add(item);
+                    saveToCache(source, cachingCollection);
+                }
+                else saveToCache(source, fileMetadataList);
             }
             else
             {
@@ -488,42 +496,47 @@ namespace DropStackWinUI
             //load thumbnails
             List<FileThumbnail> thumbnails = new();
             int currentFile = 1;
-            foreach (FileItem item in regularFileListView.Items.Take(loadedThumbnails))
+            for (int i = 0; i < loadedThumbnails; i++)
             {
-                if (item.FileIcon == null)
+                try
                 {
-                    if (item.TypeTag == "pics" || item.TypeTag == "vids" || item.TypeTag == "apps")
+                    FileItem item = regularFileListView.Items.ElementAt(i) as FileItem;
+                    if (item.FileIcon == null)
                     {
-                        BitmapImage bitmapThumbnail = new BitmapImage();
-                        StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
-                        StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
-                        bitmapThumbnail.SetSource(thumbnail);
-                        item.FileIcon = bitmapThumbnail;
-                    }
-                    else
-                    {
-                        BitmapImage bitmapThumbnail = new BitmapImage();
-                        // look for thumbnail entry in list
-                        FileThumbnail cachedThumbnailEntry = thumbnails.Where(f => f.Type == item.FileType).FirstOrDefault();
-                        // if entry exists, take stored image
-                        if (cachedThumbnailEntry != null) item.FileIcon = cachedThumbnailEntry.Image;
+                        if (item.TypeTag == "pics" || item.TypeTag == "vids" || item.TypeTag == "apps")
+                        {
+                            BitmapImage bitmapThumbnail = new BitmapImage();
+                            StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                            StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                            bitmapThumbnail.SetSource(thumbnail);
+                            item.FileIcon = bitmapThumbnail;
+                        }
                         else
                         {
-                            try
+                            BitmapImage bitmapThumbnail = new BitmapImage();
+                            // look for thumbnail entry in list
+                            FileThumbnail cachedThumbnailEntry = thumbnails.Where(f => f.Type == item.FileType).FirstOrDefault();
+                            // if entry exists, take stored image
+                            if (cachedThumbnailEntry != null) item.FileIcon = cachedThumbnailEntry.Image;
+                            else
                             {
-                                StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
-                                StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
-                                bitmapThumbnail.SetSource(thumbnail);
-                                item.FileIcon = bitmapThumbnail;
-                                // add new thumbnail entry to list
-                                thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                                try
+                                {
+                                    StorageFile file = await StorageFile.GetFileFromPathAsync(item.FilePath);
+                                    StorageItemThumbnail thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, Convert.ToUInt32(thumbnailResolution));
+                                    bitmapThumbnail.SetSource(thumbnail);
+                                    item.FileIcon = bitmapThumbnail;
+                                    // add new thumbnail entry to list
+                                    thumbnails.Add(new FileThumbnail { Type = item.FileType, Image = bitmapThumbnail });
+                                }
+                                catch { }
                             }
-                            catch { }
-                        }
 
+                        }
+                        currentFile++;
                     }
-                    currentFile++;
                 }
+                catch { }
             }
         }
 
