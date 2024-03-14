@@ -597,7 +597,10 @@ namespace DropStackWinUI
 
             if (source == "regular")
             {
-                if (cachedItems == null) regularFileListView.ItemsSource = fileMetadataList;
+                if (cachedItems == null)
+                {
+                    regularFileListView.ItemsSource = fileMetadataList;
+                }
                 else
                 {
                     _filteredFileMetadataList = cachedItems;
@@ -823,16 +826,26 @@ namespace DropStackWinUI
                         }
                         else
                         {
-                            if (source == "regular")
+                            if (source == "regular" && cachedItems != null)
                             {
-                                fileMetadataList.Reverse();
                                 ObservableCollection<FileItem> collection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
                                 regularFileListView.ItemsSource = collection;
-                                foreach (FileItem item in fileMetadataList) collection.Insert(0, item);
+                                int insertIndex = 0;
+                                if (fileMetadataList != null)
+                                {
+                                    foreach (FileItem item in fileMetadataList)
+                                    {
+                                        collection.Insert(insertIndex, item);
+                                        insertIndex++;
+                                    }
+                                }
                             }
-                            else if (source == "pinned")
+                            else if (source == "pinned" && cachedItems != null)
                             {
-                                pinnedFileListView.Items.Prepend(fileMetadataList);
+                                if (fileMetadataList != null)
+                                {
+                                    pinnedFileListView.Items.Prepend(fileMetadataList);
+                                }
                             }
                             break;
                         }
@@ -860,8 +873,8 @@ namespace DropStackWinUI
 
                 if (cachedItems != null)
                 {
-                    if (source == "regular") foreach (FileItem item in regularFileListView.Items) cachingCollection.Add(item);
-                    else if (source == "pinned") foreach (FileItem item in pinnedFileListView.Items) cachingCollection.Add(item);
+                    if (source == "regular") foreach (FileItem item in regularFileListView.ItemsSource as ObservableCollection<FileItem>) cachingCollection.Add(item);
+                    else if (source == "pinned") foreach (FileItem item in pinnedFileListView.ItemsSource as ObservableCollection<FileItem>) cachingCollection.Add(item);
                     saveToCache(source, cachingCollection);
                 }
                 else saveToCache(source, fileMetadataList);

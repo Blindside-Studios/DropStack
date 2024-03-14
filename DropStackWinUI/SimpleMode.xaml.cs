@@ -458,10 +458,17 @@ namespace DropStackWinUI
                         }
                         else
                         {
-                            fileMetadataList.Reverse();
                             ObservableCollection<FileItem> collection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
                             regularFileListView.ItemsSource = collection;
-                            foreach (FileItem item in fileMetadataList) collection.Insert(0, item);
+                            int insertIndex = 0;
+                            if (fileMetadataList != null)
+                            {
+                                foreach (FileItem item in fileMetadataList)
+                                {
+                                    collection.Insert(insertIndex, item);
+                                    insertIndex++;
+                                }
+                            }
                             break;
                         }
                         addIndex++;

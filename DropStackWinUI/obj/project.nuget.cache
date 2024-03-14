@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FG5smDKI7Na9vyq2CVRPfybZemTnlzz01jluXS9fyZBTXp5Nm9TjSawhbNrathuS+IB5n/NNNUmljV3o09z72g==",
+  "dgSpecHash": "4SFfKkI9Y4yg8ZFjNQ6SqJU5ZXLQozI6jX4JYQur7Iw6+U3qa8lug+D2ytyPakrSYwdROtj5W0viQ3I8kbi3lA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj",
   "expectedPackageFiles": [
@@ -133,7 +133,6 @@
     "C:\\Users\\nicol\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\winuiex\\2.2.0\\winuiex.2.2.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.20\\microsoft.netcore.app.runtime.win-x86.6.0.20.nupkg.sha512",
-    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.20\\microsoft.netcore.app.crossgen2.win-x64.6.0.20.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.29\\microsoft.windows.sdk.net.ref.10.0.19041.29.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.20\\microsoft.aspnetcore.app.runtime.win-x86.6.0.20.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\6.0.20\\microsoft.netcore.app.runtime.win-arm64.6.0.20.nupkg.sha512",

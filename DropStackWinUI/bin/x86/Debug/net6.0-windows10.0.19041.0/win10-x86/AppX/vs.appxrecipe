@@ -18,40 +18,40 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppX</LayoutDir>
-    <RegisteredManifestChecksum>555C8B3BDAF583F02C04589B2E0D44275F6A0940708D2BF47CAE2278151FB87F</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>991afa5e-1b92-4f84-98a9-98295385903c_0.6.0.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>2E495B28B99EF8EF1B1D21790EE2BC1F1F7127AAF5098033F7842868C98A0F31</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>991afa5e-1b92-4f84-98a9-98295385903c_0.6.1.0_x86__rj07gsm475t48</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>991afa5e-1b92-4f84-98a9-98295385903c_rj07gsm475t48!App</RegisteredUserModeAppID>
     <RegisteredPackageID>991afa5e-1b92-4f84-98a9-98295385903c</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Blindside Studios</RegisteredPackagePublisher>
-    <RegisteredVersion>0.6.0.0</RegisteredVersion>
+    <RegisteredVersion>0.6.1.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-01-20T23:26:36.126</Modified>
+      <Modified>2024-03-14T21:26:13.806</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-01-20T23:19:14.975</Modified>
+      <Modified>2024-03-14T21:26:13.483</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.runtimeconfig.json">
       <PackagePath>DropStackWinUI.runtimeconfig.json</PackagePath>
-      <Modified>2024-01-20T23:19:14.784</Modified>
+      <Modified>2024-03-14T21:00:48.340</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2024-01-20T23:26:35.787</Modified>
+      <Modified>2024-03-14T21:26:13.341</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2024-01-20T23:26:35.792</Modified>
+      <Modified>2024-03-14T21:26:13.348</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>
-      <Modified>2024-01-20T23:19:14.680</Modified>
+      <Modified>2024-03-14T21:00:48.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.20\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
