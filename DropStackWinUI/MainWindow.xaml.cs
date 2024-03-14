@@ -242,7 +242,7 @@ namespace DropStackWinUI
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             adjustDarkLightMode();
-            if (appLaunchComplete) obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
+            if (appLaunchComplete && SearchGrid.Opacity == 0) obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
         }
 
         private async void loadSettings()

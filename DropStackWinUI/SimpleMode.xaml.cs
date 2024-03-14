@@ -123,7 +123,7 @@ namespace DropStackWinUI
             {
                  if (!enableFreeWindowing) closeWithAnimation();
             }
-            else obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
+            else if (!isPinsOnScreen && !isSorting) obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
         }
 
         private void loadSettings()
