@@ -1818,6 +1818,7 @@ namespace DropStackWinUI
             AppearanceAndBehaviorExpander.IsExpanded = false;
             AboutDropStackExpander.IsExpanded = false;
             PrivacyStamentExpander.IsExpanded = false;
+            AttributionExpander.IsExpanded = false;
         }
 
         private void PrimaryPortalFolderCheckBox_Checked(object sender, RoutedEventArgs e)
