@@ -102,7 +102,7 @@ namespace DropStackWinUI
     {
         public static IList<string> DownloadFileTypes => downloadFileTypes; static IList<string> downloadFileTypes = new List<string> { ".crdownload", ".part" };
         public static IList<string> DocumentFileTypes => documentFileTypes; static IList<string> documentFileTypes = new List<string> { ".pdf", ".doc", ".docx", ".txt", ".html", ".htm", ".xls", ".xlsx", ".odt", ".fodt", ".ods", ".fods", ".rtf", ".xml" };
-        public static IList<string> PictureFileTypes => pictureFileTypes; static IList<string> pictureFileTypes = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".ico", ".webp", ".raw", ".psd", ".ai" };
+        public static IList<string> PictureFileTypes => pictureFileTypes; static IList<string> pictureFileTypes = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".ico", ".webp", ".raw", ".psd", ".ai", ".heic", ".HEIC", ".DNG" };
         public static IList<string> MusicFileTypes => musicFileTypes; static IList<string> musicFileTypes = new List<string> { ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".mid", ".amr", ".aiff", ".ape" };
         public static IList<string> VideoFileTypes => videoFileTypes; static IList<string> videoFileTypes = new List<string> { ".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".mpeg", ".mpg", ".rm", ".vob" };
         public static IList<string> ApplicationFileTypes => applicationFileTypes; static IList<string> applicationFileTypes = new List<string> { ".exe", ".dmg", ".app", ".deb", ".apk", ".msi", ".msix", ".rpm", ".jar", ".bat", ".sh", ".com", ".vb", ".gadget", ".ipa" };
