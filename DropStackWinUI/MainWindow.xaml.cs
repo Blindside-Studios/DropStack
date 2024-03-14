@@ -1429,11 +1429,28 @@ namespace DropStackWinUI
 
         public bool FuzzyMatch(string item, string filter)
         {
-            int distance = LevenshteinDistance(item, filter);
-            // Adjust threshold
-            int threshold = searchThreshold;
-            if (filter.Length <= threshold) threshold = filter.Length - 1;
-            return distance <= threshold;
+            // Check if the filter is contained anywhere in the item string
+            if (item.Contains(filter))
+            {
+                return true;
+            }
+
+            for (int i = 0; i <= item.Length - filter.Length; i++)
+            {
+                string substring = item.Substring(i, filter.Length);
+                int distance = LevenshteinDistance(substring, filter);
+
+                int threshold = searchThreshold;
+                if (filter.Length <= threshold) threshold = filter.Length - 1;
+
+                if (distance <= threshold)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
         }
 
 
