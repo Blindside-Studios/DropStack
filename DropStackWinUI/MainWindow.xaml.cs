@@ -39,6 +39,7 @@ using System.Drawing;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Windows.AppNotifications;
 using WinUIEx.Messaging;
+using Microsoft.VisualBasic;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -628,10 +629,10 @@ namespace DropStackWinUI
 
             if (!showPrimPortal && source == "regular") fileList.Clear();
 
-            if (source == "regular") 
+            if (source == "regular")
             {
                 if (showSecPortal1 || showSecPortal2 || showSecPortal3 || showSecPortal4 || showSecPortal5)
-                {                    
+                {
                     if (showSecPortal1)
                     {
                         StorageFolder thisFolder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(secondaryFolderToken1);
@@ -855,7 +856,7 @@ namespace DropStackWinUI
                             _filteredFileMetadataList = fileMetadataList;
                             fileMetadataListCopy = fileMetadataList;
                         }
-                        else if (source=="pinned") _filteredPinnedFileMetadataList = fileMetadataList;
+                        else if (source == "pinned") _filteredPinnedFileMetadataList = fileMetadataList;
                     }
                 }
 
@@ -871,17 +872,13 @@ namespace DropStackWinUI
 
                 ObservableCollection<FileItem> cachingCollection = new();
 
-                if (cachedItems != null)
-                {
-                    if (source == "regular") foreach (FileItem item in regularFileListView.ItemsSource as ObservableCollection<FileItem>) cachingCollection.Add(item);
-                    else if (source == "pinned") foreach (FileItem item in pinnedFileListView.ItemsSource as ObservableCollection<FileItem>) cachingCollection.Add(item);
-                    saveToCache(source, cachingCollection);
-                }
-                else saveToCache(source, fileMetadataList);
+                if (source == "regular") cachingCollection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
+                else if (source == "pinned") cachingCollection = pinnedFileListView.ItemsSource as ObservableCollection<FileItem>;
+                saveToCache(source, cachingCollection);
 
                 if (source == "regular")
                 {
-                    
+
                     _filteredFileMetadataList = cachingCollection;
                     fileMetadataListCopy = cachingCollection;
 
@@ -2001,7 +1998,10 @@ namespace DropStackWinUI
 
         private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
-            if (subjectToCache.Count > loadedItems) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItems) subjectToCache.Remove(item); }
+            while (subjectToCache.Count > loadedItems)
+            {
+                subjectToCache.RemoveAt(loadedItems);
+            }
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
             StringWriter writer = new StringWriter();
             serializer.Serialize(writer, subjectToCache);

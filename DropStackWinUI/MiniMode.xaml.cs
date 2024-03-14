@@ -433,6 +433,7 @@ namespace DropStackWinUI
                                     insertIndex++;
                                 }
                             }
+                            saveToCache(source, collection);
                             break;
                         }
                         addIndex++;
@@ -449,13 +450,12 @@ namespace DropStackWinUI
                     }
                 }
 
-                if (cachedItems != null)
+                if (cachedItems == null)
                 {
                     ObservableCollection<FileItem> cachingCollection = new();
                     foreach (FileItem item in regularFileListView.Items) cachingCollection.Add(item);
                     saveToCache(source, cachingCollection);
                 }
-                else saveToCache(source, fileMetadataList);
             }
             else
             {
@@ -734,7 +734,10 @@ namespace DropStackWinUI
 
         private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
-            if (subjectToCache.Count > loadedItems) foreach (FileItem item in subjectToCache) { if (subjectToCache.IndexOf(item) > loadedItems) subjectToCache.Remove(item); }
+            while (subjectToCache.Count > loadedItems)
+            {
+                subjectToCache.RemoveAt(loadedItems);
+            }
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
             StringWriter writer = new StringWriter();
             serializer.Serialize(writer, subjectToCache);
