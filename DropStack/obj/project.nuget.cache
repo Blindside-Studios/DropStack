@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xzgpoCWATfZZDDYcjYdt7BA8GL9v3TE/42lgJtp1mm58y+X4y7fl+7eXlbEM22QdQv6vEjPQDMV7JNvf/LevCQ==",
+  "dgSpecHash": "Tb8Hy9KsaMDqG2eF5X1U5viT8lVg4eCma3uVomSk+WKjK9fY5mXpGiBub1Mh/phTapwnP4gGDlwccwqibb7l5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\DropStack.csproj",
+  "projectFilePath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\DropStack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.net.native.compiler\\2.2.12-rel-31116-00\\microsoft.net.native.compiler.2.2.12-rel-31116-00.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.2.14\\microsoft.net.uwpcoreruntimesdk.2.2.14.nupkg.sha512",
