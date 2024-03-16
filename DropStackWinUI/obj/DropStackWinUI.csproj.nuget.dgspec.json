@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStackWinUI\\DropStackWinUI.csproj": {}
+    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStackWinUI\\DropStackWinUI.csproj": {
+    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStackWinUI\\DropStackWinUI.csproj",
+        "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj",
         "projectName": "DropStackWinUI",
-        "projectPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStackWinUI\\DropStackWinUI.csproj",
+        "projectPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\DropStackWinUI.csproj",
         "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStackWinUI\\obj\\",
+        "outputPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,6 +96,10 @@
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[6.0.20, 6.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
               "version": "[6.0.20, 6.0.20]"
             },
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\DropStack.csproj": {}
+    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\DropStack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\DropStack.csproj": {
+    "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\DropStack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\DropStack.csproj",
+        "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\DropStack.csproj",
         "projectName": "DropStack",
-        "projectPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\DropStack.csproj",
+        "projectPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\DropStack.csproj",
         "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack-2\\DropStack\\obj\\",
+        "outputPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
