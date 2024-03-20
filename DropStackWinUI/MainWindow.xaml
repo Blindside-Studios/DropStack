@@ -200,6 +200,12 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
+                    <AppBarButton x:Name="CaptureContentButton" Icon="Camera" Label="Capture" Click="CaptureContentButton_Click">
+                        <ToolTip Content="Import a document using your device's camera."/>
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
                     <AppBarButton x:Name="SearchButton" Icon="Find" Label="Search" Click="SearchButton_Click">
                         <ToolTip Content="Search this list (Ctrl+F)"/>
                         <AppBarButton.KeyboardAccelerators>

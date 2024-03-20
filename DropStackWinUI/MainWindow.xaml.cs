@@ -40,6 +40,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Windows.AppNotifications;
 using WinUIEx.Messaging;
 using Microsoft.VisualBasic;
+using DropStackWinUI.HelperWindows;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -2741,6 +2742,12 @@ namespace DropStackWinUI
         private void FlyoutSelectButton_Click(object sender, RoutedEventArgs e)
         {
             regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
+        }
+
+        private void CaptureContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            var captureWindow = new CameraScanner();
+            captureWindow.Activate();
         }
     }
 }

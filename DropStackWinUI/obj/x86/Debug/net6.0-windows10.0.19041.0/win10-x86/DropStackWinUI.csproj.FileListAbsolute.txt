@@ -21,7 +21,6 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.Windows.System.Projection.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.Windows.Widgets.Projection.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.WindowsAppRuntime.Release.Net.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.WindowsAppRuntime.Bootstrap.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.CSharp.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.VisualBasic.Core.dll
@@ -241,7 +240,6 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\hostfxr.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\hostpolicy.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\mscordaccore.dll
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\mscordaccore_x86_x86_6.0.2023.32017.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\mscordbi.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\mscorrc.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\msquic.dll
@@ -263,7 +261,6 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.AssemblyInfoInputs.cache
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.AssemblyInfo.cs
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.csproj.CoreCompileInputs.cache
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.csproj.CopyComplete
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\refint\DropStackWinUI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.pdb
@@ -317,7 +314,6 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\ColorCode.WinUI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.Common.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.dll
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.Extensions.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.UI.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.UI.Controls.Core.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll
@@ -328,4 +324,12 @@ C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.WinUI.UI.Controls.Primitives.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.Graphics.Canvas.Interop.dll
 C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.Graphics.Canvas.dll
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\clrcompression.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.Windows.Management.Deployment.Projection.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\mscordaccore_x86_x86_6.0.2824.12007.dll
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.sourcelink.json
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStac.CAD12279.Up2Date
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\HelperWindows\CameraScanner.xbf
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\HelperWindows\CameraScanner.g.i.cs
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\HelperWindows\CameraScanner.g.cs
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\HelperWindows\CameraScanner.xaml
+C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\HelperWindows\CameraScanner.xbf
