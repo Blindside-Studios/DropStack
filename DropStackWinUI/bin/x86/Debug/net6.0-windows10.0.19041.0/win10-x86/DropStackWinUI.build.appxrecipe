@@ -721,38 +721,17 @@
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\colorcode.winui\2.0.15\lib\net5.0-windows10.0.17763\ColorCode.WinUI.dll">
       <PackagePath>ColorCode.WinUI.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.common\7.1.2\lib\net5.0\CommunityToolkit.Common.dll">
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.common\8.2.1\lib\net6.0\CommunityToolkit.Common.dll">
       <PackagePath>CommunityToolkit.Common.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.dll">
-      <PackagePath>CommunityToolkit.WinUI.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.controls.camerapreview\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Controls.CameraPreview.dll">
+      <PackagePath>CommunityToolkit.WinUI.Controls.CameraPreview.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.dll">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\lib\net5.0-windows10.0.18362.0\Microsoft.Graphics.Canvas.Interop.dll">
-      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.helpers\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Helpers.dll">
+      <PackagePath>CommunityToolkit.WinUI.Helpers.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.win32.systemevents\8.0.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll">
       <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
@@ -808,41 +787,20 @@
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\winuiex\2.3.4\lib\net6.0-windows10.0.18362\WinUIEx.dll">
       <PackagePath>WinUIEx.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
-      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.windowsappsdk\1.5.240311000\runtimes\win10-x86\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\colorcode.winui\2.0.15\lib\net5.0-windows10.0.17763\ColorCode.WinUI.pri">
       <PackagePath>ColorCode.WinUI.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
-      <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.controls.camerapreview\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Controls.CameraPreview.pri">
+      <PackagePath>CommunityToolkit.WinUI.Controls.CameraPreview.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.pri</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.pri">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.pri</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.helpers\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Helpers.pri">
+      <PackagePath>CommunityToolkit.WinUI.Helpers.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\winuiex\2.3.4\lib\net6.0-windows10.0.18362\WinUIEx.pri">
       <PackagePath>WinUIEx.pri</PackagePath>

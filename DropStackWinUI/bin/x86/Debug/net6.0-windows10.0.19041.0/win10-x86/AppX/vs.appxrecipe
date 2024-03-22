@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-03-20T22:12:57.694</Modified>
+      <Modified>2024-03-22T16:18:39.615</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-03-20T22:12:57.265</Modified>
+      <Modified>2024-03-22T16:15:42.187</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.runtimeconfig.json">
       <PackagePath>DropStackWinUI.runtimeconfig.json</PackagePath>
-      <Modified>2024-03-20T22:12:56.988</Modified>
+      <Modified>2024-03-22T16:15:41.909</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.dll">
       <PackagePath>DropStackWinUI.dll</PackagePath>
-      <Modified>2024-03-20T22:12:55.831</Modified>
+      <Modified>2024-03-22T16:18:39.328</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>DropStackWinUI.exe</PackagePath>
-      <Modified>2024-03-20T22:12:55.895</Modified>
+      <Modified>2024-03-22T16:18:39.331</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\DropStackWinUI.deps.json">
       <PackagePath>DropStackWinUI.deps.json</PackagePath>
-      <Modified>2024-03-20T22:12:56.834</Modified>
+      <Modified>2024-03-22T16:15:41.809</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.28\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -961,49 +961,21 @@
       <PackagePath>ColorCode.WinUI.dll</PackagePath>
       <Modified>2023-07-14T18:22:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.common\7.1.2\lib\net5.0\CommunityToolkit.Common.dll">
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.common\8.2.1\lib\net6.0\CommunityToolkit.Common.dll">
       <PackagePath>CommunityToolkit.Common.dll</PackagePath>
-      <Modified>2021-11-18T21:56:24.000</Modified>
+      <Modified>2023-07-05T18:52:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.dll">
-      <PackagePath>CommunityToolkit.WinUI.dll</PackagePath>
-      <Modified>2021-11-18T21:56:32.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.controls.camerapreview\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Controls.CameraPreview.dll">
+      <PackagePath>CommunityToolkit.WinUI.Controls.CameraPreview.dll</PackagePath>
+      <Modified>2024-01-09T23:42:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.dll</PackagePath>
-      <Modified>2021-11-18T21:56:42.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.dll">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.dll</PackagePath>
+      <Modified>2024-01-09T23:42:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.dll</PackagePath>
-      <Modified>2021-11-18T21:56:50.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
-      <Modified>2021-11-18T21:56:52.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.dll</PackagePath>
-      <Modified>2021-11-18T21:56:54.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.dll</PackagePath>
-      <Modified>2021-11-18T21:56:56.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.dll</PackagePath>
-      <Modified>2021-11-18T21:56:58.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.dll</PackagePath>
-      <Modified>2021-11-18T21:57:00.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
-      <Modified>2021-11-18T21:57:02.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\lib\net5.0-windows10.0.18362.0\Microsoft.Graphics.Canvas.Interop.dll">
-      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
-      <Modified>2021-11-16T23:41:48.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.helpers\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Helpers.dll">
+      <PackagePath>CommunityToolkit.WinUI.Helpers.dll</PackagePath>
+      <Modified>2024-01-09T23:42:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.win32.systemevents\8.0.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll">
       <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
@@ -1077,10 +1049,6 @@
       <PackagePath>WinUIEx.dll</PackagePath>
       <Modified>2024-02-26T00:29:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
-      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
-      <Modified>2021-11-16T23:44:02.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\microsoft.windowsappsdk\1.5.240311000\runtimes\win10-x86\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2024-03-08T18:44:32.000</Modified>
@@ -1089,41 +1057,17 @@
       <PackagePath>ColorCode.WinUI.pri</PackagePath>
       <Modified>2023-07-14T18:21:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
-      <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
-      <Modified>2021-11-18T21:50:16.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.controls.camerapreview\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Controls.CameraPreview.pri">
+      <PackagePath>CommunityToolkit.WinUI.Controls.CameraPreview.pri</PackagePath>
+      <Modified>2024-01-09T22:47:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.pri</PackagePath>
-      <Modified>2021-11-18T21:50:18.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.pri">
+      <PackagePath>CommunityToolkit.WinUI.Extensions.pri</PackagePath>
+      <Modified>2024-01-09T22:45:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.pri</PackagePath>
-      <Modified>2021-11-18T21:50:56.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
-      <Modified>2021-11-18T21:49:46.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.pri</PackagePath>
-      <Modified>2021-11-18T21:51:30.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.pri</PackagePath>
-      <Modified>2021-11-18T21:50:38.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.pri</PackagePath>
-      <Modified>2021-11-18T21:51:06.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.pri</PackagePath>
-      <Modified>2021-11-18T21:51:16.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri">
-      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.pri</PackagePath>
-      <Modified>2021-11-18T21:50:38.000</Modified>
+    <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\communitytoolkit.winui.helpers\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Helpers.pri">
+      <PackagePath>CommunityToolkit.WinUI.Helpers.pri</PackagePath>
+      <Modified>2024-01-09T22:46:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nicol\.nuget\packages\winuiex\2.3.4\lib\net6.0-windows10.0.18362\WinUIEx.pri">
       <PackagePath>WinUIEx.pri</PackagePath>

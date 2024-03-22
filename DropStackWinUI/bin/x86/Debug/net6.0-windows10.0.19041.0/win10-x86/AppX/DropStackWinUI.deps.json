@@ -11,9 +11,7 @@
         "dependencies": {
           "ColorCode.Core": "2.0.15",
           "ColorCode.WinUI": "2.0.15",
-          "CommunityToolkit.WinUI": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Media": "7.1.2",
+          "CommunityToolkit.WinUI.Controls.CameraPreview": "8.0.240109",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.3233",
           "Microsoft.WindowsAppSDK": "1.5.240311000",
           "System.Drawing.Common": "8.0.3",
@@ -899,148 +897,50 @@
           }
         }
       },
-      "CommunityToolkit.Common/7.1.2": {
+      "CommunityToolkit.Common/8.2.1": {
         "runtime": {
-          "lib/net5.0/CommunityToolkit.Common.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
+          "lib/net6.0/CommunityToolkit.Common.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.2.1.1"
           }
         }
       },
-      "CommunityToolkit.WinUI/7.1.2": {
+      "CommunityToolkit.WinUI.Controls.CameraPreview/8.0.240109": {
         "dependencies": {
-          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.WinUI.Helpers": "8.0.240109",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.3233",
           "Microsoft.WindowsAppSDK": "1.5.240311000"
         },
         "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
+          "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Controls.CameraPreview.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
           }
         }
       },
-      "CommunityToolkit.WinUI.UI/7.1.2": {
+      "CommunityToolkit.WinUI.Extensions/8.0.240109": {
         "dependencies": {
-          "CommunityToolkit.WinUI": "7.1.2",
+          "CommunityToolkit.Common": "8.2.1",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.3233",
           "Microsoft.WindowsAppSDK": "1.5.240311000"
         },
         "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
+          "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
           }
         }
       },
-      "CommunityToolkit.WinUI.UI.Controls/7.1.2": {
+      "CommunityToolkit.WinUI.Helpers/8.0.240109": {
         "dependencies": {
-          "CommunityToolkit.WinUI.UI.Controls.Core": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.DataGrid": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Input": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Layout": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Markdown": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Media": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Core/7.1.2": {
-        "dependencies": {
-          "CommunityToolkit.WinUI": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
+          "CommunityToolkit.WinUI.Extensions": "8.0.240109",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.3233",
           "Microsoft.WindowsAppSDK": "1.5.240311000"
         },
         "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Core.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.DataGrid/7.1.2": {
-        "dependencies": {
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.DataGrid.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Input/7.1.2": {
-        "dependencies": {
-          "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Input.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Layout/7.1.2": {
-        "dependencies": {
-          "CommunityToolkit.WinUI.UI": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Layout.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Markdown/7.1.2": {
-        "dependencies": {
-          "ColorCode.WinUI": "2.0.15",
-          "CommunityToolkit.WinUI.UI": "7.1.2",
-          "CommunityToolkit.WinUI.UI.Controls.Core": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Markdown.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Media/7.1.2": {
-        "dependencies": {
-          "CommunityToolkit.WinUI.UI": "7.1.2",
-          "Microsoft.Graphics.Win2D": "1.0.0.30",
-          "Microsoft.WindowsAppSDK": "1.5.240311000",
-          "System.Text.Json": "5.0.2"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Media.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "CommunityToolkit.WinUI.UI.Controls.Primitives/7.1.2": {
-        "dependencies": {
-          "CommunityToolkit.WinUI.UI": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.5.240311000"
-        },
-        "runtime": {
-          "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Primitives.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "Microsoft.Graphics.Win2D/1.0.0.30": {
-        "runtime": {
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Graphics.Canvas.Interop.dll": {
-            "assemblyVersion": "1.0.26.0",
-            "fileVersion": "1.0.26.0"
-          }
-        },
-        "native": {
-          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {
-            "fileVersion": "1.0.0.0"
+          "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Helpers.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
           }
         }
       },
@@ -1632,7 +1532,6 @@
           "runtime.any.System.Text.Encoding.Extensions": "4.3.0"
         }
       },
-      "System.Text.Json/5.0.2": {},
       "System.Text.RegularExpressions/4.3.1": {
         "dependencies": {
           "System.Runtime": "4.3.1"
@@ -1703,89 +1602,33 @@
       "path": "colorcode.winui/2.0.15",
       "hashPath": "colorcode.winui.2.0.15.nupkg.sha512"
     },
-    "CommunityToolkit.Common/7.1.2": {
+    "CommunityToolkit.Common/8.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
-      "path": "communitytoolkit.common/7.1.2",
-      "hashPath": "communitytoolkit.common.7.1.2.nupkg.sha512"
+      "sha512": "sha512-LWuhy8cQKJ/MYcy3XafJ916U3gPH/YDvYoNGWyQWN11aiEKCZszzPOTJAOvBjP9yG8vHmIcCyPUt4L82OK47Iw==",
+      "path": "communitytoolkit.common/8.2.1",
+      "hashPath": "communitytoolkit.common.8.2.1.nupkg.sha512"
     },
-    "CommunityToolkit.WinUI/7.1.2": {
+    "CommunityToolkit.WinUI.Controls.CameraPreview/8.0.240109": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0O6hCHy+/adJygcROD3r3yA41gRq972i/r6uGUfo8lfEbr/I1YGePTClAh1P9JYT7DdoI2IqeUhX05lq+rwrHg==",
-      "path": "communitytoolkit.winui/7.1.2",
-      "hashPath": "communitytoolkit.winui.7.1.2.nupkg.sha512"
+      "sha512": "sha512-mv2QgbYI1rZhKemN0yF+TaQMj7ud/fenK53lPPqfCfpg5KQCm+QVWONJKdXeF67l4ZYjx1EmZwmqf0wuQgYLhg==",
+      "path": "communitytoolkit.winui.controls.camerapreview/8.0.240109",
+      "hashPath": "communitytoolkit.winui.controls.camerapreview.8.0.240109.nupkg.sha512"
     },
-    "CommunityToolkit.WinUI.UI/7.1.2": {
+    "CommunityToolkit.WinUI.Extensions/8.0.240109": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jF1GdEJsZX5o81ZfLjSjgC5RuYwQneuW2mdFIb7FDFzITsgqCn7mfn7BglpNiXvjExkocmAKbBgmCcbp0Nypmw==",
-      "path": "communitytoolkit.winui.ui/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.7.1.2.nupkg.sha512"
+      "sha512": "sha512-4CpGj3g3Tn2KfNRvwg/USyL7KAdY0rKqfc4ZYk57buoVpvAQLcmMpL/+/kbRe9Pixj4HY5On6H39bqTntd3+DQ==",
+      "path": "communitytoolkit.winui.extensions/8.0.240109",
+      "hashPath": "communitytoolkit.winui.extensions.8.0.240109.nupkg.sha512"
     },
-    "CommunityToolkit.WinUI.UI.Controls/7.1.2": {
+    "CommunityToolkit.WinUI.Helpers/8.0.240109": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+aDc1KqmlYM+HE0Mw5OnfQBOFhY0c7zp1aGz/4qs+1I+Xk8Ot3IRwvs8dYxBEGCD9YzE2OzaJLPztBpQ9JEWig==",
-      "path": "communitytoolkit.winui.ui.controls/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Core/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-7MVYQKjYlD5SryWNy5FA7Pcer9Rphjk7hCrSIOT9m4dcsOYmekZf36TOJARKxySXvlmjNud6QkmWssJKFC4k5w==",
-      "path": "communitytoolkit.winui.ui.controls.core/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.core.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.DataGrid/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-F73oYdYza8zhDwGHdXCZJJMeiDJ6nR97WPe180o7jOX3U90ZIqvU/GtYZdN3/x8DOS48t5GQG70LqxfyIGeaxw==",
-      "path": "communitytoolkit.winui.ui.controls.datagrid/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.datagrid.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Input/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-fT8s21NI51YCR/mgm1eabwnSSQuXnQRz/TqHKjzYABhfGSvl44YlvuAQzbE9VfZSEUtiv4kesgylrzKd4/dArg==",
-      "path": "communitytoolkit.winui.ui.controls.input/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.input.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Layout/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FpKo2DdJgREAvttTYhOJTy1ru6ODRG41Da+vMrB7bcqavdbPgSTqYzolLcgvMl2InpIdt+fqn6U6mGQYoV+ksQ==",
-      "path": "communitytoolkit.winui.ui.controls.layout/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.layout.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Markdown/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0hAhwBfWa7aWKYOPGxhJJXowjrncY4he8jizcbuPVCgv8tZS1LXEEH4MoGKq57iLKz2lG3qaVN+1trcDWYq0Sg==",
-      "path": "communitytoolkit.winui.ui.controls.markdown/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.markdown.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Media/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FFH1mNF+rp3GEIQOceoxzSrRVY3G8aA+sYoK6Fv1kDEFWlCfLYF+cSCexL4sBuw0ARs1QXUvNqW4T1F/nAWsdw==",
-      "path": "communitytoolkit.winui.ui.controls.media/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.media.7.1.2.nupkg.sha512"
-    },
-    "CommunityToolkit.WinUI.UI.Controls.Primitives/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mNtVRpBVnFzSywRzzLPXBIoYm4UWJPZkpNPNAu75lnl4KcnkfjjyQg90hkfF9MT/JkBJQG0z5XOdMCksn7EiMQ==",
-      "path": "communitytoolkit.winui.ui.controls.primitives/7.1.2",
-      "hashPath": "communitytoolkit.winui.ui.controls.primitives.7.1.2.nupkg.sha512"
-    },
-    "Microsoft.Graphics.Win2D/1.0.0.30": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pEGf7FSx2dRWJuoaSoXk+WYkZfYwhWoJKOyyo0XLRU6V2Ul02MjxRhoxggrzGz6jVFiT7R2NdPdV8M6N1F+QfA==",
-      "path": "microsoft.graphics.win2d/1.0.0.30",
-      "hashPath": "microsoft.graphics.win2d.1.0.0.30.nupkg.sha512"
+      "sha512": "sha512-KzIyOq455H8YtjZVNKXyQ6tS/KwFTiud+Usi9+Y3tJSqsGAu00ToNaDSVcJmec116BZ7dGA12+pdEynOQo9yEA==",
+      "path": "communitytoolkit.winui.helpers/8.0.240109",
+      "hashPath": "communitytoolkit.winui.helpers.8.0.240109.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",
@@ -2311,13 +2154,6 @@
       "sha512": "sha512-YVMK0Bt/A43RmwizJoZ22ei2nmrhobgeiYwFzC4YAN+nue8RF6djXDMog0UCn+brerQoYVyaS+ghy9P/MUVcmw==",
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
-    },
-    "System.Text.Json/5.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
-      "path": "system.text.json/5.0.2",
-      "hashPath": "system.text.json.5.0.2.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.1": {
       "type": "package",

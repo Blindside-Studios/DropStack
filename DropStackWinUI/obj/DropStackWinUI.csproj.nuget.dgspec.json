@@ -58,17 +58,9 @@
               "target": "Package",
               "version": "[2.0.15, )"
             },
-            "CommunityToolkit.WinUI": {
+            "CommunityToolkit.WinUI.Controls.CameraPreview": {
               "target": "Package",
-              "version": "[7.1.2, )"
-            },
-            "CommunityToolkit.WinUI.UI.Controls": {
-              "target": "Package",
-              "version": "[7.1.2, )"
-            },
-            "CommunityToolkit.WinUI.UI.Controls.Media": {
-              "target": "Package",
-              "version": "[7.1.2, )"
+              "version": "[8.0.240109, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",

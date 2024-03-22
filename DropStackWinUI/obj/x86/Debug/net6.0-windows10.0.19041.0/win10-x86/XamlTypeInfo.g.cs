@@ -252,7 +252,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[24] = "Windows.UI.Color";
             _typeNameTable[25] = "DropStackWinUI.FileViews.PDFView";
             _typeNameTable[26] = "DropStackWinUI.FileViews.VideoView";
-            _typeNameTable[27] = "CommunityToolkit.WinUI.UI.Controls.CameraPreview";
+            _typeNameTable[27] = "CommunityToolkit.WinUI.Controls.CameraPreview";
             _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.Control";
             _typeNameTable[29] = "CommunityToolkit.WinUI.Helpers.CameraHelper";
             _typeNameTable[30] = "DropStackWinUI.HelperWindows.CameraScanner";
@@ -329,7 +329,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[24] = typeof(global::Windows.UI.Color);
             _typeTable[25] = typeof(global::DropStackWinUI.FileViews.PDFView);
             _typeTable[26] = typeof(global::DropStackWinUI.FileViews.VideoView);
-            _typeTable[27] = typeof(global::CommunityToolkit.WinUI.UI.Controls.CameraPreview);
+            _typeTable[27] = typeof(global::CommunityToolkit.WinUI.Controls.CameraPreview);
             _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
             _typeTable[29] = typeof(global::CommunityToolkit.WinUI.Helpers.CameraHelper);
             _typeTable[30] = typeof(global::DropStackWinUI.HelperWindows.CameraScanner);
@@ -413,7 +413,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_4_WindowEx() { return new global::WinUIEx.WindowEx(); }
         private object Activate_16_MicaBackdrop() { return new global::Microsoft.UI.Xaml.Media.MicaBackdrop(); }
         private object Activate_20_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
-        private object Activate_27_CameraPreview() { return new global::CommunityToolkit.WinUI.UI.Controls.CameraPreview(); }
+        private object Activate_27_CameraPreview() { return new global::CommunityToolkit.WinUI.Controls.CameraPreview(); }
         private object Activate_29_CameraHelper() { return new global::CommunityToolkit.WinUI.Helpers.CameraHelper(); }
         private object Activate_30_CameraScanner() { return new global::DropStackWinUI.HelperWindows.CameraScanner(); }
         private object Activate_31_ParallaxView() { return new global::Microsoft.UI.Xaml.Controls.ParallaxView(); }
@@ -649,7 +649,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 27:   //  CommunityToolkit.WinUI.UI.Controls.CameraPreview
+            case 27:   //  CommunityToolkit.WinUI.Controls.CameraPreview
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
                 userType.Activator = Activate_27_CameraPreview;
                 userType.AddMemberName("CameraHelper");
@@ -1035,17 +1035,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider provider;
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Core_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
-                    otherProviders.Add(provider); 
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_DataGrid_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
-                    otherProviders.Add(provider); 
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Input_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
-                    otherProviders.Add(provider); 
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Layout_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
-                    otherProviders.Add(provider); 
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Markdown_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
-                    otherProviders.Add(provider); 
-                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Media_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    provider = new global::CommunityToolkit.WinUI.Controls.CameraPreviewRns.CommunityToolkit_WinUI_Controls_CameraPreview_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
@@ -1362,17 +1352,17 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         }
         private object get_28_CameraPreview_CameraHelper(object instance)
         {
-            var that = (global::CommunityToolkit.WinUI.UI.Controls.CameraPreview)instance;
+            var that = (global::CommunityToolkit.WinUI.Controls.CameraPreview)instance;
             return that.CameraHelper;
         }
         private object get_29_CameraPreview_IsFrameSourceGroupButtonVisible(object instance)
         {
-            var that = (global::CommunityToolkit.WinUI.UI.Controls.CameraPreview)instance;
+            var that = (global::CommunityToolkit.WinUI.Controls.CameraPreview)instance;
             return that.IsFrameSourceGroupButtonVisible;
         }
         private void set_29_CameraPreview_IsFrameSourceGroupButtonVisible(object instance, object Value)
         {
-            var that = (global::CommunityToolkit.WinUI.UI.Controls.CameraPreview)instance;
+            var that = (global::CommunityToolkit.WinUI.Controls.CameraPreview)instance;
             that.IsFrameSourceGroupButtonVisible = (global::System.Boolean)Value;
         }
         private object get_30_ParallaxView_Child(object instance)
@@ -2382,14 +2372,14 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_27_WebView2_DefaultBackgroundColor;
                 xamlMember.Setter = set_27_WebView2_DefaultBackgroundColor;
                 break;
-            case "CommunityToolkit.WinUI.UI.Controls.CameraPreview.CameraHelper":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.CameraPreview");
+            case "CommunityToolkit.WinUI.Controls.CameraPreview.CameraHelper":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.CameraPreview");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CameraHelper", "CommunityToolkit.WinUI.Helpers.CameraHelper");
                 xamlMember.Getter = get_28_CameraPreview_CameraHelper;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "CommunityToolkit.WinUI.UI.Controls.CameraPreview.IsFrameSourceGroupButtonVisible":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.CameraPreview");
+            case "CommunityToolkit.WinUI.Controls.CameraPreview.IsFrameSourceGroupButtonVisible":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.CameraPreview");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsFrameSourceGroupButtonVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_29_CameraPreview_IsFrameSourceGroupButtonVisible;
