@@ -64,7 +64,7 @@ namespace DropStackWinUI.HelperWindows
                 var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync();
                 if (frameSourceGroups.Count <= 0)
                 {
-                    TxtActivityLog.Text = "No source groups found.";
+                    Debug.WriteLine("No source groups found.");
                     return;
                 }
 
@@ -79,6 +79,7 @@ namespace DropStackWinUI.HelperWindows
                     })
                     .FirstOrDefault(g => g.SourceInfo != null);
 
+                // if there is no such thing as a color camera located on the back of the device, use one on the front
                 if (selectedGroup == null)
                 {
                     selectedGroup = frameSourceGroups
@@ -91,14 +92,14 @@ namespace DropStackWinUI.HelperWindows
                     })
                     .FirstOrDefault(g => g.SourceInfo != null);
 
+                    // if we can't have that either, start crying...
                     if (selectedGroup == null)
                     {
-                        TxtActivityLog.Text = "No rear-facing color camera found.";
+                        Debug.WriteLine("No rear-facing color camera found.");
                         return;
                     }
                 }
 
-                //Get the first frame source group and first frame source, Or write your code to select them//
                 MediaFrameSourceGroup selectedFrameSourceGroup = selectedGroup.Group;
                 MediaFrameSourceInfo frameSourceInfo = selectedGroup.SourceInfo;
 
@@ -125,12 +126,12 @@ namespace DropStackWinUI.HelperWindows
                 await mediaFrameReader.StartAsync();
 
                 captureManagerInitialized = true;
-                TxtActivityLog.Text = "Media preview from device: " + selectedFrameSourceGroup.DisplayName;
+                Debug.WriteLine("Media preview from device: " + selectedFrameSourceGroup.DisplayName);
 
             }
             catch (Exception Exc)
             {
-                TxtActivityLog.Text = "MediaCapture initialization failed: " + Exc.Message;
+                Debug.WriteLine("MediaCapture initialization failed: " + Exc.Message);
             }
         }
 
@@ -149,7 +150,7 @@ namespace DropStackWinUI.HelperWindows
             }
 
             captureManagerInitialized = false;
-            TxtActivityLog.Text = "Media preview has canceled.";
+            Debug.WriteLine("Media preview has canceled.");
         }
 
         private void FrameReader_FrameArrived(MediaFrameReader sender, MediaFrameArrivedEventArgs args)
@@ -212,7 +213,7 @@ namespace DropStackWinUI.HelperWindows
             }
             catch (Exception Exc)
             {
-                TxtActivityLog.Text = Exc.Message;
+                Debug.WriteLine(Exc.Message);
             }
         }
 
@@ -228,7 +229,7 @@ namespace DropStackWinUI.HelperWindows
             }
             catch (Exception Exc)
             {
-                TxtActivityLog.Text = Exc.Message;
+                Debug.WriteLine(Exc.Message);
             }
         }
 
@@ -244,7 +245,7 @@ namespace DropStackWinUI.HelperWindows
             }
             catch (Exception Exc)
             {
-                TxtActivityLog.Text = Exc.Message;
+                Debug.WriteLine(Exc.Message);
             }
         }
 
@@ -272,11 +273,11 @@ namespace DropStackWinUI.HelperWindows
                 // ImagePreview is a <Image> object defined in XAML
                 imageCapture.Source = bmpImage;
 
-                TxtActivityLog.Text = "Media Photo has Captured.";
+                Debug.WriteLine("Media Photo has Captured.");
             }
             catch (Exception Exc)
             {
-                TxtActivityLog.Text = Exc.Message;
+                Debug.WriteLine(Exc.Message);
             }
         }
     }

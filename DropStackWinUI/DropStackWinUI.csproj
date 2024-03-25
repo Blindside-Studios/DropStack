@@ -107,4 +107,7 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <LayoutDir>C:\Users\nicol\OneDrive\Documents\App Debug Files</LayoutDir>
+  </PropertyGroup>
 </Project>

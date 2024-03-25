@@ -21,27 +21,21 @@
         
         <Rectangle x:Name="TitleBarRectangle" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
         
-        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <!-- <controls:CameraPreview x:Name="CameraPreviewControl" Margin="50" CornerRadius="8"/> -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
             <StackPanel Orientation="Horizontal" Background = "Black">
                 <!--CaptureElement x:Name="capturePreview" Width="640" Height="480" /-->
                 <Image x:Name="imagePreview" Stretch="Fill" Width="640" Height="480" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="50">
                 <Button x:Name="BtnInitCamera" Click="InitCamera_Click" Content="Initialize Camera" />
                 <Button x:Name="BtnStartPreview" Click="StartCapturePreview_Click" Content="Start Preview" />
                 <Button x:Name="BtnCapturePhoto" Click="CapturePhoto_Click" Content="Capture Photo"/>
                 <Button x:Name="BtnStopPreview" Click="StopCapturePreview_Click" Content="Stop Preview" />
-                <Image x:Name="imageCapture" Stretch="Fill" Width="160" Height="100" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
+                <Image x:Name="imageCapture" Stretch="Fill" Width="480" Height="300" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
             </StackPanel>
-
-            <TextBox x:Name="TxtActivityLog" FontSize="12" 
-                 AcceptsReturn="True" TextWrapping="Wrap" Header="Activity Log" Width="640" Height="200" 
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch"/>
-
-            <!--Button x:Name="myButton" Click="myButton_Click">Click Me</Button-->
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -538,7 +538,7 @@ namespace DropStackWinUI
                 try
                 {
                     string currentFolderToken = StorageApplicationPermissions.FutureAccessList.Add(folder);
-                    nextOOBEpage();
+                    if (OOBEgrid.Visibility == Visibility.Visible) nextOOBEpage();
 
                     switch (purpose)
                     {
