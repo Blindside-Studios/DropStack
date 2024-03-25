@@ -41,8 +41,6 @@ namespace DropStackWinUI.HelperWindows
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
 
-            //launchCameraFeed();
-
             //this.StartPreviewAsync();
 
             Closed += MainWindow_Closed;
@@ -70,9 +68,26 @@ namespace DropStackWinUI.HelperWindows
                     return;
                 }
 
+                // find a color camera located on the back of the device
+                var selectedGroup = frameSourceGroups
+                    .Select(group => new
+                    {
+                        Group = group,
+                        SourceInfo = group.SourceInfos.FirstOrDefault(info =>
+                            info.SourceKind == MediaFrameSourceKind.Color &&
+                            info.DeviceInformation.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Back)
+                    })
+                    .FirstOrDefault(g => g.SourceInfo != null);
+
+                if (selectedGroup == null)
+                {
+                    TxtActivityLog.Text = "No rear-facing color camera found.";
+                    return;
+                }
+
                 //Get the first frame source group and first frame source, Or write your code to select them//
-                MediaFrameSourceGroup selectedFrameSourceGroup = frameSourceGroups[0];
-                MediaFrameSourceInfo frameSourceInfo = selectedFrameSourceGroup.SourceInfos[0];
+                MediaFrameSourceGroup selectedFrameSourceGroup = selectedGroup.Group;
+                MediaFrameSourceInfo frameSourceInfo = selectedGroup.SourceInfo;
 
                 //2. Initialize the MediaCapture object to use the selected frame source group//
                 mediaCaptureManager = new MediaCapture();
@@ -81,7 +96,7 @@ namespace DropStackWinUI.HelperWindows
                     SourceGroup = selectedFrameSourceGroup,
                     SharingMode = MediaCaptureSharingMode.SharedReadOnly,
                     StreamingCaptureMode = StreamingCaptureMode.Video,
-                    MemoryPreference = MediaCaptureMemoryPreference.Cpu
+                    MemoryPreference = MediaCaptureMemoryPreference.Auto
                 };
 
                 await mediaCaptureManager.InitializeAsync(settings);
@@ -251,32 +266,5 @@ namespace DropStackWinUI.HelperWindows
                 TxtActivityLog.Text = Exc.Message;
             }
         }
-
-        //private void myButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    myButton.Content = "Clicked";
-        //}
-
-        /*private async void launchCameraFeed()
-        {
-            CameraPreviewControl.PreviewFailed += CameraPreviewControl_PreviewFailed;
-            await CameraPreviewControl.StartAsync();
-            //CameraPreviewControl.CameraHelper.FrameArrived += CameraHelper_FrameArrived;
-        }
-
-        private void CameraHelper_FrameArrived(object sender, CommunityToolkit.WinUI.Helpers.FrameEventArgs e)
-        {
-            var videoFrame = e.VideoFrame;
-            var softwareBitmap = videoFrame.SoftwareBitmap;
-            
-            // important to call as this will only randomly be picked up by the garbage collector
-            softwareBitmap.Dispose();
-        }
-
-        private void CameraPreviewControl_PreviewFailed(object sender, PreviewFailedEventArgs e)
-        {
-            var errorMessage = e.Error;
-            Debug.WriteLine(errorMessage);
-        }*/
     }
 }
