@@ -81,8 +81,21 @@ namespace DropStackWinUI.HelperWindows
 
                 if (selectedGroup == null)
                 {
-                    TxtActivityLog.Text = "No rear-facing color camera found.";
-                    return;
+                    selectedGroup = frameSourceGroups
+                    .Select(group => new
+                    {
+                        Group = group,
+                        SourceInfo = group.SourceInfos.FirstOrDefault(info =>
+                            info.SourceKind == MediaFrameSourceKind.Color &&
+                            info.DeviceInformation.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Front)
+                    })
+                    .FirstOrDefault(g => g.SourceInfo != null);
+
+                    if (selectedGroup == null)
+                    {
+                        TxtActivityLog.Text = "No rear-facing color camera found.";
+                        return;
+                    }
                 }
 
                 //Get the first frame source group and first frame source, Or write your code to select them//
@@ -96,7 +109,7 @@ namespace DropStackWinUI.HelperWindows
                     SourceGroup = selectedFrameSourceGroup,
                     SharingMode = MediaCaptureSharingMode.SharedReadOnly,
                     StreamingCaptureMode = StreamingCaptureMode.Video,
-                    MemoryPreference = MediaCaptureMemoryPreference.Auto
+                    MemoryPreference = MediaCaptureMemoryPreference.Cpu
                 };
 
                 await mediaCaptureManager.InitializeAsync(settings);
