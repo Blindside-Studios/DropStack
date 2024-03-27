@@ -388,6 +388,8 @@ namespace DropStackWinUI
 
         public async void refreshFolderNames()
         {
+            int emptySecondaryPortalFolders = 0;
+            
             if (!string.IsNullOrEmpty(folderToken))
             {
                 StorageFolder folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folderToken);
@@ -413,6 +415,8 @@ namespace DropStackWinUI
             {
                 SecondaryPortalFolder1ChangeButton.Content = "Set New...";
                 showSecPortal1 = false;
+                Sec1LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+                emptySecondaryPortalFolders++;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken2))
@@ -427,6 +431,7 @@ namespace DropStackWinUI
                 SecondaryPortalFolder2ChangeButton.Content = "Set New...";
                 showSecPortal2 = false;
                 Sec2LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+                emptySecondaryPortalFolders++;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken3))
@@ -441,6 +446,7 @@ namespace DropStackWinUI
                 SecondaryPortalFolder3ChangeButton.Content = "Set New...";
                 showSecPortal3 = false;
                 Sec3LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+                emptySecondaryPortalFolders++;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken4))
@@ -455,6 +461,7 @@ namespace DropStackWinUI
                 SecondaryPortalFolder4ChangeButton.Content = "Set New...";
                 showSecPortal4 = false;
                 Sec4LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+                emptySecondaryPortalFolders++;
             }
 
             if (!string.IsNullOrEmpty(secondaryFolderToken5))
@@ -469,6 +476,7 @@ namespace DropStackWinUI
                 SecondaryPortalFolder5ChangeButton.Content = "Set New...";
                 showSecPortal5 = false;
                 Sec5LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+                emptySecondaryPortalFolders++;
             }
 
             if (!string.IsNullOrEmpty(pinnedFolderToken))
@@ -478,6 +486,10 @@ namespace DropStackWinUI
                 PinsLinkToExplorerDisplay.Visibility = Visibility.Visible;
             }
             else PinsLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
+
+            // if all secondary folders are empty, only show one divider in the reveal menu
+            if (emptySecondaryPortalFolders == 5) SecondRevealMenuDivider.Visibility = Visibility.Collapsed;
+            else SecondRevealMenuDivider.Visibility = Visibility.Visible;
         }
 
         private async void setFolderPath(string folderToSet)

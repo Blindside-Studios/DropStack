@@ -237,7 +237,7 @@
                                 <MenuFlyoutItem x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec3"/>
                                 <MenuFlyoutItem x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec4"/>
                                 <MenuFlyoutItem x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]" Click="RevealInExplorerButton_Click" Tag="sec5"/>
-                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutSeparator x:Name="SecondRevealMenuDivider"/>
                                 <MenuFlyoutItem x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]" Click="RevealInExplorerButton_Click" Tag="pins"/>
                             </MenuFlyout>
                         </AppBarButton.Flyout>
