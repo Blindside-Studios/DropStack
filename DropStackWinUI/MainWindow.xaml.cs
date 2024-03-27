@@ -511,6 +511,9 @@ namespace DropStackWinUI
 
         public async void askForAccess(string purpose)
         {
+            // to prevent soft reload during folder picker
+            appLaunchComplete = false;
+            
             // Close the teaching tip
             if (purpose == "regular") noFolderpathTechingTip.IsOpen = false;
             else if (purpose == "pinned")
@@ -591,6 +594,8 @@ namespace DropStackWinUI
             {
                 //canceled operation, do nothing
             }
+
+            appLaunchComplete = true;
         }
 
         public async void obtainFolderAndFiles(string source, ObservableCollection<FileItem> cachedItems)

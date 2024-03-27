@@ -9,7 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:winex="using:WinUIEx" 
-    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls" 
     Width="500" Height="800" MinWidth="500" MinHeight="273">
 
     <Window.SystemBackdrop>
@@ -404,7 +403,7 @@
                                         <TextBlock Text="🤗" FontSize="92" HorizontalAlignment="Center"/>
                                         <TextBlock Text="All done!" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                         <TextBlock Text="Click 'Next' one last time to start using DropStack!" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                        <CheckBox x:ConnectionId='95' x:Name="OOBEsimpleViewOfferCheckBox" Content="Always launch into simple mode first" IsChecked="True" HorizontalAlignment="Center"/>
+                                        <CheckBox x:ConnectionId='95' x:Name="OOBEsimpleViewOfferCheckBox" Content="Always launch into simple mode first" IsChecked="False" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
                             </PivotItem>
@@ -551,7 +550,7 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <CheckBox x:ConnectionId='68' x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0" Content="Primary:"                                                                                                />
+                                            <CheckBox x:ConnectionId='68' x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0" Content="Primary:"                                                                                                 IsChecked="True"/>
                                             <CheckBox x:ConnectionId='69' x:Name="SecondaryPortalFolder1CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="1" Content="Secondary 1:" Tag="1"                                                                                                    />
                                             <CheckBox x:ConnectionId='70' x:Name="SecondaryPortalFolder2CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="2" Content="Secondary 2:" Tag="2"                                                                                                    />
                                             <CheckBox x:ConnectionId='71' x:Name="SecondaryPortalFolder3CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="3" Content="Secondary 3:" Tag="3"                                                                                                    />
