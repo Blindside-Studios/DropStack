@@ -397,7 +397,7 @@ namespace DropStackWinUI
             }
             else
             {
-                PrimaryPortalFolderCheckBox.Content = "Set New...";
+                PrimaryPortalFolderChangeButton.Content = "Set New...";
                 showPrimPortal = false;
                 PrimLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
@@ -1258,6 +1258,11 @@ namespace DropStackWinUI
         {
             if (allowOOBEExit())
             {
+                // make the settings menu reflect currently selected folders
+                showPrimPortal = true;
+                applySettingsToMenu();
+                refreshFolderNames();
+
                 ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                 if (OOBEsimpleViewOfferCheckBox.IsChecked == false) 
                 {
