@@ -1,1 +1,1 @@
-C:\Users\nicol\Downloads\DropStackWinUI_0.6.2.0_x64_Test\DropStackWinUI_0.6.2.0_x64.msix
+C:\Users\nicol\Downloads\DropStackWinUI_0.6.3.0_Test\DropStackWinUI_0.6.3.0_x64.msix

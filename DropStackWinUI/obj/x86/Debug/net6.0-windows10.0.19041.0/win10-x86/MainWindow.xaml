@@ -199,7 +199,7 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:ConnectionId='31' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                    <AppBarButton x:ConnectionId='103' x:Name="CaptureContentButton" Icon="Camera" Label="Capture"                                   >
+                    <AppBarButton x:ConnectionId='103' x:Name="CaptureContentButton" IsEnabled="False" Visibility="Collapsed" Icon="Camera" Label="Capture"                                   >
                         <ToolTip Content="Import a document using your device's camera."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="N"/>

@@ -1,12 +1,5 @@
-C:\Users\nicol\.nuget\packages\colorcode.winui\2.0.13\lib\net5.0-windows10.0.18362\ColorCode.WinUI.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.230907\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri
-C:\Users\nicol\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri
-C:\Users\nicol\.nuget\packages\winuiex\2.2.0\lib\net6.0-windows10.0.18362\WinUIEx.pri
+C:\Users\nicol\.nuget\packages\colorcode.winui\2.0.15\lib\net5.0-windows10.0.17763\ColorCode.WinUI.pri
+C:\Users\nicol\.nuget\packages\communitytoolkit.winui.controls.camerapreview\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Controls.CameraPreview.pri
+C:\Users\nicol\.nuget\packages\communitytoolkit.winui.extensions\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Extensions.pri
+C:\Users\nicol\.nuget\packages\communitytoolkit.winui.helpers\8.0.240109\lib\net6.0-windows10.0.19041\CommunityToolkit.WinUI.Helpers.pri
+C:\Users\nicol\.nuget\packages\winuiex\2.3.4\lib\net6.0-windows10.0.18362\WinUIEx.pri
