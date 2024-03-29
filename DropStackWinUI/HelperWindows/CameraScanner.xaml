@@ -28,7 +28,7 @@
                 <Image x:Name="imagePreview" Stretch="Fill" Width="640" Height="480" />
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" Margin="50">
+            <StackPanel Orientation="Vertical" Spacing="10" Margin="50">
                 <Button x:Name="BtnInitCamera" Click="InitCamera_Click" Content="Initialize Camera" />
                 <Button x:Name="BtnStartPreview" Click="StartCapturePreview_Click" Content="Start Preview" />
                 <Button x:Name="BtnCapturePhoto" Click="CapturePhoto_Click" Content="Capture Photo"/>

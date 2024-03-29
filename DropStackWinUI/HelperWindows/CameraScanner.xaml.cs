@@ -22,6 +22,8 @@ using Windows.Media.Capture.Frames;
 using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
+using Windows.Devices.Perception;
+using System.Drawing.Imaging;
 
 namespace DropStackWinUI.HelperWindows
 {
@@ -108,12 +110,21 @@ namespace DropStackWinUI.HelperWindows
                 var settings = new MediaCaptureInitializationSettings
                 {
                     SourceGroup = selectedFrameSourceGroup,
-                    SharingMode = MediaCaptureSharingMode.SharedReadOnly,
+                    SharingMode = MediaCaptureSharingMode.ExclusiveControl,
                     StreamingCaptureMode = StreamingCaptureMode.Video,
-                    MemoryPreference = MediaCaptureMemoryPreference.Cpu
+                    MemoryPreference = MediaCaptureMemoryPreference.Cpu,
+                    MediaCategory = MediaCategory.Media,
+                    AlwaysPlaySystemShutterSound = false
                 };
 
                 await mediaCaptureManager.InitializeAsync(settings);
+
+                // Get the highest resolution
+                var resolutions = mediaCaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview).Select(x => x as VideoEncodingProperties).OrderByDescending(x => x.Width);
+                var highestResolution = resolutions.First();
+
+                // Set the highest resolution
+                await mediaCaptureManager.VideoDeviceController.SetMediaStreamPropertiesAsync(MediaStreamType.VideoPreview, highestResolution);
 
                 //3. Initialize Image Preview Element with xaml Image Element.//
                 imagePreviewElement = imagePreview;
@@ -205,11 +216,9 @@ namespace DropStackWinUI.HelperWindows
         {
             try
             {
-                //mediaCaptureManager = new MediaCapture();
-                //await mediaCaptureManager.InitializeAsync();
-                //TxtActivityLog.Text = "Camera has Initialized.";
-
-                throw new NotImplementedException();
+                mediaCaptureManager = new MediaCapture();
+                await mediaCaptureManager.InitializeAsync();
+                Debug.WriteLine("Camera has Initialized.");
             }
             catch (Exception Exc)
             {

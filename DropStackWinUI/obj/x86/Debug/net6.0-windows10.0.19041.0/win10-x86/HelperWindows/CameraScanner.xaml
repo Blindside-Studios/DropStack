@@ -28,7 +28,7 @@
                 <Image x:ConnectionId='8' x:Name="imagePreview" Stretch="Fill" Width="640" Height="480" />
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" Margin="50">
+            <StackPanel Orientation="Vertical" Spacing="10" Margin="50">
                 <Button x:ConnectionId='3' x:Name="BtnInitCamera"                          Content="Initialize Camera" />
                 <Button x:ConnectionId='4' x:Name="BtnStartPreview"                                   Content="Start Preview" />
                 <Button x:ConnectionId='5' x:Name="BtnCapturePhoto"                            Content="Capture Photo"/>
