@@ -172,10 +172,15 @@ namespace DropStackWinUI.HelperWindows
 
             if (softwareBitmap != null)
             {
-                if (softwareBitmap.BitmapPixelFormat != BitmapPixelFormat.Bgra8 ||
-                    softwareBitmap.BitmapAlphaMode != BitmapAlphaMode.Premultiplied)
+                if (softwareBitmap.BitmapPixelFormat != BitmapPixelFormat.Bgra8 || softwareBitmap.BitmapAlphaMode != BitmapAlphaMode.Premultiplied)
                 {
+                    // Trust me, disposing of the old frame here is important because otherwise the app will run into a memory leak!
+                    // The garbage collector doesn't immediately dispose of the object, it just knows it's there - and then for some
+                    // reason isn't fast enough when it would need to be deleted.
+                    // Basically, think of it like your trash can overflowing because the garbage truck didn't come by your house yet.
+                    var oldSoftwareBitmap = softwareBitmap;
                     softwareBitmap = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
+                    oldSoftwareBitmap.Dispose();
                 }
 
                 // Swap the processed frame to backBuffer and dispose of the unused image.
