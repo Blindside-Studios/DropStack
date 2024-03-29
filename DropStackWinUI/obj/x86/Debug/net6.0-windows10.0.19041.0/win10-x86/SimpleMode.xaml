@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <winex:WindowEx x:ConnectionId='1'
+    Title="DropStack"
     x:Class="DropStackWinUI.SimpleMode"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

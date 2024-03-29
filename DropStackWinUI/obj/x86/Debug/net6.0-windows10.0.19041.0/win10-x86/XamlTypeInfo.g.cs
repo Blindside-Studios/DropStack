@@ -231,8 +231,8 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "WinUIEx.WindowEx";
             _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[6] = "Double";
-            _typeNameTable[7] = "String";
+            _typeNameTable[6] = "String";
+            _typeNameTable[7] = "Double";
             _typeNameTable[8] = "Microsoft.UI.Windowing.AppWindow";
             _typeNameTable[9] = "WinUIEx.Icon";
             _typeNameTable[10] = "WinUIEx.WindowState";
@@ -304,8 +304,8 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::WinUIEx.WindowEx);
             _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[6] = typeof(global::System.Double);
-            _typeTable[7] = typeof(global::System.String);
+            _typeTable[6] = typeof(global::System.String);
+            _typeTable[7] = typeof(global::System.Double);
             _typeTable[8] = typeof(global::Microsoft.UI.Windowing.AppWindow);
             _typeTable[9] = typeof(global::WinUIEx.Icon);
             _typeTable[10] = typeof(global::WinUIEx.WindowState);
@@ -484,11 +484,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.Activator = Activate_4_WindowEx;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.AddMemberName("WindowContent");
-                userType.AddMemberName("MinHeight");
-                userType.AddMemberName("MinWidth");
-                userType.AddMemberName("Height");
-                userType.AddMemberName("Width");
                 userType.AddMemberName("Title");
+                userType.AddMemberName("Width");
+                userType.AddMemberName("Height");
+                userType.AddMemberName("MinWidth");
+                userType.AddMemberName("MinHeight");
                 userType.AddMemberName("MaxWidth");
                 userType.AddMemberName("IsAlwaysOnTop");
                 userType.AddMemberName("IsMinimizable");
@@ -511,11 +511,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Double
+            case 6:   //  String
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  String
+            case 7:   //  Double
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
@@ -1083,25 +1083,25 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::WinUIEx.WindowEx)instance;
             that.WindowContent = (global::System.Object)Value;
         }
-        private object get_2_WindowEx_MinHeight(object instance)
+        private object get_2_WindowEx_Title(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.MinHeight;
+            return that.Title;
         }
-        private void set_2_WindowEx_MinHeight(object instance, object Value)
+        private void set_2_WindowEx_Title(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            that.MinHeight = (global::System.Double)Value;
+            that.Title = (global::System.String)Value;
         }
-        private object get_3_WindowEx_MinWidth(object instance)
+        private object get_3_WindowEx_Width(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.MinWidth;
+            return that.Width;
         }
-        private void set_3_WindowEx_MinWidth(object instance, object Value)
+        private void set_3_WindowEx_Width(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            that.MinWidth = (global::System.Double)Value;
+            that.Width = (global::System.Double)Value;
         }
         private object get_4_WindowEx_Height(object instance)
         {
@@ -1113,25 +1113,25 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::WinUIEx.WindowEx)instance;
             that.Height = (global::System.Double)Value;
         }
-        private object get_5_WindowEx_Width(object instance)
+        private object get_5_WindowEx_MinWidth(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.Width;
+            return that.MinWidth;
         }
-        private void set_5_WindowEx_Width(object instance, object Value)
+        private void set_5_WindowEx_MinWidth(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            that.Width = (global::System.Double)Value;
+            that.MinWidth = (global::System.Double)Value;
         }
-        private object get_6_WindowEx_Title(object instance)
+        private object get_6_WindowEx_MinHeight(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.Title;
+            return that.MinHeight;
         }
-        private void set_6_WindowEx_Title(object instance, object Value)
+        private void set_6_WindowEx_MinHeight(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            that.Title = (global::System.String)Value;
+            that.MinHeight = (global::System.Double)Value;
         }
         private object get_7_WindowEx_MaxWidth(object instance)
         {
@@ -2176,17 +2176,17 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_1_WindowEx_WindowContent;
                 xamlMember.Setter = set_1_WindowEx_WindowContent;
                 break;
-            case "WinUIEx.WindowEx.MinHeight":
+            case "WinUIEx.WindowEx.Title":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinHeight", "Double");
-                xamlMember.Getter = get_2_WindowEx_MinHeight;
-                xamlMember.Setter = set_2_WindowEx_MinHeight;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Title", "String");
+                xamlMember.Getter = get_2_WindowEx_Title;
+                xamlMember.Setter = set_2_WindowEx_Title;
                 break;
-            case "WinUIEx.WindowEx.MinWidth":
+            case "WinUIEx.WindowEx.Width":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinWidth", "Double");
-                xamlMember.Getter = get_3_WindowEx_MinWidth;
-                xamlMember.Setter = set_3_WindowEx_MinWidth;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Width", "Double");
+                xamlMember.Getter = get_3_WindowEx_Width;
+                xamlMember.Setter = set_3_WindowEx_Width;
                 break;
             case "WinUIEx.WindowEx.Height":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
@@ -2194,17 +2194,17 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_4_WindowEx_Height;
                 xamlMember.Setter = set_4_WindowEx_Height;
                 break;
-            case "WinUIEx.WindowEx.Width":
+            case "WinUIEx.WindowEx.MinWidth":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Width", "Double");
-                xamlMember.Getter = get_5_WindowEx_Width;
-                xamlMember.Setter = set_5_WindowEx_Width;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinWidth", "Double");
+                xamlMember.Getter = get_5_WindowEx_MinWidth;
+                xamlMember.Setter = set_5_WindowEx_MinWidth;
                 break;
-            case "WinUIEx.WindowEx.Title":
+            case "WinUIEx.WindowEx.MinHeight":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Title", "String");
-                xamlMember.Getter = get_6_WindowEx_Title;
-                xamlMember.Setter = set_6_WindowEx_Title;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MinHeight", "Double");
+                xamlMember.Getter = get_6_WindowEx_MinHeight;
+                xamlMember.Setter = set_6_WindowEx_MinHeight;
                 break;
             case "WinUIEx.WindowEx.MaxWidth":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
