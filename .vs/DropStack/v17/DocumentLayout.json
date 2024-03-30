@@ -136,7 +136,8 @@
               "RelativeToolTip": "DropStackWinUI\\Package.appxmanifest",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001793|",
               "WhenOpened": "2023-07-27T11:10:11.012Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -196,10 +197,6 @@
               "Name": "ST:2062758501:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MiniMode.xaml",
@@ -209,8 +206,7 @@
               "RelativeToolTip": "DropStackWinUI\\MiniMode.xaml",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACQAAAB9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-10-04T18:57:52.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-04T18:57:52.433Z"
             },
             {
               "$type": "Document",
@@ -449,6 +445,10 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2023-07-30T20:44:06.736Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",

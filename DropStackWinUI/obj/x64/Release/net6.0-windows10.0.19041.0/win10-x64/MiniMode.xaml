@@ -14,41 +14,44 @@
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
-    <Grid Margin="0,30,0,0">
+    <Grid>
         <Grid.Resources>
             <CommandBarFlyout x:ConnectionId='2' x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
-                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open"                               />
-                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy"                               />
-                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin"                             />
-                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview"                                       />
+                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open"                               />
+                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy"                               />
+                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin"                             />
+                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" Icon="View" Label="Preview"                                       />
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file"                               />
-                    <AppBarButton x:ConnectionId='8' x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file"                               />
-                    <AppBarButton x:ConnectionId='9' x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin selected file"                             />
-                    <AppBarButton x:ConnectionId='10' x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..."                                       />
-                    <AppBarSeparator/>
-                    <AppBarButton x:ConnectionId='11' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
+                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Grid.Resources>
 
-        <Rectangle x:ConnectionId='12' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
-        <TextBlock x:ConnectionId='13' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,-25,0,0">
-            <TextBlock.OpacityTransition>
-                <ScalarTransition/>
-            </TextBlock.OpacityTransition>
-        </TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <ParallaxView x:ConnectionId='14' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
-            <Image x:ConnectionId='30' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+        <Grid x:ConnectionId='8' x:Name="TitleBarGrid" Grid.Row="0">
+            <Rectangle x:ConnectionId='26' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
+            <TextBlock x:ConnectionId='27' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0">
+                <TextBlock.OpacityTransition>
+                    <ScalarTransition/>
+                </TextBlock.OpacityTransition>
+            </TextBlock>
+        </Grid>
+
+        <ParallaxView x:ConnectionId='9' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
+            <Image x:ConnectionId='25' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
 
-        <Rectangle x:ConnectionId='15' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
-            <Rectangle.TranslationTransition>
-                <Vector3Transition />
-            </Rectangle.TranslationTransition>
-        </Rectangle>
-        <ListView x:ConnectionId='16'   x:Name="regularFileListView"
+        <Grid Grid.Row="1">
+            <Rectangle x:ConnectionId='10' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
+                <Rectangle.TranslationTransition>
+                    <Vector3Transition />
+                </Rectangle.TranslationTransition>
+            </Rectangle>
+            <ListView x:ConnectionId='11'   x:Name="regularFileListView"
                     SelectionMode="Single"
                                                                     
                                                             
@@ -60,44 +63,44 @@
                                                                
                     HorizontalContentAlignment="Center"
                     Margin="0,0,0,20">
-            <ListView.TranslationTransition>
-                <Vector3Transition/>
-            </ListView.TranslationTransition>
-            <ListView.ItemContainerTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition  FromVerticalOffset="0" />
-                </TransitionCollection>
-            </ListView.ItemContainerTransitions>
-            <ListView.ItemTemplate>
-                <DataTemplate x:Name="simpleFilesDataTemplate">
-                    <Grid HorizontalAlignment="Center">
-                        <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch" Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="120"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Stretch="Uniform" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-                                    <ProgressRing IsActive="{Binding ProgressActivity}"/>
-                                </Grid>
-                                <StackPanel Grid.Column="1" Margin="5,0,5,0" Opacity="0.75" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding FileType}" FontSize="13" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
-                                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding FileSize}" FontSize="13"/>
-                                        <TextBlock Text="{Binding FileSizeSuffix}" FontSize="13"/>
+                <ListView.TranslationTransition>
+                    <Vector3Transition/>
+                </ListView.TranslationTransition>
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition  FromVerticalOffset="0" />
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:Name="simpleFilesDataTemplate">
+                        <Grid HorizontalAlignment="Center">
+                            <StackPanel Orientation="Vertical" Spacing="0" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="120"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Image x:Name="Thumbnail" Source="{Binding FileIcon}" Opacity="{Binding IconOpacity}" Stretch="Uniform" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                                        <ProgressRing IsActive="{Binding ProgressActivity}"/>
+                                    </Grid>
+                                    <StackPanel Grid.Column="1" Margin="5,0,5,0" Opacity="0.75" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding FileType}" FontSize="13" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding FileSize}" FontSize="13"/>
+                                            <TextBlock Text="{Binding FileSizeSuffix}" FontSize="13"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding ModifiedDate}" FontSize="10" HorizontalAlignment="Center"/>
                                     </StackPanel>
-                                    <TextBlock Text="{Binding ModifiedDate}" FontSize="10" HorizontalAlignment="Center"/>
-                                </StackPanel>
-                            </Grid>
-                            <TextBlock Text="{Binding FileName}" FontSize="18" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,0" TextWrapping="WrapWholeWords"/>
-                            <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Margin="0,5,0,10" FontSize="10" Opacity="0.25" TextTrimming="CharacterEllipsis" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <CommandBar x:ConnectionId='17' x:Name="FileCommandBar"
+                                </Grid>
+                                <TextBlock Text="{Binding FileName}" FontSize="18" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,0" TextWrapping="WrapWholeWords"/>
+                                <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Margin="0,5,0,10" FontSize="10" Opacity="0.25" TextTrimming="CharacterEllipsis" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <CommandBar x:ConnectionId='12' x:Name="FileCommandBar"
                     Background="Transparent"
                     IsOpen="False"
                     DefaultLabelPosition="Right"
@@ -108,45 +111,45 @@
                                                     
                                                     
                     Margin="0,0,0,-3">
-            <CommandBar.TranslationTransition>
-                <Vector3Transition/>
-            </CommandBar.TranslationTransition>
-            <CommandBar.OpacityTransition>
-                <ScalarTransition/>
-            </CommandBar.OpacityTransition>
-            <AppBarButton x:ConnectionId='20' x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="X"/>
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
-            <AppBarButton x:ConnectionId='21' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
-                <ToolTip Content="Refresh this list (Ctrl+R)"/>
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="R" />
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='22' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer"                                     >
-                    <ToolTip Content="Reveal in File Explorer"/>
+                <CommandBar.TranslationTransition>
+                    <Vector3Transition/>
+                </CommandBar.TranslationTransition>
+                <CommandBar.OpacityTransition>
+                    <ScalarTransition/>
+                </CommandBar.OpacityTransition>
+                <AppBarButton x:ConnectionId='15' x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="E" />
+                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='23' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                <AppBarButton x:ConnectionId='16' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+                    <ToolTip Content="Refresh this list (Ctrl+R)"/>
                     <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="T"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="R" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='24' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
-                <AppBarSeparator/>
-                <AppBarButton x:ConnectionId='25' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="M" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-        <Rectangle x:ConnectionId='18' x:Name="CommandBarIndicatorPill"
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton x:ConnectionId='17' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer"                                     >
+                        <ToolTip Content="Reveal in File Explorer"/>
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="E" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <AppBarButton x:ConnectionId='18' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="T"/>
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <AppBarButton x:ConnectionId='19' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
+                    <AppBarSeparator/>
+                    <AppBarButton x:ConnectionId='20' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="M" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+            <Rectangle x:ConnectionId='13' x:Name="CommandBarIndicatorPill"
                    Opacity="0"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
@@ -156,19 +159,20 @@
                    Fill="Silver"
                    RadiusX="1"
                    RadiusY="1">
-            <Rectangle.TranslationTransition>
-                <Vector3Transition/>
-            </Rectangle.TranslationTransition>
-            <Rectangle.OpacityTransition>
-                <ScalarTransition/>
-            </Rectangle.OpacityTransition>
-        </Rectangle>
-        <Rectangle x:ConnectionId='19' x:Name="CommandBarIndicatorPillHitbox"
+                <Rectangle.TranslationTransition>
+                    <Vector3Transition/>
+                </Rectangle.TranslationTransition>
+                <Rectangle.OpacityTransition>
+                    <ScalarTransition/>
+                </Rectangle.OpacityTransition>
+            </Rectangle>
+            <Rectangle x:ConnectionId='14' x:Name="CommandBarIndicatorPillHitbox"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Stretch"
                    Height="20"
                    Fill="Transparent"
                                                                           />
+        </Grid>
     </Grid>
 </winex:WindowEx>
 
