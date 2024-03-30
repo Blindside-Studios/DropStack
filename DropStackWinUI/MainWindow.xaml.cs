@@ -262,6 +262,17 @@ namespace DropStackWinUI
                     else LaunchModePickerComboBox.SelectedIndex = 0;
                 }
             }
+            else
+            {
+                if (localSettings.Values.ContainsKey("DefaultLaunchModeIndex"))
+                {
+                    LaunchModePickerComboBox.SelectedIndex = (int)localSettings.Values["DefaultLaunchModeIndex"]; ;
+                }
+                else
+                {
+                    LaunchModePickerComboBox.SelectedIndex = 0;
+                }
+            }
             
             var WinHelloAvailability = await UserConsentVerifier.CheckAvailabilityAsync();
             if (WinHelloAvailability != UserConsentVerifierAvailability.Available) PinsProtectedRadioButton.IsEnabled = false;
