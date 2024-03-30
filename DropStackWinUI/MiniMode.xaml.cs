@@ -74,7 +74,7 @@ namespace DropStackWinUI
             this.Activated += OnWindowActivated;
 
             ExtendsContentIntoTitleBar = true;
-            SetTitleBar(TitleBarRectangle);
+            SetTitleBar(TitleBarGrid);
             loadSettings();
 
             if (string.IsNullOrEmpty(folderToken)) noAccessHandler();
