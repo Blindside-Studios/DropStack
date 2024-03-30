@@ -18,16 +18,11 @@
     <Grid>
         <Grid.Resources>
             <CommandBarFlyout x:Name="FileCommandsFlyout">
-                <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
-                <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
-                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin" Click="PinUnpinButton_Click"/>
-                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview" Click="DetailsPanePreviewButton_Click"/>
+                <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open" Click="FlyoutOpenButton_Click"/>
+                <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy" Click="FlyoutCopyButton_Click"/>
+                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin" Click="PinUnpinButton_Click"/>
+                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click"/>
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file(s)" Click="FlyoutOpenButton_Click"/>
-                    <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file(s)" Click="FlyoutCopyButton_Click"/>
-                    <AppBarButton x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin/Unpin selected file(s)" Click="PinUnpinButton_Click"/>
-                    <AppBarButton x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..." Click="DetailsPanePreviewButton_Click"/>
-                    <AppBarSeparator/>
                     <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                     <AppBarButton x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll" Click="FlyoutSelectButton_Click"/>
                 </CommandBarFlyout.SecondaryCommands>

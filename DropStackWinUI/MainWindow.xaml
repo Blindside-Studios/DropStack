@@ -36,16 +36,11 @@
                     </Grid.TranslationTransition>
                     <Grid.Resources>
                         <CommandBarFlyout x:Name="FileCommandsFlyout">
-                            <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
-                            <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
-                            <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview" Click="DetailsPanePreviewButton_Click"/>
+                            <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open" Click="FlyoutOpenButton_Click"/>
+                            <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy" Click="FlyoutCopyButton_Click"/>
+                            <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click"/>
                             <AppBarButton x:Name="FlyoutRotateButton" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click"/>
                             <CommandBarFlyout.SecondaryCommands>
-                                <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file(s)" Click="FlyoutOpenButton_Click"/>
-                                <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file(s)" Click="FlyoutCopyButton_Click"/>
-                                <AppBarButton x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..." Click="DetailsPanePreviewButton_Click"/>
-                                <AppBarButton x:Name="FlyoutRotateButtonSec" Icon="Rotate" Label="Rotate" Click="DetailsPaneRotateButton_Click"/>
-                                <AppBarSeparator/>
                                 <AppBarButton x:Name="FlyoutOpenWithButton" Icon="OpenWith" Label="Open with..." Click="DetailsPaneOpenWithButton_Click"/>
                                 <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                                 <AppBarButton x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll" Click="FlyoutSelectButton_Click"/>

@@ -17,27 +17,22 @@
     <Grid Margin="0,30,0,0">
         <Grid.Resources>
             <CommandBarFlyout x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
-                <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open" Click="FlyoutOpenButton_Click"/>
-                <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy" Click="FlyoutCopyButton_Click"/>
-                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin" Click="PinUnpinButton_Click"/>
-                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview" Click="DetailsPanePreviewButton_Click"/>
+                <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open" Click="FlyoutOpenButton_Click"/>
+                <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy" Click="FlyoutCopyButton_Click"/>
+                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin" Click="PinUnpinButton_Click"/>
+                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click"/>
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file" Click="FlyoutOpenButton_Click"/>
-                    <AppBarButton x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file" Click="FlyoutCopyButton_Click"/>
-                    <AppBarButton x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin selected file" Click="PinUnpinButton_Click"/>
-                    <AppBarButton x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..." Click="DetailsPanePreviewButton_Click"/>
-                    <AppBarSeparator/>
                     <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Grid.Resources>
 
-        <Rectangle x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
         <TextBlock x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,-25,0,0">
             <TextBlock.OpacityTransition>
                 <ScalarTransition/>
             </TextBlock.OpacityTransition>
         </TextBlock>
+        <Rectangle x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
 
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>

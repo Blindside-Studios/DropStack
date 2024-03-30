@@ -17,38 +17,33 @@
     <Grid Margin="0,30,0,0">
         <Grid.Resources>
             <CommandBarFlyout x:ConnectionId='2' x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
-                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" ToolTipService.ToolTip="Open"                               />
-                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" ToolTipService.ToolTip="Copy"                               />
-                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" ToolTipService.ToolTip="Pin"                             />
-                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" Icon="View" ToolTipService.ToolTip="Preview"                                       />
+                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open"                               />
+                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy"                               />
+                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin"                             />
+                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" Icon="View" Label="Preview"                                       />
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutOpenButtonSec" Icon="OpenFile" Label="Open selected file"                               />
-                    <AppBarButton x:ConnectionId='8' x:Name="FlyoutCopyButtonSec" Icon="Copy" Label="Copy selected file"                               />
-                    <AppBarButton x:ConnectionId='9' x:Name="FlyoutPinUnpinButtonSec" Icon="Pin" Label="Pin selected file"                             />
-                    <AppBarButton x:ConnectionId='10' x:Name="FlyoutPreviewButtonSec" Icon="View" Label="Preview Item..."                                       />
-                    <AppBarSeparator/>
-                    <AppBarButton x:ConnectionId='11' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
+                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Grid.Resources>
 
-        <Rectangle x:ConnectionId='12' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
-        <TextBlock x:ConnectionId='13' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,-25,0,0">
+        <TextBlock x:ConnectionId='8' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,-25,0,0">
             <TextBlock.OpacityTransition>
                 <ScalarTransition/>
             </TextBlock.OpacityTransition>
         </TextBlock>
+        <Rectangle x:ConnectionId='9' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
 
-        <ParallaxView x:ConnectionId='14' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
-            <Image x:ConnectionId='30' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+        <ParallaxView x:ConnectionId='10' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
+            <Image x:ConnectionId='26' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
 
-        <Rectangle x:ConnectionId='15' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
+        <Rectangle x:ConnectionId='11' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
             <Rectangle.TranslationTransition>
                 <Vector3Transition />
             </Rectangle.TranslationTransition>
         </Rectangle>
-        <ListView x:ConnectionId='16'   x:Name="regularFileListView"
+        <ListView x:ConnectionId='12'   x:Name="regularFileListView"
                     SelectionMode="Single"
                                                                     
                                                             
@@ -97,7 +92,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <CommandBar x:ConnectionId='17' x:Name="FileCommandBar"
+        <CommandBar x:ConnectionId='13' x:Name="FileCommandBar"
                     Background="Transparent"
                     IsOpen="False"
                     DefaultLabelPosition="Right"
@@ -114,39 +109,39 @@
             <CommandBar.OpacityTransition>
                 <ScalarTransition/>
             </CommandBar.OpacityTransition>
-            <AppBarButton x:ConnectionId='20' x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+            <AppBarButton x:ConnectionId='16' x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control" Key="X"/>
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='21' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+            <AppBarButton x:ConnectionId='17' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
                 <ToolTip Content="Refresh this list (Ctrl+R)"/>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control" Key="R" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='22' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer"                                     >
+                <AppBarButton x:ConnectionId='18' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer"                                     >
                     <ToolTip Content="Reveal in File Explorer"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="E" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='23' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
+                <AppBarButton x:ConnectionId='19' x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back."                                >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="T"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='24' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
+                <AppBarButton x:ConnectionId='20' x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default"                                      />
                 <AppBarSeparator/>
-                <AppBarButton x:ConnectionId='25' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
+                <AppBarButton x:ConnectionId='21' x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..."                                            ToolTipService.ToolTip="Return to normal mode...">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="M" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <Rectangle x:ConnectionId='18' x:Name="CommandBarIndicatorPill"
+        <Rectangle x:ConnectionId='14' x:Name="CommandBarIndicatorPill"
                    Opacity="0"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
@@ -163,7 +158,7 @@
                 <ScalarTransition/>
             </Rectangle.OpacityTransition>
         </Rectangle>
-        <Rectangle x:ConnectionId='19' x:Name="CommandBarIndicatorPillHitbox"
+        <Rectangle x:ConnectionId='15' x:Name="CommandBarIndicatorPillHitbox"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Stretch"
                    Height="20"

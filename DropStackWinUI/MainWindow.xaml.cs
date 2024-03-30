@@ -2606,9 +2606,7 @@ namespace DropStackWinUI
             if (GlobalClickedItems.Count > 1)
             {
                 FlyoutPreviewButton.IsEnabled = false;
-                FlyoutPreviewButtonSec.IsEnabled = false;
                 FlyoutRotateButton.Visibility = Visibility.Collapsed;
-                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
                 FlyoutOpenWithButton.IsEnabled = false;
                 FlyoutRevealButton.IsEnabled = false;
                 FlyoutDeleteButton.IsEnabled = false;
@@ -2629,36 +2627,26 @@ namespace DropStackWinUI
                         break;
                     case "pics":
                         FlyoutPreviewButton.IsEnabled = true;
-                        FlyoutPreviewButtonSec.IsEnabled = true;
                         FlyoutRotateButton.Visibility = Visibility.Visible;
-                        FlyoutRotateButtonSec.Visibility = Visibility.Visible;
                         break;
                     case "vids":
                         FlyoutPreviewButton.IsEnabled = true;
-                        FlyoutPreviewButtonSec.IsEnabled = true;
                         FlyoutRotateButton.Visibility = Visibility.Collapsed;
-                        FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
                         break;
                     case "music":
                         FlyoutPreviewButton.IsEnabled = true;
-                        FlyoutPreviewButtonSec.IsEnabled = true;
                         FlyoutRotateButton.Visibility = Visibility.Collapsed;
-                        FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
                         break;
                     default:
                         switch (file.FileType)
                         {
                             case ".pdf":
                                 FlyoutPreviewButton.IsEnabled = true;
-                                FlyoutPreviewButtonSec.IsEnabled = true;
                                 FlyoutRotateButton.Visibility = Visibility.Collapsed;
-                                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
                                 break;
                             default:
                                 FlyoutPreviewButton.IsEnabled = false;
-                                FlyoutPreviewButtonSec.IsEnabled = false;
                                 FlyoutRotateButton.Visibility = Visibility.Collapsed;
-                                FlyoutRotateButtonSec.Visibility = Visibility.Collapsed;
                                 break;
                         }
                         break;

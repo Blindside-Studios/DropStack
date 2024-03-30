@@ -182,7 +182,6 @@ namespace DropStackWinUI
                 if (isWindowsHelloRequiredForPins)
                 {
                     FlyoutPinUnpinButton.IsEnabled = false;
-                    FlyoutPinUnpinButtonSec.IsEnabled = false;
                 }
             }
         }
@@ -900,18 +899,15 @@ namespace DropStackWinUI
                 {
                     previewedItem = GlobalClickedItems[0] as FileItem;
                     FlyoutPreviewButton.IsEnabled = true;
-                    FlyoutPreviewButtonSec.IsEnabled = true;
                 }
                 else
                 {
                     FlyoutPreviewButton.IsEnabled = false;
-                    FlyoutPreviewButtonSec.IsEnabled = false;
                 }
             }
             else
             {
                 FlyoutPreviewButton.IsEnabled = false;
-                FlyoutPreviewButtonSec.IsEnabled = false;
             }
         }
 

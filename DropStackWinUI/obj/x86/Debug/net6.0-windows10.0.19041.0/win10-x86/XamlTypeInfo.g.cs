@@ -489,19 +489,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 userType.AddMemberName("Height");
                 userType.AddMemberName("MinWidth");
                 userType.AddMemberName("MinHeight");
+                userType.AddMemberName("MaxWidth");
+                userType.AddMemberName("IsAlwaysOnTop");
+                userType.AddMemberName("IsMinimizable");
+                userType.AddMemberName("IsMaximizable");
+                userType.AddMemberName("IsShownInSwitchers");
+                userType.AddMemberName("IsTitleBarVisible");
+                userType.AddMemberName("IsResizable");
                 userType.AddMemberName("AppWindow");
                 userType.AddMemberName("TaskBarIcon");
                 userType.AddMemberName("PersistenceId");
-                userType.AddMemberName("IsTitleBarVisible");
-                userType.AddMemberName("IsMinimizable");
-                userType.AddMemberName("IsMaximizable");
-                userType.AddMemberName("IsResizable");
                 userType.AddMemberName("WindowState");
-                userType.AddMemberName("IsShownInSwitchers");
-                userType.AddMemberName("IsAlwaysOnTop");
                 userType.AddMemberName("Presenter");
                 userType.AddMemberName("PresenterKind");
-                userType.AddMemberName("MaxWidth");
                 userType.AddMemberName("MaxHeight");
                 userType.AddMemberName("Backdrop");
                 xamlType = userType;
@@ -1133,60 +1133,65 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::WinUIEx.WindowEx)instance;
             that.MinHeight = (global::System.Double)Value;
         }
-        private object get_7_WindowEx_AppWindow(object instance)
+        private object get_7_WindowEx_MaxWidth(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.AppWindow;
+            return that.MaxWidth;
         }
-        private object get_8_WindowEx_TaskBarIcon(object instance)
+        private void set_7_WindowEx_MaxWidth(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.TaskBarIcon;
+            that.MaxWidth = (global::System.Double)Value;
         }
-        private void set_8_WindowEx_TaskBarIcon(object instance, object Value)
+        private object get_8_WindowEx_IsAlwaysOnTop(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            that.TaskBarIcon = (global::WinUIEx.Icon)Value;
+            return that.IsAlwaysOnTop;
         }
-        private object get_9_WindowEx_PersistenceId(object instance)
+        private void set_8_WindowEx_IsAlwaysOnTop(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
-            return that.PersistenceId;
+            that.IsAlwaysOnTop = (global::System.Boolean)Value;
         }
-        private void set_9_WindowEx_PersistenceId(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.PersistenceId = (global::System.String)Value;
-        }
-        private object get_10_WindowEx_IsTitleBarVisible(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsTitleBarVisible;
-        }
-        private void set_10_WindowEx_IsTitleBarVisible(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsTitleBarVisible = (global::System.Boolean)Value;
-        }
-        private object get_11_WindowEx_IsMinimizable(object instance)
+        private object get_9_WindowEx_IsMinimizable(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.IsMinimizable;
         }
-        private void set_11_WindowEx_IsMinimizable(object instance, object Value)
+        private void set_9_WindowEx_IsMinimizable(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.IsMinimizable = (global::System.Boolean)Value;
         }
-        private object get_12_WindowEx_IsMaximizable(object instance)
+        private object get_10_WindowEx_IsMaximizable(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.IsMaximizable;
         }
-        private void set_12_WindowEx_IsMaximizable(object instance, object Value)
+        private void set_10_WindowEx_IsMaximizable(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.IsMaximizable = (global::System.Boolean)Value;
+        }
+        private object get_11_WindowEx_IsShownInSwitchers(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsShownInSwitchers;
+        }
+        private void set_11_WindowEx_IsShownInSwitchers(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsShownInSwitchers = (global::System.Boolean)Value;
+        }
+        private object get_12_WindowEx_IsTitleBarVisible(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.IsTitleBarVisible;
+        }
+        private void set_12_WindowEx_IsTitleBarVisible(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.IsTitleBarVisible = (global::System.Boolean)Value;
         }
         private object get_13_WindowEx_IsResizable(object instance)
         {
@@ -1198,60 +1203,55 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::WinUIEx.WindowEx)instance;
             that.IsResizable = (global::System.Boolean)Value;
         }
-        private object get_14_WindowEx_WindowState(object instance)
+        private object get_14_WindowEx_AppWindow(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.AppWindow;
+        }
+        private object get_15_WindowEx_TaskBarIcon(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.TaskBarIcon;
+        }
+        private void set_15_WindowEx_TaskBarIcon(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.TaskBarIcon = (global::WinUIEx.Icon)Value;
+        }
+        private object get_16_WindowEx_PersistenceId(object instance)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            return that.PersistenceId;
+        }
+        private void set_16_WindowEx_PersistenceId(object instance, object Value)
+        {
+            var that = (global::WinUIEx.WindowEx)instance;
+            that.PersistenceId = (global::System.String)Value;
+        }
+        private object get_17_WindowEx_WindowState(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.WindowState;
         }
-        private void set_14_WindowEx_WindowState(object instance, object Value)
+        private void set_17_WindowEx_WindowState(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.WindowState = (global::WinUIEx.WindowState)Value;
         }
-        private object get_15_WindowEx_IsShownInSwitchers(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsShownInSwitchers;
-        }
-        private void set_15_WindowEx_IsShownInSwitchers(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsShownInSwitchers = (global::System.Boolean)Value;
-        }
-        private object get_16_WindowEx_IsAlwaysOnTop(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.IsAlwaysOnTop;
-        }
-        private void set_16_WindowEx_IsAlwaysOnTop(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.IsAlwaysOnTop = (global::System.Boolean)Value;
-        }
-        private object get_17_WindowEx_Presenter(object instance)
+        private object get_18_WindowEx_Presenter(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.Presenter;
         }
-        private object get_18_WindowEx_PresenterKind(object instance)
+        private object get_19_WindowEx_PresenterKind(object instance)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             return that.PresenterKind;
         }
-        private void set_18_WindowEx_PresenterKind(object instance, object Value)
+        private void set_19_WindowEx_PresenterKind(object instance, object Value)
         {
             var that = (global::WinUIEx.WindowEx)instance;
             that.PresenterKind = (global::Microsoft.UI.Windowing.AppWindowPresenterKind)Value;
-        }
-        private object get_19_WindowEx_MaxWidth(object instance)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            return that.MaxWidth;
-        }
-        private void set_19_WindowEx_MaxWidth(object instance, object Value)
-        {
-            var that = (global::WinUIEx.WindowEx)instance;
-            that.MaxWidth = (global::System.Double)Value;
         }
         private object get_20_WindowEx_MaxHeight(object instance)
         {
@@ -2206,41 +2206,41 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_6_WindowEx_MinHeight;
                 xamlMember.Setter = set_6_WindowEx_MinHeight;
                 break;
-            case "WinUIEx.WindowEx.AppWindow":
+            case "WinUIEx.WindowEx.MaxWidth":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AppWindow", "Microsoft.UI.Windowing.AppWindow");
-                xamlMember.Getter = get_7_WindowEx_AppWindow;
-                xamlMember.SetIsReadOnly();
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MaxWidth", "Double");
+                xamlMember.Getter = get_7_WindowEx_MaxWidth;
+                xamlMember.Setter = set_7_WindowEx_MaxWidth;
                 break;
-            case "WinUIEx.WindowEx.TaskBarIcon":
+            case "WinUIEx.WindowEx.IsAlwaysOnTop":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TaskBarIcon", "WinUIEx.Icon");
-                xamlMember.Getter = get_8_WindowEx_TaskBarIcon;
-                xamlMember.Setter = set_8_WindowEx_TaskBarIcon;
-                break;
-            case "WinUIEx.WindowEx.PersistenceId":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PersistenceId", "String");
-                xamlMember.Getter = get_9_WindowEx_PersistenceId;
-                xamlMember.Setter = set_9_WindowEx_PersistenceId;
-                break;
-            case "WinUIEx.WindowEx.IsTitleBarVisible":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsTitleBarVisible", "Boolean");
-                xamlMember.Getter = get_10_WindowEx_IsTitleBarVisible;
-                xamlMember.Setter = set_10_WindowEx_IsTitleBarVisible;
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsAlwaysOnTop", "Boolean");
+                xamlMember.Getter = get_8_WindowEx_IsAlwaysOnTop;
+                xamlMember.Setter = set_8_WindowEx_IsAlwaysOnTop;
                 break;
             case "WinUIEx.WindowEx.IsMinimizable":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMinimizable", "Boolean");
-                xamlMember.Getter = get_11_WindowEx_IsMinimizable;
-                xamlMember.Setter = set_11_WindowEx_IsMinimizable;
+                xamlMember.Getter = get_9_WindowEx_IsMinimizable;
+                xamlMember.Setter = set_9_WindowEx_IsMinimizable;
                 break;
             case "WinUIEx.WindowEx.IsMaximizable":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsMaximizable", "Boolean");
-                xamlMember.Getter = get_12_WindowEx_IsMaximizable;
-                xamlMember.Setter = set_12_WindowEx_IsMaximizable;
+                xamlMember.Getter = get_10_WindowEx_IsMaximizable;
+                xamlMember.Setter = set_10_WindowEx_IsMaximizable;
+                break;
+            case "WinUIEx.WindowEx.IsShownInSwitchers":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsShownInSwitchers", "Boolean");
+                xamlMember.Getter = get_11_WindowEx_IsShownInSwitchers;
+                xamlMember.Setter = set_11_WindowEx_IsShownInSwitchers;
+                break;
+            case "WinUIEx.WindowEx.IsTitleBarVisible":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsTitleBarVisible", "Boolean");
+                xamlMember.Getter = get_12_WindowEx_IsTitleBarVisible;
+                xamlMember.Setter = set_12_WindowEx_IsTitleBarVisible;
                 break;
             case "WinUIEx.WindowEx.IsResizable":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
@@ -2248,41 +2248,41 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_13_WindowEx_IsResizable;
                 xamlMember.Setter = set_13_WindowEx_IsResizable;
                 break;
+            case "WinUIEx.WindowEx.AppWindow":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AppWindow", "Microsoft.UI.Windowing.AppWindow");
+                xamlMember.Getter = get_14_WindowEx_AppWindow;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinUIEx.WindowEx.TaskBarIcon":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TaskBarIcon", "WinUIEx.Icon");
+                xamlMember.Getter = get_15_WindowEx_TaskBarIcon;
+                xamlMember.Setter = set_15_WindowEx_TaskBarIcon;
+                break;
+            case "WinUIEx.WindowEx.PersistenceId":
+                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
+                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PersistenceId", "String");
+                xamlMember.Getter = get_16_WindowEx_PersistenceId;
+                xamlMember.Setter = set_16_WindowEx_PersistenceId;
+                break;
             case "WinUIEx.WindowEx.WindowState":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "WindowState", "WinUIEx.WindowState");
-                xamlMember.Getter = get_14_WindowEx_WindowState;
-                xamlMember.Setter = set_14_WindowEx_WindowState;
-                break;
-            case "WinUIEx.WindowEx.IsShownInSwitchers":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsShownInSwitchers", "Boolean");
-                xamlMember.Getter = get_15_WindowEx_IsShownInSwitchers;
-                xamlMember.Setter = set_15_WindowEx_IsShownInSwitchers;
-                break;
-            case "WinUIEx.WindowEx.IsAlwaysOnTop":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsAlwaysOnTop", "Boolean");
-                xamlMember.Getter = get_16_WindowEx_IsAlwaysOnTop;
-                xamlMember.Setter = set_16_WindowEx_IsAlwaysOnTop;
+                xamlMember.Getter = get_17_WindowEx_WindowState;
+                xamlMember.Setter = set_17_WindowEx_WindowState;
                 break;
             case "WinUIEx.WindowEx.Presenter":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Presenter", "Microsoft.UI.Windowing.AppWindowPresenter");
-                xamlMember.Getter = get_17_WindowEx_Presenter;
+                xamlMember.Getter = get_18_WindowEx_Presenter;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WinUIEx.WindowEx.PresenterKind":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PresenterKind", "Microsoft.UI.Windowing.AppWindowPresenterKind");
-                xamlMember.Getter = get_18_WindowEx_PresenterKind;
-                xamlMember.Setter = set_18_WindowEx_PresenterKind;
-                break;
-            case "WinUIEx.WindowEx.MaxWidth":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MaxWidth", "Double");
-                xamlMember.Getter = get_19_WindowEx_MaxWidth;
-                xamlMember.Setter = set_19_WindowEx_MaxWidth;
+                xamlMember.Getter = get_19_WindowEx_PresenterKind;
+                xamlMember.Setter = set_19_WindowEx_PresenterKind;
                 break;
             case "WinUIEx.WindowEx.MaxHeight":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinUIEx.WindowEx");
