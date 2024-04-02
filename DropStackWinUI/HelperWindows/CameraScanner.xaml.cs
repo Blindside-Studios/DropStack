@@ -29,6 +29,7 @@ using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using Windows.UI.Core;
+using Microsoft.Web.WebView2.Core;
 
 namespace DropStackWinUI.HelperWindows
 {
@@ -106,6 +107,48 @@ namespace DropStackWinUI.HelperWindows
             }
         }
 
+        private double _animationTargetXScale;
+        public double AnimationTargetXScale
+        {
+            get { return _animationTargetXScale; }
+            set
+            {
+                if (_animationTargetXScale != value)
+                {
+                    _animationTargetXScale = value;
+                    OnPropertyChanged(nameof(AnimationTargetXScale));
+                }
+            }
+        }
+
+        private double _animationTargetYScale;
+        public double AnimationTargetYScale
+        {
+            get { return _animationTargetYScale; }
+            set
+            {
+                if (_animationTargetYScale != value)
+                {
+                    _animationTargetYScale = value;
+                    OnPropertyChanged(nameof(AnimationTargetYScale));
+                }
+            }
+        }
+
+        private double _animationRotation;
+        public double AnimationRotation
+        {
+            get { return _animationRotation; }
+            set
+            {
+                if (_animationRotation != value)
+                {
+                    _animationRotation = value;
+                    OnPropertyChanged(nameof(AnimationRotation));
+                }
+            }
+        }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -122,6 +165,8 @@ namespace DropStackWinUI.HelperWindows
         private SoftwareBitmap backBitmapBuffer;
         private bool taskFrameRenderRunning = false;
 
+        private bool liveUpdatesRequired = true;
+
         public ViewModel CameraScannerViewModel { get; set; }
 
         public CameraScanner()
@@ -132,7 +177,7 @@ namespace DropStackWinUI.HelperWindows
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
 
-            //this.StartPreviewAsync();
+            this.StartPreviewAsync();
 
             Closed += MainWindow_Closed;
         }
@@ -255,54 +300,61 @@ namespace DropStackWinUI.HelperWindows
 
         private void FrameReader_FrameArrived(MediaFrameReader sender, MediaFrameArrivedEventArgs args)
         {
-            var mediaFrameReference = sender.TryAcquireLatestFrame();
-            var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
-            var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
-
-            if (softwareBitmap != null)
+            if (liveUpdatesRequired)
             {
-                if (softwareBitmap.BitmapPixelFormat != BitmapPixelFormat.Bgra8 || softwareBitmap.BitmapAlphaMode != BitmapAlphaMode.Premultiplied)
+                var mediaFrameReference = sender.TryAcquireLatestFrame();
+                var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
+                var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
+
+                if (softwareBitmap != null)
                 {
-                    // Trust me, disposing of the old frame here is important because otherwise the app will run into a memory leak!
-                    // The garbage collector doesn't immediately dispose of the object, it just knows it's there - and then for some
-                    // reason isn't fast enough when it would need to be deleted.
-                    // Basically, think of it like your trash can overflowing because the garbage truck didn't come by your house yet.
-                    var oldSoftwareBitmap = softwareBitmap;
-                    softwareBitmap = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-                    oldSoftwareBitmap.Dispose();
+                    if (softwareBitmap.BitmapPixelFormat != BitmapPixelFormat.Bgra8 || softwareBitmap.BitmapAlphaMode != BitmapAlphaMode.Premultiplied)
+                    {
+                        // Trust me, disposing of the old frame here is important because otherwise the app will run into a memory leak!
+                        // The garbage collector doesn't immediately dispose of the object, it just knows it's there - and then for some
+                        // reason isn't fast enough when it would need to be deleted.
+                        // Basically, think of it like your trash can overflowing because the garbage truck didn't come by your house yet.
+                        var oldSoftwareBitmap = softwareBitmap;
+                        softwareBitmap = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
+                        oldSoftwareBitmap.Dispose();
+                    }
+
+                    // Swap the processed frame to backBuffer and dispose of the unused image.
+                    softwareBitmap = Interlocked.Exchange(ref backBitmapBuffer, softwareBitmap);
+                    softwareBitmap?.Dispose();
+
+                    // Changes to XAML ImageElement must happen on UI thread through Dispatcher
+                    //var task = imagePreviewElement.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                    _ = imagePreviewElement.DispatcherQueue.TryEnqueue(async () =>
+                    {
+                        // Don't let two copies of this task run at the same time.
+                        if (taskFrameRenderRunning)
+                        {
+                            return;
+                        }
+                        taskFrameRenderRunning = true;
+
+                        // Keep draining frames from the backbuffer until the backbuffer is empty.
+                        SoftwareBitmap latestBitmap;
+                        while ((latestBitmap = Interlocked.Exchange(ref backBitmapBuffer, null)) != null)
+                        {
+                            var imageSource = (SoftwareBitmapSource)imagePreviewElement.Source;
+                            await imageSource.SetBitmapAsync(latestBitmap);
+                            latestBitmap.Dispose();
+                        }
+
+                        taskFrameRenderRunning = false;
+                    });
                 }
 
-                // Swap the processed frame to backBuffer and dispose of the unused image.
-                softwareBitmap = Interlocked.Exchange(ref backBitmapBuffer, softwareBitmap);
-                softwareBitmap?.Dispose();
-
-                // Changes to XAML ImageElement must happen on UI thread through Dispatcher
-                //var task = imagePreviewElement.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
-                _ = imagePreviewElement.DispatcherQueue.TryEnqueue(async () =>
+                if (mediaFrameReference != null)
                 {
-                    // Don't let two copies of this task run at the same time.
-                    if (taskFrameRenderRunning)
-                    {
-                        return;
-                    }
-                    taskFrameRenderRunning = true;
-
-                    // Keep draining frames from the backbuffer until the backbuffer is empty.
-                    SoftwareBitmap latestBitmap;
-                    while ((latestBitmap = Interlocked.Exchange(ref backBitmapBuffer, null)) != null)
-                    {
-                        var imageSource = (SoftwareBitmapSource)imagePreviewElement.Source;
-                        await imageSource.SetBitmapAsync(latestBitmap);
-                        latestBitmap.Dispose();
-                    }
-
-                    taskFrameRenderRunning = false;
-                });
+                    mediaFrameReference.Dispose();
+                }
             }
-
-            if (mediaFrameReference != null)
+            else
             {
-                mediaFrameReference.Dispose();
+                // The app is currently freezing a frame that is going to be transported into the image viewer carousel.
             }
         }
 
@@ -361,6 +413,9 @@ namespace DropStackWinUI.HelperWindows
 
             try
             {
+                FlashAnimation.Begin();
+                liveUpdatesRequired = false;
+
                 ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
 
                 // Create storage file in local app storage
@@ -379,16 +434,16 @@ namespace DropStackWinUI.HelperWindows
 
                 var collection = GalleryGridView.ItemsSource as ObservableCollection<ScannedImage>;
 
-                collection.Add(new ScannedImage() { DisplayedImage = bmpImage, GridOpacity = 1 });
+                collection.Add(new ScannedImage() { DisplayedImage = bmpImage, GridOpacity = 0 });
 
+                animatedImage.Source = bmpImage;
 
-                await Task.Delay(1000);
+                await Task.Delay(500);
                 // Now get the container position
                 getContainerPosition();
 
                 // Continue with setting the source and starting the animation
-                animationPreview.Source = bmpImage;
-                animationPreview.Opacity = 1;
+                liveUpdatesRequired = true;
                 CameraFeedToGalleryAnimation.Begin();
             }
             catch (Exception Exc)
@@ -406,14 +461,31 @@ namespace DropStackWinUI.HelperWindows
                 GeneralTransform transform = gridItem.TransformToVisual(imagePreview);
                 Point position = transform.TransformPoint(new Point(0, 0));
 
-                CameraScannerViewModel.AnimationTargetXPosition = position.X;
-                CameraScannerViewModel.AnimationTargetYPosition = position.Y;
+                CameraScannerViewModel.AnimationTargetXScale = gridItem.ActualSize.X / imagePreview.ActualSize.X;
+                CameraScannerViewModel.AnimationTargetYScale = gridItem.ActualSize.Y / imagePreview.ActualSize.Y;
+
+                CameraScannerViewModel.AnimationTargetXPosition = (position.X - (imagePreview.ActualSize.X / 2) + (gridItem.ActualSize.X / 2)) / CameraScannerViewModel.AnimationTargetXScale;
+                CameraScannerViewModel.AnimationTargetYPosition = position.Y + 20;
+
+                var rotation = - 5 * (2 / Math.PI) * Math.Atan(CameraScannerViewModel.AnimationTargetXPosition/100);
+                CameraScannerViewModel.AnimationRotation = rotation;
+                Debug.WriteLine(rotation);
             }
             else
             {
-                CameraScannerViewModel.AnimationTargetXPosition = 100;
-                CameraScannerViewModel.AnimationTargetYPosition = 100;
+                CameraScannerViewModel.AnimationTargetXPosition = 0;
+                CameraScannerViewModel.AnimationTargetYPosition = 0;
+                CameraScannerViewModel.AnimationTargetXScale = 1;
+                CameraScannerViewModel.AnimationTargetYScale = 1;
             }
+        }
+
+        private void CameraFeedToGalleryAnimation_Completed(object sender, object e)
+        {
+            var collection = GalleryGridView.ItemsSource as ObservableCollection<ScannedImage>;
+            collection.Last().GridOpacity = 1;
+            animationPreview.Opacity = 0;
+            animationPreview.Translation = new System.Numerics.Vector3(0, 0, 0);
         }
     }
 }

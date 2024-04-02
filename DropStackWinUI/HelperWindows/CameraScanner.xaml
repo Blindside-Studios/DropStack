@@ -17,58 +17,129 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="10"/> <!-- spacing row-->
+            <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
         
         <!-- This handles the animations -->
 
         <Grid.Resources>
-            <Storyboard x:Name="CameraFeedToGalleryAnimation">
+            <Storyboard x:Name="FlashAnimation">
+                <DoubleAnimation
+                    Storyboard.TargetName="FlashRectangle"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.5"
+                    To="0.0"
+                    Duration="0:0:0.5">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            
+            <Storyboard x:Name="CameraFeedToGalleryAnimation" Completed="CameraFeedToGalleryAnimation_Completed">
+                <!-- opacity animation used to only stay visible during the animation -->
                 <DoubleAnimation
                     Storyboard.TargetName="animationPreview"
-                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                    Storyboard.TargetProperty="Opacity"
+                    From="1.0" To="1.0" Duration="0:0:1"/>
+                <DoubleAnimation
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
                     From="0"
                     To="{x:Bind CameraScannerViewModel.AnimationTargetXPosition, Mode=OneWay}"
-                    Duration="0:0:1"/>
+                    BeginTime="0:0:0"
+                    Duration="0:0:0.9">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
                 <DoubleAnimation
                     Storyboard.TargetName="animationPreview"
-                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)"
                     From="0"
                     To="{x:Bind CameraScannerViewModel.AnimationTargetYPosition, Mode=OneWay}"
-                    Duration="0:0:1"/>
+                    Duration="0:0:1">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)"
+                    From="1"
+                    To="{x:Bind CameraScannerViewModel.AnimationTargetXScale, Mode=OneWay}"
+                    Duration="0:0:1">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"
+                    From="1"
+                    To="{x:Bind CameraScannerViewModel.AnimationTargetYScale, Mode=OneWay}"
+                    Duration="0:0:1">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimationUsingKeyFrames
+                    Duration="0:0:1"
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="{x:Bind CameraScannerViewModel.AnimationRotation, Mode=OneWay}"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
             </Storyboard>
         </Grid.Resources>
         
         <!-- End of animation handling -->
         
         <Rectangle x:Name="TitleBarRectangle" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-            <Grid Background = "Black">
-                <!-- Image Previewing Feed /-->
-                <Image x:Name="imagePreview" Stretch="Uniform" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Stretch" />
-                
-                <!-- Image used to animate -->
-                <Image x:Name="animationPreview" Opacity="0" Stretch="Uniform" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Stretch" >
-                    <Image.RenderTransform>
-                        <TranslateTransform/>
-                    </Image.RenderTransform>
-                </Image>
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Image Previewing Feed /-->
+            <Grid Grid.Column="0" CornerRadius="4" Width="Auto">
+                <Image x:Name="imagePreview" Stretch="Uniform" VerticalAlignment="Stretch"/>
+                <Rectangle x:Name="FlashRectangle" Fill="White" Grid.Column="0" Opacity="0"/>
             </Grid>
 
-            <StackPanel Orientation="Vertical" Spacing="10" Margin="50">
+            <!-- Image used to animate -->
+            <Grid x:Name="animationPreview" RenderTransformOrigin="0.5 ,1" Opacity="0" Grid.Column="0" CornerRadius="4">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform/>
+                        <ScaleTransform/>
+                        <RotateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Image x:Name="animatedImage" Stretch="Uniform" VerticalAlignment="Stretch"/>
+            </Grid>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical" Spacing="10" Margin="50">
                 <Button x:Name="BtnInitCamera" Click="InitCamera_Click" Content="Initialize Camera" />
                 <Button x:Name="BtnStartPreview" Click="StartCapturePreview_Click" Content="Start Preview" />
                 <Button x:Name="BtnCapturePhoto" Click="CapturePhoto_Click" Content="Capture Photo"/>
                 <Button x:Name="BtnStopPreview" Click="StopCapturePreview_Click" Content="Stop Preview" />
             </StackPanel>
-        </StackPanel>
+        </Grid>
 
-        <ScrollViewer HorizontalScrollMode="Enabled" Grid.Row="2" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+        <ScrollViewer HorizontalScrollMode="Enabled" Grid.Row="3" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
             <GridView   
                     x:Name="GalleryGridView"
-                    Height="160">
+                    Height="150"
+                    VerticalAlignment="Top"
+                    Margin="10,0,10,0"
+                    ScrollViewer.VerticalScrollMode="Disabled">
                 <GridView.ItemContainerTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition  FromVerticalOffset="0" />
@@ -76,8 +147,8 @@
                 </GridView.ItemContainerTransitions>
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                        <Grid HorizontalAlignment="Center">
-                            <Image x:Name="TargetImageDisplay" Source="{Binding DisplayedImage}" Opacity="{Binding GridOpacity}" RenderTransformOrigin="0.5, 0.5" Stretch="Uniform" MaxHeight="150" VerticalAlignment="Stretch"/>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Image x:Name="TargetImageDisplay" Source="{Binding DisplayedImage}" Opacity="{Binding GridOpacity}" Stretch="Uniform" Height="150" VerticalAlignment="Stretch"/>
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>
