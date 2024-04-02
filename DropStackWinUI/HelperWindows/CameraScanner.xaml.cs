@@ -24,9 +24,94 @@ using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Devices.Perception;
 using System.Drawing.Imaging;
+using System.ComponentModel;
+using System.Xml.Serialization;
+using System.Collections.ObjectModel;
+using System.Xml.Linq;
+using Windows.UI.Core;
 
 namespace DropStackWinUI.HelperWindows
 {
+    public class ScannedImage: INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private BitmapImage _displayedImage;
+        public BitmapImage DisplayedImage
+        {
+            get { return _displayedImage; }
+            set
+            {
+                if (value != _displayedImage)
+                {
+                    _displayedImage = value;
+                    OnPropertyChanged(nameof(DisplayedImage));
+                }
+            }
+        }
+
+        private double _gridOpacity;
+        public double GridOpacity
+        {
+            get { return _gridOpacity; }
+            set
+            {
+                if (value != _gridOpacity)
+                {
+                    _gridOpacity = value;
+                    OnPropertyChanged(nameof(GridOpacity));
+                }
+            }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
+    public class ViewModel : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private double _animationTargetXPosition;
+        public double AnimationTargetXPosition
+        {
+            get { return _animationTargetXPosition; }
+            set
+            {
+                if (_animationTargetXPosition != value)
+                {
+                    _animationTargetXPosition = value;
+                    OnPropertyChanged(nameof(AnimationTargetXPosition));
+                }
+            }
+        }
+
+        private double _animationTargetYPosition;
+        public double AnimationTargetYPosition
+        {
+            get { return _animationTargetYPosition; }
+            set
+            {
+                if (_animationTargetYPosition != value)
+                {
+                    _animationTargetYPosition = value;
+                    OnPropertyChanged(nameof(AnimationTargetYPosition));
+                }
+            }
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
     public sealed partial class CameraScanner : Window
     {
         private MediaCapture mediaCaptureManager;
@@ -37,9 +122,13 @@ namespace DropStackWinUI.HelperWindows
         private SoftwareBitmap backBitmapBuffer;
         private bool taskFrameRenderRunning = false;
 
+        public ViewModel CameraScannerViewModel { get; set; }
+
         public CameraScanner()
         {
             this.InitializeComponent();
+            CameraScannerViewModel = new ViewModel();
+            
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
 
@@ -284,14 +373,46 @@ namespace DropStackWinUI.HelperWindows
                 // Get photo as a BitmapImage
                 BitmapImage bmpImage = new BitmapImage(new Uri(storageFile.Path));
 
-                // ImagePreview is a <Image> object defined in XAML
-                imageCapture.Source = bmpImage;
 
-                Debug.WriteLine("Media Photo has Captured.");
+                // add image to collection at the bottom
+                if (GalleryGridView.Items.Count == 0) GalleryGridView.ItemsSource = new ObservableCollection<ScannedImage>();
+
+                var collection = GalleryGridView.ItemsSource as ObservableCollection<ScannedImage>;
+
+                collection.Add(new ScannedImage() { DisplayedImage = bmpImage, GridOpacity = 1 });
+
+
+                await Task.Delay(1000);
+                // Now get the container position
+                getContainerPosition();
+
+                // Continue with setting the source and starting the animation
+                animationPreview.Source = bmpImage;
+                animationPreview.Opacity = 1;
+                CameraFeedToGalleryAnimation.Begin();
             }
             catch (Exception Exc)
             {
                 Debug.WriteLine(Exc.Message);
+            }
+        }
+        private void getContainerPosition()
+        {
+            var newestIndex = GalleryGridView.Items.Count - 1;
+            if (newestIndex > -1)
+            {
+                var gridItem = GalleryGridView.ContainerFromIndex(newestIndex) as GridViewItem;
+
+                GeneralTransform transform = gridItem.TransformToVisual(imagePreview);
+                Point position = transform.TransformPoint(new Point(0, 0));
+
+                CameraScannerViewModel.AnimationTargetXPosition = position.X;
+                CameraScannerViewModel.AnimationTargetYPosition = position.Y;
+            }
+            else
+            {
+                CameraScannerViewModel.AnimationTargetXPosition = 100;
+                CameraScannerViewModel.AnimationTargetYPosition = 100;
             }
         }
     }

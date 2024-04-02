@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using DropStackWinUI.HelperWindows;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -92,7 +93,10 @@ namespace DropStackWinUI
             else if (args.Arguments.Contains("forceSimpleView")) selectedView = 1;
             else if (args.Arguments.Contains("forceMiniView")) selectedView = 2;
 
-
+            // TODO: Revert this
+            m_window = new CameraScanner();
+            m_window.Activate();
+            /*
             if (shouldLaunchWindow)
             {
                 switch (selectedView)
@@ -106,7 +110,7 @@ namespace DropStackWinUI
             else if (!shouldLaunchWindow)
             {
                 CoreApplication.Exit();
-            }
+            }*/
         }
 
         private void resetSecondaryPortalFolders()

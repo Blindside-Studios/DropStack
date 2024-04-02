@@ -194,7 +194,7 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                    <AppBarButton x:Name="CaptureContentButton" IsEnabled="False" Visibility="Collapsed" Icon="Camera" Label="Capture" Click="CaptureContentButton_Click">
+                    <AppBarButton x:Name="CaptureContentButton" Icon="Camera" Label="Capture" Click="CaptureContentButton_Click">
                         <ToolTip Content="Import a document using your device's camera."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="N"/>

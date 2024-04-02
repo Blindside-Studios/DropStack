@@ -15,27 +15,73 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
+        
+        <!-- This handles the animations -->
+
+        <Grid.Resources>
+            <Storyboard x:Name="CameraFeedToGalleryAnimation">
+                <DoubleAnimation
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                    From="0"
+                    To="{x:Bind CameraScannerViewModel.AnimationTargetXPosition, Mode=OneWay}"
+                    Duration="0:0:1"/>
+                <DoubleAnimation
+                    Storyboard.TargetName="animationPreview"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                    From="0"
+                    To="{x:Bind CameraScannerViewModel.AnimationTargetYPosition, Mode=OneWay}"
+                    Duration="0:0:1"/>
+            </Storyboard>
+        </Grid.Resources>
+        
+        <!-- End of animation handling -->
         
         <Rectangle x:Name="TitleBarRectangle" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
         
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-            <StackPanel Orientation="Horizontal" Background = "Black">
-                <!--CaptureElement x:Name="capturePreview" Width="640" Height="480" /-->
-                <Image x:Name="imagePreview" Stretch="Fill" Width="640" Height="480" />
-            </StackPanel>
+            <Grid Background = "Black">
+                <!-- Image Previewing Feed /-->
+                <Image x:Name="imagePreview" Stretch="Uniform" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Stretch" />
+                
+                <!-- Image used to animate -->
+                <Image x:Name="animationPreview" Opacity="0" Stretch="Uniform" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Stretch" >
+                    <Image.RenderTransform>
+                        <TranslateTransform/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
 
             <StackPanel Orientation="Vertical" Spacing="10" Margin="50">
                 <Button x:Name="BtnInitCamera" Click="InitCamera_Click" Content="Initialize Camera" />
                 <Button x:Name="BtnStartPreview" Click="StartCapturePreview_Click" Content="Start Preview" />
                 <Button x:Name="BtnCapturePhoto" Click="CapturePhoto_Click" Content="Capture Photo"/>
                 <Button x:Name="BtnStopPreview" Click="StopCapturePreview_Click" Content="Stop Preview" />
-                <Image x:Name="imageCapture" Stretch="Fill" Width="480" Height="300" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
             </StackPanel>
-            
         </StackPanel>
+
+        <ScrollViewer HorizontalScrollMode="Enabled" Grid.Row="2" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <GridView   
+                    x:Name="GalleryGridView"
+                    Height="160">
+                <GridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition  FromVerticalOffset="0" />
+                    </TransitionCollection>
+                </GridView.ItemContainerTransitions>
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Center">
+                            <Image x:Name="TargetImageDisplay" Source="{Binding DisplayedImage}" Opacity="{Binding GridOpacity}" RenderTransformOrigin="0.5, 0.5" Stretch="Uniform" MaxHeight="150" VerticalAlignment="Stretch"/>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
     </Grid>
 </Window>
