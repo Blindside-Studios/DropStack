@@ -134,7 +134,7 @@
               "RelativeDocumentMoniker": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
               "RelativeToolTip": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAcwFwAAABDAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-20T21:04:34Z",
               "IsPinned": true,
@@ -148,7 +148,7 @@
               "RelativeDocumentMoniker": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
               "RelativeToolTip": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
-              "ViewState": "AQIAALYBAAAAAAAAAAAIwOsBAAAAAAAA",
+              "ViewState": "AQIAAM4BAAAAAAAAAAAqwOQBAADWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T21:04:50.954Z",
               "IsPinned": true,
@@ -172,8 +172,7 @@
               "RelativeToolTip": "DropStackWinUI\\MainWindow.xaml.cs",
               "ViewState": "AQIAAIEAAAAAAAAAAAAuwAQIAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-07-22T05:19:47.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-07-22T05:19:47.172Z"
             },
             {
               "$type": "Document",
@@ -352,8 +351,7 @@
               "RelativeToolTip": "DropStackWinUI\\App.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-07-22T05:28:51.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-07-22T05:28:51.072Z"
             },
             {
               "$type": "Document",

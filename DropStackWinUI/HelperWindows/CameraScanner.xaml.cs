@@ -413,6 +413,8 @@ namespace DropStackWinUI.HelperWindows
 
             try
             {
+                // don't allow the user to take a picture now, it might mess with the animation and visibility of GridViewItems
+                CapturePhotoButton.IsEnabled = false;
                 FlashAnimation.Begin();
                 liveUpdatesRequired = false;
 
@@ -438,12 +440,24 @@ namespace DropStackWinUI.HelperWindows
 
                 animatedImage.Source = bmpImage;
 
+                await Task.Delay(200);
+
+                // Scroll the scrollviewer to the end
+                double horizontalOffset = GalleryScrollViewer.ScrollableWidth; // The maximum horizontal offset
+                double verticalOffset = GalleryScrollViewer.ScrollableHeight; // The maximum vertical offset
+                bool disableAnimation = false; // scroll with animation
+
+                GalleryScrollViewer.ChangeView(horizontalOffset, verticalOffset, null, disableAnimation);
+
+
                 await Task.Delay(500);
                 // Now get the container position
                 getContainerPosition();
 
                 // Continue with setting the source and starting the animation
                 liveUpdatesRequired = true;
+                // this may have been collapsed before so make it visible again
+                animationPreview.Visibility = Visibility.Visible;
                 CameraFeedToGalleryAnimation.Begin();
             }
             catch (Exception Exc)
@@ -458,14 +472,18 @@ namespace DropStackWinUI.HelperWindows
             {
                 var gridItem = GalleryGridView.ContainerFromIndex(newestIndex) as GridViewItem;
 
-                GeneralTransform transform = gridItem.TransformToVisual(imagePreview);
+                GeneralTransform transform = gridItem.TransformToVisual(MainGrid);
                 Point position = transform.TransformPoint(new Point(0, 0));
+
+                GeneralTransform transformImage = imagePreview.TransformToVisual(MainGrid);
+                Point positionImage = transformImage.TransformPoint(new Point(0, 0));
 
                 CameraScannerViewModel.AnimationTargetXScale = gridItem.ActualSize.X / imagePreview.ActualSize.X;
                 CameraScannerViewModel.AnimationTargetYScale = gridItem.ActualSize.Y / imagePreview.ActualSize.Y;
 
-                CameraScannerViewModel.AnimationTargetXPosition = (position.X - (imagePreview.ActualSize.X / 2) + (gridItem.ActualSize.X / 2)) / CameraScannerViewModel.AnimationTargetXScale;
-                CameraScannerViewModel.AnimationTargetYPosition = position.Y + 20;
+                // hardcoded added values are because this seems to ignore margins
+                CameraScannerViewModel.AnimationTargetXPosition = ((position.X - positionImage.X) - (imagePreview.ActualSize.X / 2) + (gridItem.ActualSize.X / 2)) / CameraScannerViewModel.AnimationTargetXScale + 25;
+                CameraScannerViewModel.AnimationTargetYPosition = position.Y - positionImage.Y + 30;
 
                 var rotation = - 5 * (2 / Math.PI) * Math.Atan(CameraScannerViewModel.AnimationTargetXPosition/100);
                 CameraScannerViewModel.AnimationRotation = rotation;
@@ -485,7 +503,10 @@ namespace DropStackWinUI.HelperWindows
             var collection = GalleryGridView.ItemsSource as ObservableCollection<ScannedImage>;
             collection.Last().GridOpacity = 1;
             animationPreview.Opacity = 0;
-            animationPreview.Translation = new System.Numerics.Vector3(0, 0, 0);
+            // collapse visibility so this is no longer in the way of the carousel
+            animationPreview.Visibility = Visibility.Collapsed;
+            // has previously been disabled to not interfere with the animation
+            CapturePhotoButton.IsEnabled = true;
         }
     }
 }
