@@ -16,5 +16,12 @@
     <windowsSettings>
       <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
     </windowsSettings>
+
+	  <uap:Extension Category="windows.appExecutionAlias" Executable="DropStackWinUI.exe" EntryPoint="Windows.FullTrustApplication" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
+		  <uap:AppExecutionAlias>
+			  <desktop:ExecutionAlias Alias="DropStack" xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" />
+		  </uap:AppExecutionAlias>
+	  </uap:Extension>
+
   </application>
 </assembly>

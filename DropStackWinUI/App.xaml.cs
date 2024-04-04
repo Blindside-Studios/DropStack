@@ -18,6 +18,7 @@ using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -93,24 +94,30 @@ namespace DropStackWinUI
             else if (args.Arguments.Contains("forceSimpleView")) selectedView = 1;
             else if (args.Arguments.Contains("forceMiniView")) selectedView = 2;
 
-            // TODO: Revert this
-            m_window = new CameraScanner();
-            m_window.Activate();
-            /*
-            if (shouldLaunchWindow)
+            Debug.WriteLine("Arguments:");
+            Debug.WriteLine(args.Arguments);
+            if (args.Arguments.Contains("LaunchCameraExperience"))
             {
-                switch (selectedView)
-                {
-                    case 0: m_window = new MainWindow(); break;
-                    case 1: m_window = new SimpleMode(); break;
-                    case 2: m_window = new MiniMode(); break;
-                }
+                m_window = new CameraScanner();
                 m_window.Activate();
             }
-            else if (!shouldLaunchWindow)
+            else
             {
-                CoreApplication.Exit();
-            }*/
+                if (shouldLaunchWindow)
+                {
+                    switch (selectedView)
+                    {
+                        case 0: m_window = new MainWindow(); break;
+                        case 1: m_window = new SimpleMode(); break;
+                        case 2: m_window = new MiniMode(); break;
+                    }
+                    m_window.Activate();
+                }
+                else if (!shouldLaunchWindow)
+                {
+                    CoreApplication.Exit();
+                }
+            }
         }
 
         private void resetSecondaryPortalFolders()

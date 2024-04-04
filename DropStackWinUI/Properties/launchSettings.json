@@ -2,6 +2,7 @@
   "profiles": {
     "DropStackWinUI (Package)": {
       "commandName": "MsixPackage",
+      "commandLineArgs": "LaunchCameraExperience",
       "allowLocalNetworkLoopbackProperty": true,
       "alwaysReinstallApp": false,
       "remoteDebugEnabled": false,

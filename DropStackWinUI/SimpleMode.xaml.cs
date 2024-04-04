@@ -798,24 +798,27 @@ namespace DropStackWinUI
 
         private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)
         {
-            while (subjectToCache.Count > loadedItems)
+            if (subjectToCache != null)
             {
-                subjectToCache.RemoveAt(loadedItems);
-            }
-            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
-            StringWriter writer = new StringWriter();
-            serializer.Serialize(writer, subjectToCache);
-            string xmlContent = writer.ToString();
-            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            if (source == "regular")
-            {
-                StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
-                await FileIO.WriteTextAsync(file, xmlContent);
-            }
-            else if (source == "pinned")
-            {
-                StorageFile file = await localFolder.CreateFileAsync("cachedpins.xml", CreationCollisionOption.ReplaceExisting);
-                await FileIO.WriteTextAsync(file, xmlContent);
+                while (subjectToCache.Count > loadedItems)
+                {
+                    subjectToCache.RemoveAt(loadedItems);
+                }
+                XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<FileItem>));
+                StringWriter writer = new StringWriter();
+                serializer.Serialize(writer, subjectToCache);
+                string xmlContent = writer.ToString();
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                if (source == "regular")
+                {
+                    StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
+                    await FileIO.WriteTextAsync(file, xmlContent);
+                }
+                else if (source == "pinned")
+                {
+                    StorageFile file = await localFolder.CreateFileAsync("cachedpins.xml", CreationCollisionOption.ReplaceExisting);
+                    await FileIO.WriteTextAsync(file, xmlContent);
+                }
             }
         }
 
