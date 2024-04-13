@@ -32,7 +32,6 @@
   </Applications>
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
-    <DeviceCapability Name="webcam" />
   </Capabilities>
   <build:Metadata>
     <build:Item Name="Microsoft.UI.Xaml.Markup.Compiler.dll" Version="3.0.0.2403" />
