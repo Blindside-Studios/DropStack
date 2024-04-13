@@ -473,10 +473,10 @@
                                            FontSize="10"/>
                                         <ToggleSwitch x:ConnectionId='90' x:Name="ShowDetailsPaneToggleSwitch"
                                                       IsOn="False"
-                                                      OnContent="Show details pane (experimental)"
-                                                      OffContent="Show details pane (experimental)"
+                                                      OnContent="Prefer details sheet over contextual flyout"
+                                                      OffContent="Prefer details sheet over contextual flyout"
                                                                                                    
-                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files"/>
+                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files instead of the usual context menu"/>
                                     </StackPanel>
                                 </Expander>
                                 <Expander x:ConnectionId='45' x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
@@ -780,13 +780,13 @@ SOFTWARE.</Paragraph>
                         <Grid Grid.Row="3" Margin="0,5,0,0">
                             <CommandBar x:ConnectionId='8' x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
                                 <CommandBar.PrimaryCommands>
-                                    <AppBarButton x:ConnectionId='9' x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed"                                     Width="40"/>
-                                    <AppBarButton x:ConnectionId='10' x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed"                                         Width="40"/>
-                                    <AppBarButton x:ConnectionId='11' x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed"                                     Width="40"/>
-                                    <AppBarButton x:ConnectionId='12' x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed"                                       Width="40"/>
+                                    <AppBarButton x:ConnectionId='9' x:Name="DetailsPanePlayButton" Visibility="Collapsed" Icon="Play" Label="Play" LabelPosition="Collapsed"                                     Width="40"/>
+                                    <AppBarButton x:ConnectionId='10' x:Name="DetailsPaneAnnotateButton" Visibility="Collapsed" Icon="Edit" Label="Annotate" LabelPosition="Collapsed"                                         Width="40"/>
+                                    <AppBarButton x:ConnectionId='11' x:Name="DetailsPaneCropButton" Visibility="Collapsed" Icon="Crop" Label="Crop" LabelPosition="Collapsed"                                     Width="40"/>
+                                    <AppBarButton x:ConnectionId='12' x:Name="DetailsPaneRotateButton" Visibility="Collapsed" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed"                                       Width="40"/>
                                     <AppBarSeparator x:ConnectionId='13' x:Name="DetailsPaneSeparator"/>
                                     <AppBarButton x:ConnectionId='14' x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow"                                        Width="40"/>
-                                    <AppBarButton x:ConnectionId='15' x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Collapsed"                                        />
+                                    <AppBarButton x:ConnectionId='15' x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Collapsed"                                         Width="40"/>
                                     <AppBarButton x:ConnectionId='16' x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                         <AppBarButton.Flyout>
                                             <Flyout x:ConnectionId='17' x:Name="DeleteFlyout">

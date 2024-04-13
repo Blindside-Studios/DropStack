@@ -473,10 +473,10 @@
                                            FontSize="10"/>
                                         <ToggleSwitch x:Name="ShowDetailsPaneToggleSwitch"
                                                       IsOn="False"
-                                                      OnContent="Show details pane (experimental)"
-                                                      OffContent="Show details pane (experimental)"
+                                                      OnContent="Prefer details sheet over contextual flyout"
+                                                      OffContent="Prefer details sheet over contextual flyout"
                                                       Toggled="ShowDetailsPaneToggleSwitch_Toggled"
-                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files"/>
+                                                      ToolTipService.ToolTip="Whenever you select a file, DropStack will show a preview pane with options to take action on your files instead of the usual context menu"/>
                                     </StackPanel>
                                 </Expander>
                                 <Expander x:Name="PerformanceSettingsExpander" Header="Performance and efficiency" HorizontalAlignment="Stretch" Margin="0,0,0,5">
@@ -780,13 +780,13 @@ SOFTWARE.</Paragraph>
                         <Grid Grid.Row="3" Margin="0,5,0,0">
                             <CommandBar x:Name="DetailsPaneCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
                                 <CommandBar.PrimaryCommands>
-                                    <AppBarButton x:Name="DetailsPanePlayButton" Icon="Play" Label="Play" LabelPosition="Collapsed" Click="DetailsPanePlayButton_Click" Width="40"/>
-                                    <AppBarButton x:Name="DetailsPaneAnnotateButton" Icon="Edit" Label="Annotate" LabelPosition="Collapsed" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
-                                    <AppBarButton x:Name="DetailsPaneCropButton" Icon="Crop" Label="Crop" LabelPosition="Collapsed" Click="DetailsPaneCropButton_Click" Width="40"/>
-                                    <AppBarButton x:Name="DetailsPaneRotateButton" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPanePlayButton" Visibility="Collapsed" Icon="Play" Label="Play" LabelPosition="Collapsed" Click="DetailsPanePlayButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneAnnotateButton" Visibility="Collapsed" Icon="Edit" Label="Annotate" LabelPosition="Collapsed" Click="DetailsPaneAnnotateButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneCropButton" Visibility="Collapsed" Icon="Crop" Label="Crop" LabelPosition="Collapsed" Click="DetailsPaneCropButton_Click" Width="40"/>
+                                    <AppBarButton x:Name="DetailsPaneRotateButton" Visibility="Collapsed" Icon="Rotate" Label="Rotate" LabelPosition="Collapsed" Click="DetailsPaneRotateButton_Click" Width="40"/>
                                     <AppBarSeparator x:Name="DetailsPaneSeparator"/>
                                     <AppBarButton x:Name="DetailsPanePreviewButton" Icon="View" Label="Preview" LabelPosition="Collapsed" Tag="alwaysshow" Click="DetailsPanePreviewButton_Click" Width="40"/>
-                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Collapsed" Click="DetailsPaneOpenWithButton_Click"/>
+                                    <AppBarButton x:Name="DetailsPaneOpenWithButton" Icon="OpenWith" Label="Open with..." Tag="alwaysshow" LabelPosition="Collapsed" Click="DetailsPaneOpenWithButton_Click" Width="40"/>
                                     <AppBarButton x:Name="DetailsPaneDeleteFlyoutButton" Icon="Delete" Label="Delete" LabelPosition="Collapsed" Tag="alwaysshow" Width="40">
                                         <AppBarButton.Flyout>
                                             <Flyout x:Name="DeleteFlyout">

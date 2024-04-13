@@ -2250,6 +2250,9 @@ namespace DropStackWinUI
                 DetailsPaneFileThumbnail.Visibility = Visibility.Visible;
                 DetailsPaneVideoPlayer.Visibility = Visibility.Collapsed;
                 mediaPlayer.Pause();
+                var icon = new FontIcon();
+                icon.Glyph = "\uE768";
+                DetailsPanePlayButton.Icon = icon;
                 DetailsPaneVideoPlayer.SetMediaPlayer(null);
 
                 DetailsPaneFileThumbnail.CenterPoint = new Vector3(
@@ -2355,17 +2358,26 @@ namespace DropStackWinUI
 
                     mediaPlayer.Source = MediaSource.CreateFromStream(stream, file.ContentType);
                     if (previewedItem.TypeTag == "vids") DetailsPaneVideoPlayer.SetMediaPlayer(mediaPlayer);
-                    mediaPlayer.Play();                    
+                    mediaPlayer.Play();
+                    var icon = new FontIcon();
+                    icon.Glyph = "\uE769";
+                    DetailsPanePlayButton.Icon = icon;
                 }
                 else
                 {
                     if (mediaPlayer.PlaybackSession.PlaybackState == MediaPlaybackState.Playing)
                     {
                         mediaPlayer.Pause();
+                        var icon = new FontIcon();
+                        icon.Glyph = "\uE768";
+                        DetailsPanePlayButton.Icon = icon;
                     }
                     else if (mediaPlayer.PlaybackSession.PlaybackState == MediaPlaybackState.Paused)
                     {
                         mediaPlayer.Play();
+                        var icon = new FontIcon();
+                        icon.Glyph = "\uE769";
+                        DetailsPanePlayButton.Icon = icon;
                     }
                 }
             }
@@ -2598,7 +2610,9 @@ namespace DropStackWinUI
         {
             if (regularFileListView.SelectedItems.Count == 1)
             {
-                openCompactCommandBar = true;
+                if (!showDetailsPane) openCompactCommandBar = true;
+                else openCompactCommandBar = false;
+                Debug.WriteLine(showDetailsPane);
                 await Task.Delay(500);
                 if (openCompactCommandBar)
                 {
