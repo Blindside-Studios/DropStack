@@ -142,7 +142,7 @@
                                         SelectionMode="Extended"
                                         SelectionChanged="fileListView_SelectionChanged" 
                                         DoubleTapped="regularFileListView_DoubleTapped"
-                                        RightTapped="fileListView_RightTapped" 
+                                        RightTapped="fileListView_RightTapped"
                                         CanDragItems="True" 
                                         DragItemsStarting="fileListView_DragItemsStarting"
                                         DragItemsCompleted="regularFileListView_DragItemsCompleted"

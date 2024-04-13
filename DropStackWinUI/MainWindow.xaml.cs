@@ -40,6 +40,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Windows.AppNotifications;
 using WinUIEx.Messaging;
 using Microsoft.VisualBasic;
+using Windows.Devices.Input;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -2614,7 +2615,7 @@ namespace DropStackWinUI
             {
                 if (!showDetailsPane) openCompactCommandBar = true;
                 else openCompactCommandBar = false;
-                Debug.WriteLine(showDetailsPane);
+                updateShownContextMenuItems();
                 await Task.Delay(500);
                 if (openCompactCommandBar)
                 {
@@ -2629,7 +2630,7 @@ namespace DropStackWinUI
             }
             updateShownContextMenuItems();
         }
-        
+
         private async void updateShownContextMenuItems()
         {
             if (GlobalClickedItems != null && GlobalClickedItems.Count > 1)
