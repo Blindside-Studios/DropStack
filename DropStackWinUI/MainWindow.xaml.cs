@@ -889,12 +889,14 @@ namespace DropStackWinUI
                 }
 
                 //check if all the files still exist, else remove them, then save to cache
-                if (cachedItems != null)
+                if (cachedItems != null && source == "regular")
                 {
-                    for (int i = 0; i < fileMetadataList.Count; i++)
+                    var itemsCollection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
+                    regularFileListView.ItemsSource = itemsCollection;
+                    for (int i = 0; i < itemsCollection.Count; i++)
                     {
-                        FileItem item = fileMetadataList.ElementAt(i);
-                        if (!System.IO.File.Exists(item.FilePath)) { fileMetadataList.Remove(item); }
+                        FileItem item = itemsCollection.ElementAt(i);
+                        if (!System.IO.File.Exists(item.FilePath)) { itemsCollection.Remove(item); }
                     }
                 }
 
@@ -2630,7 +2632,7 @@ namespace DropStackWinUI
         
         private async void updateShownContextMenuItems()
         {
-            if (GlobalClickedItems.Count > 1)
+            if (GlobalClickedItems != null && GlobalClickedItems.Count > 1)
             {
                 FlyoutPreviewButton.IsEnabled = false;
                 FlyoutRotateButton.Visibility = Visibility.Collapsed;
@@ -2638,7 +2640,7 @@ namespace DropStackWinUI
                 FlyoutRevealButton.IsEnabled = false;
                 FlyoutDeleteButton.IsEnabled = false;
             }
-            else if (GlobalClickedItems.Count == 1) 
+            else if (GlobalClickedItems != null && GlobalClickedItems.Count == 1) 
             {
                 previewedItem = GlobalClickedItems.First() as FileItem;
                 StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);

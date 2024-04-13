@@ -475,11 +475,14 @@ namespace DropStackWinUI
                     }
                 }
                 //check if all the files still exist, else remove them, then save to cache
-                if (cachedItems != null)
+                if (cachedItems != null && source == "regular")
                 {
-                    foreach (FileItem item in fileMetadataList)
+                    var itemsCollection = regularFileListView.ItemsSource as ObservableCollection<FileItem>;
+                    regularFileListView.ItemsSource = itemsCollection;
+                    for (int i = 0; i < itemsCollection.Count; i++)
                     {
-                        if (!System.IO.File.Exists(item.FilePath)) fileMetadataList.Remove(item);
+                        FileItem item = itemsCollection.ElementAt(i);
+                        if (!System.IO.File.Exists(item.FilePath)) { itemsCollection.Remove(item); }
                     }
                 }
 
