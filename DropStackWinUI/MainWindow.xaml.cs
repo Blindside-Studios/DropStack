@@ -2534,8 +2534,8 @@ namespace DropStackWinUI
         {
             var grid = sender as Grid;
             var newHeight = grid.Height - e.Delta.Translation.Y;
-            if (newHeight < 20) newHeight = 20;
-            if (newHeight > 400) newHeight = 400;
+            if (newHeight < 220) newHeight = 220;
+            if (newHeight > 600) newHeight = 600;
             grid.Height = newHeight;
         }
 
@@ -2548,15 +2548,15 @@ namespace DropStackWinUI
             var newHeight = currentHeight;
             if (velocity > 0)
             {
-                if (currentHeight > 300) newHeight = 300;
-                else newHeight = 120;
+                if (currentHeight > 500) newHeight = 500;
+                else newHeight = 320;
             }
             else
             {
-                newHeight = 300;
+                newHeight = 500;
             }
 
-            if (newHeight == 120) WindowGrid.Opacity = 1;
+            if (newHeight == 320) WindowGrid.Opacity = 1;
 
             animateDetailsPane(newHeight);
         }
@@ -2568,7 +2568,7 @@ namespace DropStackWinUI
                 await Task.Delay(150);
                 if (!hasDoubleTapped)
                 {
-                    animateDetailsPane(300);
+                    animateDetailsPane(500);
                     WindowGrid.Opacity = 0.8;
                 }
                 else
@@ -2579,7 +2579,7 @@ namespace DropStackWinUI
             }
             else
             {
-                animateDetailsPane(120);
+                animateDetailsPane(320);
                 WindowGrid.Opacity = 1;
             }
         }

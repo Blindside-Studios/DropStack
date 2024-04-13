@@ -708,12 +708,12 @@ SOFTWARE.</Paragraph>
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="DetailsSheetGrid" Height="120" 
+        <Grid x:Name="DetailsSheetGrid" Height="320" 
               CornerRadius="20" 
               VerticalAlignment="Bottom" 
               HorizontalAlignment="Stretch" 
               Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}" 
-              Margin="5,0,5,-120"
+              Margin="5,0,5,-320"
               ManipulationMode="TranslateRailsY"
               ManipulationDelta="DetailsSheetGrid_ManipulationDelta"
               ManipulationCompleted="DetailsSheetGrid_ManipulationCompleted">
