@@ -2,7 +2,6 @@ App.xbf
 FileViews\ImageView.xbf
 FileViews\PDFView.xbf
 FileViews\VideoView.xbf
-HelperWindows\CameraScanner.xbf
 MainWindow.xbf
 MiniMode.xbf
 SimpleMode.xbf

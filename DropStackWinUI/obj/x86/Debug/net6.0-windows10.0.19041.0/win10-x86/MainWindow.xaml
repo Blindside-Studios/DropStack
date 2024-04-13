@@ -17,7 +17,7 @@
 
     <Grid>
         <ParallaxView x:ConnectionId='2' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='154' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='153' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
         <Grid x:ConnectionId='3' x:Name="WindowGrid" Opacity="1">
             <Grid.OpacityTransition>
@@ -35,16 +35,16 @@
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
                     <Grid.Resources>
-                        <CommandBarFlyout x:ConnectionId='122' x:Name="FileCommandsFlyout">
-                            <AppBarButton x:ConnectionId='123' x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open"                               />
-                            <AppBarButton x:ConnectionId='124' x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy"                               />
-                            <AppBarButton x:ConnectionId='125' x:Name="FlyoutPreviewButton" Icon="View" Label="Preview"                                       />
-                            <AppBarButton x:ConnectionId='126' x:Name="FlyoutRotateButton" Icon="Rotate" Label="Rotate"                                      />
+                        <CommandBarFlyout x:ConnectionId='121' x:Name="FileCommandsFlyout">
+                            <AppBarButton x:ConnectionId='122' x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open"                               />
+                            <AppBarButton x:ConnectionId='123' x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy"                               />
+                            <AppBarButton x:ConnectionId='124' x:Name="FlyoutPreviewButton" Icon="View" Label="Preview"                                       />
+                            <AppBarButton x:ConnectionId='125' x:Name="FlyoutRotateButton" Icon="Rotate" Label="Rotate"                                      />
                             <CommandBarFlyout.SecondaryCommands>
-                                <AppBarButton x:ConnectionId='127' x:Name="FlyoutOpenWithButton" Icon="OpenWith" Label="Open with..."                                        />
-                                <AppBarButton x:ConnectionId='128' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
-                                <AppBarButton x:ConnectionId='129' x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll"                                 />
-                                <AppBarButton x:ConnectionId='130' x:Name="FlyoutDeleteButton" Label="Delete this file" Icon="Delete"                               />
+                                <AppBarButton x:ConnectionId='126' x:Name="FlyoutOpenWithButton" Icon="OpenWith" Label="Open with..."                                        />
+                                <AppBarButton x:ConnectionId='127' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
+                                <AppBarButton x:ConnectionId='128' x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll"                                 />
+                                <AppBarButton x:ConnectionId='129' x:Name="FlyoutDeleteButton" Label="Delete this file" Icon="Delete"                               />
                             </CommandBarFlyout.SecondaryCommands>
                         </CommandBarFlyout>
                     </Grid.Resources>
@@ -52,8 +52,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:ConnectionId='131' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
-                    <Expander x:ConnectionId='132'
+                    <Rectangle x:ConnectionId='130' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
+                    <Expander x:ConnectionId='131'
                         x:Name="PinnedFilesExpander"
                         ExpandDirection="Down"
                         VerticalAlignment="Top"
@@ -69,18 +69,18 @@
                                                                  
                         Margin="0,0,0,10">
                         <Grid>
-                            <StackPanel x:ConnectionId='140' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='153' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='139' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='152' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock Text="Waiting for Windows Hello™️ authentication..." FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='141' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='142' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='151' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='152' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='140' x:Name="NoPinnedFilesTextBlock" Text="You don't have any pinned files. Just drag some right here..." FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='141' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='150' x:Name="NoPinnedFolderTextBlock" Text="You didn't set any pinned folder, so you cannot pin files right now" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='151' x:Name="PickPinnedFolderHyperlinkButton" Content="Click here to add one..." FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='143' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='142' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='144'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='143'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -103,7 +103,7 @@
                                                             <Flyout>
                                                                 <StackPanel>
                                                                     <TextBlock Text="Do you wish to unpin this file?" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:ConnectionId='150' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
+                                                                    <Button x:ConnectionId='149' x:Name="DeletePinnedItemConfirmationButton" HorizontalAlignment="Center"                                                  Content="Yes, unpin from DropStack!" Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>
@@ -132,12 +132,12 @@
                         </Grid>
                     </Expander>
                     <Grid Grid.Row="1">
-                        <Grid x:ConnectionId='133' x:Name="regularFileGrid">
+                        <Grid x:ConnectionId='132' x:Name="regularFileGrid">
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
-                            <Rectangle x:ConnectionId='134' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
-                            <ListView x:ConnectionId='135'   x:Name="regularFileListView"
+                            <Rectangle x:ConnectionId='133' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
+                            <ListView x:ConnectionId='134'   x:Name="regularFileListView"
                                         Margin="0,2,0,0"
                                         SelectionMode="Extended"
                                                                                          
@@ -194,80 +194,74 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:ConnectionId='31' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                    <AppBarButton x:ConnectionId='103' x:Name="CaptureContentButton" Icon="Camera" Label="Capture"                                   >
-                        <ToolTip Content="Import a document using your device's camera."/>
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="N"/>
-                        </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton>
-                    <AppBarButton x:ConnectionId='104' x:Name="SearchButton" Icon="Find" Label="Search"                           >
+                    <AppBarButton x:ConnectionId='103' x:Name="SearchButton" Icon="Find" Label="Search"                           >
                         <ToolTip Content="Search this list (Ctrl+F)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="F" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='105' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
+                    <AppBarButton x:ConnectionId='104' x:Name="CopyLastSelectedButton" Icon="Copy" Label="Copy"                                     >
                         <ToolTip Content="Copies the last selected file (Ctrl+C)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="C" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='106' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
+                    <AppBarButton x:ConnectionId='105' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                            >
                         <ToolTip Content="Refresh this list (Ctrl+R)"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='107' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal...">
+                    <AppBarButton x:ConnectionId='106' x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal...">
                         <ToolTip Content="Reveal the Portal folder in File Explorer"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
                         <AppBarButton.Flyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem x:ConnectionId='113' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
+                                <MenuFlyoutItem x:ConnectionId='112' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
                                 <MenuFlyoutSeparator/>
-                                <MenuFlyoutItem x:ConnectionId='114' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
-                                <MenuFlyoutItem x:ConnectionId='115' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
-                                <MenuFlyoutItem x:ConnectionId='116' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
-                                <MenuFlyoutItem x:ConnectionId='117' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
-                                <MenuFlyoutItem x:ConnectionId='118' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
-                                <MenuFlyoutSeparator x:ConnectionId='119' x:Name="SecondRevealMenuDivider"/>
-                                <MenuFlyoutItem x:ConnectionId='120' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
+                                <MenuFlyoutItem x:ConnectionId='113' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
+                                <MenuFlyoutItem x:ConnectionId='114' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
+                                <MenuFlyoutItem x:ConnectionId='115' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
+                                <MenuFlyoutItem x:ConnectionId='116' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
+                                <MenuFlyoutItem x:ConnectionId='117' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
+                                <MenuFlyoutSeparator x:ConnectionId='118' x:Name="SecondRevealMenuDivider"/>
+                                <MenuFlyoutItem x:ConnectionId='119' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='108' x:Name="SelectModeButton" Icon="SelectAll" Label="Select"                               >
+                    <AppBarButton x:ConnectionId='107' x:Name="SelectModeButton" Icon="SelectAll" Label="Select"                               >
                         <ToolTip Content="Enable / Disable selection mode"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="Q" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='109' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
+                    <AppBarButton x:ConnectionId='108' x:Name="LaunchSimpleModeButton" Icon="Go" Label="Simple"                                     >
                         <ToolTip Content="Launch Simple Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="S" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='110' x:Name="LaunchMiniModeButton" Icon="Go" Label="Mini"                                   >
+                    <AppBarButton x:ConnectionId='109' x:Name="LaunchMiniModeButton" Icon="Go" Label="Mini"                                   >
                         <ToolTip Content="Launch Mini Mode..."/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="M"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='111' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
+                    <AppBarButton x:ConnectionId='110' x:Name="CopyRecentFileButton" Icon="Copy" Label="Copy newest" ToolTipService.ToolTip="Copies your most recent file from your Portal folder"                                   >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="X"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='112' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
+                    <AppBarButton x:ConnectionId='111' x:Name="OpenFileButton" Icon="OpenFile" Label="Open"                             >
                         <ToolTip Content="Opens the last selected file"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="A"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton x:ConnectionId='121' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings and About"                                  >
+                        <AppBarButton x:ConnectionId='120' x:Name="QuickSettingsButton" Icon="Setting" Label="Settings and About"                                  >
                             <AppBarButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="I" />
                             </AppBarButton.KeyboardAccelerators>

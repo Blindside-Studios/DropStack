@@ -224,7 +224,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[72];
+            _typeNameTable = new string[70];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -252,53 +252,51 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeNameTable[24] = "Windows.UI.Color";
             _typeNameTable[25] = "DropStackWinUI.FileViews.PDFView";
             _typeNameTable[26] = "DropStackWinUI.FileViews.VideoView";
-            _typeNameTable[27] = "DropStackWinUI.HelperWindows.CameraScanner";
-            _typeNameTable[28] = "DropStackWinUI.HelperWindows.ViewModel";
-            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.ParallaxView";
-            _typeNameTable[30] = "Microsoft.UI.Xaml.UIElement";
-            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind";
-            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.TeachingTip";
-            _typeNameTable[33] = "Microsoft.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[34] = "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode";
-            _typeNameTable[35] = "Microsoft.UI.Xaml.Thickness";
-            _typeNameTable[36] = "System.Windows.Input.ICommand";
-            _typeNameTable[37] = "Microsoft.UI.Xaml.Style";
-            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode";
-            _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.IconSource";
-            _typeNameTable[40] = "Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility";
-            _typeNameTable[41] = "Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings";
-            _typeNameTable[42] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.Expander";
-            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.ExpandDirection";
-            _typeNameTable[45] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[47] = "Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings";
-            _typeNameTable[48] = "Microsoft.UI.Xaml.Controls.RadioButtons";
-            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.Control";
-            _typeNameTable[50] = "System.Collections.Generic.IList`1<Object>";
-            _typeNameTable[51] = "Int32";
-            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.NumberBox";
-            _typeNameTable[53] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
-            _typeNameTable[54] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
-            _typeNameTable[55] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
-            _typeNameTable[56] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
-            _typeNameTable[57] = "Microsoft.UI.Xaml.TextReadingOrder";
-            _typeNameTable[58] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
-            _typeNameTable[59] = "Microsoft.UI.Xaml.Controls.ProgressBar";
-            _typeNameTable[60] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
-            _typeNameTable[61] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
-            _typeNameTable[62] = "Microsoft.UI.Xaml.Controls.CommandBarFlyout";
-            _typeNameTable[63] = "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>";
-            _typeNameTable[64] = "Microsoft.UI.Xaml.Controls.ICommandBarElement";
-            _typeNameTable[65] = "Microsoft.UI.Xaml.Controls.ProgressRing";
-            _typeNameTable[66] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
-            _typeNameTable[67] = "DropStackWinUI.MainWindow";
-            _typeNameTable[68] = "DropStackWinUI.MiniMode";
-            _typeNameTable[69] = "DropStackWinUI.SimpleMode";
-            _typeNameTable[70] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[71] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[27] = "Microsoft.UI.Xaml.Controls.ParallaxView";
+            _typeNameTable[28] = "Microsoft.UI.Xaml.UIElement";
+            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind";
+            _typeNameTable[30] = "Microsoft.UI.Xaml.Controls.TeachingTip";
+            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode";
+            _typeNameTable[33] = "Microsoft.UI.Xaml.Thickness";
+            _typeNameTable[34] = "System.Windows.Input.ICommand";
+            _typeNameTable[35] = "Microsoft.UI.Xaml.Style";
+            _typeNameTable[36] = "Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode";
+            _typeNameTable[37] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility";
+            _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings";
+            _typeNameTable[40] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[41] = "Microsoft.UI.Xaml.Controls.Expander";
+            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.ExpandDirection";
+            _typeNameTable[43] = "Microsoft.UI.Xaml.DataTemplate";
+            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings";
+            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.RadioButtons";
+            _typeNameTable[47] = "Microsoft.UI.Xaml.Controls.Control";
+            _typeNameTable[48] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[49] = "Int32";
+            _typeNameTable[50] = "Microsoft.UI.Xaml.Controls.NumberBox";
+            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
+            _typeNameTable[52] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
+            _typeNameTable[53] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
+            _typeNameTable[54] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[55] = "Microsoft.UI.Xaml.TextReadingOrder";
+            _typeNameTable[56] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
+            _typeNameTable[57] = "Microsoft.UI.Xaml.Controls.ProgressBar";
+            _typeNameTable[58] = "Microsoft.UI.Xaml.Controls.Primitives.RangeBase";
+            _typeNameTable[59] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
+            _typeNameTable[60] = "Microsoft.UI.Xaml.Controls.CommandBarFlyout";
+            _typeNameTable[61] = "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>";
+            _typeNameTable[62] = "Microsoft.UI.Xaml.Controls.ICommandBarElement";
+            _typeNameTable[63] = "Microsoft.UI.Xaml.Controls.ProgressRing";
+            _typeNameTable[64] = "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings";
+            _typeNameTable[65] = "DropStackWinUI.MainWindow";
+            _typeNameTable[66] = "DropStackWinUI.MiniMode";
+            _typeNameTable[67] = "DropStackWinUI.SimpleMode";
+            _typeNameTable[68] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[69] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
 
-            _typeTable = new global::System.Type[72];
+            _typeTable = new global::System.Type[70];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -328,51 +326,49 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             _typeTable[24] = typeof(global::Windows.UI.Color);
             _typeTable[25] = typeof(global::DropStackWinUI.FileViews.PDFView);
             _typeTable[26] = typeof(global::DropStackWinUI.FileViews.VideoView);
-            _typeTable[27] = typeof(global::DropStackWinUI.HelperWindows.CameraScanner);
-            _typeTable[28] = typeof(global::DropStackWinUI.HelperWindows.ViewModel);
-            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.ParallaxView);
-            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.UIElement);
-            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind);
-            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTip);
-            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
-            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode);
-            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Thickness);
-            _typeTable[36] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Style);
-            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode);
-            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
-            _typeTable[40] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility);
-            _typeTable[41] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings);
-            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.Expander);
-            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection);
-            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings);
-            _typeTable[48] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
-            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
-            _typeTable[50] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
-            _typeTable[51] = typeof(global::System.Int32);
-            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
-            _typeTable[53] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
-            _typeTable[54] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
-            _typeTable[55] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
-            _typeTable[56] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
-            _typeTable[57] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
-            _typeTable[58] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
-            _typeTable[59] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
-            _typeTable[60] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
-            _typeTable[61] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
-            _typeTable[62] = typeof(global::Microsoft.UI.Xaml.Controls.CommandBarFlyout);
-            _typeTable[63] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>);
-            _typeTable[64] = typeof(global::Microsoft.UI.Xaml.Controls.ICommandBarElement);
-            _typeTable[65] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
-            _typeTable[66] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
-            _typeTable[67] = typeof(global::DropStackWinUI.MainWindow);
-            _typeTable[68] = typeof(global::DropStackWinUI.MiniMode);
-            _typeTable[69] = typeof(global::DropStackWinUI.SimpleMode);
-            _typeTable[70] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[71] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.Controls.ParallaxView);
+            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.UIElement);
+            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind);
+            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTip);
+            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
+            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode);
+            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.Thickness);
+            _typeTable[34] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Style);
+            _typeTable[36] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode);
+            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility);
+            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings);
+            _typeTable[40] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[41] = typeof(global::Microsoft.UI.Xaml.Controls.Expander);
+            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection);
+            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
+            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings);
+            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
+            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
+            _typeTable[48] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[49] = typeof(global::System.Int32);
+            _typeTable[50] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
+            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
+            _typeTable[52] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
+            _typeTable[53] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
+            _typeTable[54] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[55] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
+            _typeTable[56] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
+            _typeTable[57] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar);
+            _typeTable[58] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.RangeBase);
+            _typeTable[59] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
+            _typeTable[60] = typeof(global::Microsoft.UI.Xaml.Controls.CommandBarFlyout);
+            _typeTable[61] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>);
+            _typeTable[62] = typeof(global::Microsoft.UI.Xaml.Controls.ICommandBarElement);
+            _typeTable[63] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRing);
+            _typeTable[64] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings);
+            _typeTable[65] = typeof(global::DropStackWinUI.MainWindow);
+            _typeTable[66] = typeof(global::DropStackWinUI.MiniMode);
+            _typeTable[67] = typeof(global::DropStackWinUI.SimpleMode);
+            _typeTable[68] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[69] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -411,21 +407,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
         private object Activate_4_WindowEx() { return new global::WinUIEx.WindowEx(); }
         private object Activate_16_MicaBackdrop() { return new global::Microsoft.UI.Xaml.Media.MicaBackdrop(); }
         private object Activate_20_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
-        private object Activate_27_CameraScanner() { return new global::DropStackWinUI.HelperWindows.CameraScanner(); }
-        private object Activate_28_ViewModel() { return new global::DropStackWinUI.HelperWindows.ViewModel(); }
-        private object Activate_29_ParallaxView() { return new global::Microsoft.UI.Xaml.Controls.ParallaxView(); }
-        private object Activate_32_TeachingTip() { return new global::Microsoft.UI.Xaml.Controls.TeachingTip(); }
-        private object Activate_41_TeachingTipTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings(); }
-        private object Activate_43_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
-        private object Activate_48_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
-        private object Activate_52_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
-        private object Activate_59_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
-        private object Activate_62_CommandBarFlyout() { return new global::Microsoft.UI.Xaml.Controls.CommandBarFlyout(); }
-        private object Activate_65_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
-        private object Activate_67_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
-        private object Activate_68_MiniMode() { return new global::DropStackWinUI.MiniMode(); }
-        private object Activate_69_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
-        private object Activate_70_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_27_ParallaxView() { return new global::Microsoft.UI.Xaml.Controls.ParallaxView(); }
+        private object Activate_30_TeachingTip() { return new global::Microsoft.UI.Xaml.Controls.TeachingTip(); }
+        private object Activate_39_TeachingTipTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings(); }
+        private object Activate_41_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
+        private object Activate_46_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
+        private object Activate_50_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
+        private object Activate_57_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
+        private object Activate_60_CommandBarFlyout() { return new global::Microsoft.UI.Xaml.Controls.CommandBarFlyout(); }
+        private object Activate_63_ProgressRing() { return new global::Microsoft.UI.Xaml.Controls.ProgressRing(); }
+        private object Activate_65_MainWindow() { return new global::DropStackWinUI.MainWindow(); }
+        private object Activate_66_MiniMode() { return new global::DropStackWinUI.MiniMode(); }
+        private object Activate_67_SimpleMode() { return new global::DropStackWinUI.SimpleMode(); }
+        private object Activate_68_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -433,19 +427,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_50_IList(object instance, object item)
+        private void VectorAdd_48_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_63_IObservableVector(object instance, object item)
+        private void VectorAdd_61_IObservableVector(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.ICommandBarElement>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.ICommandBarElement)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_71_IList(object instance, object item)
+        private void VectorAdd_69_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -646,24 +640,9 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 27:   //  DropStackWinUI.HelperWindows.CameraScanner
-                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_27_CameraScanner;
-                userType.AddMemberName("CameraScannerViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 28:   //  DropStackWinUI.HelperWindows.ViewModel
-                userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 29:   //  Microsoft.UI.Xaml.Controls.ParallaxView
+            case 27:   //  Microsoft.UI.Xaml.Controls.ParallaxView
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
-                userType.Activator = Activate_29_ParallaxView;
+                userType.Activator = Activate_27_ParallaxView;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.ParallaxView.Child");
                 userType.AddMemberName("Child");
                 userType.AddMemberName("Source");
@@ -682,20 +661,20 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 30:   //  Microsoft.UI.Xaml.UIElement
+            case 28:   //  Microsoft.UI.Xaml.UIElement
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 31:   //  Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind
+            case 29:   //  Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Absolute", global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind.Absolute);
                 userType.AddEnumValue("Relative", global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind.Relative);
                 xamlType = userType;
                 break;
 
-            case 32:   //  Microsoft.UI.Xaml.Controls.TeachingTip
+            case 30:   //  Microsoft.UI.Xaml.Controls.TeachingTip
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_32_TeachingTip;
+                userType.Activator = Activate_30_TeachingTip;
                 userType.AddMemberName("Title");
                 userType.AddMemberName("Subtitle");
                 userType.AddMemberName("PreferredPlacement");
@@ -720,11 +699,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 33:   //  Microsoft.UI.Xaml.Controls.ContentControl
+            case 31:   //  Microsoft.UI.Xaml.Controls.ContentControl
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 34:   //  Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode
+            case 32:   //  Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Auto);
                 userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Top);
@@ -743,23 +722,23 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 35:   //  Microsoft.UI.Xaml.Thickness
+            case 33:   //  Microsoft.UI.Xaml.Thickness
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 36:   //  System.Windows.Input.ICommand
+            case 34:   //  System.Windows.Input.ICommand
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 37:   //  Microsoft.UI.Xaml.Style
+            case 35:   //  Microsoft.UI.Xaml.Style
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 38:   //  Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode
+            case 36:   //  Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode.Auto);
                 userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode.Top);
@@ -767,11 +746,11 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 39:   //  Microsoft.UI.Xaml.Controls.IconSource
+            case 37:   //  Microsoft.UI.Xaml.Controls.IconSource
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 40:   //  Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility
+            case 38:   //  Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility.Auto);
                 userType.AddEnumValue("Visible", global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility.Visible);
@@ -779,19 +758,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 41:   //  Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings
+            case 39:   //  Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 42:   //  Microsoft.UI.Xaml.DependencyObject
+            case 40:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 43:   //  Microsoft.UI.Xaml.Controls.Expander
+            case 41:   //  Microsoft.UI.Xaml.Controls.Expander
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_43_Expander;
+                userType.Activator = Activate_41_Expander;
                 userType.AddMemberName("ExpandDirection");
                 userType.AddMemberName("Header");
                 userType.AddMemberName("IsExpanded");
@@ -801,30 +780,30 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 44:   //  Microsoft.UI.Xaml.Controls.ExpandDirection
+            case 42:   //  Microsoft.UI.Xaml.Controls.ExpandDirection
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Down", global::Microsoft.UI.Xaml.Controls.ExpandDirection.Down);
                 userType.AddEnumValue("Up", global::Microsoft.UI.Xaml.Controls.ExpandDirection.Up);
                 xamlType = userType;
                 break;
 
-            case 45:   //  Microsoft.UI.Xaml.DataTemplate
+            case 43:   //  Microsoft.UI.Xaml.DataTemplate
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 46:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
+            case 44:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 47:   //  Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings
+            case 45:   //  Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 48:   //  Microsoft.UI.Xaml.Controls.RadioButtons
+            case 46:   //  Microsoft.UI.Xaml.Controls.RadioButtons
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_48_RadioButtons;
+                userType.Activator = Activate_46_RadioButtons;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.RadioButtons.Items");
                 userType.AddMemberName("Items");
                 userType.AddMemberName("Header");
@@ -837,24 +816,24 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 49:   //  Microsoft.UI.Xaml.Controls.Control
+            case 47:   //  Microsoft.UI.Xaml.Controls.Control
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 50:   //  System.Collections.Generic.IList`1<Object>
+            case 48:   //  System.Collections.Generic.IList`1<Object>
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_50_IList;
+                userType.CollectionAdd = VectorAdd_48_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 51:   //  Int32
+            case 49:   //  Int32
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 52:   //  Microsoft.UI.Xaml.Controls.NumberBox
+            case 50:   //  Microsoft.UI.Xaml.Controls.NumberBox
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_52_NumberBox;
+                userType.Activator = Activate_50_NumberBox;
                 userType.AddMemberName("Header");
                 userType.AddMemberName("SmallChange");
                 userType.AddMemberName("LargeChange");
@@ -877,7 +856,7 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 53:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
+            case 51:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Hidden", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Hidden);
                 userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Compact);
@@ -885,34 +864,34 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 54:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
+            case 52:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 55:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
+            case 53:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 56:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
+            case 54:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 57:   //  Microsoft.UI.Xaml.TextReadingOrder
+            case 55:   //  Microsoft.UI.Xaml.TextReadingOrder
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 58:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
+            case 56:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("InvalidInputOverwritten", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.InvalidInputOverwritten);
                 userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.Disabled);
                 xamlType = userType;
                 break;
 
-            case 59:   //  Microsoft.UI.Xaml.Controls.ProgressBar
+            case 57:   //  Microsoft.UI.Xaml.Controls.ProgressBar
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.RangeBase"));
-                userType.Activator = Activate_59_ProgressBar;
+                userType.Activator = Activate_57_ProgressBar;
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("ShowError");
                 userType.AddMemberName("ShowPaused");
@@ -920,19 +899,19 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 60:   //  Microsoft.UI.Xaml.Controls.Primitives.RangeBase
+            case 58:   //  Microsoft.UI.Xaml.Controls.Primitives.RangeBase
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 61:   //  Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings
+            case 59:   //  Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 62:   //  Microsoft.UI.Xaml.Controls.CommandBarFlyout
+            case 60:   //  Microsoft.UI.Xaml.Controls.CommandBarFlyout
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"));
-                userType.Activator = Activate_62_CommandBarFlyout;
+                userType.Activator = Activate_60_CommandBarFlyout;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands");
                 userType.AddMemberName("PrimaryCommands");
                 userType.AddMemberName("SecondaryCommands");
@@ -940,20 +919,20 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 63:   //  Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>
+            case 61:   //  Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_63_IObservableVector;
+                userType.CollectionAdd = VectorAdd_61_IObservableVector;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 64:   //  Microsoft.UI.Xaml.Controls.ICommandBarElement
+            case 62:   //  Microsoft.UI.Xaml.Controls.ICommandBarElement
                 xamlType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 65:   //  Microsoft.UI.Xaml.Controls.ProgressRing
+            case 63:   //  Microsoft.UI.Xaml.Controls.ProgressRing
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_65_ProgressRing;
+                userType.Activator = Activate_63_ProgressRing;
                 userType.AddMemberName("IsActive");
                 userType.AddMemberName("IsIndeterminate");
                 userType.AddMemberName("Maximum");
@@ -963,39 +942,39 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 66:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
+            case 64:   //  Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 67:   //  DropStackWinUI.MainWindow
+            case 65:   //  DropStackWinUI.MainWindow
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_67_MainWindow;
+                userType.Activator = Activate_65_MainWindow;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 68:   //  DropStackWinUI.MiniMode
+            case 66:   //  DropStackWinUI.MiniMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_68_MiniMode;
+                userType.Activator = Activate_66_MiniMode;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 69:   //  DropStackWinUI.SimpleMode
+            case 67:   //  DropStackWinUI.SimpleMode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinUIEx.WindowEx"));
-                userType.Activator = Activate_69_SimpleMode;
+                userType.Activator = Activate_67_SimpleMode;
                 userType.SetContentPropertyName("WinUIEx.WindowEx.WindowContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 70:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 68:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_70_TreeViewNode;
+                userType.Activator = Activate_68_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -1007,9 +986,9 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 71:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 69:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_71_IList;
+                userType.CollectionAdd = VectorAdd_69_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
@@ -1341,837 +1320,827 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
             that.DefaultBackgroundColor = (global::Windows.UI.Color)Value;
         }
-        private object get_28_CameraScanner_CameraScannerViewModel(object instance)
-        {
-            var that = (global::DropStackWinUI.HelperWindows.CameraScanner)instance;
-            return that.CameraScannerViewModel;
-        }
-        private void set_28_CameraScanner_CameraScannerViewModel(object instance, object Value)
-        {
-            var that = (global::DropStackWinUI.HelperWindows.CameraScanner)instance;
-            that.CameraScannerViewModel = (global::DropStackWinUI.HelperWindows.ViewModel)Value;
-        }
-        private object get_29_ParallaxView_Child(object instance)
+        private object get_28_ParallaxView_Child(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.Child;
         }
-        private void set_29_ParallaxView_Child(object instance, object Value)
+        private void set_28_ParallaxView_Child(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.Child = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_30_ParallaxView_Source(object instance)
+        private object get_29_ParallaxView_Source(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.Source;
         }
-        private void set_30_ParallaxView_Source(object instance, object Value)
+        private void set_29_ParallaxView_Source(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.Source = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_31_ParallaxView_VerticalShift(object instance)
+        private object get_30_ParallaxView_VerticalShift(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.VerticalShift;
         }
-        private void set_31_ParallaxView_VerticalShift(object instance, object Value)
+        private void set_30_ParallaxView_VerticalShift(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.VerticalShift = (global::System.Double)Value;
         }
-        private object get_32_ParallaxView_HorizontalShift(object instance)
+        private object get_31_ParallaxView_HorizontalShift(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.HorizontalShift;
         }
-        private void set_32_ParallaxView_HorizontalShift(object instance, object Value)
+        private void set_31_ParallaxView_HorizontalShift(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.HorizontalShift = (global::System.Double)Value;
         }
-        private object get_33_ParallaxView_HorizontalSourceEndOffset(object instance)
+        private object get_32_ParallaxView_HorizontalSourceEndOffset(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.HorizontalSourceEndOffset;
         }
-        private void set_33_ParallaxView_HorizontalSourceEndOffset(object instance, object Value)
+        private void set_32_ParallaxView_HorizontalSourceEndOffset(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.HorizontalSourceEndOffset = (global::System.Double)Value;
         }
-        private object get_34_ParallaxView_HorizontalSourceOffsetKind(object instance)
+        private object get_33_ParallaxView_HorizontalSourceOffsetKind(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.HorizontalSourceOffsetKind;
         }
-        private void set_34_ParallaxView_HorizontalSourceOffsetKind(object instance, object Value)
+        private void set_33_ParallaxView_HorizontalSourceOffsetKind(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.HorizontalSourceOffsetKind = (global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind)Value;
         }
-        private object get_35_ParallaxView_HorizontalSourceStartOffset(object instance)
+        private object get_34_ParallaxView_HorizontalSourceStartOffset(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.HorizontalSourceStartOffset;
         }
-        private void set_35_ParallaxView_HorizontalSourceStartOffset(object instance, object Value)
+        private void set_34_ParallaxView_HorizontalSourceStartOffset(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.HorizontalSourceStartOffset = (global::System.Double)Value;
         }
-        private object get_36_ParallaxView_IsHorizontalShiftClamped(object instance)
+        private object get_35_ParallaxView_IsHorizontalShiftClamped(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.IsHorizontalShiftClamped;
         }
-        private void set_36_ParallaxView_IsHorizontalShiftClamped(object instance, object Value)
+        private void set_35_ParallaxView_IsHorizontalShiftClamped(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.IsHorizontalShiftClamped = (global::System.Boolean)Value;
         }
-        private object get_37_ParallaxView_IsVerticalShiftClamped(object instance)
+        private object get_36_ParallaxView_IsVerticalShiftClamped(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.IsVerticalShiftClamped;
         }
-        private void set_37_ParallaxView_IsVerticalShiftClamped(object instance, object Value)
+        private void set_36_ParallaxView_IsVerticalShiftClamped(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.IsVerticalShiftClamped = (global::System.Boolean)Value;
         }
-        private object get_38_ParallaxView_MaxHorizontalShiftRatio(object instance)
+        private object get_37_ParallaxView_MaxHorizontalShiftRatio(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.MaxHorizontalShiftRatio;
         }
-        private void set_38_ParallaxView_MaxHorizontalShiftRatio(object instance, object Value)
+        private void set_37_ParallaxView_MaxHorizontalShiftRatio(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.MaxHorizontalShiftRatio = (global::System.Double)Value;
         }
-        private object get_39_ParallaxView_MaxVerticalShiftRatio(object instance)
+        private object get_38_ParallaxView_MaxVerticalShiftRatio(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.MaxVerticalShiftRatio;
         }
-        private void set_39_ParallaxView_MaxVerticalShiftRatio(object instance, object Value)
+        private void set_38_ParallaxView_MaxVerticalShiftRatio(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.MaxVerticalShiftRatio = (global::System.Double)Value;
         }
-        private object get_40_ParallaxView_VerticalSourceEndOffset(object instance)
+        private object get_39_ParallaxView_VerticalSourceEndOffset(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.VerticalSourceEndOffset;
         }
-        private void set_40_ParallaxView_VerticalSourceEndOffset(object instance, object Value)
+        private void set_39_ParallaxView_VerticalSourceEndOffset(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.VerticalSourceEndOffset = (global::System.Double)Value;
         }
-        private object get_41_ParallaxView_VerticalSourceOffsetKind(object instance)
+        private object get_40_ParallaxView_VerticalSourceOffsetKind(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.VerticalSourceOffsetKind;
         }
-        private void set_41_ParallaxView_VerticalSourceOffsetKind(object instance, object Value)
+        private void set_40_ParallaxView_VerticalSourceOffsetKind(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.VerticalSourceOffsetKind = (global::Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind)Value;
         }
-        private object get_42_ParallaxView_VerticalSourceStartOffset(object instance)
+        private object get_41_ParallaxView_VerticalSourceStartOffset(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             return that.VerticalSourceStartOffset;
         }
-        private void set_42_ParallaxView_VerticalSourceStartOffset(object instance, object Value)
+        private void set_41_ParallaxView_VerticalSourceStartOffset(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ParallaxView)instance;
             that.VerticalSourceStartOffset = (global::System.Double)Value;
         }
-        private object get_43_TeachingTip_Title(object instance)
+        private object get_42_TeachingTip_Title(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.Title;
         }
-        private void set_43_TeachingTip_Title(object instance, object Value)
+        private void set_42_TeachingTip_Title(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_44_TeachingTip_Subtitle(object instance)
+        private object get_43_TeachingTip_Subtitle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.Subtitle;
         }
-        private void set_44_TeachingTip_Subtitle(object instance, object Value)
+        private void set_43_TeachingTip_Subtitle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.Subtitle = (global::System.String)Value;
         }
-        private object get_45_TeachingTip_PreferredPlacement(object instance)
+        private object get_44_TeachingTip_PreferredPlacement(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.PreferredPlacement;
         }
-        private void set_45_TeachingTip_PreferredPlacement(object instance, object Value)
+        private void set_44_TeachingTip_PreferredPlacement(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.PreferredPlacement = (global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode)Value;
         }
-        private object get_46_TeachingTip_ActionButtonContent(object instance)
+        private object get_45_TeachingTip_ActionButtonContent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.ActionButtonContent;
         }
-        private void set_46_TeachingTip_ActionButtonContent(object instance, object Value)
+        private void set_45_TeachingTip_ActionButtonContent(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.ActionButtonContent = (global::System.Object)Value;
         }
-        private object get_47_TeachingTip_PlacementMargin(object instance)
+        private object get_46_TeachingTip_PlacementMargin(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.PlacementMargin;
         }
-        private void set_47_TeachingTip_PlacementMargin(object instance, object Value)
+        private void set_46_TeachingTip_PlacementMargin(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.PlacementMargin = (global::Microsoft.UI.Xaml.Thickness)Value;
         }
-        private object get_48_TeachingTip_IsLightDismissEnabled(object instance)
+        private object get_47_TeachingTip_IsLightDismissEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.IsLightDismissEnabled;
         }
-        private void set_48_TeachingTip_IsLightDismissEnabled(object instance, object Value)
+        private void set_47_TeachingTip_IsLightDismissEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.IsLightDismissEnabled = (global::System.Boolean)Value;
         }
-        private object get_49_TeachingTip_Target(object instance)
+        private object get_48_TeachingTip_Target(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.Target;
         }
-        private void set_49_TeachingTip_Target(object instance, object Value)
+        private void set_48_TeachingTip_Target(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.Target = (global::Microsoft.UI.Xaml.FrameworkElement)Value;
         }
-        private object get_50_TeachingTip_ActionButtonCommand(object instance)
+        private object get_49_TeachingTip_ActionButtonCommand(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.ActionButtonCommand;
         }
-        private void set_50_TeachingTip_ActionButtonCommand(object instance, object Value)
+        private void set_49_TeachingTip_ActionButtonCommand(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.ActionButtonCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_51_TeachingTip_ActionButtonCommandParameter(object instance)
+        private object get_50_TeachingTip_ActionButtonCommandParameter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.ActionButtonCommandParameter;
         }
-        private void set_51_TeachingTip_ActionButtonCommandParameter(object instance, object Value)
+        private void set_50_TeachingTip_ActionButtonCommandParameter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.ActionButtonCommandParameter = (global::System.Object)Value;
         }
-        private object get_52_TeachingTip_ActionButtonStyle(object instance)
+        private object get_51_TeachingTip_ActionButtonStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.ActionButtonStyle;
         }
-        private void set_52_TeachingTip_ActionButtonStyle(object instance, object Value)
+        private void set_51_TeachingTip_ActionButtonStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.ActionButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_53_TeachingTip_CloseButtonCommand(object instance)
+        private object get_52_TeachingTip_CloseButtonCommand(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.CloseButtonCommand;
         }
-        private void set_53_TeachingTip_CloseButtonCommand(object instance, object Value)
+        private void set_52_TeachingTip_CloseButtonCommand(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.CloseButtonCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_54_TeachingTip_CloseButtonCommandParameter(object instance)
+        private object get_53_TeachingTip_CloseButtonCommandParameter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.CloseButtonCommandParameter;
         }
-        private void set_54_TeachingTip_CloseButtonCommandParameter(object instance, object Value)
+        private void set_53_TeachingTip_CloseButtonCommandParameter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.CloseButtonCommandParameter = (global::System.Object)Value;
         }
-        private object get_55_TeachingTip_CloseButtonContent(object instance)
+        private object get_54_TeachingTip_CloseButtonContent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.CloseButtonContent;
         }
-        private void set_55_TeachingTip_CloseButtonContent(object instance, object Value)
+        private void set_54_TeachingTip_CloseButtonContent(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.CloseButtonContent = (global::System.Object)Value;
         }
-        private object get_56_TeachingTip_CloseButtonStyle(object instance)
+        private object get_55_TeachingTip_CloseButtonStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.CloseButtonStyle;
         }
-        private void set_56_TeachingTip_CloseButtonStyle(object instance, object Value)
+        private void set_55_TeachingTip_CloseButtonStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.CloseButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_57_TeachingTip_HeroContent(object instance)
+        private object get_56_TeachingTip_HeroContent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.HeroContent;
         }
-        private void set_57_TeachingTip_HeroContent(object instance, object Value)
+        private void set_56_TeachingTip_HeroContent(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.HeroContent = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_58_TeachingTip_HeroContentPlacement(object instance)
+        private object get_57_TeachingTip_HeroContentPlacement(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.HeroContentPlacement;
         }
-        private void set_58_TeachingTip_HeroContentPlacement(object instance, object Value)
+        private void set_57_TeachingTip_HeroContentPlacement(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.HeroContentPlacement = (global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode)Value;
         }
-        private object get_59_TeachingTip_IconSource(object instance)
+        private object get_58_TeachingTip_IconSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.IconSource;
         }
-        private void set_59_TeachingTip_IconSource(object instance, object Value)
+        private void set_58_TeachingTip_IconSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.IconSource = (global::Microsoft.UI.Xaml.Controls.IconSource)Value;
         }
-        private object get_60_TeachingTip_IsOpen(object instance)
+        private object get_59_TeachingTip_IsOpen(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.IsOpen;
         }
-        private void set_60_TeachingTip_IsOpen(object instance, object Value)
+        private void set_59_TeachingTip_IsOpen(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.IsOpen = (global::System.Boolean)Value;
         }
-        private object get_61_TeachingTip_ShouldConstrainToRootBounds(object instance)
+        private object get_60_TeachingTip_ShouldConstrainToRootBounds(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.ShouldConstrainToRootBounds;
         }
-        private void set_61_TeachingTip_ShouldConstrainToRootBounds(object instance, object Value)
+        private void set_60_TeachingTip_ShouldConstrainToRootBounds(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.ShouldConstrainToRootBounds = (global::System.Boolean)Value;
         }
-        private object get_62_TeachingTip_TailVisibility(object instance)
+        private object get_61_TeachingTip_TailVisibility(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.TailVisibility;
         }
-        private void set_62_TeachingTip_TailVisibility(object instance, object Value)
+        private void set_61_TeachingTip_TailVisibility(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             that.TailVisibility = (global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility)Value;
         }
-        private object get_63_TeachingTip_TemplateSettings(object instance)
+        private object get_62_TeachingTip_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
             return that.TemplateSettings;
         }
-        private object get_64_Expander_ExpandDirection(object instance)
+        private object get_63_Expander_ExpandDirection(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.ExpandDirection;
         }
-        private void set_64_Expander_ExpandDirection(object instance, object Value)
+        private void set_63_Expander_ExpandDirection(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.ExpandDirection = (global::Microsoft.UI.Xaml.Controls.ExpandDirection)Value;
         }
-        private object get_65_Expander_Header(object instance)
+        private object get_64_Expander_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.Header;
         }
-        private void set_65_Expander_Header(object instance, object Value)
+        private void set_64_Expander_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_66_Expander_IsExpanded(object instance)
+        private object get_65_Expander_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.IsExpanded;
         }
-        private void set_66_Expander_IsExpanded(object instance, object Value)
+        private void set_65_Expander_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_67_Expander_HeaderTemplate(object instance)
+        private object get_66_Expander_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.HeaderTemplate;
         }
-        private void set_67_Expander_HeaderTemplate(object instance, object Value)
+        private void set_66_Expander_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_68_Expander_HeaderTemplateSelector(object instance)
+        private object get_67_Expander_HeaderTemplateSelector(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.HeaderTemplateSelector;
         }
-        private void set_68_Expander_HeaderTemplateSelector(object instance, object Value)
+        private void set_67_Expander_HeaderTemplateSelector(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.HeaderTemplateSelector = (global::Microsoft.UI.Xaml.Controls.DataTemplateSelector)Value;
         }
-        private object get_69_Expander_TemplateSettings(object instance)
+        private object get_68_Expander_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.TemplateSettings;
         }
-        private object get_70_RadioButtons_Items(object instance)
+        private object get_69_RadioButtons_Items(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.Items;
         }
-        private object get_71_RadioButtons_Header(object instance)
+        private object get_70_RadioButtons_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.Header;
         }
-        private void set_71_RadioButtons_Header(object instance, object Value)
+        private void set_70_RadioButtons_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_72_RadioButtons_HeaderTemplate(object instance)
+        private object get_71_RadioButtons_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.HeaderTemplate;
         }
-        private void set_72_RadioButtons_HeaderTemplate(object instance, object Value)
+        private void set_71_RadioButtons_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_73_RadioButtons_ItemTemplate(object instance)
+        private object get_72_RadioButtons_ItemTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.ItemTemplate;
         }
-        private void set_73_RadioButtons_ItemTemplate(object instance, object Value)
+        private void set_72_RadioButtons_ItemTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.ItemTemplate = (global::System.Object)Value;
         }
-        private object get_74_RadioButtons_ItemsSource(object instance)
+        private object get_73_RadioButtons_ItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.ItemsSource;
         }
-        private void set_74_RadioButtons_ItemsSource(object instance, object Value)
+        private void set_73_RadioButtons_ItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.ItemsSource = (global::System.Object)Value;
         }
-        private object get_75_RadioButtons_MaxColumns(object instance)
+        private object get_74_RadioButtons_MaxColumns(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.MaxColumns;
         }
-        private void set_75_RadioButtons_MaxColumns(object instance, object Value)
+        private void set_74_RadioButtons_MaxColumns(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.MaxColumns = (global::System.Int32)Value;
         }
-        private object get_76_RadioButtons_SelectedIndex(object instance)
+        private object get_75_RadioButtons_SelectedIndex(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.SelectedIndex;
         }
-        private void set_76_RadioButtons_SelectedIndex(object instance, object Value)
+        private void set_75_RadioButtons_SelectedIndex(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.SelectedIndex = (global::System.Int32)Value;
         }
-        private object get_77_RadioButtons_SelectedItem(object instance)
+        private object get_76_RadioButtons_SelectedItem(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.SelectedItem;
         }
-        private void set_77_RadioButtons_SelectedItem(object instance, object Value)
+        private void set_76_RadioButtons_SelectedItem(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.SelectedItem = (global::System.Object)Value;
         }
-        private object get_78_NumberBox_Header(object instance)
+        private object get_77_NumberBox_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Header;
         }
-        private void set_78_NumberBox_Header(object instance, object Value)
+        private void set_77_NumberBox_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_79_NumberBox_SmallChange(object instance)
+        private object get_78_NumberBox_SmallChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SmallChange;
         }
-        private void set_79_NumberBox_SmallChange(object instance, object Value)
+        private void set_78_NumberBox_SmallChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SmallChange = (global::System.Double)Value;
         }
-        private object get_80_NumberBox_LargeChange(object instance)
+        private object get_79_NumberBox_LargeChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.LargeChange;
         }
-        private void set_80_NumberBox_LargeChange(object instance, object Value)
+        private void set_79_NumberBox_LargeChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.LargeChange = (global::System.Double)Value;
         }
-        private object get_81_NumberBox_Minimum(object instance)
+        private object get_80_NumberBox_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Minimum;
         }
-        private void set_81_NumberBox_Minimum(object instance, object Value)
+        private void set_80_NumberBox_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_82_NumberBox_Maximum(object instance)
+        private object get_81_NumberBox_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Maximum;
         }
-        private void set_82_NumberBox_Maximum(object instance, object Value)
+        private void set_81_NumberBox_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_83_NumberBox_SpinButtonPlacementMode(object instance)
+        private object get_82_NumberBox_SpinButtonPlacementMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SpinButtonPlacementMode;
         }
-        private void set_83_NumberBox_SpinButtonPlacementMode(object instance, object Value)
+        private void set_82_NumberBox_SpinButtonPlacementMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
         }
-        private object get_84_NumberBox_AcceptsExpression(object instance)
+        private object get_83_NumberBox_AcceptsExpression(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.AcceptsExpression;
         }
-        private void set_84_NumberBox_AcceptsExpression(object instance, object Value)
+        private void set_83_NumberBox_AcceptsExpression(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.AcceptsExpression = (global::System.Boolean)Value;
         }
-        private object get_85_NumberBox_Description(object instance)
+        private object get_84_NumberBox_Description(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Description;
         }
-        private void set_85_NumberBox_Description(object instance, object Value)
+        private void set_84_NumberBox_Description(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Description = (global::System.Object)Value;
         }
-        private object get_86_NumberBox_HeaderTemplate(object instance)
+        private object get_85_NumberBox_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.HeaderTemplate;
         }
-        private void set_86_NumberBox_HeaderTemplate(object instance, object Value)
+        private void set_85_NumberBox_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_87_NumberBox_IsWrapEnabled(object instance)
+        private object get_86_NumberBox_IsWrapEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.IsWrapEnabled;
         }
-        private void set_87_NumberBox_IsWrapEnabled(object instance, object Value)
+        private void set_86_NumberBox_IsWrapEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.IsWrapEnabled = (global::System.Boolean)Value;
         }
-        private object get_88_NumberBox_NumberFormatter(object instance)
+        private object get_87_NumberBox_NumberFormatter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.NumberFormatter;
         }
-        private void set_88_NumberBox_NumberFormatter(object instance, object Value)
+        private void set_87_NumberBox_NumberFormatter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
         }
-        private object get_89_NumberBox_PlaceholderText(object instance)
+        private object get_88_NumberBox_PlaceholderText(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PlaceholderText;
         }
-        private void set_89_NumberBox_PlaceholderText(object instance, object Value)
+        private void set_88_NumberBox_PlaceholderText(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PlaceholderText = (global::System.String)Value;
         }
-        private object get_90_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
+        private object get_89_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PreventKeyboardDisplayOnProgrammaticFocus;
         }
-        private void set_90_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
+        private void set_89_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
         }
-        private object get_91_NumberBox_SelectionFlyout(object instance)
+        private object get_90_NumberBox_SelectionFlyout(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionFlyout;
         }
-        private void set_91_NumberBox_SelectionFlyout(object instance, object Value)
+        private void set_90_NumberBox_SelectionFlyout(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
         }
-        private object get_92_NumberBox_SelectionHighlightColor(object instance)
+        private object get_91_NumberBox_SelectionHighlightColor(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionHighlightColor;
         }
-        private void set_92_NumberBox_SelectionHighlightColor(object instance, object Value)
+        private void set_91_NumberBox_SelectionHighlightColor(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_93_NumberBox_Text(object instance)
+        private object get_92_NumberBox_Text(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Text;
         }
-        private void set_93_NumberBox_Text(object instance, object Value)
+        private void set_92_NumberBox_Text(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_94_NumberBox_TextReadingOrder(object instance)
+        private object get_93_NumberBox_TextReadingOrder(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.TextReadingOrder;
         }
-        private void set_94_NumberBox_TextReadingOrder(object instance, object Value)
+        private void set_93_NumberBox_TextReadingOrder(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
         }
-        private object get_95_NumberBox_ValidationMode(object instance)
+        private object get_94_NumberBox_ValidationMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.ValidationMode;
         }
-        private void set_95_NumberBox_ValidationMode(object instance, object Value)
+        private void set_94_NumberBox_ValidationMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
         }
-        private object get_96_NumberBox_Value(object instance)
+        private object get_95_NumberBox_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Value;
         }
-        private void set_96_NumberBox_Value(object instance, object Value)
+        private void set_95_NumberBox_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Value = (global::System.Double)Value;
         }
-        private object get_97_ProgressBar_IsIndeterminate(object instance)
+        private object get_96_ProgressBar_IsIndeterminate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.IsIndeterminate;
         }
-        private void set_97_ProgressBar_IsIndeterminate(object instance, object Value)
+        private void set_96_ProgressBar_IsIndeterminate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.IsIndeterminate = (global::System.Boolean)Value;
         }
-        private object get_98_ProgressBar_ShowError(object instance)
+        private object get_97_ProgressBar_ShowError(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.ShowError;
         }
-        private void set_98_ProgressBar_ShowError(object instance, object Value)
+        private void set_97_ProgressBar_ShowError(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.ShowError = (global::System.Boolean)Value;
         }
-        private object get_99_ProgressBar_ShowPaused(object instance)
+        private object get_98_ProgressBar_ShowPaused(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.ShowPaused;
         }
-        private void set_99_ProgressBar_ShowPaused(object instance, object Value)
+        private void set_98_ProgressBar_ShowPaused(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             that.ShowPaused = (global::System.Boolean)Value;
         }
-        private object get_100_ProgressBar_TemplateSettings(object instance)
+        private object get_99_ProgressBar_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.TemplateSettings;
         }
-        private object get_101_CommandBarFlyout_PrimaryCommands(object instance)
+        private object get_100_CommandBarFlyout_PrimaryCommands(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             return that.PrimaryCommands;
         }
-        private object get_102_CommandBarFlyout_SecondaryCommands(object instance)
+        private object get_101_CommandBarFlyout_SecondaryCommands(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             return that.SecondaryCommands;
         }
-        private object get_103_CommandBarFlyout_AlwaysExpanded(object instance)
+        private object get_102_CommandBarFlyout_AlwaysExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             return that.AlwaysExpanded;
         }
-        private void set_103_CommandBarFlyout_AlwaysExpanded(object instance, object Value)
+        private void set_102_CommandBarFlyout_AlwaysExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.CommandBarFlyout)instance;
             that.AlwaysExpanded = (global::System.Boolean)Value;
         }
-        private object get_104_ProgressRing_IsActive(object instance)
+        private object get_103_ProgressRing_IsActive(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsActive;
         }
-        private void set_104_ProgressRing_IsActive(object instance, object Value)
+        private void set_103_ProgressRing_IsActive(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsActive = (global::System.Boolean)Value;
         }
-        private object get_105_ProgressRing_IsIndeterminate(object instance)
+        private object get_104_ProgressRing_IsIndeterminate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.IsIndeterminate;
         }
-        private void set_105_ProgressRing_IsIndeterminate(object instance, object Value)
+        private void set_104_ProgressRing_IsIndeterminate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.IsIndeterminate = (global::System.Boolean)Value;
         }
-        private object get_106_ProgressRing_Maximum(object instance)
+        private object get_105_ProgressRing_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Maximum;
         }
-        private void set_106_ProgressRing_Maximum(object instance, object Value)
+        private void set_105_ProgressRing_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_107_ProgressRing_Minimum(object instance)
+        private object get_106_ProgressRing_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Minimum;
         }
-        private void set_107_ProgressRing_Minimum(object instance, object Value)
+        private void set_106_ProgressRing_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_108_ProgressRing_TemplateSettings(object instance)
+        private object get_107_ProgressRing_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.TemplateSettings;
         }
-        private object get_109_ProgressRing_Value(object instance)
+        private object get_108_ProgressRing_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             return that.Value;
         }
-        private void set_109_ProgressRing_Value(object instance, object Value)
+        private void set_108_ProgressRing_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressRing)instance;
             that.Value = (global::System.Double)Value;
         }
-        private object get_110_TreeViewNode_Children(object instance)
+        private object get_109_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_111_TreeViewNode_Content(object instance)
+        private object get_110_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_111_TreeViewNode_Content(object instance, object Value)
+        private void set_110_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_112_TreeViewNode_Depth(object instance)
+        private object get_111_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_113_TreeViewNode_HasChildren(object instance)
+        private object get_112_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_114_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_113_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_114_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_113_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_115_TreeViewNode_IsExpanded(object instance)
+        private object get_114_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_115_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_114_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_116_TreeViewNode_Parent(object instance)
+        private object get_115_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -2358,617 +2327,611 @@ namespace DropStackWinUI.DropStackWinUI_XamlTypeInfo
                 xamlMember.Getter = get_27_WebView2_DefaultBackgroundColor;
                 xamlMember.Setter = set_27_WebView2_DefaultBackgroundColor;
                 break;
-            case "DropStackWinUI.HelperWindows.CameraScanner.CameraScannerViewModel":
-                userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("DropStackWinUI.HelperWindows.CameraScanner");
-                xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CameraScannerViewModel", "DropStackWinUI.HelperWindows.ViewModel");
-                xamlMember.Getter = get_28_CameraScanner_CameraScannerViewModel;
-                xamlMember.Setter = set_28_CameraScanner_CameraScannerViewModel;
-                break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.Child":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Child", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_29_ParallaxView_Child;
-                xamlMember.Setter = set_29_ParallaxView_Child;
+                xamlMember.Getter = get_28_ParallaxView_Child;
+                xamlMember.Setter = set_28_ParallaxView_Child;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.Source":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Source", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_30_ParallaxView_Source;
-                xamlMember.Setter = set_30_ParallaxView_Source;
+                xamlMember.Getter = get_29_ParallaxView_Source;
+                xamlMember.Setter = set_29_ParallaxView_Source;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.VerticalShift":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "VerticalShift", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_31_ParallaxView_VerticalShift;
-                xamlMember.Setter = set_31_ParallaxView_VerticalShift;
+                xamlMember.Getter = get_30_ParallaxView_VerticalShift;
+                xamlMember.Setter = set_30_ParallaxView_VerticalShift;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.HorizontalShift":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HorizontalShift", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_32_ParallaxView_HorizontalShift;
-                xamlMember.Setter = set_32_ParallaxView_HorizontalShift;
+                xamlMember.Getter = get_31_ParallaxView_HorizontalShift;
+                xamlMember.Setter = set_31_ParallaxView_HorizontalShift;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.HorizontalSourceEndOffset":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HorizontalSourceEndOffset", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_33_ParallaxView_HorizontalSourceEndOffset;
-                xamlMember.Setter = set_33_ParallaxView_HorizontalSourceEndOffset;
+                xamlMember.Getter = get_32_ParallaxView_HorizontalSourceEndOffset;
+                xamlMember.Setter = set_32_ParallaxView_HorizontalSourceEndOffset;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.HorizontalSourceOffsetKind":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HorizontalSourceOffsetKind", "Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_34_ParallaxView_HorizontalSourceOffsetKind;
-                xamlMember.Setter = set_34_ParallaxView_HorizontalSourceOffsetKind;
+                xamlMember.Getter = get_33_ParallaxView_HorizontalSourceOffsetKind;
+                xamlMember.Setter = set_33_ParallaxView_HorizontalSourceOffsetKind;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.HorizontalSourceStartOffset":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HorizontalSourceStartOffset", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_35_ParallaxView_HorizontalSourceStartOffset;
-                xamlMember.Setter = set_35_ParallaxView_HorizontalSourceStartOffset;
+                xamlMember.Getter = get_34_ParallaxView_HorizontalSourceStartOffset;
+                xamlMember.Setter = set_34_ParallaxView_HorizontalSourceStartOffset;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.IsHorizontalShiftClamped":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsHorizontalShiftClamped", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_36_ParallaxView_IsHorizontalShiftClamped;
-                xamlMember.Setter = set_36_ParallaxView_IsHorizontalShiftClamped;
+                xamlMember.Getter = get_35_ParallaxView_IsHorizontalShiftClamped;
+                xamlMember.Setter = set_35_ParallaxView_IsHorizontalShiftClamped;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.IsVerticalShiftClamped":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsVerticalShiftClamped", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_37_ParallaxView_IsVerticalShiftClamped;
-                xamlMember.Setter = set_37_ParallaxView_IsVerticalShiftClamped;
+                xamlMember.Getter = get_36_ParallaxView_IsVerticalShiftClamped;
+                xamlMember.Setter = set_36_ParallaxView_IsVerticalShiftClamped;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.MaxHorizontalShiftRatio":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MaxHorizontalShiftRatio", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_38_ParallaxView_MaxHorizontalShiftRatio;
-                xamlMember.Setter = set_38_ParallaxView_MaxHorizontalShiftRatio;
+                xamlMember.Getter = get_37_ParallaxView_MaxHorizontalShiftRatio;
+                xamlMember.Setter = set_37_ParallaxView_MaxHorizontalShiftRatio;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.MaxVerticalShiftRatio":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MaxVerticalShiftRatio", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_39_ParallaxView_MaxVerticalShiftRatio;
-                xamlMember.Setter = set_39_ParallaxView_MaxVerticalShiftRatio;
+                xamlMember.Getter = get_38_ParallaxView_MaxVerticalShiftRatio;
+                xamlMember.Setter = set_38_ParallaxView_MaxVerticalShiftRatio;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.VerticalSourceEndOffset":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "VerticalSourceEndOffset", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_40_ParallaxView_VerticalSourceEndOffset;
-                xamlMember.Setter = set_40_ParallaxView_VerticalSourceEndOffset;
+                xamlMember.Getter = get_39_ParallaxView_VerticalSourceEndOffset;
+                xamlMember.Setter = set_39_ParallaxView_VerticalSourceEndOffset;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.VerticalSourceOffsetKind":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "VerticalSourceOffsetKind", "Microsoft.UI.Xaml.Controls.ParallaxSourceOffsetKind");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_41_ParallaxView_VerticalSourceOffsetKind;
-                xamlMember.Setter = set_41_ParallaxView_VerticalSourceOffsetKind;
+                xamlMember.Getter = get_40_ParallaxView_VerticalSourceOffsetKind;
+                xamlMember.Setter = set_40_ParallaxView_VerticalSourceOffsetKind;
                 break;
             case "Microsoft.UI.Xaml.Controls.ParallaxView.VerticalSourceStartOffset":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ParallaxView");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "VerticalSourceStartOffset", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_42_ParallaxView_VerticalSourceStartOffset;
-                xamlMember.Setter = set_42_ParallaxView_VerticalSourceStartOffset;
+                xamlMember.Getter = get_41_ParallaxView_VerticalSourceStartOffset;
+                xamlMember.Setter = set_41_ParallaxView_VerticalSourceStartOffset;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.Title":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Title", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_TeachingTip_Title;
-                xamlMember.Setter = set_43_TeachingTip_Title;
+                xamlMember.Getter = get_42_TeachingTip_Title;
+                xamlMember.Setter = set_42_TeachingTip_Title;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.Subtitle":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Subtitle", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_TeachingTip_Subtitle;
-                xamlMember.Setter = set_44_TeachingTip_Subtitle;
+                xamlMember.Getter = get_43_TeachingTip_Subtitle;
+                xamlMember.Setter = set_43_TeachingTip_Subtitle;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.PreferredPlacement":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PreferredPlacement", "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_TeachingTip_PreferredPlacement;
-                xamlMember.Setter = set_45_TeachingTip_PreferredPlacement;
+                xamlMember.Getter = get_44_TeachingTip_PreferredPlacement;
+                xamlMember.Setter = set_44_TeachingTip_PreferredPlacement;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonContent":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_46_TeachingTip_ActionButtonContent;
-                xamlMember.Setter = set_46_TeachingTip_ActionButtonContent;
+                xamlMember.Getter = get_45_TeachingTip_ActionButtonContent;
+                xamlMember.Setter = set_45_TeachingTip_ActionButtonContent;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.PlacementMargin":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PlacementMargin", "Microsoft.UI.Xaml.Thickness");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_47_TeachingTip_PlacementMargin;
-                xamlMember.Setter = set_47_TeachingTip_PlacementMargin;
+                xamlMember.Getter = get_46_TeachingTip_PlacementMargin;
+                xamlMember.Setter = set_46_TeachingTip_PlacementMargin;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.IsLightDismissEnabled":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsLightDismissEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_48_TeachingTip_IsLightDismissEnabled;
-                xamlMember.Setter = set_48_TeachingTip_IsLightDismissEnabled;
+                xamlMember.Getter = get_47_TeachingTip_IsLightDismissEnabled;
+                xamlMember.Setter = set_47_TeachingTip_IsLightDismissEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.Target":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Target", "Microsoft.UI.Xaml.FrameworkElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_49_TeachingTip_Target;
-                xamlMember.Setter = set_49_TeachingTip_Target;
+                xamlMember.Getter = get_48_TeachingTip_Target;
+                xamlMember.Setter = set_48_TeachingTip_Target;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonCommand":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_50_TeachingTip_ActionButtonCommand;
-                xamlMember.Setter = set_50_TeachingTip_ActionButtonCommand;
+                xamlMember.Getter = get_49_TeachingTip_ActionButtonCommand;
+                xamlMember.Setter = set_49_TeachingTip_ActionButtonCommand;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonCommandParameter":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonCommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_51_TeachingTip_ActionButtonCommandParameter;
-                xamlMember.Setter = set_51_TeachingTip_ActionButtonCommandParameter;
+                xamlMember.Getter = get_50_TeachingTip_ActionButtonCommandParameter;
+                xamlMember.Setter = set_50_TeachingTip_ActionButtonCommandParameter;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonStyle":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ActionButtonStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_52_TeachingTip_ActionButtonStyle;
-                xamlMember.Setter = set_52_TeachingTip_ActionButtonStyle;
+                xamlMember.Getter = get_51_TeachingTip_ActionButtonStyle;
+                xamlMember.Setter = set_51_TeachingTip_ActionButtonStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonCommand":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CloseButtonCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_53_TeachingTip_CloseButtonCommand;
-                xamlMember.Setter = set_53_TeachingTip_CloseButtonCommand;
+                xamlMember.Getter = get_52_TeachingTip_CloseButtonCommand;
+                xamlMember.Setter = set_52_TeachingTip_CloseButtonCommand;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonCommandParameter":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CloseButtonCommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_54_TeachingTip_CloseButtonCommandParameter;
-                xamlMember.Setter = set_54_TeachingTip_CloseButtonCommandParameter;
+                xamlMember.Getter = get_53_TeachingTip_CloseButtonCommandParameter;
+                xamlMember.Setter = set_53_TeachingTip_CloseButtonCommandParameter;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonContent":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CloseButtonContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_55_TeachingTip_CloseButtonContent;
-                xamlMember.Setter = set_55_TeachingTip_CloseButtonContent;
+                xamlMember.Getter = get_54_TeachingTip_CloseButtonContent;
+                xamlMember.Setter = set_54_TeachingTip_CloseButtonContent;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonStyle":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "CloseButtonStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_56_TeachingTip_CloseButtonStyle;
-                xamlMember.Setter = set_56_TeachingTip_CloseButtonStyle;
+                xamlMember.Getter = get_55_TeachingTip_CloseButtonStyle;
+                xamlMember.Setter = set_55_TeachingTip_CloseButtonStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.HeroContent":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeroContent", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_57_TeachingTip_HeroContent;
-                xamlMember.Setter = set_57_TeachingTip_HeroContent;
+                xamlMember.Getter = get_56_TeachingTip_HeroContent;
+                xamlMember.Setter = set_56_TeachingTip_HeroContent;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.HeroContentPlacement":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeroContentPlacement", "Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_58_TeachingTip_HeroContentPlacement;
-                xamlMember.Setter = set_58_TeachingTip_HeroContentPlacement;
+                xamlMember.Getter = get_57_TeachingTip_HeroContentPlacement;
+                xamlMember.Setter = set_57_TeachingTip_HeroContentPlacement;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.IconSource":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IconSource", "Microsoft.UI.Xaml.Controls.IconSource");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_59_TeachingTip_IconSource;
-                xamlMember.Setter = set_59_TeachingTip_IconSource;
+                xamlMember.Getter = get_58_TeachingTip_IconSource;
+                xamlMember.Setter = set_58_TeachingTip_IconSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.IsOpen":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_60_TeachingTip_IsOpen;
-                xamlMember.Setter = set_60_TeachingTip_IsOpen;
+                xamlMember.Getter = get_59_TeachingTip_IsOpen;
+                xamlMember.Setter = set_59_TeachingTip_IsOpen;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.ShouldConstrainToRootBounds":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ShouldConstrainToRootBounds", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_61_TeachingTip_ShouldConstrainToRootBounds;
-                xamlMember.Setter = set_61_TeachingTip_ShouldConstrainToRootBounds;
+                xamlMember.Getter = get_60_TeachingTip_ShouldConstrainToRootBounds;
+                xamlMember.Setter = set_60_TeachingTip_ShouldConstrainToRootBounds;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.TailVisibility":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TailVisibility", "Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_62_TeachingTip_TailVisibility;
-                xamlMember.Setter = set_62_TeachingTip_TailVisibility;
+                xamlMember.Getter = get_61_TeachingTip_TailVisibility;
+                xamlMember.Setter = set_61_TeachingTip_TailVisibility;
                 break;
             case "Microsoft.UI.Xaml.Controls.TeachingTip.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_63_TeachingTip_TemplateSettings;
+                xamlMember.Getter = get_62_TeachingTip_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.ExpandDirection":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ExpandDirection", "Microsoft.UI.Xaml.Controls.ExpandDirection");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_64_Expander_ExpandDirection;
-                xamlMember.Setter = set_64_Expander_ExpandDirection;
+                xamlMember.Getter = get_63_Expander_ExpandDirection;
+                xamlMember.Setter = set_63_Expander_ExpandDirection;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.Header":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_65_Expander_Header;
-                xamlMember.Setter = set_65_Expander_Header;
+                xamlMember.Getter = get_64_Expander_Header;
+                xamlMember.Setter = set_64_Expander_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.IsExpanded":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_66_Expander_IsExpanded;
-                xamlMember.Setter = set_66_Expander_IsExpanded;
+                xamlMember.Getter = get_65_Expander_IsExpanded;
+                xamlMember.Setter = set_65_Expander_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.HeaderTemplate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_67_Expander_HeaderTemplate;
-                xamlMember.Setter = set_67_Expander_HeaderTemplate;
+                xamlMember.Getter = get_66_Expander_HeaderTemplate;
+                xamlMember.Setter = set_66_Expander_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.HeaderTemplateSelector":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplateSelector", "Microsoft.UI.Xaml.Controls.DataTemplateSelector");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_68_Expander_HeaderTemplateSelector;
-                xamlMember.Setter = set_68_Expander_HeaderTemplateSelector;
+                xamlMember.Getter = get_67_Expander_HeaderTemplateSelector;
+                xamlMember.Setter = set_67_Expander_HeaderTemplateSelector;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings");
-                xamlMember.Getter = get_69_Expander_TemplateSettings;
+                xamlMember.Getter = get_68_Expander_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.Items":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Items", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_70_RadioButtons_Items;
+                xamlMember.Getter = get_69_RadioButtons_Items;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.Header":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_RadioButtons_Header;
-                xamlMember.Setter = set_71_RadioButtons_Header;
+                xamlMember.Getter = get_70_RadioButtons_Header;
+                xamlMember.Setter = set_70_RadioButtons_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.HeaderTemplate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_72_RadioButtons_HeaderTemplate;
-                xamlMember.Setter = set_72_RadioButtons_HeaderTemplate;
+                xamlMember.Getter = get_71_RadioButtons_HeaderTemplate;
+                xamlMember.Setter = set_71_RadioButtons_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemTemplate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_RadioButtons_ItemTemplate;
-                xamlMember.Setter = set_73_RadioButtons_ItemTemplate;
+                xamlMember.Getter = get_72_RadioButtons_ItemTemplate;
+                xamlMember.Setter = set_72_RadioButtons_ItemTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemsSource":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_74_RadioButtons_ItemsSource;
-                xamlMember.Setter = set_74_RadioButtons_ItemsSource;
+                xamlMember.Getter = get_73_RadioButtons_ItemsSource;
+                xamlMember.Setter = set_73_RadioButtons_ItemsSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.MaxColumns":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "MaxColumns", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_RadioButtons_MaxColumns;
-                xamlMember.Setter = set_75_RadioButtons_MaxColumns;
+                xamlMember.Getter = get_74_RadioButtons_MaxColumns;
+                xamlMember.Setter = set_74_RadioButtons_MaxColumns;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedIndex":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectedIndex", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_RadioButtons_SelectedIndex;
-                xamlMember.Setter = set_76_RadioButtons_SelectedIndex;
+                xamlMember.Getter = get_75_RadioButtons_SelectedIndex;
+                xamlMember.Setter = set_75_RadioButtons_SelectedIndex;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedItem":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_RadioButtons_SelectedItem;
-                xamlMember.Setter = set_77_RadioButtons_SelectedItem;
+                xamlMember.Getter = get_76_RadioButtons_SelectedItem;
+                xamlMember.Setter = set_76_RadioButtons_SelectedItem;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Header":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_78_NumberBox_Header;
-                xamlMember.Setter = set_78_NumberBox_Header;
+                xamlMember.Getter = get_77_NumberBox_Header;
+                xamlMember.Setter = set_77_NumberBox_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SmallChange":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SmallChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_79_NumberBox_SmallChange;
-                xamlMember.Setter = set_79_NumberBox_SmallChange;
+                xamlMember.Getter = get_78_NumberBox_SmallChange;
+                xamlMember.Setter = set_78_NumberBox_SmallChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.LargeChange":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "LargeChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_80_NumberBox_LargeChange;
-                xamlMember.Setter = set_80_NumberBox_LargeChange;
+                xamlMember.Getter = get_79_NumberBox_LargeChange;
+                xamlMember.Setter = set_79_NumberBox_LargeChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Minimum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_81_NumberBox_Minimum;
-                xamlMember.Setter = set_81_NumberBox_Minimum;
+                xamlMember.Getter = get_80_NumberBox_Minimum;
+                xamlMember.Setter = set_80_NumberBox_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_82_NumberBox_Maximum;
-                xamlMember.Setter = set_82_NumberBox_Maximum;
+                xamlMember.Getter = get_81_NumberBox_Maximum;
+                xamlMember.Setter = set_81_NumberBox_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_83_NumberBox_SpinButtonPlacementMode;
-                xamlMember.Setter = set_83_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Getter = get_82_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Setter = set_82_NumberBox_SpinButtonPlacementMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_84_NumberBox_AcceptsExpression;
-                xamlMember.Setter = set_84_NumberBox_AcceptsExpression;
+                xamlMember.Getter = get_83_NumberBox_AcceptsExpression;
+                xamlMember.Setter = set_83_NumberBox_AcceptsExpression;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Description", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_85_NumberBox_Description;
-                xamlMember.Setter = set_85_NumberBox_Description;
+                xamlMember.Getter = get_84_NumberBox_Description;
+                xamlMember.Setter = set_84_NumberBox_Description;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_86_NumberBox_HeaderTemplate;
-                xamlMember.Setter = set_86_NumberBox_HeaderTemplate;
+                xamlMember.Getter = get_85_NumberBox_HeaderTemplate;
+                xamlMember.Setter = set_85_NumberBox_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_87_NumberBox_IsWrapEnabled;
-                xamlMember.Setter = set_87_NumberBox_IsWrapEnabled;
+                xamlMember.Getter = get_86_NumberBox_IsWrapEnabled;
+                xamlMember.Setter = set_86_NumberBox_IsWrapEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.NumberFormatter":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "NumberFormatter", "Windows.Globalization.NumberFormatting.INumberFormatter2");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_88_NumberBox_NumberFormatter;
-                xamlMember.Setter = set_88_NumberBox_NumberFormatter;
+                xamlMember.Getter = get_87_NumberBox_NumberFormatter;
+                xamlMember.Setter = set_87_NumberBox_NumberFormatter;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PlaceholderText":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_89_NumberBox_PlaceholderText;
-                xamlMember.Setter = set_89_NumberBox_PlaceholderText;
+                xamlMember.Getter = get_88_NumberBox_PlaceholderText;
+                xamlMember.Setter = set_88_NumberBox_PlaceholderText;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PreventKeyboardDisplayOnProgrammaticFocus":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PreventKeyboardDisplayOnProgrammaticFocus", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_90_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
-                xamlMember.Setter = set_90_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Getter = get_89_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Setter = set_89_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionFlyout":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionFlyout", "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_91_NumberBox_SelectionFlyout;
-                xamlMember.Setter = set_91_NumberBox_SelectionFlyout;
+                xamlMember.Getter = get_90_NumberBox_SelectionFlyout;
+                xamlMember.Setter = set_90_NumberBox_SelectionFlyout;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionHighlightColor":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SelectionHighlightColor", "Microsoft.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_92_NumberBox_SelectionHighlightColor;
-                xamlMember.Setter = set_92_NumberBox_SelectionHighlightColor;
+                xamlMember.Getter = get_91_NumberBox_SelectionHighlightColor;
+                xamlMember.Setter = set_91_NumberBox_SelectionHighlightColor;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Text":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_93_NumberBox_Text;
-                xamlMember.Setter = set_93_NumberBox_Text;
+                xamlMember.Getter = get_92_NumberBox_Text;
+                xamlMember.Setter = set_92_NumberBox_Text;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.TextReadingOrder":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TextReadingOrder", "Microsoft.UI.Xaml.TextReadingOrder");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_94_NumberBox_TextReadingOrder;
-                xamlMember.Setter = set_94_NumberBox_TextReadingOrder;
+                xamlMember.Getter = get_93_NumberBox_TextReadingOrder;
+                xamlMember.Setter = set_93_NumberBox_TextReadingOrder;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.ValidationMode":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_95_NumberBox_ValidationMode;
-                xamlMember.Setter = set_95_NumberBox_ValidationMode;
+                xamlMember.Getter = get_94_NumberBox_ValidationMode;
+                xamlMember.Setter = set_94_NumberBox_ValidationMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_96_NumberBox_Value;
-                xamlMember.Setter = set_96_NumberBox_Value;
+                xamlMember.Getter = get_95_NumberBox_Value;
+                xamlMember.Setter = set_95_NumberBox_Value;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_97_ProgressBar_IsIndeterminate;
-                xamlMember.Setter = set_97_ProgressBar_IsIndeterminate;
+                xamlMember.Getter = get_96_ProgressBar_IsIndeterminate;
+                xamlMember.Setter = set_96_ProgressBar_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.ShowError":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ShowError", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_98_ProgressBar_ShowError;
-                xamlMember.Setter = set_98_ProgressBar_ShowError;
+                xamlMember.Getter = get_97_ProgressBar_ShowError;
+                xamlMember.Setter = set_97_ProgressBar_ShowError;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.ShowPaused":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "ShowPaused", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_99_ProgressBar_ShowPaused;
-                xamlMember.Setter = set_99_ProgressBar_ShowPaused;
+                xamlMember.Getter = get_98_ProgressBar_ShowPaused;
+                xamlMember.Setter = set_98_ProgressBar_ShowPaused;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressBar.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressBar");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings");
-                xamlMember.Getter = get_100_ProgressBar_TemplateSettings;
+                xamlMember.Getter = get_99_ProgressBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.PrimaryCommands":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "PrimaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
-                xamlMember.Getter = get_101_CommandBarFlyout_PrimaryCommands;
+                xamlMember.Getter = get_100_CommandBarFlyout_PrimaryCommands;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.SecondaryCommands":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "SecondaryCommands", "Windows.Foundation.Collections.IObservableVector`1<Microsoft.UI.Xaml.Controls.ICommandBarElement>");
-                xamlMember.Getter = get_102_CommandBarFlyout_SecondaryCommands;
+                xamlMember.Getter = get_101_CommandBarFlyout_SecondaryCommands;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.CommandBarFlyout.AlwaysExpanded":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.CommandBarFlyout");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "AlwaysExpanded", "Boolean");
-                xamlMember.Getter = get_103_CommandBarFlyout_AlwaysExpanded;
-                xamlMember.Setter = set_103_CommandBarFlyout_AlwaysExpanded;
+                xamlMember.Getter = get_102_CommandBarFlyout_AlwaysExpanded;
+                xamlMember.Setter = set_102_CommandBarFlyout_AlwaysExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsActive":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_104_ProgressRing_IsActive;
-                xamlMember.Setter = set_104_ProgressRing_IsActive;
+                xamlMember.Getter = get_103_ProgressRing_IsActive;
+                xamlMember.Setter = set_103_ProgressRing_IsActive;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.IsIndeterminate":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsIndeterminate", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_105_ProgressRing_IsIndeterminate;
-                xamlMember.Setter = set_105_ProgressRing_IsIndeterminate;
+                xamlMember.Getter = get_104_ProgressRing_IsIndeterminate;
+                xamlMember.Setter = set_104_ProgressRing_IsIndeterminate;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Maximum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_106_ProgressRing_Maximum;
-                xamlMember.Setter = set_106_ProgressRing_Maximum;
+                xamlMember.Getter = get_105_ProgressRing_Maximum;
+                xamlMember.Setter = set_105_ProgressRing_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Minimum":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_107_ProgressRing_Minimum;
-                xamlMember.Setter = set_107_ProgressRing_Minimum;
+                xamlMember.Getter = get_106_ProgressRing_Minimum;
+                xamlMember.Setter = set_106_ProgressRing_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.TemplateSettings":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.ProgressRingTemplateSettings");
-                xamlMember.Getter = get_108_ProgressRing_TemplateSettings;
+                xamlMember.Getter = get_107_ProgressRing_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.ProgressRing.Value":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ProgressRing");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_109_ProgressRing_Value;
-                xamlMember.Setter = set_109_ProgressRing_Value;
+                xamlMember.Getter = get_108_ProgressRing_Value;
+                xamlMember.Setter = set_108_ProgressRing_Value;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_110_TreeViewNode_Children;
+                xamlMember.Getter = get_109_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_111_TreeViewNode_Content;
-                xamlMember.Setter = set_111_TreeViewNode_Content;
+                xamlMember.Getter = get_110_TreeViewNode_Content;
+                xamlMember.Setter = set_110_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_112_TreeViewNode_Depth;
+                xamlMember.Getter = get_111_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_113_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_112_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_114_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_114_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_113_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_113_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_115_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_115_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_114_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_114_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::DropStackWinUI.DropStackWinUI_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_116_TreeViewNode_Parent;
+                xamlMember.Getter = get_115_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

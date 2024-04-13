@@ -1,5 +1,4 @@
-﻿using DropStackWinUI.HelperWindows;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -96,27 +95,19 @@ namespace DropStackWinUI
 
             Debug.WriteLine("Arguments:");
             Debug.WriteLine(args.Arguments);
-            if (args.Arguments.Contains("LaunchCameraExperience"))
+            if (shouldLaunchWindow)
             {
-                m_window = new CameraScanner();
+                switch (selectedView)
+                {
+                    case 0: m_window = new MainWindow(); break;
+                    case 1: m_window = new SimpleMode(); break;
+                    case 2: m_window = new MiniMode(); break;
+                }
                 m_window.Activate();
             }
-            else
+            else if (!shouldLaunchWindow)
             {
-                if (shouldLaunchWindow)
-                {
-                    switch (selectedView)
-                    {
-                        case 0: m_window = new MainWindow(); break;
-                        case 1: m_window = new SimpleMode(); break;
-                        case 2: m_window = new MiniMode(); break;
-                    }
-                    m_window.Activate();
-                }
-                else if (!shouldLaunchWindow)
-                {
-                    CoreApplication.Exit();
-                }
+                CoreApplication.Exit();
             }
         }
 

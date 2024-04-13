@@ -16,11 +16,6 @@
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
   </PropertyGroup>
   <ItemGroup>
-    <Page Update="HelperWindows\CameraScanner.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Page Update="FileViews\PDFView.xaml">
       <SubType>Designer</SubType>
     </Page>

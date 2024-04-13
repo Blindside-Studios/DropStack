@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\helperwindows\\camerascanner.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\helperwindows\\camerascanner.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\minimode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\minimode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\simplemode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\simplemode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,12 +19,16 @@
       "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code",
-      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code"
+      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\minimode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\minimode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\helperwindows\\camerascanner.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\helperwindows\\camerascanner.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\simplemode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\simplemode.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code",
+      "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -90,18 +82,6 @@
       "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\fileviews\\videoview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\dropstack\\simplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|solutionrelative:dropstack\\simplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\dropstack\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|solutionrelative:dropstack\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\dropstack\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDE858B0-CEBB-483B-9818-73053D399083}|DropStack\\DropStack.csproj|solutionrelative:dropstack\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|c:\\users\\nicol\\onedrive\\documents\\github\\dropstack\\dropstackwinui\\dropstackwinui.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{29A0567A-C536-4B0B-8D2C-D37967A8270B}|DropStackWinUI\\DropStackWinUI.csproj|solutionrelative:dropstackwinui\\dropstackwinui.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
@@ -124,49 +104,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CameraScanner.xaml",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
-              "RelativeDocumentMoniker": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
-              "RelativeToolTip": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-20T21:04:34Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CameraScanner.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
-              "RelativeDocumentMoniker": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
-              "RelativeToolTip": "DropStackWinUI\\HelperWindows\\CameraScanner.xaml.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAYwOQBAADWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T21:04:50.954Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\App.xaml.cs",
-              "RelativeDocumentMoniker": "DropStackWinUI\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\App.xaml.cs",
-              "RelativeToolTip": "DropStackWinUI\\App.xaml.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAJgAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-07-22T05:28:55.371Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:2062758501:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
@@ -177,7 +116,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\App.xaml.cs",
+              "RelativeDocumentMoniker": "DropStackWinUI\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\App.xaml.cs",
+              "RelativeToolTip": "DropStackWinUI\\App.xaml.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAgwG4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-07-22T05:28:55.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\App.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\App.xaml",
@@ -190,20 +142,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "DropStackWinUI\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAP0HAAAAAAAAAAAMwBkIAAANAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAEwCoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-07-22T05:19:47.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SimpleMode.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\SimpleMode.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\SimpleMode.xaml.cs",
@@ -211,12 +163,11 @@
               "RelativeToolTip": "DropStackWinUI\\SimpleMode.xaml.cs",
               "ViewState": "AQIAABYDAAAAAAAAAAAowDUDAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-07-26T22:27:05.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-07-26T22:27:05.337Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MiniMode.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MiniMode.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\MiniMode.xaml.cs",
@@ -224,25 +175,24 @@
               "RelativeToolTip": "DropStackWinUI\\MiniMode.xaml.cs",
               "ViewState": "AQIAANgCAAAAAAAAAAA6wPQCAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-04T18:58:00.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-04T18:58:00.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml",
               "RelativeToolTip": "DropStackWinUI\\MainWindow.xaml",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAAEsAAABYAAAA",
+              "ViewState": "AQIAALsAAAAAAAAAAAAAAMMAAACVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2023-07-22T05:19:46.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "app.manifest",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\app.manifest",
               "RelativeDocumentMoniker": "DropStackWinUI\\app.manifest",
@@ -255,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Package.appxmanifest",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Package.appxmanifest",
               "RelativeDocumentMoniker": "DropStackWinUI\\Package.appxmanifest",
@@ -263,12 +213,11 @@
               "RelativeToolTip": "DropStackWinUI\\Package.appxmanifest",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001793|",
-              "WhenOpened": "2024-04-04T00:33:29.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T00:33:29.264Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "SimpleMode.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\SimpleMode.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\SimpleMode.xaml",
@@ -276,12 +225,11 @@
               "RelativeToolTip": "DropStackWinUI\\SimpleMode.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAGAAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-07-26T22:27:01.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-07-26T22:27:01.574Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "MiniMode.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MiniMode.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\MiniMode.xaml",
@@ -289,12 +237,11 @@
               "RelativeToolTip": "DropStackWinUI\\MiniMode.xaml",
               "ViewState": "AQIAAA8AAAAAAAAAAIBJwCQAAAB9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-10-04T18:57:52.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-04T18:57:52.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "DropStackWinUI.csproj",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack\\DropStackWinUI\\DropStackWinUI.csproj",
               "RelativeDocumentMoniker": "DropStackWinUI\\DropStackWinUI.csproj",
@@ -307,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 23,
               "Title": "XamlTypeInfo.g.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\XamlTypeInfo.g.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\XamlTypeInfo.g.cs",
@@ -315,12 +262,11 @@
               "RelativeToolTip": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\XamlTypeInfo.g.cs",
               "ViewState": "AQIAAI8BAAAAAAAAAAAYwKABAABtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T16:14:21.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T16:14:21.064Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "ReadMe.txt",
               "DocumentMoniker": "C:\\Users\\nicol\\.nuget\\packages\\communitytoolkit.winui.ui.controls\\7.1.2\\ReadMe.txt",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\.nuget\\packages\\communitytoolkit.winui.ui.controls\\7.1.2\\ReadMe.txt",
@@ -328,12 +274,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\.nuget\\packages\\communitytoolkit.winui.ui.controls\\7.1.2\\ReadMe.txt",
               "ViewState": "AQIAAAEAAAAAAAAAAEBVwBcAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-01-06T21:18:15.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-01-06T21:18:15.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "MainWindow.g.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MainWindow.g.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MainWindow.g.cs",
@@ -341,12 +286,11 @@
               "RelativeToolTip": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MainWindow.g.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAowH0EAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-07-29T22:08:57.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-07-29T22:08:57.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "ImageView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\ImageView.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\ImageView.xaml.cs",
@@ -354,12 +298,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\ImageView.xaml.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAowC0AAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-12T13:56:21.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T13:56:21.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "MiniMode.g.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MiniMode.g.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MiniMode.g.cs",
@@ -367,12 +310,11 @@
               "RelativeToolTip": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\MiniMode.g.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAtwF8BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-05T11:33:27.174Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-05T11:33:27.174Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 17,
               "Title": "PDFView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\PDFView.xaml.cs",
@@ -380,12 +322,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\PDFView.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-12T15:27:06.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T15:27:06.856Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "PDFView.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\PDFView.xaml",
@@ -393,12 +334,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\PDFView.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-12T15:26:53.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T15:26:53.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 16,
               "Title": "ImageView.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\ImageView.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\ImageView.xaml",
@@ -406,12 +346,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\ImageView.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-12T13:56:04.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T13:56:04.255Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 18,
               "Title": "VideoView.xaml",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\VideoView.xaml",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\VideoView.xaml",
@@ -419,12 +358,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\VideoView.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-12T15:05:29.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T15:05:29.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 19,
               "Title": "VideoView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\VideoView.xaml.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\VideoView.xaml.cs",
@@ -432,12 +370,11 @@
               "RelativeToolTip": "DropStackWinUI\\FileViews\\VideoView.xaml.cs",
               "ViewState": "AQIAAAsAAAAAAAAAACBjwBoAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-12T15:05:35.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-12T15:05:35.192Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 20,
               "Title": "DropStackWinUI",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\DropStack\\DropStackWinUI\\DropStackWinUI.csproj",
               "RelativeDocumentMoniker": "DropStackWinUI\\DropStackWinUI.csproj",
@@ -449,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 22,
               "Title": "SimpleMode.g.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\SimpleMode.g.cs",
               "RelativeDocumentMoniker": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\SimpleMode.g.cs",
@@ -457,12 +394,11 @@
               "RelativeToolTip": "DropStackWinUI\\obj\\x86\\Debug\\net6.0-windows10.0.19041.0\\win10-x86\\SimpleMode.g.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAnwKYBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-18T21:27:48.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-09-18T21:27:48.804Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 21,
               "Title": "Microsoft.NET.Publish.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
@@ -470,43 +406,6 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2023-07-30T20:44:06.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "SimplePage.xaml",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\SimplePage.xaml",
-              "RelativeDocumentMoniker": "DropStack\\SimplePage.xaml",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\SimplePage.xaml",
-              "RelativeToolTip": "DropStack\\SimplePage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-07-26T11:17:28.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\MainPage.xaml",
-              "RelativeDocumentMoniker": "DropStack\\MainPage.xaml",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\MainPage.xaml",
-              "RelativeToolTip": "DropStack\\MainPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-10-04T19:31:22.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "DropStack\\MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStack\\MainPage.xaml.cs",
-              "RelativeToolTip": "DropStack\\MainPage.xaml.cs",
-              "ViewState": "AQIAAPgCAAAAAAAAAAAAAAYDAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-04T19:32:33.303Z",
-              "EditorCaption": ""
             }
           ]
         }

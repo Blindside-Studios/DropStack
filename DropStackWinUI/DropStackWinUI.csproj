@@ -34,7 +34,6 @@
     <None Remove="FileViews\ImageView.xaml" />
     <None Remove="FileViews\PDFView.xaml" />
     <None Remove="FileViews\VideoView.xaml" />
-    <None Remove="HelperWindows\CameraScanner.xaml" />
     <None Remove="MiniMode.xaml" />
     <None Remove="SimpleMode.xaml" />
   </ItemGroup>
@@ -91,11 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="FileViews\ImageView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="HelperWindows\CameraScanner.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
