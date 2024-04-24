@@ -778,10 +778,14 @@ namespace DropStackWinUI
                 XmlSerializer serializer = new XmlSerializer(typeof(ArrayOfFileItem));
                 using (TextReader reader = new StringReader(xmlContent))
                 {
-                    ArrayOfFileItem arrayOfFileItem = (ArrayOfFileItem)serializer.Deserialize(reader);
-
-                    // Create an ObservableCollection from the deserialized data
-                    cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
+                    cachedFileMetadataList = new();
+                    try
+                    {
+                        ArrayOfFileItem arrayOfFileItem = (ArrayOfFileItem)serializer.Deserialize(reader);
+                        // Create an ObservableCollection from the deserialized data
+                        cachedFileMetadataList = new ObservableCollection<FileItem>(arrayOfFileItem.Items);
+                    }
+                    catch { }
                 }
 
                 if (cachedFileMetadataList.Count == 0)

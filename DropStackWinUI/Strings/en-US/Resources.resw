@@ -340,6 +340,42 @@
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>Type here to search...</value>
   </data>
+  <data name="SettingsThemeBliss.Content" xml:space="preserve">
+    <value>Bliss</value>
+  </data>
+  <data name="SettingsThemeColorful.Content" xml:space="preserve">
+    <value>Colorful</value>
+  </data>
+  <data name="SettingsThemeDefault.Content" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="SettingsThemeEasterEgg.Content" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="SettingsThemeEvening.Content" xml:space="preserve">
+    <value>Evening</value>
+  </data>
+  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
+    <value>Microsoft</value>
+  </data>
+  <data name="SettingsThemePicker.Header" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
+    <value>Thunderstorm</value>
+  </data>
+  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
+    <value>Ukraine</value>
+  </data>
+  <data name="SettingsTitle.Text" xml:space="preserve">
+    <value>Settings and About</value>
+  </data>
+  <data name="UnpinFileFlyoutConfirm.Content" xml:space="preserve">
+    <value>Yes, unpin from DropStack!</value>
+  </data>
+  <data name="UnpinFileFlyoutPrompt.Text" xml:space="preserve">
+    <value>Do you wish to unpin this file?</value>
+  </data>
   <data name="SettingsAppearanceBehaviorExpander.Header" xml:space="preserve">
     <value>Appearance and general behavior</value>
   </data>
@@ -373,7 +409,7 @@
   <data name="SettingsLoadedItems.Header" xml:space="preserve">
     <value>Loaded items</value>
   </data>
-  <data name="SettingsLoadedItems.ToolTipServices.ToolTip" xml:space="preserve">
+  <data name="SettingsLoadedItems.ToolTipService.ToolTip" xml:space="preserve">
     <value>Restrict the amount of loaded files in normal mode and simple mode. Takes effect after refreshing the list.</value>
   </data>
   <data name="SettingsLoadedThumbnailResolution.Header" xml:space="preserve">
@@ -454,18 +490,18 @@
   <data name="SettingsPortalFoldersRevokeAccessConfirmButton.Content" xml:space="preserve">
     <value>Yes, disconnect and relaunch!</value>
   </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Header" xml:space="preserve">
+    <value>Your Pinned folder path:</value>
+  </data>
   <data name="SettingsPortalFoldersRevokeAccessPinsPath.Text" xml:space="preserve">
     <value>Something went wrong</value>
   </data>
-  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Title" xml:space="preserve">
-    <value>Your Pinned folder path:</value>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Header" xml:space="preserve">
+    <value>Your Portal folder path:</value>
   </data>
   <data name="SettingsPortalFoldersRevokeAccessPortalPath.Text" xml:space="preserve">
     <value>Something went wrong</value>
     <comment>Says 'something went wrong' by default in case it can't be overwritten with the correct path</comment>
-  </data>
-  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Title" xml:space="preserve">
-    <value>Your Portal folder path:</value>
   </data>
   <data name="SettingsPortalFoldersSetNew.Content" xml:space="preserve">
     <value>Set new...</value>
@@ -505,41 +541,5 @@
   </data>
   <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
     <value>Enables normal windowing in simple mode</value>
-  </data>
-  <data name="SettingsThemeBliss.Content" xml:space="preserve">
-    <value>Bliss</value>
-  </data>
-  <data name="SettingsThemeColorful.Content" xml:space="preserve">
-    <value>Colorful</value>
-  </data>
-  <data name="SettingsThemeDefault.Content" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="SettingsThemeEasterEgg.Content" xml:space="preserve">
-    <value>Secret</value>
-  </data>
-  <data name="SettingsThemeEvening.Content" xml:space="preserve">
-    <value>Evening</value>
-  </data>
-  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
-    <value>Microsoft</value>
-  </data>
-  <data name="SettingsThemePicker.Header" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
-    <value>Thunderstorm</value>
-  </data>
-  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
-    <value>Ukraine</value>
-  </data>
-  <data name="SettingsTitle.Text" xml:space="preserve">
-    <value>Settings and About</value>
-  </data>
-  <data name="UnpinFileFlyoutConfirm.Content" xml:space="preserve">
-    <value>Yes, unpin from DropStack!</value>
-  </data>
-  <data name="UnpinFileFlyoutPrompt.Text" xml:space="preserve">
-    <value>Do you wish to unpin this file?</value>
   </data>
 </root>
