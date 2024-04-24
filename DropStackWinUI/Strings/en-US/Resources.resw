@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TitleBar.Text" xml:space="preserve">
+    <value>DropStack</value>
+  </data>
+  <data name="ContextMenuButtonCopy.Label" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ContextMenuButtonDelete.Label" xml:space="preserve">
+    <value>Delete this file</value>
+  </data>
+  <data name="ContextMenuButtonOpen.Label" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="ContextMenuButtonOpenWith.Label" xml:space="preserve">
+    <value>Open with...</value>
+  </data>
+  <data name="ContextMenuButtonPreview.Label" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ContextMenuButtonReveal.Label" xml:space="preserve">
+    <value>Reveal file in Explorer</value>
+  </data>
+  <data name="ContextMenuButtonRotate.Label" xml:space="preserve">
+    <value>Rotate</value>
+  </data>
+  <data name="ContextMenuButtonSelect.Label" xml:space="preserve">
+    <value>Enable selection mode</value>
+  </data>
+  <data name="NoPinnedFiles.Text" xml:space="preserve">
+    <value>You don't have any pinned files. Just drag some right here...</value>
+  </data>
+  <data name="NoPinnedFolder.Text" xml:space="preserve">
+    <value>You didn't set any pinned folder, so you cannot pin files right now.</value>
+  </data>
+  <data name="PinnedFilesExpander.Header" xml:space="preserve">
+    <value>Pinned files</value>
+  </data>
+  <data name="RemovePinnedFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>This deletes the pinned file from DropStack's pinned files folder. The file will still be available, provided you kept it around somewhere.</value>
+  </data>
+  <data name="SetPinnedFolderHyperlink.Content" xml:space="preserve">
+    <value>Click here to add one...</value>
+  </data>
+  <data name="WaitingForWindowsHelloAuth.Text" xml:space="preserve">
+    <value>Waiting for Windows Hello™️ authentication...</value>
+  </data>
+  <data name="AboutAppName.Text" xml:space="preserve">
+    <value>App name:</value>
+  </data>
+  <data name="AboutAttribuationsExpander.Header" xml:space="preserve">
+    <value>Attributions</value>
+    <comment>Attributions to Open Source libraries - legal stuff, which is why it will not be translated</comment>
+  </data>
+  <data name="AboutCheckUpdates.Content" xml:space="preserve">
+    <value>Check for updates on the releases page</value>
+  </data>
+  <data name="AboutCurrentLocalizationLanguage.Text" xml:space="preserve">
+    <value>English localization by:</value>
+    <comment>Replace with localized language name</comment>
+  </data>
+  <data name="AboutCurrentLocalizationTranslator.Text" xml:space="preserve">
+    <value>Blindside Studios</value>
+    <comment>Replace with translator name</comment>
+  </data>
+  <data name="AboutCurrentVersion.Text" xml:space="preserve">
+    <value>Current version:</value>
+  </data>
+  <data name="AboutDeveloperName.Text" xml:space="preserve">
+    <value>Developer name:</value>
+  </data>
+  <data name="AboutGitHubAdvertisement.Content" xml:space="preserve">
+    <value>Check out our GitHub page</value>
+  </data>
+  <data name="AboutPrivacyStatementExpander.Header" xml:space="preserve">
+    <value>Privacy statement</value>
+    <comment>Actual privacy statement will not be translated. '(English)' may be added for localizations in different languages to convey this.</comment>
+  </data>
+  <data name="AboutPublisherName.Text" xml:space="preserve">
+    <value>Publisher name:</value>
+  </data>
+  <data name="AboutRelatedLinksHeader.Text" xml:space="preserve">
+    <value>Related links:</value>
+  </data>
+  <data name="AboutSubmitFeedback.Content" xml:space="preserve">
+    <value>Submit feedback by opening a GitHub issue</value>
+  </data>
+  <data name="CommandBarCopyButton.Label" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CommandBarCopyButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Copy the last selected file (Ctrl+C)</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.Label" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Launch Mini Mode... (Ctrl+M)</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.Label" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Launch Simple Mode... (Ctrl+S)</value>
+  </data>
+  <data name="CommandBarRefreshButton.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="CommandBarRefreshButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh this list (Ctrl+R)</value>
+  </data>
+  <data name="CommandBarRevealButton.Label" xml:space="preserve">
+    <value>Reveal...</value>
+  </data>
+  <data name="CommandBarRevealButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Reveal the Portal folder in File Explorer (Ctrl+E)</value>
+  </data>
+  <data name="CommandBarSearchButton.Label" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="CommandBarSearchButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Search this list (Ctrl+F)</value>
+  </data>
+  <data name="CommandBarSelectButton.Label" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="CommandBarSelectButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enable / Disable selection mode (Ctrl+Q)</value>
+  </data>
+  <data name="CommandBarSettingsButton.Label" xml:space="preserve">
+    <value>Settings and About</value>
+  </data>
+  <data name="CopiedSuccessfully.Subtitle" xml:space="preserve">
+    <value>The file is now in your clipboard.</value>
+  </data>
+  <data name="CopiedSuccessfully.Title" xml:space="preserve">
+    <value>Copied successfully!</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmation.Text" xml:space="preserve">
+    <value>Do you want to delete this file?</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmationButton.Content" xml:space="preserve">
+    <value>Yes, delete!</value>
+  </data>
+  <data name="DragFailed.Subtitle" xml:space="preserve">
+    <value>Are you sure this file still exists? Try refreshing.</value>
+  </data>
+  <data name="DragFailed.Title" xml:space="preserve">
+    <value>Dragging unsuccessful!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.ActionButtonContent" xml:space="preserve">
+    <value>Apply theme now!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Subtitle" xml:space="preserve">
+    <value>Reading the privacy statement unlocks the exclusive easter egg theme! Congrats!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Title" xml:space="preserve">
+    <value>Hidden theme unlocked!</value>
+  </data>
+  <data name="NoFolder.ActionButtonContent" xml:space="preserve">
+    <value>Choose folder...</value>
+  </data>
+  <data name="NoFolder.Subtitle" xml:space="preserve">
+    <value>To operate as intended, the app needs access to a destination folder. It was designed to work best for the Downlaods folder, so we recommend you click 'Choose folder...' and choose the 'Downloads' folder from the sidebar.</value>
+  </data>
+  <data name="NoFolder.Title" xml:space="preserve">
+    <value>Choose a folder...</value>
+  </data>
+  <data name="NoPinnedFolderPath.ActionButtonContent" xml:space="preserve">
+    <value>Choose folder...</value>
+  </data>
+  <data name="NoPinnedFolderPath.Subtitle" xml:space="preserve">
+    <value>The app stores pinned files by copying them to a user-defined folder, so you can even delete files from their origin and they will still be here. However, as of now, no pin folder has been specified. Please choose one below.</value>
+  </data>
+  <data name="NoPinnedFolderPath.Title" xml:space="preserve">
+    <value>Choose a pinned folder...</value>
+  </data>
+  <data name="OOBEBackButton.Content" xml:space="preserve">
+    <value>‹ Previous</value>
+  </data>
+  <data name="OOBEDone.Text" xml:space="preserve">
+    <value>All done!</value>
+  </data>
+  <data name="OOBEDoneSubtitle.Text" xml:space="preserve">
+    <value>Click 'Next' one last time to start using DropStack!</value>
+  </data>
+  <data name="OOBENextButton.Content" xml:space="preserve">
+    <value>Next ›</value>
+  </data>
+  <data name="OOBEPickPins.Text" xml:space="preserve">
+    <value>Pick your pins!</value>
+  </data>
+  <data name="OOBEPickPinsButton.Content" xml:space="preserve">
+    <value>Set a pinned folder...</value>
+  </data>
+  <data name="OOBEPickPinsExplanation.Text" xml:space="preserve">
+    <value>DropStack pins files by copying them to a folder you specify. This means that you can pin a folder and even delete the original. If you uninstall DropStack, your pinned files won't be lost, they will remain in the folder you specified.</value>
+  </data>
+  <data name="OOBEPickPortal.Text" xml:space="preserve">
+    <value>Pick your portal!</value>
+  </data>
+  <data name="OOBEPickPortalButton.Content" xml:space="preserve">
+    <value>Set a portal folder...</value>
+  </data>
+  <data name="OOBEPickPortalExplanation.Text" xml:space="preserve">
+    <value>Please click the button below and then pick the folder you would like DropStack to mirror. We would suggest using your Downloads folder, however, feel free to pick a custom one. You can change the portal folder later by revoking the folder access.</value>
+  </data>
+  <data name="OOBESetupTitle.Text" xml:space="preserve">
+    <value>Let's get you set up!</value>
+  </data>
+  <data name="OOBESimpleModeAsDefaultOfferCheckbox.Content" xml:space="preserve">
+    <value>Always launch into simple mode first</value>
+  </data>
+  <data name="OOBEStartSetup.Text" xml:space="preserve">
+    <value>Click 'Next' to continue setup.</value>
+  </data>
+  <data name="OOBEWelcome.Text" xml:space="preserve">
+    <value>Welcome to DropStack!</value>
+  </data>
+  <data name="OOBEWelcomeSubtitle.Text" xml:space="preserve">
+    <value>Your loyal downloads folder companion.</value>
+  </data>
+  <data name="SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Type here to search...</value>
+  </data>
+  <data name="SettingsAppearanceBehaviorExpander.Header" xml:space="preserve">
+    <value>Appearance and general behavior</value>
+  </data>
+  <data name="SettingsAppInfoExpander.Header" xml:space="preserve">
+    <value>App info</value>
+  </data>
+  <data name="SettingsCheckBoxBehavior.Header" xml:space="preserve">
+    <value>Use check boxes to select items</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorAlways.Content" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorNever.Content" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorWhenTurnedOnInExplorer.Content" xml:space="preserve">
+    <value>When turned on in File Explorer</value>
+  </data>
+  <data name="SettingsLaunchModeMini.Content" xml:space="preserve">
+    <value>Mini Mode</value>
+  </data>
+  <data name="SettingsLaunchModeNormal.Content" xml:space="preserve">
+    <value>Normal Mode</value>
+  </data>
+  <data name="SettingsLaunchModePicker.Header" xml:space="preserve">
+    <value>Choose the default mode</value>
+  </data>
+  <data name="SettingsLaunchModeSimple.Content" xml:space="preserve">
+    <value>Simple Mode</value>
+  </data>
+  <data name="SettingsLoadedItems.Header" xml:space="preserve">
+    <value>Loaded items</value>
+  </data>
+  <data name="SettingsLoadedItems.ToolTipServices.ToolTip" xml:space="preserve">
+    <value>Restrict the amount of loaded files in normal mode and simple mode. Takes effect after refreshing the list.</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.Header" xml:space="preserve">
+    <value>Thumbnail resolution (Recommended:64)</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Set the resolution in which thumbnails are loaded. This should greatly improve speed and RAM usage at the cost of recognizability. Therefore, we recommend 64 as a balance. Takes effect after refreshing the list.</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.Header" xml:space="preserve">
+    <value>Loaded Thumbnails</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Restrict the amount of thumbnails that are being loaded. This helps improve speed and reduce RAM usage, so you can load more items without your RAM filling up as quickly. Takes effect after refreshing.</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OffContent" xml:space="preserve">
+    <value>Pin toolbar in mini mode</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OnContent" xml:space="preserve">
+    <value>Pin toolbar in mini mode</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Permanently shows the toolbar in mini mode instead of hiding it.</value>
+  </data>
+  <data name="SettingsPerformanceExpander.Header" xml:space="preserve">
+    <value>Performance and efficiency</value>
+  </data>
+  <data name="SettingsPinsBehavior.Header" xml:space="preserve">
+    <value>Pick the pinned row behavior</value>
+  </data>
+  <data name="SettingsPinsBehaviorClosed.Content" xml:space="preserve">
+    <value>Always closed</value>
+  </data>
+  <data name="SettingsPinsBehaviorHide.Content" xml:space="preserve">
+    <value>Hide pin bar</value>
+  </data>
+  <data name="SettingsPinsBehaviorOpen.Content" xml:space="preserve">
+    <value>Always opened</value>
+  </data>
+  <data name="SettingsPinsBehaviorProtect.Content" xml:space="preserve">
+    <value>Protect with Windows Hello™️</value>
+  </data>
+  <data name="SettingsPinsBehaviorRemember.Content" xml:space="preserve">
+    <value>Remember last state</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.Content" xml:space="preserve">
+    <value>Enable all options...</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Currently, some of these options are locked because you enabled Windows Hello™️ protection.</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxPrimary.Content" xml:space="preserve">
+    <value>Primary:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary1.Content" xml:space="preserve">
+    <value>Secondary 1:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary2.Content" xml:space="preserve">
+    <value>Secondary 2:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary3.Content" xml:space="preserve">
+    <value>Secondary 3:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary4.Content" xml:space="preserve">
+    <value>Secondary 4:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary5.Content" xml:space="preserve">
+    <value>Secondary 5:</value>
+  </data>
+  <data name="SettingsPortalFolderPreferencesApply.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccess.Content" xml:space="preserve">
+    <value>Revoke folder access</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmationTitle.Text" xml:space="preserve">
+    <value>This will disconnect the app from the folders you chose during setup and you will need to repeat the setup process to use it again. All your files in Portal and Pins will persist, the app will just not be able to find them anymore.</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmButton.Content" xml:space="preserve">
+    <value>Yes, disconnect and relaunch!</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Text" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Title" xml:space="preserve">
+    <value>Your Pinned folder path:</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Text" xml:space="preserve">
+    <value>Something went wrong</value>
+    <comment>Says 'something went wrong' by default in case it can't be overwritten with the correct path</comment>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Title" xml:space="preserve">
+    <value>Your Portal folder path:</value>
+  </data>
+  <data name="SettingsPortalFoldersSetNew.Content" xml:space="preserve">
+    <value>Set new...</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OffContent" xml:space="preserve">
+    <value>Prefer details sheet over contextual flyout</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OnContent" xml:space="preserve">
+    <value>Prefer details sheet over contextual flyout</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Whenever you select a file, DropStack will show a preview pane with options to take action on your files instead of the usual context menu</value>
+  </data>
+  <data name="SettingsReflectedAfterReloading.Text" xml:space="preserve">
+    <value>Changes are reflected after reloading.</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.Content" xml:space="preserve">
+    <value>Reset to default values</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Reset these values to their defaults</value>
+  </data>
+  <data name="SettingsSearchLeniency.Header" xml:space="preserve">
+    <value>Search leniency</value>
+  </data>
+  <data name="SettingsSearchLeniencyDescription.Text" xml:space="preserve">
+    <value>Search leniency describes how many typos you can make in your search query while still finding the file. Lowering this value will improve search accuracy.</value>
+  </data>
+  <data name="SettingsSecondaryFolderSettingsExpander.Header" xml:space="preserve">
+    <value>Manage your portal folders</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OffContent" xml:space="preserve">
+    <value>Normal windowing in simple mode</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OnContent" xml:space="preserve">
+    <value>Normal windowing in simple mode</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enables normal windowing in simple mode</value>
+  </data>
+  <data name="SettingsThemeBliss.Content" xml:space="preserve">
+    <value>Bliss</value>
+  </data>
+  <data name="SettingsThemeColorful.Content" xml:space="preserve">
+    <value>Colorful</value>
+  </data>
+  <data name="SettingsThemeDefault.Content" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="SettingsThemeEasterEgg.Content" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="SettingsThemeEvening.Content" xml:space="preserve">
+    <value>Evening</value>
+  </data>
+  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
+    <value>Microsoft</value>
+  </data>
+  <data name="SettingsThemePicker.Header" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
+    <value>Thunderstorm</value>
+  </data>
+  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
+    <value>Ukraine</value>
+  </data>
+  <data name="SettingsTitle.Text" xml:space="preserve">
+    <value>Settings and About</value>
+  </data>
+  <data name="UnpinFileFlyoutConfirm.Content" xml:space="preserve">
+    <value>Yes, unpin from DropStack!</value>
+  </data>
+  <data name="UnpinFileFlyoutPrompt.Text" xml:space="preserve">
+    <value>Do you wish to unpin this file?</value>
+  </data>
+</root>

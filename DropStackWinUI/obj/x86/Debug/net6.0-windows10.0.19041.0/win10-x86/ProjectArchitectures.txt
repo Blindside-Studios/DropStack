@@ -1,1 +1,1 @@
-C:\Users\nicol\OneDrive\Documents\GitHub\DropStack\DropStackWinUI\DropStackWinUI.csproj;x86
+C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\DropStackWinUI.csproj;x86

@@ -330,7 +330,14 @@ namespace DropStackWinUI
             if (localSettings.Values.ContainsKey("SelectedTheme"))
             {
                 string selectedTheme = (string)localSettings.Values["SelectedTheme"];
-                ThemePickerCombobox.SelectedItem = selectedTheme;
+                int i = 0;
+                foreach (ComboBoxItem item in ThemePickerCombobox.Items)
+                {
+                    string tag = item.Tag.ToString();
+                    if (tag == selectedTheme) break;
+                    i++;
+                }
+                ThemePickerCombobox.SelectedIndex = i;
                 setTheme(selectedTheme);
             }
             else
@@ -1218,22 +1225,12 @@ namespace DropStackWinUI
             {
                 await Launcher.LaunchFolderAsync(folder);
             }
-            catch { cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip.IsOpen = true; }
+            catch {  }
         }
 
         private void noPinnedFolderpathTechingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
             askForAccess("pinned");
-        }
-
-        private void cannotOpenPinnedFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            askForAccess("pinned");
-        }
-
-        private void cannotOpenRegularFolderBecauseThereIsNoneTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            askForAccess("regular");
         }
 
         private void PinnedPivotSection_DragOver(object sender, DragEventArgs e)
@@ -1968,7 +1965,8 @@ namespace DropStackWinUI
         private void ThemePickerCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as ComboBox;
-            string selectedItem = comboBox.SelectedItem.ToString();
+            var selectedComboBoxItem = comboBox.SelectedItem as ComboBoxItem;
+            string selectedItem = selectedComboBoxItem.Tag.ToString();
             setTheme(selectedItem);
             ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = selectedItem;
         }
@@ -1996,9 +1994,9 @@ namespace DropStackWinUI
 
         private async void unlockPanos(bool showNotification)
         {
-            if (!ThemePickerCombobox.Items.Contains("Panos"))
+            if (PanosThemeOption.Visibility == Visibility.Collapsed)
             {
-                ThemePickerCombobox.Items.Add("Panos");
+                PanosThemeOption.Visibility = Visibility.Visible;
 
                 if (showNotification)
                 {

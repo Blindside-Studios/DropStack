@@ -139,6 +139,7 @@ namespace DropStackWinUI
                     WindowStyleGrid.Visibility = Visibility.Visible;
                     FlyoutStyleGrid.Visibility = Visibility.Collapsed;
                     SetTitleBar(TitleBarRectangle);
+                    IsTitleBarVisible = true;
                     IsShownInSwitchers = true;
                     IsResizable = true;
                     AltLaunchNormalModeButton.Visibility = Visibility.Visible;
