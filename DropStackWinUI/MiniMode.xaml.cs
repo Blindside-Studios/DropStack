@@ -104,6 +104,12 @@ namespace DropStackWinUI
             }
         }
 
+        public string getText(string key)
+        {
+            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+            return loader.GetString(key);
+        }
+
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             adjustDarkLightMode();
@@ -294,24 +300,24 @@ namespace DropStackWinUI
                         currentFile++;
 
                         int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
-                        string generativefilesizesuffix = "B"; //default file suffix
+                        string generativefilesizesuffix = getText("FileSizeUnitsB"); //default file suffix
 
                         if (filesizecalc >= 1000 && filesizecalc < 1000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000; //convert to kb
-                            generativefilesizesuffix = "KB";
+                            generativefilesizesuffix = getText("FileSizeUnitsKB");
                         }
 
                         else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000; //convert to mb
-                            generativefilesizesuffix = "MB";
+                            generativefilesizesuffix = getText("FileSizeUnitsMB");
                         }
 
                         else if (filesizecalc >= 1000000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000000; //convert to gb
-                            generativefilesizesuffix = "GB";
+                            generativefilesizesuffix = getText("FileSizeUnitsGB");
                         }
 
                         string typeTag = "";
@@ -320,32 +326,32 @@ namespace DropStackWinUI
                         if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "docs";
-                            typeDisplayName = "Document (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeDoc") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pics";
-                            typeDisplayName = "Picture (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "music";
-                            typeDisplayName = "Music (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeMusic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "vids";
-                            typeDisplayName = "Video (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeVideo") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "apps";
-                            typeDisplayName = "Application (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeApp") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pres";
-                            typeDisplayName = "Presentation (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePresentation") + " (" + file.FileType + ")";
                         }
 
                         if (cachedItems != null)
@@ -372,7 +378,7 @@ namespace DropStackWinUI
                                     FileName = file.Name,
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
-                                    FileType = "This file is still being downloaded",
+                                    FileType = getText("FileTypeDownloadNotify"),
                                     TypeTag = typeTag,
                                     FileSize = "",
                                     FileSizeSuffix = "",
@@ -640,8 +646,8 @@ namespace DropStackWinUI
 
         private void FileCommandBar_Opening(object sender, object e)
         {
-            if (isCommandBarPinned) HideToolbarButton.Content = "Hide toolbar";
-            else HideToolbarButton.Content = "Pin toolbar";
+            if (isCommandBarPinned) HideToolbarButton.Content = getText("MiniModeHideToolbar");
+            else HideToolbarButton.Content = getText("MiniModePinToolbar");
         }
 
         private async void fileListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)

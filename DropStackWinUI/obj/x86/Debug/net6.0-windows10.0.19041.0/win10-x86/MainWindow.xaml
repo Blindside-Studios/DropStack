@@ -571,10 +571,6 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
                                             </Grid.RowDefinitions>
                                             <TextBlock x:Uid="AboutAppName" FontSize="15" Grid.Row="0" Grid.Column="0"/>
                                             <TextBlock Text="DropStack" FontSize="15" Grid.Row="0" Grid.Column="2"/>
@@ -584,8 +580,8 @@
                                             <TextBlock Text="Blindside Studios" FontSize="15" Grid.Row="2" Grid.Column="2"/>
                                             <TextBlock x:Uid="AboutCurrentVersion" FontSize="15" Grid.Row="3" Grid.Column="0"/>
                                             <TextBlock x:ConnectionId='51'                                 FontSize="15" Grid.Row="3" Grid.Column="2"/>
-                                            <TextBlock x:Uid="AboutCurrentLocalizationLanguage" FontSize="15" Grid.Row="3" Grid.Column="0"/>
-                                            <TextBlock x:Uid="AboutCurrentLocalizationTranslator" FontSize="15" Grid.Row="3" Grid.Column="2"/>
+                                            <TextBlock x:Uid="AboutCurrentLocalizationLanguage" FontSize="15" Grid.Row="4" Grid.Column="0"/>
+                                            <TextBlock x:Uid="AboutCurrentLocalizationTranslator" FontSize="15" Grid.Row="4" Grid.Column="2"/>
                                         </Grid>
                                         <TextBlock x:Uid="AboutRelatedLinksHeader" FontSize="15" Grid.Row="1" HorizontalAlignment="Left" Margin="0,10,0,0"/>
                                         <HyperlinkButton x:Uid="AboutGitHubAdvertisement" HorizontalAlignment="Left" Margin="-5,0,0,0" FontSize="15" NavigateUri="https://github.com/Blindside-Studios/DropStack" Grid.Row="2"/>

@@ -18,13 +18,13 @@
     <Grid>
         <Grid.Resources>
             <CommandBarFlyout x:ConnectionId='2' x:Name="FileCommandsFlyout">
-                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open"                               />
-                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy"                               />
-                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin"                             />
-                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" Icon="View" Label="Preview"                                       />
+                <AppBarButton x:ConnectionId='3' x:Name="FlyoutOpenButton" x:Uid="ContextMenuButtonOpen" Icon="OpenFile"                               />
+                <AppBarButton x:ConnectionId='4' x:Name="FlyoutCopyButton" x:Uid="ContextMenuButtonCopy" Icon="Copy"                               />
+                <AppBarButton x:ConnectionId='5' x:Name="FlyoutPinUnpinButton" x:Uid="ContextMenuButtonPin" Icon="Pin"                             />
+                <AppBarButton x:ConnectionId='6' x:Name="FlyoutPreviewButton" x:Uid="ContextMenuButtonPreview" Icon="View"                                       />
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder"                                 />
-                    <AppBarButton x:ConnectionId='8' x:Name="FlyoutSelectButton" Label="Enable selection mode" Icon="SelectAll"                                 />
+                    <AppBarButton x:ConnectionId='7' x:Name="FlyoutRevealButton" x:Uid="ContextMenuButtonReveal" Icon="MoveToFolder"                                 />
+                    <AppBarButton x:ConnectionId='8' x:Name="FlyoutSelectButton" x:Uid="ContextMenuButtonSelect" Icon="SelectAll"                                 />
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Grid.Resources>
@@ -33,7 +33,7 @@
             <Image x:ConnectionId='38' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
 
-        <Rectangle x:ConnectionId='10' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" Fill="Red" VerticalAlignment="Top" Height="30" Opacity="0"/>
+        <Rectangle x:ConnectionId='10' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
 
         <Grid x:ConnectionId='11' x:Name="EverythingGrid" Translation="0,20,0" Opacity="0">
             <Grid.TranslationTransition>
@@ -66,17 +66,11 @@
                        TextTrimming="CharacterEllipsis"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" Spacing="10">
                         <Rectangle Opacity="0" Height="75" Width="1"/>
-                        <Button x:ConnectionId='36' x:Name="SimpleModeMeatballMenu"                                      Background="Transparent" BorderBrush="Transparent">
+                        <Button x:ConnectionId='36' x:Uid="SimpleModeLaunchNormalModeButton" x:Name="SimpleModeMeatballMenu"                                      Background="Transparent" BorderBrush="Transparent">
                             <FontIcon Glyph="&#xE8A7;"/>
-                            <ToolTipService.ToolTip>
-                                <ToolTip Content="Open DropStack's main window for more options"/>
-                            </ToolTipService.ToolTip>
                         </Button>
-                        <Button x:ConnectionId='37' x:Name="CloseSimpleModeButton"                                     Background="Transparent" BorderBrush="Transparent">
+                        <Button x:ConnectionId='37' x:Uid="SimpleModeCloseWindowButton" x:Name="CloseSimpleModeButton"                                     Background="Transparent" BorderBrush="Transparent">
                             <FontIcon Glyph="&#xE8BB;"/>
-                            <ToolTipService.ToolTip>
-                                <ToolTip Content="Close this window"/>
-                            </ToolTipService.ToolTip>
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -91,47 +85,47 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:ConnectionId='20' x:Name="AltLaunchNormalModeButton" Visibility="Collapsed" Grid.Column="0"                                         Height="36" CornerRadius="18" ToolTipService.ToolTip="Use this button to navigate to normal mode while simple mode is active" Margin="10,0,5,0">
+                <Button x:ConnectionId='20' x:Uid="SimpleModeLaunchNormalModeButton" x:Name="AltLaunchNormalModeButton" Visibility="Collapsed" Grid.Column="0"                                         Height="36" CornerRadius="18" Margin="10,0,5,0">
                     <FontIcon Glyph="&#xE8A7;"/>
                 </Button>
                 <ScrollViewer HorizontalScrollMode="Enabled" Grid.Column="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
                     <StackPanel x:ConnectionId='21' x:Name="FilterButtonsStackPanel" Orientation="Horizontal">
-                        <ToggleButton x:ConnectionId='22' x:Name="AllFilesToggleButton"                                                                           Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True"                                                ToolTipService.ToolTip="Show all files (click again to refresh) - Ctrl+1">
+                        <ToggleButton x:ConnectionId='22' x:Uid="SimpleModeSortOptionAll" x:Name="AllFilesToggleButton"                                                                           Tag="all" Content="All" Height="36" FontSize="16" CornerRadius="18" Margin="20,0,0,0" IsChecked="True"                                               >
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number1"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='23' x:Name="PinnedFilesToggleButton"                                                                           Tag="pins" Content="Pinned" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18"                                                   ToolTipService.ToolTip="Show pinned files (click again to refresh) - Ctrl+2" AllowDrop="True"                                                                                >
+                        <ToggleButton x:ConnectionId='23' x:Uid="SimpleModeSortOptionPins" x:Name="PinnedFilesToggleButton"                                                                           Tag="pins" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18"                                                   AllowDrop="True"                                                                                >
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number2"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='24'                                                                           Tag="docs" Content="Documents" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Only show documents - Ctrl+3">
+                        <ToggleButton x:ConnectionId='24' x:Uid="SimpleModeSortOptionDocs"                                                                           Tag="docs" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number3"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='25'                                                                           Tag="pics" Content="Pictures" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only images - Ctrl+4">
+                        <ToggleButton x:ConnectionId='25' x:Uid="SimpleModeSortOptionPics"                                                                           Tag="pics" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number4"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='26'                                                                           Tag="music" Content="Music" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Music - Ctrl+5">
+                        <ToggleButton x:ConnectionId='26' x:Uid="SimpleModeSortOptionMusic"                                                                           Tag="music" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number5"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='27'                                                                           Tag="vids" Content="Videos" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only Videos - Ctrl+6">
+                        <ToggleButton x:ConnectionId='27' x:Uid="SimpleModeSortOptionVideos"                                                                           Tag="vids" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number6"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='28'                                                                           Tag="apps" Content="Applications" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18" ToolTipService.ToolTip="Show only executables - Ctrl+7">
+                        <ToggleButton x:ConnectionId='28' x:Uid="SimpleModeSortOptionApps"                                                                           Tag="apps" Margin="10,0,0,0" Height="36" FontSize="16" CornerRadius="18">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number7"/>
                             </ToggleButton.KeyboardAccelerators>
                         </ToggleButton>
-                        <ToggleButton x:ConnectionId='29'                                                                           Tag="pres" Content="Presentations" Height="36" FontSize="16" CornerRadius="18" Margin="10,0,20,0" ToolTipService.ToolTip="Show only presentations - Ctrl+8">
+                        <ToggleButton x:ConnectionId='29' x:Uid="SimpleModeSortOptionPresentations"                                                                           Tag="pres" Height="36" FontSize="16" CornerRadius="18" Margin="10,0,20,0">
                             <ToggleButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="Number8"/>
                             </ToggleButton.KeyboardAccelerators>
@@ -201,11 +195,9 @@
             </ListView>
 
             <TeachingTip x:ConnectionId='15' x:Name="SomethingWentWrongTeachingTip"
+                         x:Uid="SimpleModeSomethingWentWrong"
                      PreferredPlacement="Center"
-                     Title="Oops, something went wrong!"
-                     Subtitle="Please visit normal view. If the issue persists, please submit feedback by creating an issue on GitHub."
                      IsOpen="False"
-                     ActionButtonContent="Visit normal mode..."
                                                                       />
         </Grid>
     </Grid>

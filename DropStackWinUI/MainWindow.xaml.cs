@@ -41,6 +41,8 @@ using Microsoft.Windows.AppNotifications;
 using WinUIEx.Messaging;
 using Microsoft.VisualBasic;
 using Windows.Devices.Input;
+using Microsoft.Windows.ApplicationModel.Resources;
+using Windows.ApplicationModel.Resources;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -215,17 +217,16 @@ namespace DropStackWinUI
             FileCommandBar.Focus(FocusState.Programmatic);
         }
 
+        public string getText(string key)
+        {
+            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+            return loader.GetString(key);
+        }
+
         private void adjustDarkLightMode()
         {
-            // Get the current UI settings
-            var uiSettings = new UISettings();
-
-            // Get the background and foreground colors
-            var background = uiSettings.GetColorValue(UIColorType.Background);
-            var foreground = uiSettings.GetColorValue(UIColorType.Foreground);
-
-            // Check if the background is darker than the foreground
-            bool isDarkMode = background.R + background.G + background.B < foreground.R + foreground.G + foreground.B;
+            var currentTheme = Application.Current.RequestedTheme;
+            bool isDarkMode = currentTheme == ApplicationTheme.Dark;
 
             if (isDarkMode)
             {
@@ -417,7 +418,7 @@ namespace DropStackWinUI
             }
             else
             {
-                PrimaryPortalFolderChangeButton.Content = "Set New...";
+                PrimaryPortalFolderChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showPrimPortal = false;
                 PrimLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
@@ -431,7 +432,7 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder1ChangeButton.Content = "Set New...";
+                SecondaryPortalFolder1ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal1 = false;
                 Sec1LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -446,7 +447,7 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder2ChangeButton.Content = "Set New...";
+                SecondaryPortalFolder2ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal2 = false;
                 Sec2LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -461,7 +462,7 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder3ChangeButton.Content = "Set New...";
+                SecondaryPortalFolder3ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal3 = false;
                 Sec3LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -476,7 +477,7 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder4ChangeButton.Content = "Set New...";
+                SecondaryPortalFolder4ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal4 = false;
                 Sec4LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -491,7 +492,7 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder5ChangeButton.Content = "Set New...";
+                SecondaryPortalFolder5ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal5 = false;
                 Sec5LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -737,24 +738,24 @@ namespace DropStackWinUI
                         currentFile++;
 
                         int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
-                        string generativefilesizesuffix = "B"; //default file suffix
+                        string generativefilesizesuffix = getText("FileSizeUnitsB"); //default file suffix
 
                         if (filesizecalc >= 1000 && filesizecalc < 1000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000; //convert to kb
-                            generativefilesizesuffix = "KB";
+                            generativefilesizesuffix = getText("FileSizeUnitsKB");
                         }
 
                         else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000; //convert to mb
-                            generativefilesizesuffix = "MB";
+                            generativefilesizesuffix = getText("FileSizeUnitsMB");
                         }
 
                         else if (filesizecalc >= 1000000000)
                         {
                             filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000000; //convert to gb
-                            generativefilesizesuffix = "GB";
+                            generativefilesizesuffix = getText("FileSizeUnitsGB");
                         }
 
                         string typeTag = "";
@@ -763,32 +764,32 @@ namespace DropStackWinUI
                         if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "docs";
-                            typeDisplayName = "Document (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeDoc") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pics";
-                            typeDisplayName = "Picture (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "music";
-                            typeDisplayName = "Music (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeMusic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "vids";
-                            typeDisplayName = "Video (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeVideo") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "apps";
-                            typeDisplayName = "Application (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeApp") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pres";
-                            typeDisplayName = "Presentation (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePresentation") + " (" + file.FileType + ")";
                         }
 
                         if (cachedItems != null)
@@ -815,7 +816,7 @@ namespace DropStackWinUI
                                     FileName = file.Name,
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
-                                    FileType = "This file is still being downloaded",
+                                    FileType = getText("FileTypeDownloadNotify"),
                                     TypeTag = typeTag,
                                     FileSize = "",
                                     FileSizeSuffix = "",
@@ -1239,12 +1240,12 @@ namespace DropStackWinUI
             if (isWindowsHelloRequiredForPins && !PinnedFilesExpander.IsExpanded)
             {
                 e.AcceptedOperation = DataPackageOperation.None;
-                e.DragUIOverride.Caption = "Cannot save to pins since they are locked through Windows Hello";
+                e.DragUIOverride.Caption = getText("PinnedFilesDragOverLocked");
             }
             else
             {
                 e.AcceptedOperation = DataPackageOperation.Copy;
-                e.DragUIOverride.Caption = "Drop to add to pinned files";
+                e.DragUIOverride.Caption = getText("PinnedFilesDragOverAvailable");
             }
         }
 
@@ -1764,7 +1765,7 @@ namespace DropStackWinUI
                 pinnedFileGrid.Visibility = Visibility.Collapsed;
                 WinHelloProgressRing.IsActive = true;
                 WinHelloWaitingIndicator.Visibility = Visibility.Visible;
-                bool isVerified = await VerifyUserWithWindowsHelloAsync("You need to verify with Windows Hello™️ to access your pinned files.");
+                bool isVerified = await VerifyUserWithWindowsHelloAsync(getText("PinnedFilesVerifyRequest"));
 
                 if (isVerified)
                 {
@@ -1829,7 +1830,7 @@ namespace DropStackWinUI
 
         private async void EnableAllOptionsForPinsButton_Click(object sender, RoutedEventArgs e)
         {
-            bool isVerified = await VerifyUserWithWindowsHelloAsync("You need to verify with Windows Hello™️ to access your pinned files.");
+            bool isVerified = await VerifyUserWithWindowsHelloAsync(getText("SettingsPinsEnableOptionsAuthRequest"));
             if (isVerified) setPinBarOptionVisibility(true);
         }
 
@@ -2016,7 +2017,7 @@ namespace DropStackWinUI
 
         private void panosUnlockedTeachingTip_ActionButtonClick(TeachingTip sender, object args)
         {
-            ThemePickerCombobox.SelectedItem = "Panos";
+            ThemePickerCombobox.SelectedIndex = ThemePickerCombobox.Items.Count - 1;
             setTheme("Panos");
         }
 
@@ -2762,8 +2763,8 @@ namespace DropStackWinUI
                     var xmlPayload = new string($@"<toast>
                         <visual>
                             <binding template=""ToastGeneric"">
-                                <text>{"Copy failed"}</text>
-                                <text>{"Windows refused to grant permission to the clipboard."}</text>
+                                <text>{getText("CopyToClipboardFailedTitle")}</text>
+                                <text>{getText("CopyToClipboardFailedDescription")}</text>
                             </binding>
                         </visual>
                     </toast>");

@@ -165,7 +165,7 @@
   <data name="AboutAppName.Text" xml:space="preserve">
     <value>App name:</value>
   </data>
-  <data name="AboutAttribuationsExpander.Header" xml:space="preserve">
+  <data name="AboutAttributionsExpander.Header" xml:space="preserve">
     <value>Attributions</value>
     <comment>Attributions to Open Source libraries - legal stuff, which is why it will not be translated</comment>
   </data>
@@ -541,5 +541,155 @@
   </data>
   <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
     <value>Enables normal windowing in simple mode</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.Label" xml:space="preserve">
+    <value>Recent</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Copy the most recent file from your Portal folder</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.Label" xml:space="preserve">
+    <value>Hide toolbar</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Hides the toolbar to maximise screen space - you can always hover over the pill to get it back.</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.Label" xml:space="preserve">
+    <value>Make default</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Make simple mode default</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.Label" xml:space="preserve">
+    <value>Return...</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Return to normal mode...</value>
+  </data>
+  <data name="ContextMenuButtonPin.Label" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="CopyToClipboardFailedDescription" xml:space="preserve">
+    <value>Windows refused to grant permission to the clipboard.</value>
+  </data>
+  <data name="CopyToClipboardFailedTitle" xml:space="preserve">
+    <value>Copy failed</value>
+  </data>
+  <data name="FileSizeUnitsB" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="FileSizeUnitsGB" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="FileSizeUnitsKB" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="FileSizeUnitsMB" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="FileTypeApp" xml:space="preserve">
+    <value>App</value>
+  </data>
+  <data name="FileTypeDoc" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="FileTypeDownloadNotify" xml:space="preserve">
+    <value>This file is still being downloaded</value>
+  </data>
+  <data name="FileTypeMusic" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="FileTypePic" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="FileTypePresentation" xml:space="preserve">
+    <value>Presentation</value>
+  </data>
+  <data name="FileTypeVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MiniModeHideToolbar" xml:space="preserve">
+    <value>Hide toolbar</value>
+  </data>
+  <data name="MiniModePinToolbar" xml:space="preserve">
+    <value>Pin toolbar</value>
+  </data>
+  <data name="PinnedFilesDragOverAvailable" xml:space="preserve">
+    <value>Drop to add to pinned files</value>
+  </data>
+  <data name="PinnedFilesDragOverLocked" xml:space="preserve">
+    <value>Cannot save to pins since they are locked through Windows Hello™️</value>
+  </data>
+  <data name="PinnedFilesSimpleModeDisabled" xml:space="preserve">
+    <value>You cannot see pinned files as Winows Hello is currently active. Please switch to normal view to unlock pinned files.</value>
+  </data>
+  <data name="PinnedFilesVerifyRequest" xml:space="preserve">
+    <value>You need to verify with Windows Hello™️ to access your pinned files.</value>
+  </data>
+  <data name="SettingsPinsEnableOptionsAuthRequest" xml:space="preserve">
+    <value>You need to verify with Windows Hello™️ to unlock these options.</value>
+  </data>
+  <data name="SimpleModeCloseWindowButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Close this window</value>
+  </data>
+  <data name="SimpleModeLaunchNormalModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Open DropStack's main window for more options</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.ActionButtonContent" xml:space="preserve">
+    <value>Visit normal mode...</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Subtitle" xml:space="preserve">
+    <value>Please visit normal view. If the issue persists, please submit feedback by creating an issue on GitHub.</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Title" xml:space="preserve">
+    <value>Oops, something went wrong!</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.Content" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show all files (click again to refresh) - Ctrl+1</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.Content" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only executables - Ctrl+7</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.Content" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Only show documents - Ctrl+3</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.Content" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only music - Ctrl+5</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.Content" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only pictures - Ctrl+4</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.Content" xml:space="preserve">
+    <value>Pinned</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show pinned files (click again to refresh) - Ctrl+2</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.Content" xml:space="preserve">
+    <value>Presentations</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only presentations - Ctrl+8</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.Content" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only videos - Ctrl+6</value>
   </data>
 </root>

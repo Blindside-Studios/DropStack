@@ -16,13 +16,13 @@
 
     <Grid>
         <Grid.Resources>
-            <CommandBarFlyout x:Name="FileCommandsFlyout" AlwaysExpanded="False" ShowMode="Transient">
-                <AppBarButton x:Name="FlyoutOpenButton" Icon="OpenFile" Label="Open" Click="FlyoutOpenButton_Click"/>
-                <AppBarButton x:Name="FlyoutCopyButton" Icon="Copy" Label="Copy" Click="FlyoutCopyButton_Click"/>
-                <AppBarButton x:Name="FlyoutPinUnpinButton" Icon="Pin" Label="Pin" Click="PinUnpinButton_Click"/>
-                <AppBarButton x:Name="FlyoutPreviewButton" Icon="View" Label="Preview" Click="DetailsPanePreviewButton_Click"/>
+            <CommandBarFlyout x:Name="FileCommandsFlyout">
+                <AppBarButton x:Name="FlyoutOpenButton" x:Uid="ContextMenuButtonOpen" Icon="OpenFile" Click="FlyoutOpenButton_Click"/>
+                <AppBarButton x:Name="FlyoutCopyButton" x:Uid="ContextMenuButtonCopy" Icon="Copy" Click="FlyoutCopyButton_Click"/>
+                <AppBarButton x:Name="FlyoutPinUnpinButton" x:Uid="ContextMenuButtonPin" Icon="Pin" Click="PinUnpinButton_Click"/>
+                <AppBarButton x:Name="FlyoutPreviewButton" x:Uid="ContextMenuButtonPreview" Icon="View" Click="DetailsPanePreviewButton_Click"/>
                 <CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:Name="FlyoutRevealButton" Label="Reveal file in Explorer" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
+                    <AppBarButton x:Name="FlyoutRevealButton" x:Uid="ContextMenuButtonReveal" Icon="MoveToFolder" Click="FlyoutRevealButton_Click"/>
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Grid.Resources>
@@ -34,7 +34,7 @@
 
         <Grid x:Name="TitleBarGrid" Grid.Row="0">
             <Rectangle x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
-            <TextBlock x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0">
+            <TextBlock x:Uid="TitleBar" x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0">
                 <TextBlock.OpacityTransition>
                     <ScalarTransition/>
                 </TextBlock.OpacityTransition>
@@ -117,32 +117,32 @@
                 <CommandBar.OpacityTransition>
                     <ScalarTransition/>
                 </CommandBar.OpacityTransition>
-                <AppBarButton x:Name="CopyRecentFileButton" Icon="Copy" Label="Recent" ToolTipService.ToolTip="Copies your most recent file from your Portal folder" Click="CopyRecentFileButton_Click">
+                <AppBarButton x:Uid="CommandBarMiniModeCopyNewestButton" x:Name="CopyRecentFileButton" Icon="Copy" Click="CopyRecentFileButton_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
+                <AppBarButton x:Uid="CommandBarRefreshButton" x:Name="RefreshButton" Icon="Refresh" Click="RefreshButton_Click">
                     <ToolTip Content="Refresh this list (Ctrl+R)"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="R" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton x:Name="RevealInExplorerButton" Icon="MoveToFolder" Label="Reveal" ToolTipService.ToolTip="Reveal the primary folder in File Explorer" Click="RevealInExplorerButton_Click">
+                    <AppBarButton x:Uid="CommandBarRevealButton" x:Name="RevealInExplorerButton" Icon="MoveToFolder" Click="RevealInExplorerButton_Click">
                         <ToolTip Content="Reveal in File Explorer"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="HideToolbarButton" Icon="DockBottom" Label="Hide toolbar" ToolTipService.ToolTip="Hides the toolbar to maximise screen space - you can always hover over the pill to get it back." Click="HideToolbarButton_Click">
+                    <AppBarButton x:Uid="CommandBarMiniModeHideToolbarButton" x:Name="HideToolbarButton" Icon="DockBottom" Click="HideToolbarButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="T"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="MakeSimpleDefaultButton" Icon="Favorite" Label="Make default" ToolTipService.ToolTip="Make simple mode default" Click="MakeSimpleDefaultButton_Click"/>
+                    <AppBarButton x:Uid="CommandBarMiniModeMakeMiniDefault" x:Name="MakeSimpleDefaultButton" Icon="Favorite" Click="MakeSimpleDefaultButton_Click"/>
                     <AppBarSeparator/>
-                    <AppBarButton x:Name="CloseSimpleModeButton" Icon="ClosePane" Label="Return..." Click="LoadMoreFromSimpleViewButton_Click" ToolTipService.ToolTip="Return to normal mode...">
+                    <AppBarButton x:Uid="CommandBarMiniModeReturn" x:Name="CloseSimpleModeButton" Icon="ClosePane" Click="LoadMoreFromSimpleViewButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="M" />
                         </AppBarButton.KeyboardAccelerators>

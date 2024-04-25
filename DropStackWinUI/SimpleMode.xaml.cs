@@ -117,6 +117,12 @@ namespace DropStackWinUI
             EverythingGrid.Opacity = 1;
         }
 
+        public string getText(string key)
+        {
+            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+            return loader.GetString(key);
+        }
+
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             if (e.WindowActivationState == WindowActivationState.Deactivated)
@@ -209,7 +215,7 @@ namespace DropStackWinUI
             {
                 PinnedFilesToggleButton.IsEnabled = false;
                 ToolTip toolTip = new ToolTip();
-                toolTip.Content = "You cannot see pinned files as Winows Hello is currently active. Please switch to normal view to unlock pinned files.";
+                toolTip.Content = getText("PinnedFilesSimpleModeDisabled");
                 ToolTipService.SetToolTip(PinnedFilesToggleButton, toolTip);
             }
             else if (isPinsHidden) PinnedFilesToggleButton.Visibility = Visibility.Collapsed;
@@ -321,35 +327,25 @@ namespace DropStackWinUI
                         }
                         currentFile++;
 
-                        double filesizecalc = Convert.ToDouble(basicProperties.Size); //size in byte
-                        string generativefilesizesuffix = "B"; //default file suffix
+                        int filesizecalc = Convert.ToInt32(basicProperties.Size); //size in byte
+                        string generativefilesizesuffix = getText("FileSizeUnitsB"); //default file suffix
 
                         if (filesizecalc >= 1000 && filesizecalc < 1000000)
                         {
-                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000; //convert to kb
-                            filesizecalc = Math.Round(filesizecalc, 0);
-                            generativefilesizesuffix = "KB";
+                            filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000; //convert to kb
+                            generativefilesizesuffix = getText("FileSizeUnitsKB");
                         }
 
                         else if (filesizecalc >= 1000000 && filesizecalc < 1000000000)
                         {
-                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000; //convert to mb
-                            filesizecalc = Math.Round(filesizecalc, 1);
-                            generativefilesizesuffix = "MB";
+                            filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000; //convert to mb
+                            generativefilesizesuffix = getText("FileSizeUnitsMB");
                         }
 
                         else if (filesizecalc >= 1000000000)
                         {
-                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000; //convert to gb
-                            filesizecalc = Math.Round(filesizecalc, 2);
-                            generativefilesizesuffix = "GB";
-                        }
-
-                        else if (filesizecalc >= 1000000000000)
-                        {
-                            filesizecalc = Convert.ToDouble(basicProperties.Size) / 1000000000000; //convert to gb
-                            filesizecalc = Math.Round(filesizecalc, 3);
-                            generativefilesizesuffix = "TB";
+                            filesizecalc = Convert.ToInt32(basicProperties.Size) / 1000000000; //convert to gb
+                            generativefilesizesuffix = getText("FileSizeUnitsGB");
                         }
 
                         string typeTag = "";
@@ -358,32 +354,32 @@ namespace DropStackWinUI
                         if (FileTags.DocumentFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "docs";
-                            typeDisplayName = "Document (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeDoc") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PictureFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pics";
-                            typeDisplayName = "Picture (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.MusicFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "music";
-                            typeDisplayName = "Music (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeMusic") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.VideoFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "vids";
-                            typeDisplayName = "Video (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeVideo") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.ApplicationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "apps";
-                            typeDisplayName = "Application (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypeApp") + " (" + file.FileType + ")";
                         }
                         else if (FileTags.PresentationFileTypes.Contains(file.FileType.ToLower()))
                         {
                             typeTag = "pres";
-                            typeDisplayName = "Presentation (" + file.FileType + ")";
+                            typeDisplayName = getText("FileTypePresentation") + " (" + file.FileType + ")";
                         }
 
                         if (cachedItems != null)
@@ -410,7 +406,7 @@ namespace DropStackWinUI
                                     FileName = file.Name,
                                     FileDisplayName = file.DisplayName,
                                     FilePath = file.Path,
-                                    FileType = "This file is still being downloaded",
+                                    FileType = getText("FileTypeDownloadNotify"),
                                     TypeTag = typeTag,
                                     FileSize = "",
                                     FileSizeSuffix = "",
@@ -773,7 +769,7 @@ namespace DropStackWinUI
         private void PinnedFilesToggleButton_DragOver(object sender, DragEventArgs e)
         {
             e.AcceptedOperation = DataPackageOperation.Copy;
-            e.DragUIOverride.Caption = "Drop to add to pinned files";
+            e.DragUIOverride.Caption = getText("PinnedFilesDragOverAvailable");
         }
 
         private async void PinnedFilesToggleButton_Drop(object sender, DragEventArgs e)
