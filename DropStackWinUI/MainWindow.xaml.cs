@@ -1425,17 +1425,21 @@ namespace DropStackWinUI
 
         private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (SearchTextBox.Text.Length == 0)
-            {
-                regularFileListView.ItemsSource = fileMetadataListCopy;
-                pinnedFileListView.ItemsSource = pinnedFileMetadataListCopy;
-            }
+            if (SearchTextBox.Text == "Window.Debug.Width") SearchTextBox.Text = WindowMain.Width.ToString();
             else
             {
-                // store search and check later if it still matches up
-                string searchTerm = SearchTextBox.Text;
-                await Task.Delay(200);
-                if (searchTerm == SearchTextBox.Text) filterListView(SearchTextBox.Text);
+                if (SearchTextBox.Text.Length == 0)
+                {
+                    regularFileListView.ItemsSource = fileMetadataListCopy;
+                    pinnedFileListView.ItemsSource = pinnedFileMetadataListCopy;
+                }
+                else
+                {
+                    // store search and check later if it still matches up
+                    string searchTerm = SearchTextBox.Text;
+                    await Task.Delay(200);
+                    if (searchTerm == SearchTextBox.Text) filterListView(SearchTextBox.Text);
+                }
             }
         }
 
@@ -2065,12 +2069,12 @@ namespace DropStackWinUI
                 if (source == "regular")
                 {
                     StorageFile file = await localFolder.CreateFileAsync("cachedfiles.xml", CreationCollisionOption.ReplaceExisting);
-                    await FileIO.WriteTextAsync(file, xmlContent);
+                    try { await FileIO.WriteTextAsync(file, xmlContent); } catch { }
                 }
                 else if (source == "pinned")
                 {
                     StorageFile file = await localFolder.CreateFileAsync("cachedpins.xml", CreationCollisionOption.ReplaceExisting);
-                    await FileIO.WriteTextAsync(file, xmlContent);
+                    try { await FileIO.WriteTextAsync(file, xmlContent); } catch { }
                 }
             }
         }

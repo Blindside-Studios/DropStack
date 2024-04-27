@@ -692,4 +692,12 @@
   <data name="SimpleModeSortOptionVideos.ToolTipService.ToolTip" xml:space="preserve">
     <value>Show only videos - Ctrl+6</value>
   </data>
+  <data name="WindowMain.MinWidth" xml:space="preserve">
+    <value>500</value>
+    <comment>Minimum window width - set by the developer</comment>
+  </data>
+  <data name="WindowMain.Width" xml:space="preserve">
+    <value>500</value>
+    <comment>Window launch width - set by the developer</comment>
+  </data>
 </root>
