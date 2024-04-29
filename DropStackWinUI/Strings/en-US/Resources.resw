@@ -558,7 +558,7 @@
     <value>Make default</value>
   </data>
   <data name="CommandBarMiniModeMakeMiniDefault.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Make simple mode default</value>
+    <value>Make mini mode default</value>
   </data>
   <data name="CommandBarMiniModeReturn.Label" xml:space="preserve">
     <value>Return...</value>
@@ -610,6 +610,7 @@
   </data>
   <data name="MiniModeHideToolbar" xml:space="preserve">
     <value>Hide toolbar</value>
+    <comment>This should be the same text as CommandBarMiniModeHideToolbarButton.Label</comment>
   </data>
   <data name="MiniModePinToolbar" xml:space="preserve">
     <value>Pin toolbar</value>

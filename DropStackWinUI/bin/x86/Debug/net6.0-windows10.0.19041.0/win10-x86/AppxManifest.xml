@@ -21,6 +21,7 @@
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="DE-DE" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="DropStackWinUI.exe" EntryPoint="Windows.FullTrustApplication">
