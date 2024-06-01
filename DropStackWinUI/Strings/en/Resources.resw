@@ -701,7 +701,4 @@
     <value>500</value>
     <comment>Window launch width - set by the developer</comment>
   </data>
-  <data name="xRTL" xml:space="preserve">
-    <value>true</value>
-  </data>
 </root>

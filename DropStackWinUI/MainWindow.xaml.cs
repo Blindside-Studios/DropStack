@@ -198,7 +198,7 @@ namespace DropStackWinUI
             this.Activated += OnWindowActivated;
 
             if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
-            Debug.WriteLine(getText("xRTL"));
+            DetailsPaneVideoPlayer.FlowDirection = FlowDirection.LeftToRight;
 
             if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken))
             {
@@ -2265,6 +2265,7 @@ namespace DropStackWinUI
                 var icon = new FontIcon();
                 icon.Glyph = "\uE768";
                 DetailsPanePlayButton.Icon = icon;
+                pausedMusic = false;
                 DetailsPaneVideoPlayer.SetMediaPlayer(null);
 
                 DetailsPaneFileThumbnail.CenterPoint = new Vector3(
@@ -2353,6 +2354,7 @@ namespace DropStackWinUI
         }
 
         MediaPlayer mediaPlayer = new MediaPlayer();
+        private bool pausedMusic = false;
         private async void DetailsPanePlayButton_Click(object sender, RoutedEventArgs e)
         {
             StorageFile file = await StorageFile.GetFileFromPathAsync(previewedItem.FilePath);
@@ -2360,7 +2362,7 @@ namespace DropStackWinUI
 
             if (previewedItem.TypeTag == "vids" || previewedItem.TypeTag == "music")
             {
-                if (DetailsPaneVideoPlayer.Visibility == Visibility.Collapsed)
+                if (DetailsPaneVideoPlayer.Visibility == Visibility.Collapsed && mediaPlayer.PlaybackSession.PlaybackState != MediaPlaybackState.Playing && !pausedMusic)
                 {
                     if (previewedItem.TypeTag == "vids")
                     {
@@ -2368,12 +2370,16 @@ namespace DropStackWinUI
                         DetailsPaneVideoPlayer.Visibility = Visibility.Visible;
                     }
 
-                    mediaPlayer.Source = MediaSource.CreateFromStream(stream, file.ContentType);
-                    if (previewedItem.TypeTag == "vids") DetailsPaneVideoPlayer.SetMediaPlayer(mediaPlayer);
-                    mediaPlayer.Play();
-                    var icon = new FontIcon();
-                    icon.Glyph = "\uE769";
-                    DetailsPanePlayButton.Icon = icon;
+                    var mediaSource = MediaSource.CreateFromStream(stream, file.ContentType);
+                    if (mediaPlayer.Source != mediaSource)
+                    {
+                        mediaPlayer.Source = mediaSource;
+                        if (previewedItem.TypeTag == "vids") DetailsPaneVideoPlayer.SetMediaPlayer(mediaPlayer);
+                        mediaPlayer.Play();
+                        var icon = new FontIcon();
+                        icon.Glyph = "\uE769";
+                        DetailsPanePlayButton.Icon = icon;
+                    }
                 }
                 else
                 {
@@ -2383,6 +2389,8 @@ namespace DropStackWinUI
                         var icon = new FontIcon();
                         icon.Glyph = "\uE768";
                         DetailsPanePlayButton.Icon = icon;
+                        pausedMusic = true;
+
                     }
                     else if (mediaPlayer.PlaybackSession.PlaybackState == MediaPlaybackState.Paused)
                     {
@@ -2390,6 +2398,7 @@ namespace DropStackWinUI
                         var icon = new FontIcon();
                         icon.Glyph = "\uE769";
                         DetailsPanePlayButton.Icon = icon;
+                        pausedMusic = false;
                     }
                 }
             }
@@ -2568,7 +2577,12 @@ namespace DropStackWinUI
                 newHeight = 500;
             }
 
-            if (newHeight == 320) WindowGrid.Opacity = 1;
+            if (newHeight == 320)
+            {
+                WindowGrid.Opacity = 1;
+                mediaPlayer.Pause();
+                pausedMusic = false;
+            }
 
             animateDetailsPane(newHeight);
         }
@@ -2591,6 +2605,8 @@ namespace DropStackWinUI
             }
             else
             {
+                pausedMusic = false;
+                mediaPlayer.Pause();
                 animateDetailsPane(320);
                 WindowGrid.Opacity = 1;
             }
@@ -2616,6 +2632,8 @@ namespace DropStackWinUI
         private void DismissDetailsSheetButton_Click(object sender, RoutedEventArgs e)
         {
             showOrHideDetailsPane(false);
+            pausedMusic = false;
+            mediaPlayer.Pause();
         }
 
         private async void regularFileListView_Tapped(object sender, TappedRoutedEventArgs e)
