@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TitleBar.Text" xml:space="preserve">
+    <value>DropStack</value>
+  </data>
+  <data name="ContextMenuButtonCopy.Label" xml:space="preserve">
+    <value>Kopiér</value>
+  </data>
+  <data name="ContextMenuButtonDelete.Label" xml:space="preserve">
+    <value>Slet denne fil</value>
+  </data>
+  <data name="ContextMenuButtonOpen.Label" xml:space="preserve">
+    <value>Åbn</value>
+  </data>
+  <data name="ContextMenuButtonOpenWith.Label" xml:space="preserve">
+    <value>Åbn med...</value>
+  </data>
+  <data name="ContextMenuButtonPreview.Label" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ContextMenuButtonReveal.Label" xml:space="preserve">
+    <value>Vis filen I Stifinder</value>
+  </data>
+  <data name="ContextMenuButtonRotate.Label" xml:space="preserve">
+    <value>Rotere</value>
+  </data>
+  <data name="ContextMenuButtonSelect.Label" xml:space="preserve">
+    <value>Aktiver valgtilstand</value>
+  </data>
+  <data name="NoPinnedFiles.Text" xml:space="preserve">
+    <value>Du har ingen fastgjorte filer. Bare træk nogle hertil</value>
+  </data>
+  <data name="NoPinnedFolder.Text" xml:space="preserve">
+    <value>Du har ikke angivet nogen fastgjort mappe, så du kan ikke fastgøre filer lige nu.</value>
+  </data>
+  <data name="PinnedFilesExpander.Header" xml:space="preserve">
+    <value>Fastgjorte filer</value>
+  </data>
+  <data name="RemovePinnedFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Dette sletter den fastgjorte fil fra DropStack's mappe med fastgjorte filer. Filen vil stadig være tilgængelig, forudsat at du har opbevaret den et sted.</value>
+  </data>
+  <data name="SetPinnedFolderHyperlink.Content" xml:space="preserve">
+    <value>Tryk her til at tilføje en...</value>
+  </data>
+  <data name="WaitingForWindowsHelloAuth.Text" xml:space="preserve">
+    <value>Venter på Windows Hello™️ godkendelse...</value>
+  </data>
+  <data name="AboutAppName.Text" xml:space="preserve">
+    <value>App navn:</value>
+  </data>
+  <data name="AboutAttributionsExpander.Header" xml:space="preserve">
+    <value>Tak til</value>
+    <comment>Attributions to Open Source libraries - legal stuff, which is why it will not be translated</comment>
+  </data>
+  <data name="AboutCheckUpdates.Content" xml:space="preserve">
+    <value>Tjek for opdateringer på udgivelsessiden</value>
+  </data>
+  <data name="AboutCurrentLocalizationLanguage.Text" xml:space="preserve">
+    <value>Dansk lokalisering af:</value>
+    <comment>Replace with localized language name</comment>
+  </data>
+  <data name="AboutCurrentLocalizationTranslator.Text" xml:space="preserve">
+    <value>FireCubeStudios</value>
+    <comment>Replace with translator name</comment>
+  </data>
+  <data name="AboutCurrentVersion.Text" xml:space="preserve">
+    <value>Current version:</value>
+  </data>
+  <data name="AboutDeveloperName.Text" xml:space="preserve">
+    <value>Udviklet af:</value>
+  </data>
+  <data name="AboutGitHubAdvertisement.Content" xml:space="preserve">
+    <value>Se vores GitHub side</value>
+  </data>
+  <data name="AboutPrivacyStatementExpander.Header" xml:space="preserve">
+    <value>Erklæring om beskyttelse af personlige oplysninger I engelsk:</value>
+    <comment>Actual privacy statement will not be translated. '(English)' may be added for localizations in different languages to convey this.</comment>
+  </data>
+  <data name="AboutPublisherName.Text" xml:space="preserve">
+    <value>Publiceret af:</value>
+  </data>
+  <data name="AboutRelatedLinksHeader.Text" xml:space="preserve">
+    <value>Relaterede links:</value>
+  </data>
+  <data name="AboutSubmitFeedback.Content" xml:space="preserve">
+    <value>Send feedback ved at åbne en GitHub issue</value>
+  </data>
+  <data name="CommandBarCopyButton.Label" xml:space="preserve">
+    <value>Kopiér</value>
+  </data>
+  <data name="CommandBarCopyButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Copy the last selected file (Ctrl+C)</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.Label" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Start Mini tilstand... (Ctrl+M)</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.Label" xml:space="preserve">
+    <value>Simpel</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Start Simpel tilstand... (Ctrl+S)</value>
+  </data>
+  <data name="CommandBarRefreshButton.Label" xml:space="preserve">
+    <value>Opdater</value>
+  </data>
+  <data name="CommandBarRefreshButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Opdatere denne liste (Ctrl+R)</value>
+  </data>
+  <data name="CommandBarRevealButton.Label" xml:space="preserve">
+    <value>Vis...</value>
+  </data>
+  <data name="CommandBarRevealButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vis portalmappen I Stifinder (Ctrl+E)</value>
+  </data>
+  <data name="CommandBarSearchButton.Label" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="CommandBarSearchButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Søg denne liste (Ctrl+F)</value>
+  </data>
+  <data name="CommandBarSelectButton.Label" xml:space="preserve">
+    <value>Vælg</value>
+  </data>
+  <data name="CommandBarSelectButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aktiver/deaktiver valgtilstand (Ctrl+Q)</value>
+  </data>
+  <data name="CommandBarSettingsButton.Label" xml:space="preserve">
+    <value>Indstillinger og Om</value>
+  </data>
+  <data name="CopiedSuccessfully.Subtitle" xml:space="preserve">
+    <value>Filen er nu i din udklipsholder.</value>
+  </data>
+  <data name="CopiedSuccessfully.Title" xml:space="preserve">
+    <value>Kopiéret</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmation.Text" xml:space="preserve">
+    <value>Vil du slette denne fil?</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmationButton.Content" xml:space="preserve">
+    <value>Ja, slet det!</value>
+  </data>
+  <data name="DragFailed.Subtitle" xml:space="preserve">
+    <value>Er du sikker på, at denne fil stadig eksistere? Prøv at opdatere.</value>
+  </data>
+  <data name="DragFailed.Title" xml:space="preserve">
+    <value>Træk fejl!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.ActionButtonContent" xml:space="preserve">
+    <value>Anvend tema nu!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Subtitle" xml:space="preserve">
+    <value>Læsning af erklæring om beskyttelse af personlige oplysninger låser op en ekslusive påskeæg tema! Tilykke!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Title" xml:space="preserve">
+    <value>Skjult tema låst op!</value>
+  </data>
+  <data name="NoFolder.ActionButtonContent" xml:space="preserve">
+    <value>Vælg mappe...</value>
+  </data>
+  <data name="NoFolder.Subtitle" xml:space="preserve">
+    <value>For at fungere efter hensigten skal appen have adgang til en destinationsmappe. Den er designet til at fungere bedst til Overførsler mappen, så vi anbefaler, at du klikker på 'Vælg mappe...' og vælger mappen 'Overførsler' fra sidebjælken.</value>
+  </data>
+  <data name="NoFolder.Title" xml:space="preserve">
+    <value>Vælg en mappe...</value>
+  </data>
+  <data name="NoPinnedFolderPath.ActionButtonContent" xml:space="preserve">
+    <value>Vælg mappe...</value>
+  </data>
+  <data name="NoPinnedFolderPath.Subtitle" xml:space="preserve">
+    <value>Vi gemmer fastgjorte filer ved at kopiere dem til en brugerdefineret mappe, så du endda kan slette filer fra deres oprindelse, og de vil stadig være her. Men indtil videre er der ikke angivet nogen mappe til fastgørelse. Vælg venligst en nedenfor.</value>
+  </data>
+  <data name="NoPinnedFolderPath.Title" xml:space="preserve">
+    <value>Vælg en fastgjort mappe...</value>
+  </data>
+  <data name="OOBEBackButton.Content" xml:space="preserve">
+    <value>‹ Gå tilbage</value>
+  </data>
+  <data name="OOBEDone.Text" xml:space="preserve">
+    <value>Helt færdig!</value>
+  </data>
+  <data name="OOBEDoneSubtitle.Text" xml:space="preserve">
+    <value>Klik 'Gå frem' en sidste gang til at begynde at bruge DropStack!</value>
+  </data>
+  <data name="OOBENextButton.Content" xml:space="preserve">
+    <value>Gå frem ›</value>
+  </data>
+  <data name="OOBEPickPins.Text" xml:space="preserve">
+    <value>Vælg dinne fastgjorte genstande!</value>
+  </data>
+  <data name="OOBEPickPinsButton.Content" xml:space="preserve">
+    <value>Indstil en fastgjort mappe...</value>
+  </data>
+  <data name="OOBEPickPinsExplanation.Text" xml:space="preserve">
+    <value>DropStack fastgør filer ved at kopiere dem til en mappe, du angiver. Det betyder, at du kan fastgøre en mappe og endda slette originalen. Hvis du afinstallerer DropStack, vil dine fastgjorte filer ikke gå tabt, de forbliver i den mappe, du har angivet.</value>
+  </data>
+  <data name="OOBEPickPortal.Text" xml:space="preserve">
+    <value>Vælg din portal!</value>
+  </data>
+  <data name="OOBEPickPortalButton.Content" xml:space="preserve">
+    <value>Indstil en portalmappe...</value>
+  </data>
+  <data name="OOBEPickPortalExplanation.Text" xml:space="preserve">
+    <value>Klik venligst på knappen nedenfor, og vælg derefter den mappe, du gerne vil have DropStack til at spejle. Vi vil foreslå, at du bruger din Overførsler mappe, men du er velkommen til at vælge din egen. Du kan ændre portalmappen senere ved at tilbagekalde mappeadgangen.</value>
+  </data>
+  <data name="OOBESetupTitle.Text" xml:space="preserve">
+    <value>Lad os sætte dig op!</value>
+  </data>
+  <data name="OOBESimpleModeAsDefaultOfferCheckbox.Content" xml:space="preserve">
+    <value>Start altid I simpel tilstand først</value>
+  </data>
+  <data name="OOBEStartSetup.Text" xml:space="preserve">
+    <value>Klik 'Gå frem' for at forsætte opsætningen</value>
+  </data>
+  <data name="OOBEWelcome.Text" xml:space="preserve">
+    <value>Velkommen til DropStack!</value>
+  </data>
+  <data name="OOBEWelcomeSubtitle.Text" xml:space="preserve">
+    <value>Din loyale overførsler-mappe-ledsager.</value>
+  </data>
+  <data name="SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Skriv her for at søge...</value>
+  </data>
+  <data name="SettingsThemeBliss.Content" xml:space="preserve">
+    <value>Bliss</value>
+  </data>
+  <data name="SettingsThemeColorful.Content" xml:space="preserve">
+    <value>Farverig</value>
+  </data>
+  <data name="SettingsThemeDefault.Content" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="SettingsThemeEasterEgg.Content" xml:space="preserve">
+    <value>Hemmelighed</value>
+  </data>
+  <data name="SettingsThemeEvening.Content" xml:space="preserve">
+    <value>Aften</value>
+  </data>
+  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
+    <value>Microsoft</value>
+  </data>
+  <data name="SettingsThemePicker.Header" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
+    <value>Tordenvejr</value>
+  </data>
+  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
+    <value>Ukraine</value>
+  </data>
+  <data name="SettingsTitle.Text" xml:space="preserve">
+    <value>Indstillinger og Om</value>
+  </data>
+  <data name="UnpinFileFlyoutConfirm.Content" xml:space="preserve">
+    <value>Ja, frigør fra DropStack!</value>
+  </data>
+  <data name="UnpinFileFlyoutPrompt.Text" xml:space="preserve">
+    <value>Ønsker du at frigøre denne fil?</value>
+  </data>
+  <data name="SettingsAppearanceBehaviorExpander.Header" xml:space="preserve">
+    <value>Personlig tilpasning</value>
+  </data>
+  <data name="SettingsAppInfoExpander.Header" xml:space="preserve">
+    <value>Yderlige oplysninger</value>
+  </data>
+  <data name="SettingsCheckBoxBehavior.Header" xml:space="preserve">
+    <value>Brug afkrydsningsfelter til at vælge elementer</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorAlways.Content" xml:space="preserve">
+    <value>Altid</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorNever.Content" xml:space="preserve">
+    <value>Aldrig</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorWhenTurnedOnInExplorer.Content" xml:space="preserve">
+    <value>Når det er slået til I Stifinder</value>
+  </data>
+  <data name="SettingsLaunchModeMini.Content" xml:space="preserve">
+    <value>Mini tilstand</value>
+  </data>
+  <data name="SettingsLaunchModeNormal.Content" xml:space="preserve">
+    <value>Standard tilstand</value>
+  </data>
+  <data name="SettingsLaunchModePicker.Header" xml:space="preserve">
+    <value>Vælg den Standard tilstand</value>
+  </data>
+  <data name="SettingsLaunchModeSimple.Content" xml:space="preserve">
+    <value>Simpel tilstand</value>
+  </data>
+  <data name="SettingsLoadedItems.Header" xml:space="preserve">
+    <value>Indlæste elementer</value>
+  </data>
+  <data name="SettingsLoadedItems.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Begræns mængden af ​​indlæste filer i normal tilstand og simpel tilstand. Træder i kraft efter opdatering af listen.</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.Header" xml:space="preserve">
+    <value>Miniatureopløsning (anbefalet:64)</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Indstil den opløsning, som miniaturebilleder indlæses i. Dette skulle i høj grad forbedre hastigheden og RAM-forbruget på bekostning af genkendelighed. Derfor anbefaler vi 64 som balance. Træder i kraft efter opdatering af listen.</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.Header" xml:space="preserve">
+    <value>Indlæste miniaturebilleder</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Begræns mængden af ​​miniaturebilleder, der indlæses. Dette hjælper med at forbedre hastigheden og reducere RAM-forbruget, så du kan indlæse flere elementer, uden at dit RAM fyldes op så hurtigt. Træder i kraft efter opfriskning.</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OffContent" xml:space="preserve">
+    <value>Fastgør værktøjslinjen i Mini tilstand</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OnContent" xml:space="preserve">
+    <value>Fastgør værktøjslinjen i Mini tilstand</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Viser værktøjslinjen permanent I Mini tilstand I stedet for at skjule den.</value>
+  </data>
+  <data name="SettingsPerformanceExpander.Header" xml:space="preserve">
+    <value>Ydeevne indstillinger</value>
+  </data>
+  <data name="SettingsPinsBehavior.Header" xml:space="preserve">
+    <value>Vælg den fastgjorte rækkeadfærd</value>
+  </data>
+  <data name="SettingsPinsBehaviorClosed.Content" xml:space="preserve">
+    <value>Altid lukket</value>
+  </data>
+  <data name="SettingsPinsBehaviorHide.Content" xml:space="preserve">
+    <value>Skjul den</value>
+  </data>
+  <data name="SettingsPinsBehaviorOpen.Content" xml:space="preserve">
+    <value>Altid åbnet</value>
+  </data>
+  <data name="SettingsPinsBehaviorProtect.Content" xml:space="preserve">
+    <value>Beskyt med Windows Hello™️</value>
+  </data>
+  <data name="SettingsPinsBehaviorRemember.Content" xml:space="preserve">
+    <value>Husk sidste tilstand</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.Content" xml:space="preserve">
+    <value>Aktiver alle muligheder...</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.ToolTipService.ToolTip" xml:space="preserve">
+    <value>I øjeblikket er nogle af disse muligheder låst, fordi du har aktiveret Windows Hello™️-beskyttelse.</value>
+    <comment>Currently, some of these options are locked because you enabled Windows Hello™️ protection.</comment>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxPrimary.Content" xml:space="preserve">
+    <value>Primær:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary1.Content" xml:space="preserve">
+    <value>Sekundær 1:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary2.Content" xml:space="preserve">
+    <value>Sekundær 2:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary3.Content" xml:space="preserve">
+    <value>Sekundær 3:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary4.Content" xml:space="preserve">
+    <value>Sekundær 4:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary5.Content" xml:space="preserve">
+    <value>Sekundær 5:</value>
+  </data>
+  <data name="SettingsPortalFolderPreferencesApply.Content" xml:space="preserve">
+    <value>Anvend</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccess.Content" xml:space="preserve">
+    <value>Tilbagekald mappeadgang</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmationTitle.Text" xml:space="preserve">
+    <value>Dette vil frakoble appen fra de mapper, du valgte under opsætningen, og du bliver nødt til at gentage opsætningsprocessen for at bruge den igen. Alle dine fastgjorte filer og filer i portalen vil bestå, appen vil bare ikke være i stand til at finde dem længere.</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmButton.Content" xml:space="preserve">
+    <value>Ja, afbryd forbindelsen og genstart!</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Header" xml:space="preserve">
+    <value>Din fastgjorte mappesti:</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Text" xml:space="preserve">
+    <value>Noget gik galt</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Header" xml:space="preserve">
+    <value>Din portalmappesti:</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Text" xml:space="preserve">
+    <value>Noget gik galt</value>
+    <comment>Says 'something went wrong' by default in case it can't be overwritten with the correct path</comment>
+  </data>
+  <data name="SettingsPortalFoldersSetNew.Content" xml:space="preserve">
+    <value>Sæt nyt...</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OffContent" xml:space="preserve">
+    <value>Foretrækker detaljeringsark frem for kontekstuelle flyout</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OnContent" xml:space="preserve">
+    <value>Foretrækker detaljeringsark frem for kontekstuelle flyout</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Når du vælger en fil, vil DropStack vise den med muligheder for at handle på dine filer i stedet for den sædvanlige menu</value>
+  </data>
+  <data name="SettingsReflectedAfterReloading.Text" xml:space="preserve">
+    <value>Ændringer vises efter genindlæsning.</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.Content" xml:space="preserve">
+    <value>Nulstil til standardværdier</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Nulstil disse værdier til deres standardværdier</value>
+  </data>
+  <data name="SettingsSearchLeniency.Header" xml:space="preserve">
+    <value>Søgemildhed</value>
+  </data>
+  <data name="SettingsSearchLeniencyDescription.Text" xml:space="preserve">
+    <value>Søgemildhed beskriver, hvor mange tastefejl du kan lave i din søgeforespørgsel, mens du stadig finder filen. Sænkning af denne værdi vil forbedre søgenøjagtigheden.</value>
+  </data>
+  <data name="SettingsSecondaryFolderSettingsExpander.Header" xml:space="preserve">
+    <value>Administrer dine portalmapper</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OffContent" xml:space="preserve">
+    <value>Normal vinduesvisning i Simpel tilstand</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OnContent" xml:space="preserve">
+    <value>Aktiverer normal vinduesvisning i Simpel tilstand</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aktiverer normal vinduesvisning i Simpel tilstand</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.Label" xml:space="preserve">
+    <value>Seneste</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kopier den seneste fil fra din Portal-mappe</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.Label" xml:space="preserve">
+    <value>Skjul værktøjslinjen</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Skjuler værktøjslinjen for at maksimere skærmpladsen - du kan altid holde markøren over pillen for at få den tilbage.</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.Label" xml:space="preserve">
+    <value>Gør som standard</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Gør minitilstand til standard</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.Label" xml:space="preserve">
+    <value>Vende tilbage...</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vende tilbage til Standard tilstand...</value>
+  </data>
+  <data name="ContextMenuButtonPin.Label" xml:space="preserve">
+    <value>Fastgør</value>
+  </data>
+  <data name="CopyToClipboardFailedDescription" xml:space="preserve">
+    <value>Windows nægtede at give tilladelse til udklipsholderen.</value>
+  </data>
+  <data name="CopyToClipboardFailedTitle" xml:space="preserve">
+    <value>Kopiér fejl</value>
+  </data>
+  <data name="FileSizeUnitsB" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="FileSizeUnitsGB" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="FileSizeUnitsKB" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="FileSizeUnitsMB" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="FileTypeApp" xml:space="preserve">
+    <value>Program</value>
+  </data>
+  <data name="FileTypeDoc" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="FileTypeDownloadNotify" xml:space="preserve">
+    <value>Denne fil overførsler stadig</value>
+  </data>
+  <data name="FileTypeMusic" xml:space="preserve">
+    <value>Musik</value>
+  </data>
+  <data name="FileTypePic" xml:space="preserve">
+    <value>Billede</value>
+  </data>
+  <data name="FileTypePresentation" xml:space="preserve">
+    <value>Præsentation</value>
+  </data>
+  <data name="FileTypeVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MiniModeHideToolbar" xml:space="preserve">
+    <value>Skjul værktøjslinjen</value>
+    <comment>This should be the same text as CommandBarMiniModeHideToolbarButton.Label</comment>
+  </data>
+  <data name="MiniModePinToolbar" xml:space="preserve">
+    <value>Fastgør værktøjslinjen</value>
+  </data>
+  <data name="PinnedFilesDragOverAvailable" xml:space="preserve">
+    <value>Slip for at tilføje til fastgjorte filer</value>
+  </data>
+  <data name="PinnedFilesDragOverLocked" xml:space="preserve">
+    <value>Kan ikke gemme til fastgjorte elementer, da de er låst gennem Windows Hello™️</value>
+  </data>
+  <data name="PinnedFilesSimpleModeDisabled" xml:space="preserve">
+    <value>Du kan ikke se fastgjorte filer, da Windows Hello i øjeblikket er aktivt. Skift til normal visning for at låse fastgjorte filer op.</value>
+  </data>
+  <data name="PinnedFilesVerifyRequest" xml:space="preserve">
+    <value>Du skal bekræfte med Windows Hello™️ for at få adgang til dine fastgjorte filer.</value>
+  </data>
+  <data name="SettingsPinsEnableOptionsAuthRequest" xml:space="preserve">
+    <value>Du skal bekræfte med Windows Hello™️ for at låse disse muligheder op.</value>
+  </data>
+  <data name="SimpleModeCloseWindowButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Luk dette vindue</value>
+  </data>
+  <data name="SimpleModeLaunchNormalModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Åbn DropStacks hovedvindue for flere muligheder</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.ActionButtonContent" xml:space="preserve">
+    <value>Besøg Standard tilstand..</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Subtitle" xml:space="preserve">
+    <value>Besøg venligst normal visning. Hvis problemet fortsætter, bedes du sende feedback på GitHub.</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Title" xml:space="preserve">
+    <value>Ups, noget gik galt!</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.Content" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vis alle filer (klik igen til at opdatere) - Ctrl+1</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.Content" xml:space="preserve">
+    <value>Apps</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis apps - Ctrl+7</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.Content" xml:space="preserve">
+    <value>Dokumenter</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis dokumenter - Ctrl+3</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.Content" xml:space="preserve">
+    <value>Musik</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis musik - Ctrl+5</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.Content" xml:space="preserve">
+    <value>Billeder</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis billeder - Ctrl+4</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.Content" xml:space="preserve">
+    <value>Pinned</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vis fastgjorte filer (klik igen for at opdatere) - Ctrl+2</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.Content" xml:space="preserve">
+    <value>Præsentationer</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis præsentationer - Ctrl+8</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.Content" xml:space="preserve">
+    <value>Videoer</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kun vis videoer - Ctrl+6</value>
+  </data>
+  <data name="WindowMain.MinWidth" xml:space="preserve">
+    <value>380</value>
+  </data>
+  <data name="WindowMain.Width" xml:space="preserve">
+    <value>455</value>
+  </data>
+</root>

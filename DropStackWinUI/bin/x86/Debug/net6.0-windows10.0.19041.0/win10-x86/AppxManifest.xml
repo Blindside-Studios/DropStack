@@ -20,8 +20,9 @@
     <PackageDependency Name="Microsoft.WindowsAppRuntime.1.5" MinVersion="5001.95.533.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
   </Dependencies>
   <Resources>
-    <Resource Language="EN-US" />
-    <Resource Language="DE-DE" />
+    <Resource Language="EN" />
+    <Resource Language="DA" />
+    <Resource Language="DE" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="DropStackWinUI.exe" EntryPoint="Windows.FullTrustApplication">

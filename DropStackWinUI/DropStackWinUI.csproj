@@ -21,6 +21,7 @@
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <AppxPackageDir>C:\Users\nicol\Downloads\</AppxPackageDir>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <DefaultLanguage>en</DefaultLanguage>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\Themes\Bliss.png" />
