@@ -7,14 +7,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:winex="using:WinUIEx" MinHeight="200" MinWidth="200" Height="10" Width="10">
+    xmlns:winex="using:WinUIEx" MinHeight="200" MinWidth="200">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
     
     <Grid>
-        <Rectangle x:ConnectionId='2' x:Name="TitleBarRectangle" Opacity="0" Height="30"/>
+        <Rectangle x:ConnectionId='2' x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" ManipulationMode="All">
             <Image x:ConnectionId='3' x:Name="ImageViewerComponent" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </ScrollViewer>

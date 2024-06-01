@@ -11,7 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:winex="using:WinUIEx" 
-    Width="500" Height="800" MinWidth="500" MinHeight="273">
+    Width="500" Height="800" MinWidth="500" MaxWidth="750" MinHeight="273">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>

@@ -14,7 +14,7 @@
     </Window.SystemBackdrop>
 
     <Grid>
-        <Rectangle x:Name="TitleBarRectangle" Opacity="0" Height="30"/>
+        <Rectangle x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
         <MediaPlayerElement x:Name="VideoViewerComponent" Grid.Row="0" AutoPlay="True" AreTransportControlsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform" Background="Transparent"/>
     </Grid>
 </winex:WindowEx>
