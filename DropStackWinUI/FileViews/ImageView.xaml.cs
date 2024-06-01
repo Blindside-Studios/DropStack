@@ -32,8 +32,15 @@ namespace DropStackWinUI.FileViews
             this.InitializeComponent();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
+            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
 
             setImageSource(settings);
+        }
+
+        public string getText(string key)
+        {
+            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+            return loader.GetString(key);
         }
 
         public async void setImageSource(ImageViewerSettings settings)

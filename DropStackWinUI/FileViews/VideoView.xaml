@@ -13,7 +13,7 @@
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
 
-    <Grid>
+    <Grid x:Name="EverythingGrid">
         <Rectangle x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
         <MediaPlayerElement x:Name="VideoViewerComponent" Grid.Row="0" AutoPlay="True" AreTransportControlsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform" Background="Transparent"/>
     </Grid>

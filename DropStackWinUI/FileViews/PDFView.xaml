@@ -13,7 +13,7 @@
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
 
-    <Grid>
+    <Grid x:Name="EverythingGrid">
         <Grid x:Name="TitleBarGrid" Height="30" VerticalAlignment="Top">
             <Rectangle x:Name="TitleBarRectangle" Opacity="0"/>
             <TextBlock x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack PDF Viewer" Margin="10,5,0,0"/>

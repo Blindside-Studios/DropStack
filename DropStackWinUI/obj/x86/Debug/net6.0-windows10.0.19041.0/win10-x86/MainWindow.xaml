@@ -11,7 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:winex="using:WinUIEx" 
-    Width="500" Height="800" MinWidth="500" MaxWidth="750" MinHeight="273">
+    Width="500" Height="800" MinWidth="500" MaxWidth="750" MinHeight="273" IsMaximizable="False">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
@@ -177,14 +177,17 @@
                                                 <Grid Grid.Row="1" Margin="0,0,0,5" HorizontalAlignment="Stretch">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="10"/>
                                                         <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="3"/>
                                                         <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="10"/>
                                                         <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock Grid.Column="0" Text="{Binding FileType}" FontSize="10"/>
-                                                    <TextBlock Grid.Column="1" Text="{Binding FileSize}" FontSize="10" Margin="10,0,0,0"/>
-                                                    <TextBlock Grid.Column="2" Text="{Binding FileSizeSuffix}" FontSize="10"/>
-                                                    <TextBlock Grid.Column="3" Text="{Binding ModifiedDate}" FontSize="10" Margin="10,0,0,0"/>
+                                                    <TextBlock Grid.Column="2" Text="{Binding FileSize}" FontSize="10"/>
+                                                    <TextBlock Grid.Column="4" Text="{Binding FileSizeSuffix}" FontSize="10"/>
+                                                    <TextBlock Grid.Column="6" Text="{Binding ModifiedDate}" FontSize="10"/>
                                                 </Grid>
                                                 <TextBlock x:Name="PathBlock" Text="{Binding FilePath}" Visibility="Collapsed"/>
                                             </Grid>
@@ -715,9 +718,9 @@ SOFTWARE.</Paragraph>
                             </Grid>
                             <Grid Grid.Column="1" Height="18" Margin="2,3,0,3">
                                 <Rectangle Fill="DarkGray" Opacity="0.3" RadiusX="9" RadiusY="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,-1"/>
-                                <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center">
-                                    <TextBlock x:ConnectionId='20' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" Margin="7,0,0,0" VerticalAlignment="Center"/>
-                                    <TextBlock x:ConnectionId='21' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center" Margin="7,0,7,0">
+                                    <TextBlock x:ConnectionId='20' x:Name="DetailsFileSizeDisplay" Text="File" FontSize="13" VerticalAlignment="Center"/>
+                                    <TextBlock x:ConnectionId='21' x:Name="DetailsFileSizeSuffixDisplay" Text="Size" FontSize="13" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>

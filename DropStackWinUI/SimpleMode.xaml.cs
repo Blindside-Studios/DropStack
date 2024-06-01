@@ -93,6 +93,8 @@ namespace DropStackWinUI
 
             this.Activated += OnWindowActivated;
 
+            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
+
             if (!enableFreeWindowing)
             {
                 var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);

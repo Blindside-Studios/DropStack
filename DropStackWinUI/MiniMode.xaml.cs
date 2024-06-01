@@ -73,6 +73,8 @@ namespace DropStackWinUI
             this.InitializeComponent();
             this.Activated += OnWindowActivated;
 
+            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
+
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarGrid);
             loadSettings();

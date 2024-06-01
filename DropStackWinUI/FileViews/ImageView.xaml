@@ -13,7 +13,7 @@
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
     
-    <Grid>
+    <Grid x:Name="EverythingGrid">
         <Rectangle x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" ManipulationMode="All">
             <Image x:Name="ImageViewerComponent" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>

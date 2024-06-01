@@ -197,6 +197,8 @@ namespace DropStackWinUI
             loadSettings();
             this.Activated += OnWindowActivated;
 
+            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
+            Debug.WriteLine(getText("xRTL"));
 
             if (string.IsNullOrEmpty(folderToken) || string.IsNullOrEmpty(pinnedFolderToken))
             {

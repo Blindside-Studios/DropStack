@@ -13,9 +13,9 @@
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
 
-    <Grid>
-        <Rectangle x:ConnectionId='2' x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
-        <MediaPlayerElement x:ConnectionId='3' x:Name="VideoViewerComponent" Grid.Row="0" AutoPlay="True" AreTransportControlsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform" Background="Transparent"/>
+    <Grid x:ConnectionId='2' x:Name="EverythingGrid">
+        <Rectangle x:ConnectionId='3' x:Name="TitleBarRectangle" VerticalAlignment="Top" Opacity="0" Height="30"/>
+        <MediaPlayerElement x:ConnectionId='4' x:Name="VideoViewerComponent" Grid.Row="0" AutoPlay="True" AreTransportControlsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform" Background="Transparent"/>
     </Grid>
 </winex:WindowEx>
 

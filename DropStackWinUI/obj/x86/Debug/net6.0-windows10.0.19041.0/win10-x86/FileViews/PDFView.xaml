@@ -13,12 +13,12 @@
         <MicaBackdrop Kind="BaseAlt"/>
     </Window.SystemBackdrop>
 
-    <Grid>
-        <Grid x:ConnectionId='2' x:Name="TitleBarGrid" Height="30" VerticalAlignment="Top">
-            <Rectangle x:ConnectionId='4' x:Name="TitleBarRectangle" Opacity="0"/>
-            <TextBlock x:ConnectionId='5' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack PDF Viewer" Margin="10,5,0,0"/>
+    <Grid x:ConnectionId='2' x:Name="EverythingGrid">
+        <Grid x:ConnectionId='3' x:Name="TitleBarGrid" Height="30" VerticalAlignment="Top">
+            <Rectangle x:ConnectionId='5' x:Name="TitleBarRectangle" Opacity="0"/>
+            <TextBlock x:ConnectionId='6' x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack PDF Viewer" Margin="10,5,0,0"/>
         </Grid>
-        <WebView2 x:ConnectionId='3' x:Name="WebViewRendererComponent" Margin="0,30,0,0" Source="https://www.github.com/Blindside-Studios/DropStack" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <WebView2 x:ConnectionId='4' x:Name="WebViewRendererComponent" Margin="0,30,0,0" Source="https://www.github.com/Blindside-Studios/DropStack" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </winex:WindowEx>
 

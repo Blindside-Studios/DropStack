@@ -33,8 +33,8 @@
         </Grid.RowDefinitions>
 
         <Grid x:ConnectionId='8' x:Name="TitleBarGrid" Grid.Row="0">
-            <Rectangle x:ConnectionId='26' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
-            <TextBlock x:ConnectionId='27' x:Uid="TitleBar" x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0">
+            <Rectangle x:ConnectionId='27' x:Name="TitleBarRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Opacity="0"/>
+            <TextBlock x:ConnectionId='28' x:Uid="TitleBar" x:Name="TitleBarText" HorizontalAlignment="Left" VerticalAlignment="Top" Text="DropStack" Margin="10,5,0,0">
                 <TextBlock.OpacityTransition>
                     <ScalarTransition/>
                 </TextBlock.OpacityTransition>
@@ -42,16 +42,16 @@
         </Grid>
 
         <ParallaxView x:ConnectionId='9' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=simpleFileListScrollViewer}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-30,0,0">
-            <Image x:ConnectionId='25' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='26' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
 
-        <Grid Grid.Row="1">
-            <Rectangle x:ConnectionId='10' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
+        <Grid x:ConnectionId='10' x:Name="EverythingGrid" Grid.Row="1">
+            <Rectangle x:ConnectionId='11' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="5,0,5,20">
                 <Rectangle.TranslationTransition>
                     <Vector3Transition />
                 </Rectangle.TranslationTransition>
             </Rectangle>
-            <ListView x:ConnectionId='11'   x:Name="regularFileListView"
+            <ListView x:ConnectionId='12'   x:Name="regularFileListView"
                     SelectionMode="Single"
                                                                     
                                                             
@@ -100,7 +100,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <CommandBar x:ConnectionId='12' x:Name="FileCommandBar"
+            <CommandBar x:ConnectionId='13' x:Name="FileCommandBar"
                     Background="Transparent"
                     IsOpen="False"
                     DefaultLabelPosition="Right"
@@ -117,39 +117,39 @@
                 <CommandBar.OpacityTransition>
                     <ScalarTransition/>
                 </CommandBar.OpacityTransition>
-                <AppBarButton x:ConnectionId='15' x:Uid="CommandBarMiniModeCopyNewestButton" x:Name="CopyRecentFileButton" Icon="Copy"                                   >
+                <AppBarButton x:ConnectionId='16' x:Uid="CommandBarMiniModeCopyNewestButton" x:Name="CopyRecentFileButton" Icon="Copy"                                   >
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="X"/>
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='16' x:Uid="CommandBarRefreshButton" x:Name="RefreshButton" Icon="Refresh"                            >
+                <AppBarButton x:ConnectionId='17' x:Uid="CommandBarRefreshButton" x:Name="RefreshButton" Icon="Refresh"                            >
                     <ToolTip Content="Refresh this list (Ctrl+R)"/>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="R" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton x:ConnectionId='17' x:Uid="CommandBarRevealButton" x:Name="RevealInExplorerButton" Icon="MoveToFolder"                                     >
+                    <AppBarButton x:ConnectionId='18' x:Uid="CommandBarRevealButton" x:Name="RevealInExplorerButton" Icon="MoveToFolder"                                     >
                         <ToolTip Content="Reveal in File Explorer"/>
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='18' x:Uid="CommandBarMiniModeHideToolbarButton" x:Name="HideToolbarButton" Icon="DockBottom"                                >
+                    <AppBarButton x:ConnectionId='19' x:Uid="CommandBarMiniModeHideToolbarButton" x:Name="HideToolbarButton" Icon="DockBottom"                                >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="T"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='19' x:Uid="CommandBarMiniModeMakeMiniDefault" x:Name="MakeSimpleDefaultButton" Icon="Favorite"                                      />
+                    <AppBarButton x:ConnectionId='20' x:Uid="CommandBarMiniModeMakeMiniDefault" x:Name="MakeSimpleDefaultButton" Icon="Favorite"                                      />
                     <AppBarSeparator/>
-                    <AppBarButton x:ConnectionId='20' x:Uid="CommandBarMiniModeReturn" x:Name="CloseSimpleModeButton" Icon="ClosePane"                                           >
+                    <AppBarButton x:ConnectionId='21' x:Uid="CommandBarMiniModeReturn" x:Name="CloseSimpleModeButton" Icon="ClosePane"                                           >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="M" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
-            <Rectangle x:ConnectionId='13' x:Name="CommandBarIndicatorPill"
+            <Rectangle x:ConnectionId='14' x:Name="CommandBarIndicatorPill"
                    Opacity="0"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
@@ -166,7 +166,7 @@
                     <ScalarTransition/>
                 </Rectangle.OpacityTransition>
             </Rectangle>
-            <Rectangle x:ConnectionId='14' x:Name="CommandBarIndicatorPillHitbox"
+            <Rectangle x:ConnectionId='15' x:Name="CommandBarIndicatorPillHitbox"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Stretch"
                    Height="20"

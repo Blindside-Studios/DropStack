@@ -14,6 +14,14 @@ namespace DropStackWinUI.FileViews
             SetTitleBar(TitleBarGrid);
             WebViewRendererComponent.Source = new Uri("file:///" + path);
             applyTitlebarText(path);
+            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
+            WebViewRendererComponent.FlowDirection = FlowDirection.LeftToRight;
+        }
+
+        public string getText(string key)
+        {
+            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+            return loader.GetString(key);
         }
 
         public async void applyTitlebarText(string path)
