@@ -93,7 +93,7 @@ namespace DropStackWinUI
 
             this.Activated += OnWindowActivated;
 
-            if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
+            if (getText("xRTL") == "true") ContentGrid.FlowDirection = FlowDirection.RightToLeft;
 
             if (!enableFreeWindowing)
             {
@@ -437,7 +437,7 @@ namespace DropStackWinUI
                                     FileType = typeDisplayName,
                                     TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
-                                    FileSizeSuffix = " " + generativefilesizesuffix,
+                                    FileSizeSuffix = generativefilesizesuffix,
                                     ModifiedDate = basicProperties.DateModified.ToString("g"),
                                     FileIcon = bitmapThumbnail,
                                     IconOpacity = 1,

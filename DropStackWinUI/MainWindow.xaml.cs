@@ -841,7 +841,7 @@ namespace DropStackWinUI
                                     FileType = typeDisplayName,
                                     TypeTag = typeTag,
                                     FileSize = filesizecalc.ToString(),
-                                    FileSizeSuffix = " " + generativefilesizesuffix,
+                                    FileSizeSuffix = generativefilesizesuffix,
                                     ModifiedDate = basicProperties.DateModified.ToString("g"),
                                     FileIcon = bitmapThumbnail,
                                     IconOpacity = 1,
