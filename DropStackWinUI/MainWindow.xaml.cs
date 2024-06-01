@@ -420,7 +420,6 @@ namespace DropStackWinUI
             }
             else
             {
-                PrimaryPortalFolderChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showPrimPortal = false;
                 PrimLinkToExplorerDisplay.Visibility = Visibility.Collapsed;
             }
@@ -434,7 +433,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder1ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal1 = false;
                 Sec1LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -449,7 +447,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder2ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal2 = false;
                 Sec2LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -464,7 +461,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder3ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal3 = false;
                 Sec3LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -479,7 +475,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder4ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal4 = false;
                 Sec4LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;
@@ -494,7 +489,6 @@ namespace DropStackWinUI
             }
             else
             {
-                SecondaryPortalFolder5ChangeButton.Content = getText("SettingsPortalFoldersSetNew.Content");
                 showSecPortal5 = false;
                 Sec5LinkToExplorerDisplay.Visibility = Visibility.Collapsed;
                 emptySecondaryPortalFolders++;

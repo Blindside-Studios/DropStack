@@ -130,7 +130,7 @@
               "RelativeDocumentMoniker": "DropStackWinUI\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml",
               "RelativeToolTip": "DropStackWinUI\\MainWindow.xaml",
-              "ViewState": "AQIAAJ0CAAAAAAAAAAAAALUCAABBAAAA",
+              "ViewState": "AQIAANEBAAAAAAAAAAAAALUCAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2023-07-22T05:19:46.112Z",
               "IsPinned": true,
@@ -144,7 +144,7 @@
               "RelativeDocumentMoniker": "DropStackWinUI\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "DropStackWinUI\\MainWindow.xaml.cs",
-              "ViewState": "AQIAALEAAAAAAAAAAAAWwMgAAABNAAAA",
+              "ViewState": "AQIAAIkBAAAAAAAAAAAIwKYBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-07-22T05:19:47.172Z",
               "IsPinned": true,
@@ -157,18 +157,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PDFView.xaml",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml",
-              "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\PDFView.xaml",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml",
-              "RelativeToolTip": "DropStackWinUI\\FileViews\\PDFView.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-12T15:26:53.201Z"
             },
             {
               "$type": "Document",
@@ -196,30 +184,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Resources.resw",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\de\\Resources.resw",
-              "RelativeDocumentMoniker": "DropStackWinUI\\Strings\\de\\Resources.resw",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\de\\Resources.resw",
-              "RelativeToolTip": "DropStackWinUI\\Strings\\de\\Resources.resw",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-06-01T22:10:09.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Resources.resw",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\en\\Resources.resw",
-              "RelativeDocumentMoniker": "DropStackWinUI\\Strings\\en\\Resources.resw",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\en\\Resources.resw",
-              "RelativeToolTip": "DropStackWinUI\\Strings\\en\\Resources.resw",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-06-01T22:10:33.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "PDFView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml.cs",
@@ -241,6 +205,30 @@
               "ViewState": "AQIAAFIAAAAAAAAAAAAQwF8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-07-26T22:27:05.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Resources.resw",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\en\\Resources.resw",
+              "RelativeDocumentMoniker": "DropStackWinUI\\Strings\\en\\Resources.resw",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\en\\Resources.resw",
+              "RelativeToolTip": "DropStackWinUI\\Strings\\en\\Resources.resw",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-01T22:10:33.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PDFView.xaml",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml",
+              "RelativeDocumentMoniker": "DropStackWinUI\\FileViews\\PDFView.xaml",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\FileViews\\PDFView.xaml",
+              "RelativeToolTip": "DropStackWinUI\\FileViews\\PDFView.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-11-12T15:26:53.201Z"
             },
             {
               "$type": "Document",
@@ -455,6 +443,17 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2023-07-30T20:44:06.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Resources.resw",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\de\\Resources.resw",
+              "RelativeDocumentMoniker": "DropStackWinUI\\Strings\\de\\Resources.resw",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive\\Documents\\GitHub\\dropstack\\DropStackWinUI\\Strings\\de\\Resources.resw",
+              "RelativeToolTip": "DropStackWinUI\\Strings\\de\\Resources.resw",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-01T22:10:09.041Z"
             },
             {
               "$type": "Document",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DropStackWinUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2740b10146c1e549f4bbc843de472ba622a931c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feb17f857ff3431acd93f4b57f2aee82c38180b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DropStackWinUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DropStackWinUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
