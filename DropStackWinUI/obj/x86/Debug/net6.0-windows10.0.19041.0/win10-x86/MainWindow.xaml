@@ -19,7 +19,7 @@
 
     <Grid x:ConnectionId='2' x:Name="EverythingGrid">
         <ParallaxView x:ConnectionId='3' x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Image x:ConnectionId='151' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
+            <Image x:ConnectionId='152' x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
         <Grid x:ConnectionId='4' x:Name="WindowGrid" Opacity="1">
             <Grid.OpacityTransition>
@@ -37,16 +37,16 @@
                         <Vector3Transition/>
                     </Grid.TranslationTransition>
                     <Grid.Resources>
-                        <CommandBarFlyout x:ConnectionId='119' x:Name="FileCommandsFlyout">
-                            <AppBarButton x:ConnectionId='120' x:Name="FlyoutOpenButton" x:Uid="ContextMenuButtonOpen" Icon="OpenFile"                               />
-                            <AppBarButton x:ConnectionId='121' x:Name="FlyoutCopyButton" x:Uid="ContextMenuButtonCopy" Icon="Copy"                               />
-                            <AppBarButton x:ConnectionId='122' x:Name="FlyoutPreviewButton" x:Uid="ContextMenuButtonPreview" Icon="View"                                       />
-                            <AppBarButton x:ConnectionId='123' x:Name="FlyoutRotateButton" x:Uid="ContextMenuButtonRotate" Icon="Rotate"                                      />
+                        <CommandBarFlyout x:ConnectionId='120' x:Name="FileCommandsFlyout">
+                            <AppBarButton x:ConnectionId='121' x:Name="FlyoutOpenButton" x:Uid="ContextMenuButtonOpen" Icon="OpenFile"                               />
+                            <AppBarButton x:ConnectionId='122' x:Name="FlyoutCopyButton" x:Uid="ContextMenuButtonCopy" Icon="Copy"                               />
+                            <AppBarButton x:ConnectionId='123' x:Name="FlyoutPreviewButton" x:Uid="ContextMenuButtonPreview" Icon="View"                                       />
+                            <AppBarButton x:ConnectionId='124' x:Name="FlyoutRotateButton" x:Uid="ContextMenuButtonRotate" Icon="Rotate"                                      />
                             <CommandBarFlyout.SecondaryCommands>
-                                <AppBarButton x:ConnectionId='124' x:Name="FlyoutOpenWithButton" x:Uid="ContextMenuButtonOpenWith" Icon="OpenWith" Label="Open with..."                                        />
-                                <AppBarButton x:ConnectionId='125' x:Name="FlyoutRevealButton" x:Uid="ContextMenuButtonReveal" Icon="MoveToFolder"                                 />
-                                <AppBarButton x:ConnectionId='126' x:Name="FlyoutSelectButton" x:Uid="ContextMenuButtonSelect" Icon="SelectAll"                                 />
-                                <AppBarButton x:ConnectionId='127' x:Name="FlyoutDeleteButton" x:Uid="ContextMenuButtonDelete" Icon="Delete"                               />
+                                <AppBarButton x:ConnectionId='125' x:Name="FlyoutOpenWithButton" x:Uid="ContextMenuButtonOpenWith" Icon="OpenWith" Label="Open with..."                                        />
+                                <AppBarButton x:ConnectionId='126' x:Name="FlyoutRevealButton" x:Uid="ContextMenuButtonReveal" Icon="MoveToFolder"                                 />
+                                <AppBarButton x:ConnectionId='127' x:Name="FlyoutSelectButton" x:Uid="ContextMenuButtonSelect" Icon="SelectAll"                                 />
+                                <AppBarButton x:ConnectionId='128' x:Name="FlyoutDeleteButton" x:Uid="ContextMenuButtonDelete" Icon="Delete"                               />
                             </CommandBarFlyout.SecondaryCommands>
                         </CommandBarFlyout>
                     </Grid.Resources>
@@ -54,8 +54,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:ConnectionId='128' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
-                    <Expander x:ConnectionId='129'
+                    <Rectangle x:ConnectionId='129' x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
+                    <Expander x:ConnectionId='130'
                         x:Name="PinnedFilesExpander"
                         x:Uid="PinnedFilesExpander"
                         ExpandDirection="Down"
@@ -71,18 +71,18 @@
                                                                  
                         Margin="0,0,0,10">
                         <Grid>
-                            <StackPanel x:ConnectionId='137' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ProgressRing x:ConnectionId='150' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='138' x:Name="WinHelloWaitingIndicator" Visibility="Collapsed" Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ProgressRing x:ConnectionId='151' x:Name="WinHelloProgressRing" IsActive="False" VerticalAlignment="Center"/>
                                 <TextBlock x:Uid="WaitingForWindowsHelloAuth" FontSize="15" VerticalAlignment="Center"/>
                             </StackPanel>
-                            <TextBlock x:ConnectionId='138' x:Name="NoPinnedFilesTextBlock" x:Uid="NoPinnedFiles" FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel x:ConnectionId='139' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                                <TextBlock x:ConnectionId='148' x:Name="NoPinnedFolderTextBlock" x:Uid="NoPinnedFolder" FontSize="15"/>
-                                <HyperlinkButton x:ConnectionId='149' x:Name="PickPinnedFolderHyperlinkButton" x:Uid="SetPinnedFolderHyperlink" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
+                            <TextBlock x:ConnectionId='139' x:Name="NoPinnedFilesTextBlock" x:Uid="NoPinnedFiles" FontSize="15" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel x:ConnectionId='140' x:Name="NoPinnedFolderStackpanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock x:ConnectionId='149' x:Name="NoPinnedFolderTextBlock" x:Uid="NoPinnedFolder" FontSize="15"/>
+                                <HyperlinkButton x:ConnectionId='150' x:Name="PickPinnedFolderHyperlinkButton" x:Uid="SetPinnedFolderHyperlink" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" ClickMode="Press"                                              />
                             </StackPanel>
-                            <Grid x:ConnectionId='140' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
+                            <Grid x:ConnectionId='141' x:Name="pinnedFileGrid" Height="125" Margin="-15,-15,-15,-15">
                                 <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,-5">
-                                    <GridView x:ConnectionId='141'   x:Name="pinnedFileListView"
+                                    <GridView x:ConnectionId='142'   x:Name="pinnedFileListView"
                                                                                                  
                                                                                                
                                                                                        
@@ -105,7 +105,7 @@
                                                             <Flyout>
                                                                 <StackPanel>
                                                                     <TextBlock x:Uid="UnpinFileFlyoutPrompt" HorizontalAlignment="Center" Margin="0,0,0,12"/>
-                                                                    <Button x:ConnectionId='147' x:Name="DeletePinnedItemConfirmationButton" x:Uid="UnpinFileFlyoutConfirm" HorizontalAlignment="Center"                                                  Background="DarkRed" Foreground="White"/>
+                                                                    <Button x:ConnectionId='148' x:Name="DeletePinnedItemConfirmationButton" x:Uid="UnpinFileFlyoutConfirm" HorizontalAlignment="Center"                                                  Background="DarkRed" Foreground="White"/>
                                                                 </StackPanel>
                                                             </Flyout>
                                                         </Button.Flyout>
@@ -134,12 +134,12 @@
                         </Grid>
                     </Expander>
                     <Grid Grid.Row="1">
-                        <Grid x:ConnectionId='130' x:Name="regularFileGrid">
+                        <Grid x:ConnectionId='131' x:Name="regularFileGrid">
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
-                            <Rectangle x:ConnectionId='131' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
-                            <ListView x:ConnectionId='132'   x:Name="regularFileListView"
+                            <Rectangle x:ConnectionId='132' x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
+                            <ListView x:ConnectionId='133'   x:Name="regularFileListView"
                                         Margin="0,2,0,0"
                                         SelectionMode="Extended"
                                                                                          
@@ -196,56 +196,56 @@
                     </Grid>
                 </Grid>
                 <CommandBar x:ConnectionId='32' x:Name="FileCommandBar" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                    <AppBarButton x:ConnectionId='103' x:Name="SearchButton" x:Uid="CommandBarSearchButton" Icon="Find"                           >
+                    <AppBarButton x:ConnectionId='104' x:Name="SearchButton" x:Uid="CommandBarSearchButton" Icon="Find"                           >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="F" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='104' x:Name="CopyLastSelectedButton" x:Uid="CommandBarCopyButton" Icon="Copy"                                     >
+                    <AppBarButton x:ConnectionId='105' x:Name="CopyLastSelectedButton" x:Uid="CommandBarCopyButton" Icon="Copy"                                     >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="C" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='105' x:Name="RefreshButton" x:Uid="CommandBarRefreshButton" Icon="Refresh"                            >
+                    <AppBarButton x:ConnectionId='106' x:Name="RefreshButton" x:Uid="CommandBarRefreshButton" Icon="Refresh"                            >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='106' x:Name="RevealInExplorerButton" x:Uid="CommandBarRevealButton" Icon="MoveToFolder">
+                    <AppBarButton x:ConnectionId='107' x:Name="RevealInExplorerButton" x:Uid="CommandBarRevealButton" Icon="MoveToFolder">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="E" />
                         </AppBarButton.KeyboardAccelerators>
                         <AppBarButton.Flyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem x:ConnectionId='110' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
+                                <MenuFlyoutItem x:ConnectionId='111' x:Name="PrimLinkToExplorerDisplay" Text="[PrimFolder]"                                      Tag="prim"/>
                                 <MenuFlyoutSeparator/>
-                                <MenuFlyoutItem x:ConnectionId='111' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
-                                <MenuFlyoutItem x:ConnectionId='112' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
-                                <MenuFlyoutItem x:ConnectionId='113' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
-                                <MenuFlyoutItem x:ConnectionId='114' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
-                                <MenuFlyoutItem x:ConnectionId='115' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
-                                <MenuFlyoutSeparator x:ConnectionId='116' x:Name="SecondRevealMenuDivider"/>
-                                <MenuFlyoutItem x:ConnectionId='117' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
+                                <MenuFlyoutItem x:ConnectionId='112' x:Name="Sec1LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec1"/>
+                                <MenuFlyoutItem x:ConnectionId='113' x:Name="Sec2LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec2"/>
+                                <MenuFlyoutItem x:ConnectionId='114' x:Name="Sec3LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec3"/>
+                                <MenuFlyoutItem x:ConnectionId='115' x:Name="Sec4LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec4"/>
+                                <MenuFlyoutItem x:ConnectionId='116' x:Name="Sec5LinkToExplorerDisplay" Text="[SecFolder1]"                                      Tag="sec5"/>
+                                <MenuFlyoutSeparator x:ConnectionId='117' x:Name="SecondRevealMenuDivider"/>
+                                <MenuFlyoutItem x:ConnectionId='118' x:Name="PinsLinkToExplorerDisplay" Text="[PinsFolder]"                                      Tag="pins"/>
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='107' x:Name="SelectModeButton" x:Uid="CommandBarSelectButton" Icon="SelectAll"                               >
+                    <AppBarButton x:ConnectionId='108' x:Name="SelectModeButton" x:Uid="CommandBarSelectButton" Icon="SelectAll"                               >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="Q" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='108' x:Name="LaunchSimpleModeButton" x:Uid="CommandBarLaunchSimpleModeButton" Icon="Go"                                     >
+                    <AppBarButton x:ConnectionId='109' x:Name="LaunchSimpleModeButton" x:Uid="CommandBarLaunchSimpleModeButton" Icon="Go"                                     >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="S" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:ConnectionId='109' x:Name="LaunchMiniModeButton" x:Uid="CommandBarLaunchMiniModeButton" Icon="Go"                                   >
+                    <AppBarButton x:ConnectionId='110' x:Name="LaunchMiniModeButton" x:Uid="CommandBarLaunchMiniModeButton" Icon="Go"                                   >
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="M"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton x:ConnectionId='118' x:Name="QuickSettingsButton" x:Uid="CommandBarSettingsButton" Icon="Setting"                                  >
+                        <AppBarButton x:ConnectionId='119' x:Name="QuickSettingsButton" x:Uid="CommandBarSettingsButton" Icon="Setting"                                  >
                             <AppBarButton.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control" Key="I" />
                             </AppBarButton.KeyboardAccelerators>
@@ -260,22 +260,22 @@
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
                     <Rectangle Fill="DarkGray" Opacity="0.25" RadiusX="4" RadiusY="4" />
-                    <TextBox x:ConnectionId='102' x:Name="SearchTextBox" x:Uid="SearchBox" Height="15" Margin="4,4,4,4"                                        />
+                    <TextBox x:ConnectionId='103' x:Name="SearchTextBox" x:Uid="SearchBox" Height="15" Margin="4,4,4,4"                                        />
                 </Grid>
                 <TeachingTip x:ConnectionId='34' x:Name="fileInClipboardReminder"
                              x:Uid="CopiedSuccessfully"
                              PreferredPlacement="Top">
-                    <ProgressBar x:ConnectionId='101' x:Name="reminderTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='102' x:Name="reminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='35' x:Name="failedToDragTeachingTip"
                              x:Uid="DragFailed"
                              PreferredPlacement="Top">
-                    <ProgressBar x:ConnectionId='100' x:Name="failureReminderTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='101' x:Name="failureReminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='36' x:Name="panosUnlockedTeachingTip"
                              x:Uid="HiddenThemeUnlocked"
                                                                                            >
-                    <ProgressBar x:ConnectionId='99' x:Name="panosUnlockedTimer" Value="0" />
+                    <ProgressBar x:ConnectionId='100' x:Name="panosUnlockedTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:ConnectionId='37' 
                             x:Name="noFolderpathTechingTip"
@@ -299,9 +299,9 @@
                     <Grid.TranslationTransition>
                         <Vector3Transition />
                     </Grid.TranslationTransition>
-                    <Rectangle x:ConnectionId='91' x:Name="OOBEbackgroundRectangle" Fill="DarkGray" Opacity="0.25" RadiusX="8" RadiusY="8"/>
+                    <Rectangle x:ConnectionId='92' x:Name="OOBEbackgroundRectangle" Fill="DarkGray" Opacity="0.25" RadiusX="8" RadiusY="8"/>
                     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <Pivot x:ConnectionId='92' x:Name="OOBEpivot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"                                               Margin="0,-30,0,0">
+                        <Pivot x:ConnectionId='93' x:Name="OOBEpivot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"                                               Margin="0,-30,0,0">
                             <PivotItem>
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -316,7 +316,7 @@
                             <PivotItem>
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,50">
                                     <TextBlock x:Uid="OOBESetupTitle" FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                    <Pivot x:ConnectionId='96' x:Name="OOBEsetupPivot"                                                   >
+                                    <Pivot x:ConnectionId='97' x:Name="OOBEsetupPivot"                                                   >
                                         <PivotItem>
                                             <ScrollViewer VerticalAlignment="Center">
                                                 <StackPanel Spacing="20" VerticalAlignment="Center">
@@ -325,7 +325,7 @@
                                                     <TextBlock x:Uid="OOBEPickPortalExplanation"
                                                        FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                                     <TextBlock Height="10"/>
-                                                    <Button x:ConnectionId='98' x:Name="OOBEportalFileAccessRequestButton" x:Uid="OOBEPickPortalButton"                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                                    <Button x:ConnectionId='99' x:Name="OOBEportalFileAccessRequestButton" x:Uid="OOBEPickPortalButton"                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
                                                 </StackPanel>
                                             </ScrollViewer>
                                         </PivotItem>
@@ -337,7 +337,7 @@
                                                     <TextBlock x:Uid="OOBEPickPinsExplanation" 
                                                    FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                                     <TextBlock Height="10"/>
-                                                    <Button x:ConnectionId='97' x:Name="OOBEpinnedFileAccessRequestButton" x:Uid="OOBEPickPinsButton"                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
+                                                    <Button x:ConnectionId='98' x:Name="OOBEpinnedFileAccessRequestButton" x:Uid="OOBEPickPinsButton"                                                 Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center"/>
                                                 </StackPanel>
                                             </ScrollViewer>
                                         </PivotItem>
@@ -350,13 +350,13 @@
                                         <TextBlock Text="🤗" FontSize="92" HorizontalAlignment="Center"/>
                                         <TextBlock x:Uid="OOBEDone" FontSize="40" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
                                         <TextBlock x:Uid="OOBEDoneSubtitle" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"/>
-                                        <CheckBox x:ConnectionId='95' x:Uid="OOBESimpleModeAsDefaultOfferCheckbox" x:Name="OOBEsimpleViewOfferCheckBox" IsChecked="False" HorizontalAlignment="Center"/>
+                                        <CheckBox x:ConnectionId='96' x:Uid="OOBESimpleModeAsDefaultOfferCheckbox" x:Name="OOBEsimpleViewOfferCheckBox" IsChecked="False" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
                             </PivotItem>
                         </Pivot>
-                        <Button x:ConnectionId='93' x:Name="OOBEgoBackButton" x:Uid="OOBEBackButton"                                VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"/>
-                        <Button x:ConnectionId='94' x:Name="OOBEgoNextButton" x:Uid="OOBENextButton"                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Margin="0,0,10,10"/>
+                        <Button x:ConnectionId='94' x:Name="OOBEgoBackButton" x:Uid="OOBEBackButton"                                VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"/>
+                        <Button x:ConnectionId='95' x:Name="OOBEgoNextButton" x:Uid="OOBENextButton"                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Margin="0,0,10,10"/>
                     </Grid>
                 </Grid>
 
@@ -364,9 +364,9 @@
                     <Grid.OpacityTransition>
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
-                    <Rectangle Fill="Black" Opacity="0.4" Margin="0,-100,0,0"/>
-                    <Rectangle RadiusX="8" RadiusY="8" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
-                    <Grid x:ConnectionId='41' x:Name="AboutDropStackContentGrid" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
+                    <Rectangle x:ConnectionId='41' Fill="Black" Opacity="0.4" Margin="0,-100,0,0"                          />
+                    <Rectangle RadiusX="8" RadiusY="8" MaxWidth="500" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
+                    <Grid x:ConnectionId='42' x:Name="AboutDropStackContentGrid" MaxWidth="500" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
                         <Grid.TranslationTransition>
                             <Vector3Transition/>
                         </Grid.TranslationTransition>
@@ -375,14 +375,14 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock x:Uid="SettingsTitle" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <Button x:ConnectionId='42'    Grid.Row="0" x:Name="AboutDropStackCloseButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top"                                        >
+                        <Button x:ConnectionId='43'    Grid.Row="0" x:Name="AboutDropStackCloseButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top"                                        >
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;"/>
                         </Button>
                         <ScrollViewer Grid.Row="1" Margin="10,10,10,10">
                             <StackPanel>
-                                <Expander x:ConnectionId='43' x:Name="AppearanceAndBehaviorExpander" x:Uid="SettingsAppearanceBehaviorExpander" HorizontalAlignment="Stretch" Margin="0,10,0,5">
+                                <Expander x:ConnectionId='44' x:Name="AppearanceAndBehaviorExpander" x:Uid="SettingsAppearanceBehaviorExpander" HorizontalAlignment="Stretch" Margin="0,10,0,5">
                                     <StackPanel HorizontalAlignment="Stretch">
-                                        <ComboBox x:ConnectionId='83' x:Name="LaunchModePickerComboBox"
+                                        <ComboBox x:ConnectionId='84' x:Name="LaunchModePickerComboBox"
                                                   x:Uid="SettingsLaunchModePicker"
                                           Margin="-1,0,-1,10"
                                           HorizontalAlignment="Stretch"
@@ -391,16 +391,16 @@
                                             <ComboBoxItem x:Uid="SettingsLaunchModeSimple" />
                                             <ComboBoxItem x:Uid="SettingsLaunchModeMini" />
                                         </ComboBox>
-                                        <ToggleSwitch x:ConnectionId='84' x:Uid="SettingsSimpleModeWindowing" x:Name="SimpleModeWindowingToggle"
+                                        <ToggleSwitch x:ConnectionId='85' x:Uid="SettingsSimpleModeWindowing" x:Name="SimpleModeWindowingToggle"
                                                                                          />
-                                        <ToggleSwitch x:ConnectionId='85' x:Name="PinToolbarInSimpleModeToggleSwitch" x:Uid="SettingsMiniModePinToolBar"
+                                        <ToggleSwitch x:ConnectionId='86' x:Name="PinToolbarInSimpleModeToggleSwitch" x:Uid="SettingsMiniModePinToolBar"
                                                                                                     />
-                                        <ComboBox x:ConnectionId='86' x:Name="CheckBoxBehaviorCombobox" x:Uid="SettingsCheckBoxBehavior" Margin="-1,5,-1,5" HorizontalAlignment="Stretch"                                                             >
+                                        <ComboBox x:ConnectionId='87' x:Name="CheckBoxBehaviorCombobox" x:Uid="SettingsCheckBoxBehavior" Margin="-1,5,-1,5" HorizontalAlignment="Stretch"                                                             >
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorNever"/>
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorWhenTurnedOnInExplorer"/>
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorAlways"/>
                                         </ComboBox>
-                                        <ComboBox x:ConnectionId='87' x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,-1,10" HorizontalAlignment="Stretch"                                                        >
+                                        <ComboBox x:ConnectionId='88' x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,-1,10" HorizontalAlignment="Stretch"                                                        >
                                             <ComboBoxItem x:Uid="SettingsThemeDefault" Tag="Default"/>
                                             <ComboBoxItem x:Uid="SettingsThemeColorful" Tag="Colorful"/>
                                             <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
@@ -408,9 +408,9 @@
                                             <ComboBoxItem x:Uid="SettingsThemeBliss" Tag="Bliss"/>
                                             <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/>
                                             <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
-                                            <ComboBoxItem x:ConnectionId='90' x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
+                                            <ComboBoxItem x:ConnectionId='91' x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
                                         </ComboBox>
-                                        <NumberBox x:ConnectionId='88' x:Name="SearchThresholdNumberBox"
+                                        <NumberBox x:ConnectionId='89' x:Name="SearchThresholdNumberBox"
                                                    x:Uid="SettingsSearchLeniency"
                                            SmallChange="1"
                                            LargeChange="1"
@@ -424,18 +424,18 @@
                                            HorizontalAlignment="Center"
                                            Opacity="0.7"
                                            FontSize="10"/>
-                                        <ToggleSwitch x:ConnectionId='89' x:Name="ShowDetailsPaneToggleSwitch"
+                                        <ToggleSwitch x:ConnectionId='90' x:Name="ShowDetailsPaneToggleSwitch"
                                                       x:Uid="SettingsPreferDetailsSheet"
                                                       IsOn="False"
                                                                                                    />
                                     </StackPanel>
                                 </Expander>
-                                <Expander x:ConnectionId='44' x:Name="PerformanceSettingsExpander" x:Uid="SettingsPerformanceExpander" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                <Expander x:ConnectionId='45' x:Name="PerformanceSettingsExpander" x:Uid="SettingsPerformanceExpander" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                                     <StackPanel Spacing="10" Margin="-25,0,-25,0">
                                         <TextBlock HorizontalAlignment="Stretch"
                                                    x:Uid="SettingsReflectedAfterReloading"
                                            Margin="0,0,0,5"/>
-                                        <NumberBox x:ConnectionId='79' x:Name="RegularFileCapNumberBox"
+                                        <NumberBox x:ConnectionId='80' x:Name="RegularFileCapNumberBox"
                                                    x:Uid="SettingsLoadedItems"
                                            SmallChange="100"
                                            LargeChange="500"
@@ -443,7 +443,7 @@
                                            HorizontalAlignment="Stretch"
                                            SpinButtonPlacementMode="Compact"
                                                                                               />
-                                        <NumberBox x:ConnectionId='80' x:Name="ThumbnailCapNumberBox"
+                                        <NumberBox x:ConnectionId='81' x:Name="ThumbnailCapNumberBox"
                                                    x:Uid="SettingsLoadedThumbnails"
                                            SmallChange="50"
                                            LargeChange="200"
@@ -451,7 +451,7 @@
                                            HorizontalAlignment="Stretch"
                                            SpinButtonPlacementMode="Compact"
                                                                                             />
-                                        <NumberBox x:ConnectionId='81' x:Name="ThumbnailResolutionNumberBox"
+                                        <NumberBox x:ConnectionId='82' x:Name="ThumbnailResolutionNumberBox"
                                                    x:Uid="SettingsLoadedThumbnailResolution"
                                            SmallChange="2"
                                            LargeChange="10"
@@ -459,14 +459,14 @@
                                            HorizontalAlignment="Stretch"
                                            SpinButtonPlacementMode="Compact"
                                                                                                    />
-                                        <Button x:ConnectionId='82' x:Name="ResetCapsToDefaultButton"
+                                        <Button x:ConnectionId='83' x:Name="ResetCapsToDefaultButton"
                                                 x:Uid="SettingsResetLoadedItemsValues"
                                         HorizontalAlignment="Stretch"
                                         Margin="0,10,0,0"
                                                                               />
                                     </StackPanel>
                                 </Expander>
-                                <Expander x:ConnectionId='45' x:Name="SecondaryFolderSettingsExpander" x:Uid="SettingsSecondaryFolderSettingsExpander" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                <Expander x:ConnectionId='46' x:Name="SecondaryFolderSettingsExpander" x:Uid="SettingsSecondaryFolderSettingsExpander" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                                     <StackPanel Spacing="10" Margin="-25,0,-25,0">
                                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                             <Grid.ColumnDefinitions>
@@ -481,21 +481,21 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <CheckBox x:ConnectionId='67' x:Uid="SettingsPortalFolderCheckBoxPrimary" x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0"                                                                                                />
-                                            <CheckBox x:ConnectionId='68' x:Uid="SettingsPortalFolderCheckBoxSecondary1" x:Name="SecondaryPortalFolder1CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="1" Tag="1"                                                                                                    />
-                                            <CheckBox x:ConnectionId='69' x:Uid="SettingsPortalFolderCheckBoxSecondary2" x:Name="SecondaryPortalFolder2CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="2" Tag="2"                                                                                                    />
-                                            <CheckBox x:ConnectionId='70' x:Uid="SettingsPortalFolderCheckBoxSecondary3" x:Name="SecondaryPortalFolder3CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="3" Tag="3"                                                                                                    />
-                                            <CheckBox x:ConnectionId='71' x:Uid="SettingsPortalFolderCheckBoxSecondary4" x:Name="SecondaryPortalFolder4CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="4" Tag="4"                                                                                                    />
-                                            <CheckBox x:ConnectionId='72' x:Uid="SettingsPortalFolderCheckBoxSecondary5" x:Name="SecondaryPortalFolder5CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="5" Tag="5"                                                                                                    />
-                                            <Button x:ConnectionId='73' x:Uid="SettingsPortalFoldersSetNew" x:Name="PrimaryPortalFolderChangeButton"    Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="0" HorizontalAlignment="Stretch"                                              />
-                                            <Button x:ConnectionId='74' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder1ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="1" HorizontalAlignment="Stretch" Tag="1"                                                />
-                                            <Button x:ConnectionId='75' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder2ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="2" HorizontalAlignment="Stretch" Tag="2"                                                />
-                                            <Button x:ConnectionId='76' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder3ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="3" HorizontalAlignment="Stretch" Tag="3"                                                />
-                                            <Button x:ConnectionId='77' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder4ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="4" HorizontalAlignment="Stretch" Tag="4"                                                />
-                                            <Button x:ConnectionId='78' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder5ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="5" HorizontalAlignment="Stretch" Tag="5"                                                />
+                                            <CheckBox x:ConnectionId='68' x:Uid="SettingsPortalFolderCheckBoxPrimary" x:Name="PrimaryPortalFolderCheckBox"    Margin="-25,0,0,0" Grid.Column="0" Grid.Row="0"                                                                                                />
+                                            <CheckBox x:ConnectionId='69' x:Uid="SettingsPortalFolderCheckBoxSecondary1" x:Name="SecondaryPortalFolder1CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="1" Tag="1"                                                                                                    />
+                                            <CheckBox x:ConnectionId='70' x:Uid="SettingsPortalFolderCheckBoxSecondary2" x:Name="SecondaryPortalFolder2CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="2" Tag="2"                                                                                                    />
+                                            <CheckBox x:ConnectionId='71' x:Uid="SettingsPortalFolderCheckBoxSecondary3" x:Name="SecondaryPortalFolder3CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="3" Tag="3"                                                                                                    />
+                                            <CheckBox x:ConnectionId='72' x:Uid="SettingsPortalFolderCheckBoxSecondary4" x:Name="SecondaryPortalFolder4CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="4" Tag="4"                                                                                                    />
+                                            <CheckBox x:ConnectionId='73' x:Uid="SettingsPortalFolderCheckBoxSecondary5" x:Name="SecondaryPortalFolder5CheckBox" Margin="-25,0,0,0" Grid.Column="0" Grid.Row="5" Tag="5"                                                                                                    />
+                                            <Button x:ConnectionId='74' x:Uid="SettingsPortalFoldersSetNew" x:Name="PrimaryPortalFolderChangeButton"    Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="0" HorizontalAlignment="Stretch"                                              />
+                                            <Button x:ConnectionId='75' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder1ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="1" HorizontalAlignment="Stretch" Tag="1"                                                />
+                                            <Button x:ConnectionId='76' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder2ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="2" HorizontalAlignment="Stretch" Tag="2"                                                />
+                                            <Button x:ConnectionId='77' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder3ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="3" HorizontalAlignment="Stretch" Tag="3"                                                />
+                                            <Button x:ConnectionId='78' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder4ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="4" HorizontalAlignment="Stretch" Tag="4"                                                />
+                                            <Button x:ConnectionId='79' x:Uid="SettingsPortalFoldersSetNew" x:Name="SecondaryPortalFolder5ChangeButton" Margin="0,2,-20,2" Grid.Column="1" Width="130" Grid.Row="5" HorizontalAlignment="Stretch" Tag="5"                                                />
                                         </Grid>
-                                        <Button x:ConnectionId='59' x:Name="ApplyMultiFolderSettings" x:Uid="SettingsPortalFolderPreferencesApply" HorizontalAlignment="Stretch"                                       />
-                                        <Button x:ConnectionId='60' x:Name="deleteFolderCookieButton"
+                                        <Button x:ConnectionId='60' x:Name="ApplyMultiFolderSettings" x:Uid="SettingsPortalFolderPreferencesApply" HorizontalAlignment="Stretch"                                       />
+                                        <Button x:ConnectionId='61' x:Name="deleteFolderCookieButton"
                                                 x:Uid="SettingsPortalFoldersRevokeAccess"
                                                 Background="DarkRed"
                                                 Foreground="White"
@@ -503,7 +503,7 @@
                                                 HorizontalAlignment="Stretch"
                                                 HorizontalContentAlignment="Center">
                                             <Button.Flyout>
-                                                <Flyout x:ConnectionId='61'                       >
+                                                <Flyout x:ConnectionId='62'                       >
                                                     <StackPanel Spacing="10">
                                                         <TextBlock MaxWidth="300" x:Uid="SettingsPortalFoldersRevokeAccessConfirmationTitle" 
                                                                     Style="{ThemeResource BaseTextBlockStyle}"   
@@ -513,8 +513,8 @@
                                                                 <ColumnDefinition Width="*"/>
                                                                 <ColumnDefinition Width="50"/>
                                                             </Grid.ColumnDefinitions>
-                                                            <TextBox x:ConnectionId='65' Grid.Column="0" x:Uid="SettingsPortalFoldersRevokeAccessPortalPath" x:Name="RegularFolderPathDisplay" MaxWidth="250" IsReadOnly="True"/>
-                                                            <Button x:ConnectionId='66'  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0"                                           VerticalAlignment="Bottom">
+                                                            <TextBox x:ConnectionId='66' Grid.Column="0" x:Uid="SettingsPortalFoldersRevokeAccessPortalPath" x:Name="RegularFolderPathDisplay" MaxWidth="250" IsReadOnly="True"/>
+                                                            <Button x:ConnectionId='67'  Grid.Column="1" x:Name="CopyRegularFolderPathButton" Margin="5,0,0,0"                                           VerticalAlignment="Bottom">
                                                                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
                                                             </Button>
                                                         </Grid>
@@ -523,12 +523,12 @@
                                                                 <ColumnDefinition Width="*"/>
                                                                 <ColumnDefinition Width="50"/>
                                                             </Grid.ColumnDefinitions>
-                                                            <TextBox x:ConnectionId='63' Grid.Column="0" x:Uid="SettingsPortalFoldersRevokeAccessPinsPath" x:Name="PinnedFolderPathDisplay" MaxWidth="250" IsReadOnly="True"/>
-                                                            <Button x:ConnectionId='64'  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0"                                          VerticalAlignment="Bottom">
+                                                            <TextBox x:ConnectionId='64' Grid.Column="0" x:Uid="SettingsPortalFoldersRevokeAccessPinsPath" x:Name="PinnedFolderPathDisplay" MaxWidth="250" IsReadOnly="True"/>
+                                                            <Button x:ConnectionId='65'  Grid.Column="1" x:Name="CopyPinnedFolderPathButton" Margin="5,0,0,0"                                          VerticalAlignment="Bottom">
                                                                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8C8;"/>
                                                             </Button>
                                                         </Grid>
-                                                        <Button x:ConnectionId='62'                                      
+                                                        <Button x:ConnectionId='63'                                      
                                                                 x:Uid="SettingsPortalFoldersRevokeAccessConfirmButton"
                                                                 Background="DarkRed"
                                                                 Foreground="White"
@@ -539,19 +539,19 @@
                                         </Button>
                                     </StackPanel>
                                 </Expander>
-                                <Expander x:ConnectionId='46' x:Name="ExpanderSettingsExpander" x:Uid="SettingsPinsBehavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
+                                <Expander x:ConnectionId='47' x:Name="ExpanderSettingsExpander" x:Uid="SettingsPinsBehavior" HorizontalAlignment="Stretch" Margin="0,0,0,5">
                                     <StackPanel Spacing="10">
                                         <RadioButtons Header="Options:">
-                                            <RadioButton x:ConnectionId='54' x:Uid="SettingsPinsBehaviorOpen" x:Name="PinsAlwaysOpenRadioButton" Tag="opened"                              />
-                                            <RadioButton x:ConnectionId='55' x:Uid="SettingsPinsBehaviorRemember" x:Name="PinsRememberStateRadioButton" Tag="remember"                              />
-                                            <RadioButton x:ConnectionId='56' x:Uid="SettingsPinsBehaviorClosed" x:Name="PinsAlwaysClosedRadioButton" Tag="closed"                              />
-                                            <RadioButton x:ConnectionId='57' x:Uid="SettingsPinsBehaviorProtect" x:Name="PinsProtectedRadioButton" Tag="protected"                              />
-                                            <RadioButton x:ConnectionId='58' x:Uid="SettingsPinsBehaviorHide" x:Name="PinsHiddenRadioButton" Tag="hidden"                              />
+                                            <RadioButton x:ConnectionId='55' x:Uid="SettingsPinsBehaviorOpen" x:Name="PinsAlwaysOpenRadioButton" Tag="opened"                              />
+                                            <RadioButton x:ConnectionId='56' x:Uid="SettingsPinsBehaviorRemember" x:Name="PinsRememberStateRadioButton" Tag="remember"                              />
+                                            <RadioButton x:ConnectionId='57' x:Uid="SettingsPinsBehaviorClosed" x:Name="PinsAlwaysClosedRadioButton" Tag="closed"                              />
+                                            <RadioButton x:ConnectionId='58' x:Uid="SettingsPinsBehaviorProtect" x:Name="PinsProtectedRadioButton" Tag="protected"                              />
+                                            <RadioButton x:ConnectionId='59' x:Uid="SettingsPinsBehaviorHide" x:Name="PinsHiddenRadioButton" Tag="hidden"                              />
                                         </RadioButtons>
-                                        <Button x:ConnectionId='53' x:Name="EnableAllOptionsForPinsButton" x:Uid="SettingsPinsEnableOptions" HorizontalAlignment="Stretch"                                             Visibility="Collapsed"/>
+                                        <Button x:ConnectionId='54' x:Name="EnableAllOptionsForPinsButton" x:Uid="SettingsPinsEnableOptions" HorizontalAlignment="Stretch"                                             Visibility="Collapsed"/>
                                     </StackPanel>
                                 </Expander>
-                                <Expander x:ConnectionId='47' x:Name="AboutDropStackExpander" 
+                                <Expander x:ConnectionId='48' x:Name="AboutDropStackExpander" 
                                           x:Uid="SettingsAppInfoExpander" 
                                           HorizontalAlignment="Stretch" 
                                           IsExpanded="False" 
@@ -586,7 +586,7 @@
                                             <TextBlock x:Uid="AboutPublisherName" FontSize="15" Grid.Row="2" Grid.Column="0"/>
                                             <TextBlock Text="Blindside Studios" FontSize="15" Grid.Row="2" Grid.Column="2"/>
                                             <TextBlock x:Uid="AboutCurrentVersion" FontSize="15" Grid.Row="3" Grid.Column="0"/>
-                                            <TextBlock x:ConnectionId='52'                                 FontSize="15" Grid.Row="3" Grid.Column="2"/>
+                                            <TextBlock x:ConnectionId='53'                                 FontSize="15" Grid.Row="3" Grid.Column="2"/>
                                             <TextBlock x:Uid="AboutCurrentLocalizationLanguage" FontSize="15" Grid.Row="4" Grid.Column="0"/>
                                             <TextBlock x:Uid="AboutCurrentLocalizationTranslator" FontSize="15" Grid.Row="4" Grid.Column="2"/>
                                         </Grid>
@@ -596,7 +596,7 @@
                                         <HyperlinkButton x:Uid="AboutSubmitFeedback" HorizontalAlignment="Left" Margin="-5,-10,0,0" FontSize="15" NavigateUri="https://github.com/Blindside-Studios/DropStack/issues" Grid.Row="4" />
                                     </Grid>
                                 </Expander>
-                                <Expander x:ConnectionId='48' x:Name="PrivacyStamentExpander" x:Uid="AboutPrivacyStatementExpander" HorizontalAlignment="Stretch" IsExpanded="False"                                              Margin="0,0,0,5">
+                                <Expander x:ConnectionId='49' x:Name="PrivacyStamentExpander" x:Uid="AboutPrivacyStatementExpander" HorizontalAlignment="Stretch" IsExpanded="False"                                              Margin="0,0,0,5">
                                     <RichTextBlock>
                                         <Paragraph>
                                             <Run FontWeight="ExtraBold">About the app's local abilities</Run>
@@ -612,7 +612,7 @@
                                     There is no point in time where the app is able to see your login credentials or authentication details.</Paragraph>
                                     </RichTextBlock>
                                 </Expander>
-                                <Expander x:ConnectionId='49' x:Name="AttributionExpander" x:Uid="AboutAttributionsExpander" HorizontalAlignment="Stretch" IsExpanded="False" Margin="0,0,0,5">
+                                <Expander x:ConnectionId='50' x:Name="AttributionExpander" x:Uid="AboutAttributionsExpander" HorizontalAlignment="Stretch" IsExpanded="False" Margin="0,0,0,5">
                                     <RichTextBlock>
                                         <Paragraph>This project uses the "WinUIEx" by Morten Nielsen, which is licensed under the MIT License.</Paragraph>
 
@@ -637,14 +637,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</Paragraph>
                                     </RichTextBlock>
                                 </Expander>
-                                <Expander x:ConnectionId='50' x:Name="FlagsExpander" Header="Experiments" Visibility="Collapsed" HorizontalAlignment="Stretch">
+                                <Expander x:ConnectionId='51' x:Name="FlagsExpander" Header="Experiments" Visibility="Collapsed" HorizontalAlignment="Stretch">
                                     <StackPanel Margin="5,5,5,5" Spacing="5">
                                         <TextBlock Text="These settings are highly experimental. Please modify with caution"
                                            TextWrapping="WrapWholeWords"
                                            HorizontalAlignment="Center"
                                            Opacity="0.7"
                                            FontSize="10"/>
-                                        <Button x:ConnectionId='51' x:Name="ShowDetailsPaneFlagButton" Content="EnableDetailsPane"                                        />
+                                        <Button x:ConnectionId='52' x:Name="ShowDetailsPaneFlagButton" Content="EnableDetailsPane"                                        />
                                     </StackPanel>
                                 </Expander>
                             </StackPanel>

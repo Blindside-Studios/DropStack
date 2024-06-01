@@ -364,9 +364,9 @@
                     <Grid.OpacityTransition>
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
-                    <Rectangle Fill="Black" Opacity="0.4" Margin="0,-100,0,0"/>
-                    <Rectangle RadiusX="8" RadiusY="8" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
-                    <Grid x:Name="AboutDropStackContentGrid" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
+                    <Rectangle Fill="Black" Opacity="0.4" Margin="0,-100,0,0" Tapped="Rectangle_Tapped"/>
+                    <Rectangle RadiusX="8" RadiusY="8" MaxWidth="500" Margin="20,20,20,20" Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" Opacity="1"/>
+                    <Grid x:Name="AboutDropStackContentGrid" MaxWidth="500" Margin="20,20,20,20" VerticalAlignment="Stretch" Translation="0,50,0">
                         <Grid.TranslationTransition>
                             <Vector3Transition/>
                         </Grid.TranslationTransition>

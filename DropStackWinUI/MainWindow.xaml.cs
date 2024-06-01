@@ -2790,5 +2790,21 @@ namespace DropStackWinUI
         {
             regularFileListView.SelectionMode = ListViewSelectionMode.Multiple;
         }
+
+        private async void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            AboutDropStackGrid.Opacity = 0;
+            AboutDropStackContentGrid.Translation = new Vector3(0, 50, 0);
+            await Task.Delay(500);
+            AboutDropStackGrid.Visibility = Visibility.Collapsed;
+
+            PerformanceSettingsExpander.IsExpanded = false;
+            ExpanderSettingsExpander.IsExpanded = false;
+            SecondaryFolderSettingsExpander.IsExpanded = false;
+            AppearanceAndBehaviorExpander.IsExpanded = false;
+            AboutDropStackExpander.IsExpanded = false;
+            PrivacyStamentExpander.IsExpanded = false;
+            AttributionExpander.IsExpanded = false;
+        }
     }
 }
