@@ -1,1 +1,0 @@
-C:\Users\nicol\OneDrive\Documents\GitHub\dropstack\DropStackWinUI\DropStackWinUI.csproj;x64
