@@ -170,7 +170,7 @@
     <comment>Attributions to Open Source libraries - legal stuff, which is why it will not be translated</comment>
   </data>
   <data name="AboutCheckUpdates.Content" xml:space="preserve">
-    <value>Auf der GitHub Releases-Seite nach Updates suchen</value>
+    <value>Auf der Releases-Seite nach Updates suchen</value>
   </data>
   <data name="AboutCurrentLocalizationLanguage.Text" xml:space="preserve">
     <value>Deutsche Lokalisation von:</value>
@@ -187,7 +187,7 @@
     <value>Entwicklername:</value>
   </data>
   <data name="AboutGitHubAdvertisement.Content" xml:space="preserve">
-    <value>Unser GitHub-Repository</value>
+    <value>Unser GitHub Repository</value>
   </data>
   <data name="AboutPrivacyStatementExpander.Header" xml:space="preserve">
     <value>Datenschutzerklärung</value>
@@ -200,7 +200,7 @@
     <value>Relevante Links:</value>
   </data>
   <data name="AboutSubmitFeedback.Content" xml:space="preserve">
-    <value>Geben Sie Feedback, indem Sie ein GitHub Issue erstellen</value>
+    <value>Geben Sie mit GitHub Issues Feedback</value>
   </data>
   <data name="CommandBarCopyButton.Label" xml:space="preserve">
     <value>Kopieren</value>
@@ -534,10 +534,10 @@
     <value>Ordnerverwaltung</value>
   </data>
   <data name="SettingsSimpleModeWindowing.OffContent" xml:space="preserve">
-    <value>Normale Fensterbedienung im kompakten Modus</value>
+    <value>Fenstermanagement im kompakten Modus</value>
   </data>
   <data name="SettingsSimpleModeWindowing.OnContent" xml:space="preserve">
-    <value>Normale Fensterbedienung im kompakten Modus</value>
+    <value>Fenstermanagement im kompakten Modus</value>
   </data>
   <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
     <value>Aktiviert das native Fensterverhalten von Windows für den kompakten Modus anstelle einer systemelementartigen Implementierung.</value>
@@ -694,7 +694,7 @@
     <value>Nur Videos anzeigen - Strg+6</value>
   </data>
   <data name="WindowMain.MinWidth" xml:space="preserve">
-    <value>400</value>
+    <value>464</value>
     <comment>Minimum window width - set by the developer</comment>
   </data>
   <data name="WindowMain.Width" xml:space="preserve">

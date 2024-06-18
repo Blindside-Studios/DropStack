@@ -190,7 +190,7 @@
     <value>Se vores GitHub side</value>
   </data>
   <data name="AboutPrivacyStatementExpander.Header" xml:space="preserve">
-    <value>Erklæring om beskyttelse af personlige oplysninger I engelsk:</value>
+    <value>Privatlivspolitik I engelsk</value>
     <comment>Actual privacy statement will not be translated. '(English)' may be added for localizations in different languages to convey this.</comment>
   </data>
   <data name="AboutPublisherName.Text" xml:space="preserve">
@@ -508,10 +508,10 @@
     <value>Sæt nyt...</value>
   </data>
   <data name="SettingsPreferDetailsSheet.OffContent" xml:space="preserve">
-    <value>Foretrækker detaljeringsark frem for kontekstuelle flyout</value>
+    <value>Foretrækker detaljeringsark frem for flyout</value>
   </data>
   <data name="SettingsPreferDetailsSheet.OnContent" xml:space="preserve">
-    <value>Foretrækker detaljeringsark frem for kontekstuelle flyout</value>
+    <value>Foretrækker detaljeringsark frem for flyout</value>
   </data>
   <data name="SettingsPreferDetailsSheet.ToolTipService.ToolTip" xml:space="preserve">
     <value>Når du vælger en fil, vil DropStack vise den med muligheder for at handle på dine filer i stedet for den sædvanlige menu</value>
@@ -695,9 +695,9 @@
     <value>Kun vis videoer - Ctrl+6</value>
   </data>
   <data name="WindowMain.MinWidth" xml:space="preserve">
-    <value>380</value>
+    <value>460</value>
   </data>
   <data name="WindowMain.Width" xml:space="preserve">
-    <value>455</value>
+    <value>460</value>
   </data>
 </root>

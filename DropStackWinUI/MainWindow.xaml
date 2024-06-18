@@ -378,7 +378,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock x:Uid="SettingsTitle" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <Button    Grid.Row="0" x:Name="AboutDropStackCloseButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Click="AboutDropStackCloseButton_Click">
+                        <Button    Grid.Row="0" x:Name="AboutDropStackCloseButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" CornerRadius="8" Click="AboutDropStackCloseButton_Click">
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;"/>
                         </Button>
                         <ScrollViewer Grid.Row="1" Margin="10,10,10,10">
@@ -571,7 +571,7 @@
                                         <Grid HorizontalAlignment="Left" Grid.Row="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition Width="65"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>

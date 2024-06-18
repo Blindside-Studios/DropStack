@@ -15,6 +15,7 @@
     <PackageLogoSource>C:\Users\nicol\Downloads\dropstackv2.png</PackageLogoSource>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Update="FileViews\PDFView.xaml">
       <SubType>Designer</SubType>

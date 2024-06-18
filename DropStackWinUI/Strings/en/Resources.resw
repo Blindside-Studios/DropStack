@@ -622,7 +622,7 @@
     <value>Cannot save to pins since they are locked through Windows Hello™️</value>
   </data>
   <data name="PinnedFilesSimpleModeDisabled" xml:space="preserve">
-    <value>You cannot see pinned files as Winows Hello is currently active. Please switch to normal view to unlock pinned files.</value>
+    <value>You cannot see pinned files as Windows Hello is currently active. Please switch to normal view to unlock pinned files.</value>
   </data>
   <data name="PinnedFilesVerifyRequest" xml:space="preserve">
     <value>You need to verify with Windows Hello™️ to access your pinned files.</value>
