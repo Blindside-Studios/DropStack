@@ -738,7 +738,11 @@ namespace DropStackWinUI
 
         private void setTheme(string themeName)
         {
-            ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
+            try
+            {
+                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
+            }
+            catch { }
         }
 
         private async void saveToCache(string source, ObservableCollection<FileItem> subjectToCache)

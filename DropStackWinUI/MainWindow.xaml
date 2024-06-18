@@ -409,7 +409,7 @@
                                             <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
                                             <ComboBoxItem x:Uid="SettingsThemeUkraine" Tag="Ukraine"/>
                                             <ComboBoxItem x:Uid="SettingsThemeBliss" Tag="Bliss"/>
-                                            <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/>
+                                            <!-- <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/> -->
                                             <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
                                             <ComboBoxItem x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
                                         </ComboBox>

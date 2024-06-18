@@ -28,7 +28,6 @@
     <None Remove="Assets\Themes\Colorful.png" />
     <None Remove="Assets\Themes\Default.png" />
     <None Remove="Assets\Themes\Evening.png" />
-    <None Remove="Assets\Themes\Microsoft.png" />
     <None Remove="Assets\Themes\Panos.png" />
     <None Remove="Assets\Themes\Thunderstorm.png" />
     <None Remove="Assets\Themes\Ukraine.png" />
