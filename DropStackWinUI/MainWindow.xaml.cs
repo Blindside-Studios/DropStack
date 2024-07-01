@@ -38,12 +38,6 @@ using Microsoft.UI.Composition;
 using System.Drawing;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Windows.AppNotifications;
-using WinUIEx.Messaging;
-using Microsoft.VisualBasic;
-using Windows.Devices.Input;
-using Microsoft.Windows.ApplicationModel.Resources;
-using Windows.ApplicationModel.Resources;
-using CommunityToolkit.WinUI.Helpers;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -188,6 +182,7 @@ namespace DropStackWinUI
         bool hasDoubleTapped = false;
 
         int totalFilesAmount = 1024;
+        bool isUsingWindowsHello = false;
 
         public MainWindow()
         {
@@ -225,7 +220,6 @@ namespace DropStackWinUI
         private void UiSettings_ColorValuesChanged(UISettings sender, object args)
         {
             adjustDarkLightMode();
-            Debug.WriteLine("Event fired");
         }
 
         public string getText(string key)
@@ -257,7 +251,7 @@ namespace DropStackWinUI
         private void OnWindowActivated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs e)
         {
             adjustDarkLightMode();
-            if (appLaunchComplete && SearchGrid.Opacity == 0 && OOBEgrid.Visibility == Visibility.Collapsed) obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
+            if (appLaunchComplete && SearchGrid.Opacity == 0 && OOBEgrid.Visibility == Visibility.Collapsed && !isUsingWindowsHello) obtainFolderAndFiles("regular", regularFileListView.ItemsSource as ObservableCollection<FileItem>);
         }
 
         private async void loadSettings()
@@ -1773,6 +1767,7 @@ namespace DropStackWinUI
             if (!isWindowsHelloRequiredForPins && !string.IsNullOrEmpty(pinnedFolderToken)) { loadFromCache("pinned"); pinnedFileGrid.Visibility = Visibility.Visible; }
             else if (isWindowsHelloRequiredForPins)
             {
+                isUsingWindowsHello = true;
                 pinnedFileGrid.Visibility = Visibility.Collapsed;
                 WinHelloProgressRing.IsActive = true;
                 WinHelloWaitingIndicator.Visibility = Visibility.Visible;
@@ -1787,6 +1782,7 @@ namespace DropStackWinUI
 
                 WinHelloProgressRing.IsActive = false;
                 WinHelloWaitingIndicator.Visibility = Visibility.Collapsed;
+                isUsingWindowsHello = false;
             }
         }
 
@@ -1841,8 +1837,10 @@ namespace DropStackWinUI
 
         private async void EnableAllOptionsForPinsButton_Click(object sender, RoutedEventArgs e)
         {
+            isUsingWindowsHello = true;
             bool isVerified = await VerifyUserWithWindowsHelloAsync(getText("SettingsPinsEnableOptionsAuthRequest"));
             if (isVerified) setPinBarOptionVisibility(true);
+            isUsingWindowsHello = false;
         }
 
         private void PickPinnedFolderHyperlinkButton_Click(object sender, RoutedEventArgs e)
