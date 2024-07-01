@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TitleBar.Text" xml:space="preserve">
+    <value>DropStack</value>
+  </data>
+  <data name="ContextMenuButtonCopy.Label" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="ContextMenuButtonDelete.Label" xml:space="preserve">
+    <value>Видалити цей файл</value>
+  </data>
+  <data name="ContextMenuButtonOpen.Label" xml:space="preserve">
+    <value>Відкрити</value>
+  </data>
+  <data name="ContextMenuButtonOpenWith.Label" xml:space="preserve">
+    <value>Відкрити за допомогою...</value>
+  </data>
+  <data name="ContextMenuButtonPreview.Label" xml:space="preserve">
+    <value>Попередній перегляд</value>
+  </data>
+  <data name="ContextMenuButtonReveal.Label" xml:space="preserve">
+    <value>Відкрити файл у провіднику</value>
+  </data>
+  <data name="ContextMenuButtonRotate.Label" xml:space="preserve">
+    <value>Повернути</value>
+  </data>
+  <data name="ContextMenuButtonSelect.Label" xml:space="preserve">
+    <value>Увімкнути режим виділення</value>
+  </data>
+  <data name="NoPinnedFiles.Text" xml:space="preserve">
+    <value>У вас немає жодних закріплених файлів. Для закріплення, перетягніть потрібний файл сюди...</value>
+  </data>
+  <data name="NoPinnedFolder.Text" xml:space="preserve">
+    <value>Не вказано теки для закріплень, тому закріпити файли наразі неможливо.</value>
+  </data>
+  <data name="PinnedFilesExpander.Header" xml:space="preserve">
+    <value>Закріплені файли</value>
+  </data>
+  <data name="RemovePinnedFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Це видалить закріплений файл з теки закріплень DropStack. Файл буде все ще доступний, якщо ви скопіюєте його в інше місце.</value>
+  </data>
+  <data name="SetPinnedFolderHyperlink.Content" xml:space="preserve">
+    <value>Натисніть сюди, щоб додати...</value>
+  </data>
+  <data name="WaitingForWindowsHelloAuth.Text" xml:space="preserve">
+    <value>Очікуємо на автентифікацію через Windows Hello™️...</value>
+  </data>
+  <data name="AboutAppName.Text" xml:space="preserve">
+    <value>Назва додатка:</value>
+  </data>
+  <data name="AboutAttributionsExpander.Header" xml:space="preserve">
+    <value>Посилання</value>
+    <comment>Attributions to Open Source libraries - legal stuff, which is why it will not be translated</comment>
+  </data>
+  <data name="AboutCheckUpdates.Content" xml:space="preserve">
+    <value>Перевірити оновлення на сторінці релізів</value>
+  </data>
+  <data name="AboutCurrentLocalizationLanguage.Text" xml:space="preserve">
+    <value>Англійська локалізація:</value>
+    <comment>Replace with localized language name</comment>
+  </data>
+  <data name="AboutCurrentLocalizationTranslator.Text" xml:space="preserve">
+    <value>Blindside Studios</value>
+    <comment>Replace with translator name</comment>
+  </data>
+  <data name="AboutCurrentVersion.Text" xml:space="preserve">
+    <value>Поточна версія:</value>
+  </data>
+  <data name="AboutDeveloperName.Text" xml:space="preserve">
+    <value>Розробник:</value>
+  </data>
+  <data name="AboutGitHubAdvertisement.Content" xml:space="preserve">
+    <value>Завітайте на нашу сторінку GitHub</value>
+  </data>
+  <data name="AboutPrivacyStatementExpander.Header" xml:space="preserve">
+    <value>Заява про конфіденційність</value>
+    <comment>Actual privacy statement will not be translated. '(English)' may be added for localizations in different languages to convey this.</comment>
+  </data>
+  <data name="AboutPublisherName.Text" xml:space="preserve">
+    <value>Видавець:</value>
+  </data>
+  <data name="AboutRelatedLinksHeader.Text" xml:space="preserve">
+    <value>Пов'язані посилання:</value>
+  </data>
+  <data name="AboutSubmitFeedback.Content" xml:space="preserve">
+    <value>Надіслати відгук через GitHub</value>
+  </data>
+  <data name="CommandBarCopyButton.Label" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="CommandBarCopyButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Скопіювати виділення (Ctrl+C)</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.Label" xml:space="preserve">
+    <value>Міні</value>
+  </data>
+  <data name="CommandBarLaunchMiniModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Запустити мінірежим... (Ctrl+M)</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.Label" xml:space="preserve">
+    <value>Спрощений</value>
+  </data>
+  <data name="CommandBarLaunchSimpleModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Запустити спрощений режим... (Ctrl+S)</value>
+  </data>
+  <data name="CommandBarRefreshButton.Label" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="CommandBarRefreshButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Оновити список (Ctrl+R)</value>
+  </data>
+  <data name="CommandBarRevealButton.Label" xml:space="preserve">
+    <value>Розкрити...</value>
+  </data>
+  <data name="CommandBarRevealButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Відкрити теку порталу у провіднику Windows (Ctrl+E)</value>
+  </data>
+  <data name="CommandBarSearchButton.Label" xml:space="preserve">
+    <value>Пошук</value>
+  </data>
+  <data name="CommandBarSearchButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Знайти у цьому списку (Ctrl+F)</value>
+  </data>
+  <data name="CommandBarSelectButton.Label" xml:space="preserve">
+    <value>Обрати</value>
+  </data>
+  <data name="CommandBarSelectButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Увімкнути / вимкнути режим виділення (Ctrl+Q)</value>
+  </data>
+  <data name="CommandBarSettingsButton.Label" xml:space="preserve">
+    <value>Налаштування і відомості</value>
+  </data>
+  <data name="CopiedSuccessfully.Subtitle" xml:space="preserve">
+    <value>Файл у вашому буфері обміну.</value>
+  </data>
+  <data name="CopiedSuccessfully.Title" xml:space="preserve">
+    <value>Успішно скопійовано!</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmation.Text" xml:space="preserve">
+    <value>Ви хочете видалити цей файл?</value>
+  </data>
+  <data name="DetailsPaneDeleteConfirmationButton.Content" xml:space="preserve">
+    <value>Так, видалити!</value>
+  </data>
+  <data name="DragFailed.Subtitle" xml:space="preserve">
+    <value>Ви впевнені, що файл досі існує? Спробуйте оновити.</value>
+  </data>
+  <data name="DragFailed.Title" xml:space="preserve">
+    <value>Не вдалося перетягнути!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.ActionButtonContent" xml:space="preserve">
+    <value>Застосувати тему!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Subtitle" xml:space="preserve">
+    <value>Reading the privacy statement unlocks the exclusive easter egg theme! Вітаємо!</value>
+  </data>
+  <data name="HiddenThemeUnlocked.Title" xml:space="preserve">
+    <value>Приховану тему активовано!</value>
+  </data>
+  <data name="NoFolder.ActionButtonContent" xml:space="preserve">
+    <value>Обрати теку...</value>
+  </data>
+  <data name="NoFolder.Subtitle" xml:space="preserve">
+    <value>Щоб додаток працював належним чином, йому потрібен доступ до обраної вами теки. DropStack найкраще працює з текою завантажень, тому рекомендуємо натиснути на «Обрати теку...» та обрати «Завантаження».</value>
+  </data>
+  <data name="NoFolder.Title" xml:space="preserve">
+    <value>Обрати теку...</value>
+  </data>
+  <data name="NoPinnedFolderPath.ActionButtonContent" xml:space="preserve">
+    <value>Обрати теку...</value>
+  </data>
+  <data name="NoPinnedFolderPath.Subtitle" xml:space="preserve">
+    <value>Додаток зберігає закріплені файли через копіювання їх до вказаної користувачем теки, тому ви можете навіть видалити оригінальні файли, і вони все ще залишаться тут. Однак наразі не було вказано жодної теки. Будь ласка, оберіть одну з нижченаведених.</value>
+  </data>
+  <data name="NoPinnedFolderPath.Title" xml:space="preserve">
+    <value>Обрати закріплену теку...</value>
+  </data>
+  <data name="OOBEBackButton.Content" xml:space="preserve">
+    <value>‹ Назад</value>
+  </data>
+  <data name="OOBEDone.Text" xml:space="preserve">
+    <value>Готово!</value>
+  </data>
+  <data name="OOBEDoneSubtitle.Text" xml:space="preserve">
+    <value>Натисніть «Далі» востаннє для початку використання DropStack!</value>
+  </data>
+  <data name="OOBENextButton.Content" xml:space="preserve">
+    <value>Далі ›</value>
+  </data>
+  <data name="OOBEPickPins.Text" xml:space="preserve">
+    <value>Оберіть свої закріплення!</value>
+  </data>
+  <data name="OOBEPickPinsButton.Content" xml:space="preserve">
+    <value>Вказати закріплену теку...</value>
+  </data>
+  <data name="OOBEPickPinsExplanation.Text" xml:space="preserve">
+    <value>DropStack закріплює файли через копіювання їх в обрану теку. Тому ви можете закріпити зокрема й іншу теку або видалити оригінал. Якщо ви видалите DropStack, ваші закріплені файли досі лишатимуться в обраній теці.</value>
+  </data>
+  <data name="OOBEPickPortal.Text" xml:space="preserve">
+    <value>Виберіть свій портал!</value>
+  </data>
+  <data name="OOBEPickPortalButton.Content" xml:space="preserve">
+    <value>Обрати теку порталу...</value>
+  </data>
+  <data name="OOBEPickPortalExplanation.Text" xml:space="preserve">
+    <value>Будь ласка, натисніть кнопку нижче, а потім оберіть теку, яку ви бажаєте відзеркалити за допомогою DropStack. Ми радимо використовувати теку завантажень, але ви можете обрати іншу. Теку порталу можна змінити пізніше через відкликання доступу до обраної.</value>
+  </data>
+  <data name="OOBESetupTitle.Text" xml:space="preserve">
+    <value>Почнімо налаштування!</value>
+  </data>
+  <data name="OOBESimpleModeAsDefaultOfferCheckbox.Content" xml:space="preserve">
+    <value>Завжди запускати у спрощеному режимі</value>
+  </data>
+  <data name="OOBEStartSetup.Text" xml:space="preserve">
+    <value>Натисніть «Далі», щоб продовжити налаштування.</value>
+  </data>
+  <data name="OOBEWelcome.Text" xml:space="preserve">
+    <value>Вітаємо у DropStack!</value>
+  </data>
+  <data name="OOBEWelcomeSubtitle.Text" xml:space="preserve">
+    <value>Ваш вірний компаньйон теки завантажень.</value>
+  </data>
+  <data name="SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Введіть тут для пошуку...</value>
+  </data>
+  <data name="SettingsThemeBliss.Content" xml:space="preserve">
+    <value>Bliss</value>
+  </data>
+  <data name="SettingsThemeColorful.Content" xml:space="preserve">
+    <value>Барви</value>
+  </data>
+  <data name="SettingsThemeDefault.Content" xml:space="preserve">
+    <value>Усталено</value>
+  </data>
+  <data name="SettingsThemeEasterEgg.Content" xml:space="preserve">
+    <value>Великодка</value>
+  </data>
+  <data name="SettingsThemeEvening.Content" xml:space="preserve">
+    <value>Вечір</value>
+  </data>
+  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
+    <value>Microsoft</value>
+  </data>
+  <data name="SettingsThemePicker.Header" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
+    <value>Гроза</value>
+  </data>
+  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
+    <value>Україна</value>
+  </data>
+  <data name="SettingsTitle.Text" xml:space="preserve">
+    <value>Налаштування і відомості</value>
+  </data>
+  <data name="UnpinFileFlyoutConfirm.Content" xml:space="preserve">
+    <value>Так, відкріпити від DropStack!</value>
+  </data>
+  <data name="UnpinFileFlyoutPrompt.Text" xml:space="preserve">
+    <value>Відкріпити цей файл?</value>
+  </data>
+  <data name="SettingsAppearanceBehaviorExpander.Header" xml:space="preserve">
+    <value>Вигляд і загальні налаштування</value>
+  </data>
+  <data name="SettingsAppInfoExpander.Header" xml:space="preserve">
+    <value>Про додаток</value>
+  </data>
+  <data name="SettingsCheckBoxBehavior.Header" xml:space="preserve">
+    <value>Показувати позначки для виділення елементів</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorAlways.Content" xml:space="preserve">
+    <value>Завжди</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorNever.Content" xml:space="preserve">
+    <value>Ніколи</value>
+  </data>
+  <data name="SettingsCheckboxBehaviorWhenTurnedOnInExplorer.Content" xml:space="preserve">
+    <value>Коли ввімкнено у провіднику</value>
+  </data>
+  <data name="SettingsLaunchModeMini.Content" xml:space="preserve">
+    <value>Мінірежим</value>
+  </data>
+  <data name="SettingsLaunchModeNormal.Content" xml:space="preserve">
+    <value>Звичайний режим</value>
+  </data>
+  <data name="SettingsLaunchModePicker.Header" xml:space="preserve">
+    <value>Виберіть режим за замовчуванням</value>
+  </data>
+  <data name="SettingsLaunchModeSimple.Content" xml:space="preserve">
+    <value>Спрощений режим</value>
+  </data>
+  <data name="SettingsLoadedItems.Header" xml:space="preserve">
+    <value>Завантажені елементи</value>
+  </data>
+  <data name="SettingsLoadedItems.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Обмежте кількість завантажених файлів у звичайному режимі та спрощеному режимі. Починає діяти після оновлення списку файлів.</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.Header" xml:space="preserve">
+    <value>Роздільна здатність мініатюр (Рекомендовано: 64)</value>
+  </data>
+  <data name="SettingsLoadedThumbnailResolution.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Встановіть роздільну здатність відображення мініатюр. Це має значно покращити швидкодію, але мініатюри будуть гіршої якості. Як баланс, ми рекомендуємо обирати «64». Починає діяти після оновлення списку файлів.</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.Header" xml:space="preserve">
+    <value>Завантажені мініатюри</value>
+  </data>
+  <data name="SettingsLoadedThumbnails.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Обмежте кількість відображуваних мініатюр. Це має покращити швидкодію при завантаженні файлів, та допомагає оперативній пам'яті не забиватися надто швидко. Починає діяти після оновлення списку файлів.</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OffContent" xml:space="preserve">
+    <value>Закріпити панель у мінірежимі</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.OnContent" xml:space="preserve">
+    <value>Закріпити панель у мінірежимі</value>
+  </data>
+  <data name="SettingsMiniModePinToolBar.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Постійно показувати панель у мінірежимі замість її приховування.</value>
+  </data>
+  <data name="SettingsPerformanceExpander.Header" xml:space="preserve">
+    <value>Продуктивність</value>
+  </data>
+  <data name="SettingsPinsBehavior.Header" xml:space="preserve">
+    <value>Налаштувати панель закріплень</value>
+  </data>
+  <data name="SettingsPinsBehaviorClosed.Content" xml:space="preserve">
+    <value>Завжди закрито</value>
+  </data>
+  <data name="SettingsPinsBehaviorHide.Content" xml:space="preserve">
+    <value>Приховати панель закріплень</value>
+  </data>
+  <data name="SettingsPinsBehaviorOpen.Content" xml:space="preserve">
+    <value>Завжди відкрито</value>
+  </data>
+  <data name="SettingsPinsBehaviorProtect.Content" xml:space="preserve">
+    <value>Захистити за допомогою Windows Hello™️</value>
+  </data>
+  <data name="SettingsPinsBehaviorRemember.Content" xml:space="preserve">
+    <value>Запам'ятовувати останній стан</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.Content" xml:space="preserve">
+    <value>Увімкнути всі параметри...</value>
+  </data>
+  <data name="SettingsPinsEnableOptions.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Наразі деякі з параметрів заблоковано, бо активовано захист через Windows Hello™️.</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxPrimary.Content" xml:space="preserve">
+    <value>Основний:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary1.Content" xml:space="preserve">
+    <value>Додаткова 1:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary2.Content" xml:space="preserve">
+    <value>Додаткова 2:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary3.Content" xml:space="preserve">
+    <value>Додаткова 3:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary4.Content" xml:space="preserve">
+    <value>Додаткова 4:</value>
+  </data>
+  <data name="SettingsPortalFolderCheckBoxSecondary5.Content" xml:space="preserve">
+    <value>Додаткова 5:</value>
+  </data>
+  <data name="SettingsPortalFolderPreferencesApply.Content" xml:space="preserve">
+    <value>Застосувати</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccess.Content" xml:space="preserve">
+    <value>Відкликати доступ до теки</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmationTitle.Text" xml:space="preserve">
+    <value>Це відключить додаток від тек, які ви обрали під час встановлення. Вам потрібно буде повторити процес знову, щоб використовувати додаток і надалі. Усі ваші закріплення та файли з теки порталу буде збережено, але програма більше не зможе їх знайти.</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessConfirmButton.Content" xml:space="preserve">
+    <value>Так, відключити та перезапустити!</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Header" xml:space="preserve">
+    <value>Шлях до теки порталу:</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPinsPath.Text" xml:space="preserve">
+    <value>Щось пішло не так</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Header" xml:space="preserve">
+    <value>Шлях до теки порталу:</value>
+  </data>
+  <data name="SettingsPortalFoldersRevokeAccessPortalPath.Text" xml:space="preserve">
+    <value>Щось пішло не так</value>
+    <comment>Says 'something went wrong' by default in case it can't be overwritten with the correct path</comment>
+  </data>
+  <data name="SettingsPortalFoldersSetNew.Content" xml:space="preserve">
+    <value>Встановити нову...</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OffContent" xml:space="preserve">
+    <value>Показувати деталі замість контекстного меню</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.OnContent" xml:space="preserve">
+    <value>Показувати деталі замість контекстного меню</value>
+  </data>
+  <data name="SettingsPreferDetailsSheet.ToolTipService.ToolTip" xml:space="preserve">
+    <value>При виділенні файлу, DropStack покаже власну панель попереднього перегляду з параметрами для обраного файлу, замість звичайного контекстного меню</value>
+  </data>
+  <data name="SettingsReflectedAfterReloading.Text" xml:space="preserve">
+    <value>Зміни буде застосовано після перезапуску.</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.Content" xml:space="preserve">
+    <value>Відновити стандартні параметри</value>
+  </data>
+  <data name="SettingsResetLoadedItemsValues.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Відновити типове значення</value>
+  </data>
+  <data name="SettingsSearchLeniency.Header" xml:space="preserve">
+    <value>Поблажливий пошук</value>
+  </data>
+  <data name="SettingsSearchLeniencyDescription.Text" xml:space="preserve">
+    <value>Поблажливий пошук встановлює кількість помилок, які можна зробити при пошуковому запиті для знаходження потрібного файлу. Зниження цього значення покращує точність пошуку.</value>
+  </data>
+  <data name="SettingsSecondaryFolderSettingsExpander.Header" xml:space="preserve">
+    <value>Керування теками порталу</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OffContent" xml:space="preserve">
+    <value>Нормальне управління вікнами у спрощеному режимі</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.OnContent" xml:space="preserve">
+    <value>Нормальне управління вікнами у спрощеному режимі</value>
+  </data>
+  <data name="SettingsSimpleModeWindowing.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Вмикає нормальне управління вікнами у спрощеному режимі</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.Label" xml:space="preserve">
+    <value>Останні</value>
+  </data>
+  <data name="CommandBarMiniModeCopyNewestButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Скопіювати останній файл з теки порталу</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.Label" xml:space="preserve">
+    <value>Приховати панель</value>
+  </data>
+  <data name="CommandBarMiniModeHideToolbarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Приховує панель, щоб максимізувати корисну область. Наведіть курсор на «таблетку», щоб повернути панель назад.</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.Label" xml:space="preserve">
+    <value>Зробити усталеним</value>
+  </data>
+  <data name="CommandBarMiniModeMakeMiniDefault.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Зробити мінірежим усталеним</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.Label" xml:space="preserve">
+    <value>Повернутися...</value>
+  </data>
+  <data name="CommandBarMiniModeReturn.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Повернутися до звичайного режиму...</value>
+  </data>
+  <data name="ContextMenuButtonPin.Label" xml:space="preserve">
+    <value>Закріпити</value>
+  </data>
+  <data name="CopyToClipboardFailedDescription" xml:space="preserve">
+    <value>Windows не може надати доступ до буфера обміну.</value>
+  </data>
+  <data name="CopyToClipboardFailedTitle" xml:space="preserve">
+    <value>Не вдалося скопіювати</value>
+  </data>
+  <data name="FileSizeUnitsB" xml:space="preserve">
+    <value>Б</value>
+  </data>
+  <data name="FileSizeUnitsGB" xml:space="preserve">
+    <value>ГБ</value>
+  </data>
+  <data name="FileSizeUnitsKB" xml:space="preserve">
+    <value>КБ</value>
+  </data>
+  <data name="FileSizeUnitsMB" xml:space="preserve">
+    <value>МБ</value>
+  </data>
+  <data name="FileTypeApp" xml:space="preserve">
+    <value>Додаток</value>
+  </data>
+  <data name="FileTypeDoc" xml:space="preserve">
+    <value>Документ</value>
+  </data>
+  <data name="FileTypeDownloadNotify" xml:space="preserve">
+    <value>Цей файл все ще завантажується</value>
+  </data>
+  <data name="FileTypeMusic" xml:space="preserve">
+    <value>Музика</value>
+  </data>
+  <data name="FileTypePic" xml:space="preserve">
+    <value>Зображення</value>
+  </data>
+  <data name="FileTypePresentation" xml:space="preserve">
+    <value>Презентація</value>
+  </data>
+  <data name="FileTypeVideo" xml:space="preserve">
+    <value>Відео</value>
+  </data>
+  <data name="MiniModeHideToolbar" xml:space="preserve">
+    <value>Приховати панель</value>
+    <comment>This should be the same text as CommandBarMiniModeHideToolbarButton.Label</comment>
+  </data>
+  <data name="MiniModePinToolbar" xml:space="preserve">
+    <value>Закріпити панель</value>
+  </data>
+  <data name="PinnedFilesDragOverAvailable" xml:space="preserve">
+    <value>Перетягніть для закріплення</value>
+  </data>
+  <data name="PinnedFilesDragOverLocked" xml:space="preserve">
+    <value>Для закріплення потрібна авторизація через Windows Hello™️</value>
+  </data>
+  <data name="PinnedFilesSimpleModeDisabled" xml:space="preserve">
+    <value>Ви не можете бачити закріплені файли, оскільки активовано Windows Hello. Перейдить у нормальний режим, щоб розблокувати.</value>
+  </data>
+  <data name="PinnedFilesVerifyRequest" xml:space="preserve">
+    <value>Щоб отримати доступ до закріплених файлів, потрібно авторизуватися за допомогою Windows Hello™️.</value>
+  </data>
+  <data name="SettingsPinsEnableOptionsAuthRequest" xml:space="preserve">
+    <value>Щоб розблокувати ці параметри, потрібно авторизуватися за допомогою Windows Hello™️.</value>
+  </data>
+  <data name="SimpleModeCloseWindowButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Закрити це вікно</value>
+  </data>
+  <data name="SimpleModeLaunchNormalModeButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Відкрити головне вікно DropStack для додаткових опцій</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.ActionButtonContent" xml:space="preserve">
+    <value>Перейти у звичайний режим...</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Subtitle" xml:space="preserve">
+    <value>Спробуйте перейти у звичайний режим. Якщо проблема не усунулася, надішліть відгук на сторінці «Issues» на Github.</value>
+  </data>
+  <data name="SimpleModeSomethingWentWrong.Title" xml:space="preserve">
+    <value>Ой, щось пішло не так!</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.Content" xml:space="preserve">
+    <value>Усе</value>
+  </data>
+  <data name="SimpleModeSortOptionAll.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показати всі файли (клацніть знову для оновлення) — Ctrl+2</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.Content" xml:space="preserve">
+    <value>Додатки</value>
+  </data>
+  <data name="SimpleModeSortOptionApps.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише виконувані файли — Ctrl+7</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.Content" xml:space="preserve">
+    <value>Документи</value>
+  </data>
+  <data name="SimpleModeSortOptionDocs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише документи — Ctrl+3</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.Content" xml:space="preserve">
+    <value>Музика</value>
+  </data>
+  <data name="SimpleModeSortOptionMusic.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише музику — Ctrl+5</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.Content" xml:space="preserve">
+    <value>Зображення</value>
+  </data>
+  <data name="SimpleModeSortOptionPics.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише зображення — Ctrl+4</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.Content" xml:space="preserve">
+    <value>Закріплені</value>
+  </data>
+  <data name="SimpleModeSortOptionPins.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показати закріплені файли (клацніть знову для оновлення) — Ctrl+2</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.Content" xml:space="preserve">
+    <value>Презентації</value>
+  </data>
+  <data name="SimpleModeSortOptionPresentations.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише презентації — Ctrl+8</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.Content" xml:space="preserve">
+    <value>Відео</value>
+  </data>
+  <data name="SimpleModeSortOptionVideos.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Показувати лише відео — Ctrl+6</value>
+  </data>
+  <data name="WindowMain.MinWidth" xml:space="preserve">
+    <value>500</value>
+    <comment>Minimum window width - set by the developer</comment>
+  </data>
+  <data name="WindowMain.Width" xml:space="preserve">
+    <value>500</value>
+    <comment>Window launch width - set by the developer</comment>
+  </data>
+</root>
