@@ -43,6 +43,7 @@ using Microsoft.VisualBasic;
 using Windows.Devices.Input;
 using Microsoft.Windows.ApplicationModel.Resources;
 using Windows.ApplicationModel.Resources;
+using CommunityToolkit.WinUI.Helpers;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -195,6 +196,8 @@ namespace DropStackWinUI
             SetTitleBar(TitleBarRectangle);
             adjustDarkLightMode();
             loadSettings();
+            var uiSettings = new UISettings();
+            uiSettings.ColorValuesChanged += UiSettings_ColorValuesChanged;
             this.Activated += OnWindowActivated;
 
             if (getText("xRTL") == "true") EverythingGrid.FlowDirection = FlowDirection.RightToLeft;
@@ -219,6 +222,12 @@ namespace DropStackWinUI
             FileCommandBar.Focus(FocusState.Programmatic);
         }
 
+        private void UiSettings_ColorValuesChanged(UISettings sender, object args)
+        {
+            adjustDarkLightMode();
+            Debug.WriteLine("Event fired");
+        }
+
         public string getText(string key)
         {
             Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
@@ -232,14 +241,16 @@ namespace DropStackWinUI
 
             if (isDarkMode)
             {
-                if (pinBarBehaviorIndex != 4) PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
+                PinnedExpanderBackgroundRectangle.Opacity = 0.1;
                 ContentBackgroundRectangle.Opacity = 0.15;
+                SearchBackgroundRectangle.Opacity = 0.15;
 
             }
             else if (!isDarkMode)
             {
-                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
+                PinnedExpanderBackgroundRectangle.Visibility = 0;
                 ContentBackgroundRectangle.Opacity = 0.5;
+                SearchBackgroundRectangle.Opacity = 0.5;
             }
         }
 

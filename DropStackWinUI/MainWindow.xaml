@@ -54,7 +54,11 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0.1" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10"/>
+                    <Rectangle x:Name="PinnedExpanderBackgroundRectangle" Grid.Row="0" Fill="DarkGray" Opacity="0" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10">
+                        <Rectangle.OpacityTransition>
+                            <ScalarTransition/>
+                        </Rectangle.OpacityTransition>
+                    </Rectangle>
                     <Expander
                         x:Name="PinnedFilesExpander"
                         x:Uid="PinnedFilesExpander"
@@ -138,7 +142,11 @@
                             <Grid.TranslationTransition>
                                 <Vector3Transition/>
                             </Grid.TranslationTransition>
-                            <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.05" RadiusX="4" RadiusY="4" Margin="0,0,0,-10"/>
+                            <Rectangle x:Name="ContentBackgroundRectangle" Fill="White" Opacity="0.5" RadiusX="4" RadiusY="4" Margin="0,0,0,-10">
+                                <Rectangle.OpacityTransition>
+                                    <ScalarTransition/>
+                                </Rectangle.OpacityTransition>
+                            </Rectangle>
                             <ListView   x:Name="regularFileListView"
                                         Margin="0,2,0,0"
                                         SelectionMode="Extended"
@@ -262,7 +270,11 @@
                     <Grid.OpacityTransition>
                         <ScalarTransition/>
                     </Grid.OpacityTransition>
-                    <Rectangle Fill="DarkGray" Opacity="0.25" RadiusX="4" RadiusY="4" />
+                    <Rectangle x:Name="SearchBackgroundRectangle" Fill="White" Opacity="0.25" RadiusX="4" RadiusY="4">
+                        <Rectangle.OpacityTransition>
+                            <ScalarTransition/>
+                        </Rectangle.OpacityTransition>
+                    </Rectangle>
                     <TextBox x:Name="SearchTextBox" x:Uid="SearchBox" Height="15" Margin="4,4,4,4" TextChanged="SearchTextBox_TextChanged"/>
                 </Grid>
                 <TeachingTip x:Name="fileInClipboardReminder"
