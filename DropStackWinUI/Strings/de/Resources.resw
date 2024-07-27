@@ -355,17 +355,11 @@
   <data name="SettingsThemeEvening.Content" xml:space="preserve">
     <value>Abendrot</value>
   </data>
-  <data name="SettingsThemeMicrosoft.Content" xml:space="preserve">
-    <value>Microsoft</value>
-  </data>
   <data name="SettingsThemePicker.Header" xml:space="preserve">
     <value>Farbschema</value>
   </data>
   <data name="SettingsThemeThunderstorm.Content" xml:space="preserve">
     <value>Sturmgewitter</value>
-  </data>
-  <data name="SettingsThemeUkraine.Content" xml:space="preserve">
-    <value>Ukraine</value>
   </data>
   <data name="SettingsTitle.Text" xml:space="preserve">
     <value>Einstellungen und Info</value>

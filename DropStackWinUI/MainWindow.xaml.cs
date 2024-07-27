@@ -345,7 +345,14 @@ namespace DropStackWinUI
                     if (tag == selectedTheme) break;
                     i++;
                 }
-                ThemePickerCombobox.SelectedIndex = i;
+                try
+                {
+                    ThemePickerCombobox.SelectedIndex = i;
+                }
+                catch
+                {
+                    ThemePickerCombobox.SelectedIndex = 0;
+                }
                 setTheme(selectedTheme);
             }
             else
@@ -2832,6 +2839,18 @@ namespace DropStackWinUI
             AboutDropStackExpander.IsExpanded = false;
             PrivacyStamentExpander.IsExpanded = false;
             AttributionExpander.IsExpanded = false;
+        }
+
+        private void ToggleThemeAnimationsButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
+        }
+
+        private void ToggleThemeAnimationsButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
         }
     }
 }

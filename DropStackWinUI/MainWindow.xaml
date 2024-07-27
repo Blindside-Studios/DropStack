@@ -415,16 +415,20 @@
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorWhenTurnedOnInExplorer"/>
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorAlways"/>
                                         </ComboBox>
-                                        <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,-1,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
-                                            <ComboBoxItem x:Uid="SettingsThemeDefault" Tag="Default"/>
-                                            <ComboBoxItem x:Uid="SettingsThemeColorful" Tag="Colorful"/>
-                                            <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
-                                            <ComboBoxItem x:Uid="SettingsThemeUkraine" Tag="Ukraine"/>
-                                            <ComboBoxItem x:Uid="SettingsThemeBliss" Tag="Bliss"/>
-                                            <!-- <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/> -->
-                                            <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
-                                            <ComboBoxItem x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
-                                        </ComboBox>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,-1,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
+                                                <ComboBoxItem x:Uid="SettingsThemeDefault" Tag="Default"/>
+                                                <ComboBoxItem x:Uid="SettingsThemeColorful" Tag="Colorful"/>
+                                                <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
+                                                <ComboBoxItem x:Uid="SettingsThemeBliss" Tag="Bliss"/>
+                                                <!-- <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/> -->
+                                                <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
+                                                <ComboBoxItem x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
+                                            </ComboBox>
+                                            <ToggleButton x:Name="ToggleThemeAnimationsButton" IsChecked="True" Checked="ToggleThemeAnimationsButton_Checked" Unchecked="ToggleThemeAnimationsButton_Unchecked">
+                                                <FontIcon Glyph="&#xF4A5;" />
+                                            </ToggleButton>
+                                        </StackPanel>
                                         <NumberBox x:Name="SearchThresholdNumberBox"
                                                    x:Uid="SettingsSearchLeniency"
                                            SmallChange="1"
