@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="DropStackWinUI.AnimThemes.Bliss"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DropStackWinUI.AnimThemes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="SunGrid" SizeChanged="SunGrid_SizeChanged">
+        <Image x:Name="DaySky" Opacity="1" Source="/AnimThemes/Assets/Bliss/BlueSkyGradient.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Image x:Name="EveningSky" Opacity="0" Source="/AnimThemes/Assets/Bliss/EveningSkyGradient.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Image x:Name="NightSky" Opacity="0" Source="/AnimThemes/Assets/Bliss/NightSkyGradient.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Rectangle x:Name="SunObject" Fill="Yellow" Height="100" Width="100" RadiusX="50" HorizontalAlignment="Left" VerticalAlignment="Top" RadiusY="50"/>
+        <Rectangle x:Name="GroundObject" Fill="LawnGreen" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <Rectangle x:Name="GroundDarkObject" Fill="DarkGreen" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Opacity="0"/>
+    </Grid>
+</Page>

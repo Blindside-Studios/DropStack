@@ -25,6 +25,10 @@
     <StartupObject></StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="AnimThemes\Bliss.xaml" />
+    <None Remove="AnimThemes\Colorful.xaml" />
+    <None Remove="AnimThemes\Evening.xaml" />
+    <None Remove="AnimThemes\Thunderstorm.xaml" />
     <None Remove="Assets\Themes\Bliss.png" />
     <None Remove="Assets\Themes\Colorful.png" />
     <None Remove="Assets\Themes\Default.png" />
@@ -68,6 +72,35 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Ozora-Engine\Ozora-Engine\Ozora\Ozora.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="AnimThemes\Assets\Bliss\BlueSkyGradient.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Bliss\EveningSkyGradient.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Bliss\NightSkyGradient.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Thunderstorm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Colorful.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Bliss.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="FileViews\PDFView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,6 +122,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="FileViews\ImageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Evening.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

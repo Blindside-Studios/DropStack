@@ -19,7 +19,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Update="AnimThemes\Thunderstorm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Colorful.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Bliss.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AnimThemes\Evening.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Page Update="FileViews\PDFView.xaml">
       <SubType>Designer</SubType>

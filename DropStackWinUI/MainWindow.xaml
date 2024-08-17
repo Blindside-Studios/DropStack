@@ -17,10 +17,11 @@
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
-    <Grid x:Name="EverythingGrid">
+    <Grid x:Name="EverythingGrid" PointerMoved="EverythingGrid_PointerMoved">
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
+        <Frame x:Name="ThemeFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Grid x:Name="WindowGrid" Opacity="1">
             <Grid.OpacityTransition>
                 <ScalarTransition/>
@@ -416,12 +417,11 @@
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorAlways"/>
                                         </ComboBox>
                                         <Grid>
-                                            <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" SelectedIndex="0" Margin="-1,0,40,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
+                                            <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,40,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
                                                 <ComboBoxItem x:Uid="SettingsThemeDefault" Tag="Default"/>
                                                 <ComboBoxItem x:Uid="SettingsThemeColorful" Tag="Colorful"/>
                                                 <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
                                                 <ComboBoxItem x:Uid="SettingsThemeBliss" Tag="Bliss"/>
-                                                <!-- <ComboBoxItem x:Uid="SettingsThemeMicrosoft" Tag="Microsoft"/> -->
                                                 <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
                                                 <ComboBoxItem x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
                                             </ComboBox>

@@ -337,38 +337,35 @@ namespace DropStackWinUI
                 if ((bool)localSettings.Values["IsPanosUnlocked"]) unlockPanos(false);
             }
 
-            if (localSettings.Values.ContainsKey("ShowThemeAnimations"))
-            {
-                showAnimatedTheme = (bool)localSettings.Values["ShowThemeAnimations"];
-            }
-            else showAnimatedTheme = true;
-            ToggleThemeAnimationsButton.IsChecked = showAnimatedTheme;
-
             if (localSettings.Values.ContainsKey("SelectedTheme"))
             {
-                string selectedTheme = (string)localSettings.Values["SelectedTheme"];
+                string selectedTheme = localSettings.Values["SelectedTheme"].ToString();
+                Debug.WriteLine(selectedTheme);
                 int i = 0;
+                int j = 0;
                 foreach (ComboBoxItem item in ThemePickerCombobox.Items)
                 {
                     string tag = item.Tag.ToString();
-                    if (tag == selectedTheme) break;
-                    i++;
+                    if (tag == selectedTheme) { j = i; break; }
+                    else i++;
                 }
                 try
                 {
-                    ThemePickerCombobox.SelectedIndex = i;
+                    ThemePickerCombobox.SelectedIndex = j;
                 }
                 catch
                 {
+                    Debug.WriteLine("Falling back");
                     ThemePickerCombobox.SelectedIndex = 0;
                 }
-                setTheme(selectedTheme);
+                setTheme(selectedTheme, false);
             }
             else
             {
-                string selectedTheme = getText("SettingsThemeDefault.Content");
+                Debug.WriteLine("Didn't find theme setting");
+                string selectedTheme = getText("Default");
                 ThemePickerCombobox.SelectedIndex = 0;
-                setTheme(selectedTheme);
+                setTheme(selectedTheme, false);
             }
 
             if (localSettings.Values.ContainsKey("NormalLoadedItems"))
@@ -1162,6 +1159,8 @@ namespace DropStackWinUI
             AboutDropStackGrid.Opacity = 1;
             AboutDropStackContentGrid.Translation = new Vector3(0, 0, 0);
             showOrHideDetailsPane(false);
+            // load state of this button, it would otherwise often cause issues when loaded at launch. Could be fixed but I am not going to.
+            ToggleThemeAnimationsButton.IsChecked = showAnimatedTheme;
         }
 
         private async void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -1993,8 +1992,28 @@ namespace DropStackWinUI
             var comboBox = sender as ComboBox;
             var selectedComboBoxItem = comboBox.SelectedItem as ComboBoxItem;
             string selectedItem = selectedComboBoxItem.Tag.ToString();
-            setTheme(selectedItem);
-            ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = selectedItem;
+            setTheme(selectedItem, false);
+            switch (ThemePickerCombobox.SelectedIndex)
+            {
+                case 0:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Default";
+                    break;
+                case 1:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Colorful";
+                    break;
+                case 2:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Evening";
+                    break;
+                case 3:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Bliss";
+                    break;
+                case 4:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Thunderstorm";
+                    break;
+                case 5:
+                    ApplicationData.Current.LocalSettings.Values["SelectedTheme"] = "Panos";
+                    break;
+            }
         }
 
         private void PrivacyStamentExpander_Expanding(Expander sender, ExpanderExpandingEventArgs args)
@@ -2004,29 +2023,61 @@ namespace DropStackWinUI
             unlockPanos(true);
         }
 
-        private void setTheme(string themeName)
+        private void setTheme(string themeName, bool onlyChangeAnimateStatus)
         {
-            try
+            if (!onlyChangeAnimateStatus)
             {
-                ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
-            }
-            catch { }
+                try
+                {
+                    ParallaxImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/Themes/" + themeName + ".png"));
+                }
+                catch { }
 
-            if (themeName != "Default")
-            {
-                PinnedExpanderBackgroundRectangle.Opacity = 0.25;
-                //ToggleThemeAnimationsButton.IsEnabled = true;
-            }
-            else
-            {
-                PinnedExpanderBackgroundRectangle.Opacity = 0.15;
-                //ToggleThemeAnimationsButton.IsEnabled = false;
+                if (themeName != "Default")
+                {
+                    PinnedExpanderBackgroundRectangle.Opacity = 0.25;
+                    //ToggleThemeAnimationsButton.IsEnabled = true;
+                }
+                else
+                {
+                    PinnedExpanderBackgroundRectangle.Opacity = 0.15;
+                    //ToggleThemeAnimationsButton.IsEnabled = false;
+                }
+
+                ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.ContainsKey("ShowThemeAnimations"))
+                {
+                    showAnimatedTheme = (bool)localSettings.Values["ShowThemeAnimations"];
+                }
+                else showAnimatedTheme = true;
             }
 
             if (showAnimatedTheme)
             {
-                // navigate to the appropriate animted theme button
+                // navigate to the appropriate animated theme
+                switch (ThemePickerCombobox.SelectedIndex)
+                {
+                    case 0:
+                        ThemeFrame.Content = null;
+                        break;
+                    case 1:
+                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Colorful)) ThemeFrame.NavigateToType(typeof(AnimThemes.Colorful), null, null);
+                        break;
+                    case 2:
+                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Evening)) ThemeFrame.NavigateToType(typeof(AnimThemes.Evening), null, null);
+                        break;
+                    case 3:
+                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Bliss)) ThemeFrame.NavigateToType(typeof(AnimThemes.Bliss), null, null);
+                        break;
+                    case 4:
+                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Thunderstorm)) ThemeFrame.NavigateToType(typeof(AnimThemes.Thunderstorm), null, null);
+                        break;
+                    case 5:
+                        ThemeFrame.NavigateToType(null, null, null);
+                        break;
+                }
             }
+            else ThemeFrame.Content = null;
         }
 
         private async void unlockPanos(bool showNotification)
@@ -2054,7 +2105,7 @@ namespace DropStackWinUI
         private void panosUnlockedTeachingTip_ActionButtonClick(TeachingTip sender, object args)
         {
             ThemePickerCombobox.SelectedIndex = ThemePickerCombobox.Items.Count - 1;
-            setTheme("Panos");
+            setTheme("Panos", false);
         }
 
         private void RegularFileCapNumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
@@ -2861,14 +2912,56 @@ namespace DropStackWinUI
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
-            Debug.WriteLine("AnimationsToggleButton state updated");
+            setTheme(ThemePickerCombobox.SelectedItem.ToString(), true);
         }
 
         private void ToggleThemeAnimationsButton_Unchecked(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
-            Debug.WriteLine("AnimationsToggleButton state updated");
+            setTheme(ThemePickerCombobox.SelectedItem.ToString(), true);
+        }
+
+        private void EverythingGrid_PointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            MouseViewModel.Instance.MousePosition = e.GetCurrentPoint((UIElement)sender).Position;
+        }
+    }
+
+    public class MouseViewModel : INotifyPropertyChanged
+    {
+        private static MouseViewModel _instance;
+        public static MouseViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MouseViewModel();
+                }
+                return _instance;
+            }
+        }
+
+        public Windows.Foundation.Point MousePosition
+        {
+            get => _mousePosition;
+            set
+            {
+                if (_mousePosition != value)
+                {
+                    _mousePosition = value;
+                    OnPropertyChanged(nameof(MousePosition));
+                }
+            }
+        }
+        private Windows.Foundation.Point _mousePosition;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
