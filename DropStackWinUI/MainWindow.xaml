@@ -415,8 +415,8 @@
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorWhenTurnedOnInExplorer"/>
                                             <ComboBoxItem x:Uid="SettingsCheckboxBehaviorAlways"/>
                                         </ComboBox>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" Margin="-1,0,-1,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
+                                        <Grid>
+                                            <ComboBox x:Name="ThemePickerCombobox" x:Uid="SettingsThemePicker" SelectedIndex="0" Margin="-1,0,40,10" HorizontalAlignment="Stretch" SelectionChanged="ThemePickerCombobox_SelectionChanged">
                                                 <ComboBoxItem x:Uid="SettingsThemeDefault" Tag="Default"/>
                                                 <ComboBoxItem x:Uid="SettingsThemeColorful" Tag="Colorful"/>
                                                 <ComboBoxItem x:Uid="SettingsThemeEvening" Tag="Evening"/>
@@ -425,10 +425,10 @@
                                                 <ComboBoxItem x:Uid="SettingsThemeThunderstorm" Tag="Thunderstorm"/>
                                                 <ComboBoxItem x:Name="PanosThemeOption"  x:Uid="SettingsThemeEasterEgg" Tag="Panos" Visibility="Collapsed"/>
                                             </ComboBox>
-                                            <ToggleButton x:Name="ToggleThemeAnimationsButton" IsChecked="True" Checked="ToggleThemeAnimationsButton_Checked" Unchecked="ToggleThemeAnimationsButton_Unchecked">
-                                                <FontIcon Glyph="&#xF4A5;" />
+                                            <ToggleButton x:Name="ToggleThemeAnimationsButton" Translation="0,9,0" Width="32" Height="32"  HorizontalAlignment="Right" Checked="ToggleThemeAnimationsButton_Checked" Unchecked="ToggleThemeAnimationsButton_Unchecked">
+                                                <FontIcon Glyph="&#xF4A5;" Margin="-10,-10,-10,-10" />
                                             </ToggleButton>
-                                        </StackPanel>
+                                        </Grid>
                                         <NumberBox x:Name="SearchThresholdNumberBox"
                                                    x:Uid="SettingsSearchLeniency"
                                            SmallChange="1"

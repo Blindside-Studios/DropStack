@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>DropStackWinUI</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -22,6 +22,7 @@
     <AppxPackageDir>C:\Users\nicol\Downloads\</AppxPackageDir>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <DefaultLanguage>en</DefaultLanguage>
+    <StartupObject></StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\Themes\Bliss.png" />
@@ -49,7 +50,6 @@
   <ItemGroup>
     <PackageReference Include="ColorCode.Core" Version="2.0.15" />
     <PackageReference Include="ColorCode.WinUI" Version="2.0.15" />
-    <PackageReference Include="CommunityToolkit.WinUI.Controls.CameraPreview" Version="8.0.240109" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240404000" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.3" />

@@ -184,6 +184,8 @@ namespace DropStackWinUI
         int totalFilesAmount = 1024;
         bool isUsingWindowsHello = false;
 
+        bool showAnimatedTheme = true;
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -335,6 +337,13 @@ namespace DropStackWinUI
                 if ((bool)localSettings.Values["IsPanosUnlocked"]) unlockPanos(false);
             }
 
+            if (localSettings.Values.ContainsKey("ShowThemeAnimations"))
+            {
+                showAnimatedTheme = (bool)localSettings.Values["ShowThemeAnimations"];
+            }
+            else showAnimatedTheme = true;
+            ToggleThemeAnimationsButton.IsChecked = showAnimatedTheme;
+
             if (localSettings.Values.ContainsKey("SelectedTheme"))
             {
                 string selectedTheme = (string)localSettings.Values["SelectedTheme"];
@@ -357,8 +366,8 @@ namespace DropStackWinUI
             }
             else
             {
-                string selectedTheme = "Default";
-                ThemePickerCombobox.SelectedItem = selectedTheme;
+                string selectedTheme = getText("SettingsThemeDefault.Content");
+                ThemePickerCombobox.SelectedIndex = 0;
                 setTheme(selectedTheme);
             }
 
@@ -2006,10 +2015,17 @@ namespace DropStackWinUI
             if (themeName != "Default")
             {
                 PinnedExpanderBackgroundRectangle.Opacity = 0.25;
+                //ToggleThemeAnimationsButton.IsEnabled = true;
             }
             else
             {
                 PinnedExpanderBackgroundRectangle.Opacity = 0.15;
+                //ToggleThemeAnimationsButton.IsEnabled = false;
+            }
+
+            if (showAnimatedTheme)
+            {
+                // navigate to the appropriate animted theme button
             }
         }
 
@@ -2845,12 +2861,14 @@ namespace DropStackWinUI
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
+            Debug.WriteLine("AnimationsToggleButton state updated");
         }
 
         private void ToggleThemeAnimationsButton_Unchecked(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
+            Debug.WriteLine("AnimationsToggleButton state updated");
         }
     }
 }
