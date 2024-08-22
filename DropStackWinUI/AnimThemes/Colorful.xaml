@@ -6,10 +6,11 @@
     xmlns:local="using:DropStackWinUI.AnimThemes"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="Red">
+    mc:Ignorable="d">
 
     <Grid>
-
+        <Image Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="...\AnimThemes\Assets\ColorfulLight.png"/>
+        <Grid x:Name="CloudsGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SizeChanged="CloudsGrid_SizeChanged"/>
+        <Rectangle x:Name="AcrylicBlur" Fill="{ThemeResource ColorsAcrylic}"/>
     </Grid>
 </Page>

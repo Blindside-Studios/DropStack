@@ -192,6 +192,7 @@ namespace DropStackWinUI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(TitleBarRectangle);
             adjustDarkLightMode();
+            MouseViewModel.Instance.ThemeChangeRequested += Instance_ThemeChangeRequested;
             loadSettings();
             var uiSettings = new UISettings();
             uiSettings.ColorValuesChanged += UiSettings_ColorValuesChanged;
@@ -217,6 +218,11 @@ namespace DropStackWinUI
             var window = this;
             _compositor = window.Compositor;
             FileCommandBar.Focus(FocusState.Programmatic);
+        }
+
+        private void Instance_ThemeChangeRequested(object sender, PropertyChangedEventArgs e)
+        {
+            EverythingGrid.RequestedTheme = MouseViewModel.Instance.ViewTheme;
         }
 
         private void UiSettings_ColorValuesChanged(UISettings sender, object args)
@@ -2054,19 +2060,26 @@ namespace DropStackWinUI
 
             if (showAnimatedTheme)
             {
+                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Collapsed;
+                ContentBackgroundRectangle.Visibility = Visibility.Collapsed;
+                SearchBackgroundRectangle.Visibility = Visibility.Collapsed;
                 // navigate to the appropriate animated theme
                 switch (ThemePickerCombobox.SelectedIndex)
                 {
                     case 0:
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Default;
                         ThemeFrame.Content = null;
                         break;
                     case 1:
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Light;
                         if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Colorful)) ThemeFrame.NavigateToType(typeof(AnimThemes.Colorful), null, null);
                         break;
                     case 2:
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
                         if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Evening)) ThemeFrame.NavigateToType(typeof(AnimThemes.Evening), null, null);
                         break;
                     case 3:
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
                         if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Bliss)) ThemeFrame.NavigateToType(typeof(AnimThemes.Bliss), null, null);
                         break;
                     case 4:
@@ -2077,7 +2090,14 @@ namespace DropStackWinUI
                         break;
                 }
             }
-            else ThemeFrame.Content = null;
+            else
+            {
+                MouseViewModel.Instance.ViewTheme = ElementTheme.Default;
+                ThemeFrame.Content = null;
+                PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
+                ContentBackgroundRectangle.Visibility = Visibility.Visible;
+                SearchBackgroundRectangle.Visibility = Visibility.Visible;
+            }
         }
 
         private async void unlockPanos(bool showNotification)
@@ -2957,8 +2977,27 @@ namespace DropStackWinUI
         }
         private Windows.Foundation.Point _mousePosition;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ElementTheme ViewTheme
+        {
+            get => _viewTheme;
+            set
+            {
+                if (value != _viewTheme)
+                {
+                    _viewTheme = value;
+                    OnThemeChangeRequested(nameof(ViewTheme));
+                }
+            }
+        }
+        private ElementTheme _viewTheme = ElementTheme.Default;
 
+        public event PropertyChangedEventHandler ThemeChangeRequested;
+        protected virtual void OnThemeChangeRequested(string propertyName)
+        {
+            ThemeChangeRequested?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

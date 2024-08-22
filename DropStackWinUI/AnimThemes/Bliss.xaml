@@ -13,7 +13,8 @@
         <Image x:Name="EveningSky" Opacity="0" Source="/AnimThemes/Assets/Bliss/EveningSkyGradient.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Image x:Name="NightSky" Opacity="0" Source="/AnimThemes/Assets/Bliss/NightSkyGradient.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Rectangle x:Name="SunObject" Fill="Yellow" Height="100" Width="100" RadiusX="50" HorizontalAlignment="Left" VerticalAlignment="Top" RadiusY="50"/>
-        <Rectangle x:Name="GroundObject" Fill="LawnGreen" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <Rectangle x:Name="GroundObject" Fill="ForestGreen" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
         <Rectangle x:Name="GroundDarkObject" Fill="DarkGreen" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Opacity="0"/>
+        <Rectangle x:Name="AcrylicBlur" Fill="{ThemeResource BlissAcrylic}"/>
     </Grid>
 </Page>

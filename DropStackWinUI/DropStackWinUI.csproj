@@ -84,6 +84,9 @@
     <None Update="AnimThemes\Assets\Bliss\NightSkyGradient.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="AnimThemes\Assets\ColorfulLight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AnimThemes\Thunderstorm.xaml">
