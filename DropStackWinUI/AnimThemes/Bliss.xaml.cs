@@ -51,7 +51,7 @@ namespace DropStackWinUI.AnimThemes
             {
                 SimulationStyle = SimulationStyle.Sun,
                 FrameRate = 60,
-                MaxVectorDeltaPerFrame = 1,
+                MaxVectorDeltaPerFrame = 1.5f,
                 RubberBandingModifier = 0.2f,
                 EnableBorderCollision = true,
                 EnableBounceOnCollision = true,
