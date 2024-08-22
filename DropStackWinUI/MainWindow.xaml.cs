@@ -2946,6 +2946,16 @@ namespace DropStackWinUI
         {
             MouseViewModel.Instance.MousePosition = e.GetCurrentPoint((UIElement)sender).Position;
         }
+
+        private void EverythingGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            MouseViewModel.Instance.MouseEngaged = true;
+        }
+
+        private void EverythingGrid_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            MouseViewModel.Instance.MouseEngaged = false;
+        }
     }
 
     public class MouseViewModel : INotifyPropertyChanged
@@ -2976,6 +2986,20 @@ namespace DropStackWinUI
             }
         }
         private Windows.Foundation.Point _mousePosition;
+
+        public bool MouseEngaged
+        {
+            get => _mouseEngaged;
+            set
+            {
+                if (value != _mouseEngaged)
+                {
+                    _mouseEngaged = value;
+                    OnPropertyChanged(nameof(MouseEngaged));
+                }
+            }
+        }
+        private bool _mouseEngaged = true;
 
         public ElementTheme ViewTheme
         {

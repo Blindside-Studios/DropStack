@@ -52,10 +52,12 @@ namespace DropStackWinUI.AnimThemes
                 SimulationStyle = SimulationStyle.Sun,
                 FrameRate = 60,
                 MaxVectorDeltaPerFrame = 1,
-                RubberBandingModifier = 0.05f,
-                EnableBorderCollision = false,
-                EnableBounceOnCollision = false,
-                BounceMomentumRetention = 0.5f
+                RubberBandingModifier = 0.2f,
+                EnableBorderCollision = true,
+                EnableBounceOnCollision = true,
+                BounceMomentumRetention = 0.8f,
+                TrailingDragCoefficient = 0.01f,
+                TrailingType = TrailingType.Vector
             };
 
             Ozora.Physics.Interface = new OzoraInterface()
@@ -78,6 +80,7 @@ namespace DropStackWinUI.AnimThemes
             if (Ozora != null)
             {
                 Ozora.Physics.Interface.PointerLocation = MouseViewModel.Instance.MousePosition;
+                Ozora.Physics.MouseCursorEngaged = MouseViewModel.Instance.MouseEngaged;
             }
         }
 

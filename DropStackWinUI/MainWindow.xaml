@@ -17,7 +17,7 @@
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
-    <Grid x:Name="EverythingGrid" PointerMoved="EverythingGrid_PointerMoved">
+    <Grid x:Name="EverythingGrid" PointerMoved="EverythingGrid_PointerMoved" PointerEntered="EverythingGrid_PointerEntered" PointerExited="EverythingGrid_PointerExited">
         <ParallaxView x:Name="ThemeBackgroundParallaxView" Source="{Binding ElementName=regularFileListView}" VerticalShift="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Image x:Name="ParallaxImage" HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="UniformToFill" Opacity="0.25"/>
         </ParallaxView>
