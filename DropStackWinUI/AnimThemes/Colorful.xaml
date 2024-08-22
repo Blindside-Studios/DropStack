@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Image Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="...\AnimThemes\Assets\ColorfulLight.png"/>
+        <Image Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="\AnimThemes\Assets\ColorfulLight.png"/>
         <Grid x:Name="CloudsGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SizeChanged="CloudsGrid_SizeChanged"/>
         <Rectangle x:Name="AcrylicBlur" Fill="{ThemeResource ColorsAcrylic}"/>
     </Grid>

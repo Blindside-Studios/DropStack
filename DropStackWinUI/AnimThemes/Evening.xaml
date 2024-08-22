@@ -6,10 +6,15 @@
     xmlns:local="using:DropStackWinUI.AnimThemes"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="Purple">
+    mc:Ignorable="d">
 
-    <Grid>
-
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Image Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="\AnimThemes\Assets\EveningBirdsCropped.png"/>
+        <Grid x:Name="RootGrid" SizeChanged="RootGrid_SizeChanged"/>
+        <Rectangle x:Name="Bird1Rect" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Fill="Red" Opacity="0"/>
+        <Rectangle x:Name="Bird2Rect" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Fill="Red" Opacity="0"/>
+        <Rectangle x:Name="Bird3Rect" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Fill="Red" Opacity="0"/>
+        <Rectangle x:Name="Bird4Rect" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Fill="Red" Opacity="0"/>
+        <Rectangle x:Name="Bird5Rect" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Fill="Red" Opacity="0"/>
     </Grid>
 </Page>
