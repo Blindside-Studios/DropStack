@@ -2072,19 +2072,23 @@ namespace DropStackWinUI
                         break;
                     case 1:
                         MouseViewModel.Instance.ViewTheme = ElementTheme.Light;
-                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Colorful)) ThemeFrame.NavigateToType(typeof(AnimThemes.Colorful), null, null);
+                        if (ThemeFrame.CurrentSourcePageType == typeof(AnimThemes.Colorful) && onlyChangeAnimateStatus == false) break;
+                        else ThemeFrame.NavigateToType(typeof(AnimThemes.Colorful), null, null);
                         break;
                     case 2:
                         MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
-                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Evening)) ThemeFrame.NavigateToType(typeof(AnimThemes.Evening), null, null);
+                        if (ThemeFrame.CurrentSourcePageType == typeof(AnimThemes.Evening) && onlyChangeAnimateStatus == false) break;
+                        else ThemeFrame.NavigateToType(typeof(AnimThemes.Evening), null, null);
                         break;
                     case 3:
                         MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
-                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Bliss)) ThemeFrame.NavigateToType(typeof(AnimThemes.Bliss), null, null);
+                        if (ThemeFrame.CurrentSourcePageType == typeof(AnimThemes.Bliss) && onlyChangeAnimateStatus == false) break;
+                        else ThemeFrame.NavigateToType(typeof(AnimThemes.Bliss), null, null);
                         break;
                     case 4:
                         MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
-                        if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Thunderstorm)) ThemeFrame.NavigateToType(typeof(AnimThemes.Thunderstorm), null, null);
+                        if (ThemeFrame.CurrentSourcePageType == typeof(AnimThemes.Thunderstorm) && onlyChangeAnimateStatus == false) break;
+                        else ThemeFrame.NavigateToType(typeof(AnimThemes.Thunderstorm), null, null);
                         break;
                     case 5:
                         PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
@@ -2937,6 +2941,7 @@ namespace DropStackWinUI
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
+            showAnimatedTheme = ToggleThemeAnimationsButton.IsChecked == true;
             setTheme(ThemePickerCombobox.SelectedItem.ToString(), true);
         }
 
@@ -2944,6 +2949,7 @@ namespace DropStackWinUI
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["ShowThemeAnimations"] = ToggleThemeAnimationsButton.IsChecked;
+            showAnimatedTheme = ToggleThemeAnimationsButton.IsChecked == true;
             setTheme(ThemePickerCombobox.SelectedItem.ToString(), true);
         }
 
