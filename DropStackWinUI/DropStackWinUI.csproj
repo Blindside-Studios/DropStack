@@ -90,6 +90,21 @@
     <None Update="AnimThemes\Assets\EveningBirdsCropped.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="AnimThemes\Assets\Thunderstorm\Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Thunderstorm\CloudsBloomed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Thunderstorm\CloudsNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Thunderstorm\StrikeBloomed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AnimThemes\Assets\Thunderstorm\StrikeNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AnimThemes\Thunderstorm.xaml">

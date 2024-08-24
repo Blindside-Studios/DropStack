@@ -6,10 +6,25 @@
     xmlns:local="using:DropStackWinUI.AnimThemes"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="Gray">
+    mc:Ignorable="d">
 
     <Grid>
-
+        <Image x:Name="Background" Opacity="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" Source="\AnimThemes\Assets\Thunderstorm\Background.png"/>
+        <Image x:Name="CloudsNormal" Opacity="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" Source="\AnimThemes\Assets\Thunderstorm\CloudsNormal.png"/>
+        <Image x:Name="CloudsBloomed" Opacity="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" Source="\AnimThemes\Assets\Thunderstorm\CloudsBloomed.png">
+            <Image.OpacityTransition>
+                <ScalarTransition/>
+            </Image.OpacityTransition>
+        </Image>
+        <Image x:Name="StrikeNormal" Opacity="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" Source="\AnimThemes\Assets\Thunderstorm\StrikeNormal.png">
+            <Image.OpacityTransition>
+                <ScalarTransition/>
+            </Image.OpacityTransition>
+        </Image>
+        <Image x:Name="StrikeBloomed" Opacity="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" Source="\AnimThemes\Assets\Thunderstorm\StrikeBloomed.png">
+            <Image.OpacityTransition>
+                <ScalarTransition/>
+            </Image.OpacityTransition>
+        </Image>
     </Grid>
 </Page>
