@@ -289,8 +289,7 @@
                     <ProgressBar x:Name="failureReminderTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip x:Name="panosUnlockedTeachingTip"
-                             x:Uid="HiddenThemeUnlocked"
-                             ActionButtonClick="panosUnlockedTeachingTip_ActionButtonClick">
+                             x:Uid="HiddenThemeUnlocked">
                     <ProgressBar x:Name="panosUnlockedTimer" Value="0" />
                 </TeachingTip>
                 <TeachingTip 

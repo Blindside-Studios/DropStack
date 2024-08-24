@@ -2083,10 +2083,15 @@ namespace DropStackWinUI
                         if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Bliss)) ThemeFrame.NavigateToType(typeof(AnimThemes.Bliss), null, null);
                         break;
                     case 4:
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Dark;
                         if (ThemeFrame.CurrentSourcePageType != typeof(AnimThemes.Thunderstorm)) ThemeFrame.NavigateToType(typeof(AnimThemes.Thunderstorm), null, null);
                         break;
                     case 5:
-                        ThemeFrame.NavigateToType(null, null, null);
+                        PinnedExpanderBackgroundRectangle.Visibility = Visibility.Visible;
+                        ContentBackgroundRectangle.Visibility = Visibility.Visible;
+                        SearchBackgroundRectangle.Visibility = Visibility.Visible;
+                        MouseViewModel.Instance.ViewTheme = ElementTheme.Default;
+                        ThemeFrame.Content = null;
                         break;
                 }
             }
@@ -2112,7 +2117,7 @@ namespace DropStackWinUI
                     panosUnlockedTeachingTip.IsOpen = true;
                     for (int i = 0; i < 100; i++)
                     {
-                        await Task.Delay(10);
+                        await Task.Delay(50);
                         panosUnlockedTimer.Value = i;
                     }
                     panosUnlockedTeachingTip.IsOpen = false;
